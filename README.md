@@ -1,5 +1,12 @@
 # Qt Material Design Desktop Widgets
 
+### What is this project
+This project implements Material style in "classic" Qt Widgets, not QML.
+
+### How to compile
+Open the project in Qt Creator and compile. Then Run the project to have a small sample.
+To have an idea of how configure and work each widget edit mainwindow.cpp and remove the remarks in the constructor, then run again.
+
 ### Roadmap
 
 #### Complete
