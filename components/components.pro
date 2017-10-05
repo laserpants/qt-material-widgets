@@ -38,7 +38,8 @@ SOURCES = \
     qtmaterialdialog_internal.cpp \
     qtmaterialdialog.cpp \
     qtmaterialdrawer_internal.cpp \
-    qtmaterialdrawer.cpp
+    qtmaterialdrawer.cpp \
+    qtmaterialappbar.cpp
 HEADERS = \
     qtmaterialdivider_p.h \
     qtmaterialdivider.h \
@@ -100,6 +101,8 @@ HEADERS = \
     qtmaterialdialog.h \
     qtmaterialdrawer_internal.h \
     qtmaterialdrawer_p.h \
-    qtmaterialdrawer.h
+    qtmaterialdrawer.h \
+    qtmaterialappbar.h \
+    qtmaterialappbar_p.h
 RESOURCES += \
     resources.qrc

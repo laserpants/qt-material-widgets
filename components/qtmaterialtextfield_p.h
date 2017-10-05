@@ -29,6 +29,7 @@ public:
     QString                          labelString;
     qreal                            labelFontSize;
     bool                             showLabel;
+    bool                             showUnderline;
     bool                             useThemeColors;
 };
 

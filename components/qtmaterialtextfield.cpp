@@ -29,6 +29,7 @@ void QtMaterialTextFieldPrivate::init()
     label          = 0;
     labelFontSize  = 9.5;
     showLabel      = false;
+    showUnderline = true;
     useThemeColors = true;
 
     q->setFrame(false);
@@ -231,6 +232,25 @@ QColor QtMaterialTextField::underlineColor() const
     }
 }
 
+void QtMaterialTextField::setShowUnderline(bool value)
+{
+    Q_D(QtMaterialTextField);
+
+    if (d->showUnderline == value) {
+        return;
+    }
+
+    d->showUnderline = value;
+    update();
+}
+
+bool QtMaterialTextField::hasUnderline() const
+{
+    Q_D(const QtMaterialTextField);
+
+    return d->showUnderline;
+}
+
 /*!
  *  \reimp
  */
@@ -274,22 +294,25 @@ void QtMaterialTextField::paintEvent(QPaintEvent *event)
     const int y = height()-1;
     const int wd = width()-5;
 
-    QPen pen;
-    pen.setWidth(1);
-    pen.setColor(underlineColor());
-    painter.setPen(pen);
-    painter.setOpacity(1);
-    painter.drawLine(2.5, y, wd, y);
-
-    QBrush brush;
-    brush.setStyle(Qt::SolidPattern);
-    brush.setColor(inkColor());
-
-    if (progress > 0)
+    if (d->showUnderline)
     {
-        painter.setPen(Qt::NoPen);
-        painter.setBrush(brush);
-        const int w = (1-progress)*static_cast<qreal>(wd/2);
-        painter.drawRect(w+2.5, height()-2, wd-w*2, 2);
+        QPen pen;
+        pen.setWidth(1);
+        pen.setColor(underlineColor());
+        painter.setPen(pen);
+        painter.setOpacity(1);
+        painter.drawLine(2.5, y, wd, y);
+
+        QBrush brush;
+        brush.setStyle(Qt::SolidPattern);
+        brush.setColor(inkColor());
+
+        if (progress > 0)
+        {
+            painter.setPen(Qt::NoPen);
+            painter.setBrush(brush);
+            const int w = (1-progress)*static_cast<qreal>(wd/2);
+            painter.drawRect(w+2.5, height()-2, wd-w*2, 2);
+        }
     }
 }

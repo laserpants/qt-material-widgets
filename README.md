@@ -7,7 +7,7 @@ I finally took the time to go through and clean up this code. The build includes
 <table>
   <tbody>
     <tr>
-      <td colspan="2"></td>
+      <td colspan="2" align="center"></td>
     </tr>
     <tr>
       <td>
@@ -18,7 +18,7 @@ I finally took the time to go through and clean up this code. The build includes
       </td>
     </tr>
     <tr>
-      <td colspan="2">
+      <td colspan="2" align="center">
         <img src="gifs/avatar.gif" />
       </td>
     </tr>
@@ -31,7 +31,7 @@ I finally took the time to go through and clean up this code. The build includes
       </td>
     </tr>
     <tr>
-      <td colspan="2">
+      <td colspan="2" align="center">
         <img src="gifs/checkbox.gif" />
       </td>
     </tr>
@@ -44,7 +44,7 @@ I finally took the time to go through and clean up this code. The build includes
       </td>
     </tr>
     <tr>
-      <td colspan="2">
+      <td colspan="2" align="center">
         <img src="gifs/circularprogress.gif" />
       </td>
     </tr>
@@ -57,7 +57,7 @@ I finally took the time to go through and clean up this code. The build includes
       </td>
     </tr>
     <tr>
-      <td colspan="2">
+      <td colspan="2" align="center">
         <img src="gifs/dialog.gif" />
       </td>
     </tr>
@@ -83,7 +83,7 @@ I finally took the time to go through and clean up this code. The build includes
       </td>
     </tr>
     <tr>
-      <td colspan="2">
+      <td colspan="2" align="center">
         <img src="gifs/fab.gif" />
       </td>
     </tr>
@@ -96,7 +96,7 @@ I finally took the time to go through and clean up this code. The build includes
       </td>
     </tr>
     <tr>
-      <td colspan="2">
+      <td colspan="2" align="center">
         <img src="gifs/flatbutton.gif" />
       </td>
     </tr>
@@ -109,7 +109,7 @@ I finally took the time to go through and clean up this code. The build includes
       </td>
     </tr>
     <tr>
-      <td colspan="2">
+      <td colspan="2" align="center">
         <img src="gifs/iconbutton.gif" />
       </td>
     </tr>
@@ -122,7 +122,7 @@ I finally took the time to go through and clean up this code. The build includes
       </td>
     </tr>
     <tr>
-      <td colspan="2">
+      <td colspan="2" align="center">
         <img src="gifs/progress.gif" />
       </td>
     </tr>
@@ -135,7 +135,7 @@ I finally took the time to go through and clean up this code. The build includes
       </td>
     </tr>
     <tr>
-      <td colspan="2">
+      <td colspan="2" align="center">
         <img src="gifs/radiobutton.gif" />
       </td>
     </tr>
@@ -148,7 +148,7 @@ I finally took the time to go through and clean up this code. The build includes
       </td>
     </tr>
     <tr>
-      <td colspan="2">
+      <td colspan="2" align="center">
         <img src="gifs/raisedbutton.gif" />
       </td>
     </tr>
@@ -161,7 +161,7 @@ I finally took the time to go through and clean up this code. The build includes
       </td>
     </tr>
     <tr>
-      <td colspan="2">
+      <td colspan="2" align="center">
         <img src="gifs/scrollbar.gif" />
       </td>
     </tr>
@@ -174,7 +174,7 @@ I finally took the time to go through and clean up this code. The build includes
       </td>
     </tr>
     <tr>
-      <td colspan="2">
+      <td colspan="2" align="center">
         <img src="gifs/slider.gif" />
       </td>
     </tr>
@@ -187,7 +187,7 @@ I finally took the time to go through and clean up this code. The build includes
       </td>
     </tr>
     <tr>
-      <td colspan="2">
+      <td colspan="2" align="center">
         <img src="gifs/snackbar.gif" />
       </td>
     </tr>
@@ -200,7 +200,7 @@ I finally took the time to go through and clean up this code. The build includes
       </td>
     </tr>
     <tr>
-      <td colspan="2">
+      <td colspan="2" align="center">
         <img src="gifs/tabs.gif" />
       </td>
     </tr>
@@ -213,7 +213,7 @@ I finally took the time to go through and clean up this code. The build includes
       </td>
     </tr>
     <tr>
-      <td colspan="2">
+      <td colspan="2" align="center">
         <img src="gifs/textfield.gif" />
       </td>
     </tr>
@@ -226,7 +226,7 @@ I finally took the time to go through and clean up this code. The build includes
       </td>
     </tr>
     <tr>
-      <td colspan="2">
+      <td colspan="2" align="center">
         <img src="gifs/toggle.gif" />
       </td>
     </tr>
