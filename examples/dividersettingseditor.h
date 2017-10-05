@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "ui_dividersettingsform.h"
+#include <qtmaterialtextfield.h>
 
 class QtMaterialDivider;
 
@@ -20,7 +21,10 @@ protected slots:
 
 private:
     Ui::DividerSettingsForm *const ui;
-    QtMaterialDivider       *const m_divider;
+    QtMaterialDivider       *const m_divider1;
+    QtMaterialDivider       *const m_divider2;
+    QtMaterialTextField     *const m_textfield1;
+    QtMaterialTextField     *const m_textfield2;
 };
 
 #endif // DIVIDERSETTINGSEDITOR_H
