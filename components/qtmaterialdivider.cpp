@@ -30,13 +30,12 @@ void QtMaterialDividerPrivate::init()
 {
     Q_Q(QtMaterialDivider);
 
-    size           = 40;
-    useThemeColors = true;
+    size = 0;
 
-    QSizePolicy policy(QSizePolicy::Ignored,
-    // QSizePolicy policy(QSizePolicy::Expanding,
+    QSizePolicy policy(QSizePolicy::MinimumExpanding,
                        QSizePolicy::Fixed);
-    q->setSizePolicy(policy);
+    q->setMinimumHeight( 4 );
+    q->setMaximumHeight( 14 );
 }
 
 /*!
@@ -54,37 +53,11 @@ QtMaterialDivider::~QtMaterialDivider()
 {
 }
 
-void QtMaterialDivider::setUseThemeColors(bool value)
-{
-    Q_D(QtMaterialDivider);
-
-    if (d->useThemeColors == value) {
-        return;
-    }
-
-    d->useThemeColors = value;
-    update();
-}
-
-bool QtMaterialDivider::useThemeColors() const
-{
-    Q_D(const QtMaterialDivider);
-
-    return d->useThemeColors;
-}
-
-
 /*!
  *  \reimp
  */
-QSize QtMaterialDivider::sizeHint() const
-{
-    Q_D(const QtMaterialDivider);
 
-    return QSize(d->size, 2+2);
-}
-
-void QtMaterialDivider::setSize(int size)
+void QtMaterialDivider::setInsetSize(int size)
 {
     Q_D(QtMaterialDivider);
 
@@ -93,26 +66,12 @@ void QtMaterialDivider::setSize(int size)
     update();
 }
 
-int QtMaterialDivider::size() const
+int QtMaterialDivider::insetSize() const
 {
     Q_D(const QtMaterialDivider);
 
     return d->size;
 }
-
-/*!
- *  \reimp
- */
-void QtMaterialDivider::resizeEvent(QResizeEvent *event)
-{
-    Q_D(QtMaterialDivider);
-
-    QWidget::resizeEvent(event);
-    QSize sz = event->size();
-    d->size = width();
-    update();
-}
-
 
 /*!
  *  \reimp
@@ -124,15 +83,23 @@ void QtMaterialDivider::paintEvent(QPaintEvent *event)
     Q_D(QtMaterialDivider);
 
     QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing);
+    // TODO: QtMaterialText doesn't use Antialiasing. Usng it the line is more "heavy"
+    // painter.setRenderHint(QPainter::Antialiasing);
 
-    const int wd = d->size; // width();
     QPen pen;
-    pen.setWidth(2);
-    // pen.setColor(QtMaterialStyle::instance().themeColor("border"));
-    pen.setColor(QColor(255,0,0));
+    pen.setWidth(1);
+    /*
+     * DEBUG: to paint in blue the full widget
+     *
+    */
+    //  painter.fillRect( rect() ,QColor(0,0,255));
+
+    // TODO: is this the right color to use?
+    pen.setColor(QtMaterialStyle::instance().themeColor("border"));
+
     painter.setPen(pen);
     painter.setOpacity(1);
-    painter.drawLine(0, 1, wd, 1);
-    
+    // TODO: implementing inset, 0 will be changed to a calculated point.
+    // Normally, line should go from 0 to the end
+    painter.drawLine( d->size, height()/2, width(), height()/2);
 }

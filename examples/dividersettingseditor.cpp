@@ -3,6 +3,7 @@
 #include <QColorDialog>
 #include <QLabel>
 #include <qtmaterialdivider.h>
+#include <qtmaterialtextfield.h>
 
 DividerSettingsEditor::DividerSettingsEditor(QWidget *parent)
     : QWidget(parent),
@@ -20,22 +21,30 @@ DividerSettingsEditor::DividerSettingsEditor(QWidget *parent)
     layout->addWidget(canvas);
 
     ui->setupUi(widget);
-    layout->setContentsMargins(20, 20, 20, 20);
+//    layout->setContentsMargins(20, 20, 20, 20);
+    layout->setContentsMargins(0, 0, 0, 0);
 
     QLabel *lbl = new QLabel;
-lbl->setText( "1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 " );
+    lbl->setText( "1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 " );
+
+    QtMaterialTextField *txt1 = new QtMaterialTextField;
+    txt1->setLabel( "First Name" );
+    txt1->setPlaceholderText( "Placeholder" );
+
+    QtMaterialTextField *txt2 = new QtMaterialTextField;
+    txt2->setLabel( "Middle Name" );
+
+    QtMaterialDivider *div2 = new QtMaterialDivider;
+    div2->setInsetSize( 40 );
 
     layout = new QVBoxLayout;
+    layout->setContentsMargins(0, 0, 0, 0);
     canvas->setLayout(layout);
+    layout->addWidget(txt1);
     layout->addWidget(m_divider);
-    layout->setAlignment(m_divider, Qt::AlignCenter);
-    m_divider->setSize( canvas->width() );
+    layout->addWidget(txt2);
+    layout->addWidget(div2);
     layout->addWidget(lbl);
-        QSizePolicy policy(QSizePolicy::Ignored,
-                       QSizePolicy::Fixed);
-    lbl->setSizePolicy(policy);
-    m_divider->setSizePolicy(policy);
-
 
     setupForm();
 

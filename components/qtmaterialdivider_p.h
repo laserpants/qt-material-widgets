@@ -20,14 +20,6 @@ public:
 
     QtMaterialDivider *const q_ptr;
     int                     size;
-//    Material::DividerType    type;
-//    QChar                   letter;
-//    QImage                  image;
-//    QIcon                   icon;
-//    QPixmap                 pixmap;
-    bool                    useThemeColors;
-//    QColor                  textColor;
-//    QColor                  backgroundColor;
 };
 
 #endif // QTMATERIALDIVIDER_P_H
