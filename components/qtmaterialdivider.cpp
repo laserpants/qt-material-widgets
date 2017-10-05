@@ -34,8 +34,8 @@ void QtMaterialDividerPrivate::init()
 
     QSizePolicy policy(QSizePolicy::MinimumExpanding,
                        QSizePolicy::Fixed);
-    q->setMinimumHeight( 4 );
-    q->setMaximumHeight( 14 );
+    q->setMinimumHeight( 1 );
+    q->setMaximumHeight( 1 );
 }
 
 /*!
