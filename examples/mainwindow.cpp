@@ -20,6 +20,7 @@
 #include "dialogsettingseditor.h"
 #include "drawersettingseditor.h"
 #include "scrollbarsettingseditor.h"
+#include "dividersettingseditor.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -57,12 +58,14 @@ MainWindow::MainWindow(QWidget *parent)
     DialogSettingsEditor *dialog = new DialogSettingsEditor;
     DrawerSettingsEditor *drawer = new DrawerSettingsEditor;
     ScrollBarSettingsEditor *scrollBar = new ScrollBarSettingsEditor;
+    DividerSettingsEditor *divider = new DividerSettingsEditor;
 
     stack->addWidget(avatar);
     stack->addWidget(badge);
     stack->addWidget(checkbox);
     stack->addWidget(circularProgress);
     stack->addWidget(dialog);
+    stack->addWidget(divider);
     stack->addWidget(drawer);
     stack->addWidget(fab);
     stack->addWidget(flatButton);
@@ -82,6 +85,7 @@ MainWindow::MainWindow(QWidget *parent)
     list->addItem("Checkbox");
     list->addItem("Circular Progress");
     list->addItem("Dialog");
+    list->addItem("Divider");
     list->addItem("Drawer");
     list->addItem("Floating Action Button");
     list->addItem("Flat Button");
