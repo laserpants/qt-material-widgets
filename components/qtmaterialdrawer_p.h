@@ -13,12 +13,16 @@ class QtMaterialDrawerPrivate
 
 public:
     QtMaterialDrawerPrivate(QtMaterialDrawer *q);
+    ~QtMaterialDrawerPrivate();
+
+    void init();
 
     QtMaterialDrawer             *const q_ptr;
-    QtMaterialDrawerStateMachine *const stateMachine;
-    QWidget                      *const window;
-    int                                 width;
-    bool                                clickToClose;
+    QtMaterialDrawerStateMachine *stateMachine;
+    QWidget                      *window;
+    int                           width;
+    bool                          clickToClose;
+    bool                          autoRaise;
 };
 
 #endif // DRAWER_P_H

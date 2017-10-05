@@ -23,6 +23,9 @@ public:
     void setClickOutsideToClose(bool state);
     bool clickOutsideToClose() const;
 
+    void setAutoRaise(bool state);
+    bool autoRaise() const;
+
 public slots:
     void openDrawer();
     void closeDrawer();

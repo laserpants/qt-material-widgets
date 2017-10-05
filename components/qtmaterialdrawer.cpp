@@ -14,13 +14,34 @@
  *  \internal
  */
 
+/*!
+ *  \internal
+ */
 QtMaterialDrawerPrivate::QtMaterialDrawerPrivate(QtMaterialDrawer *q)
-    : q_ptr(q),
-      stateMachine(new QtMaterialDrawerStateMachine(q)),
-      window(new QWidget),
-      width(250),
-      clickToClose(false)
+    : q_ptr(q)
 {
+}
+
+/*!
+ *  \internal
+ */
+QtMaterialDrawerPrivate::~QtMaterialDrawerPrivate()
+{
+}
+
+/*!
+ *  \internal
+ */
+void QtMaterialDrawerPrivate::init()
+{
+    Q_Q(QtMaterialDrawer);
+
+    stateMachine = new QtMaterialDrawerStateMachine(q);
+    window       = new QWidget;
+    width        = 250;
+    clickToClose = false;
+    autoRaise    = true;
+
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(window);
 
@@ -28,7 +49,6 @@ QtMaterialDrawerPrivate::QtMaterialDrawerPrivate(QtMaterialDrawer *q)
     q->setFixedWidth(width+16);
 
     stateMachine->start();
-
     QCoreApplication::processEvents();
 }
 
@@ -40,6 +60,7 @@ QtMaterialDrawer::QtMaterialDrawer(QWidget *parent)
     : QtMaterialOverlayWidget(parent),
       d_ptr(new QtMaterialDrawerPrivate(this))
 {
+    d_func()->init();
 }
 
 QtMaterialDrawer::~QtMaterialDrawer()
@@ -90,12 +111,29 @@ bool QtMaterialDrawer::clickOutsideToClose() const
     return d->clickToClose;
 }
 
+void QtMaterialDrawer::setAutoRaise(bool state)
+{
+    Q_D(QtMaterialDrawer);
+
+    d->autoRaise = state;
+}
+
+bool QtMaterialDrawer::autoRaise() const
+{
+    Q_D(const QtMaterialDrawer);
+
+    return d->autoRaise;
+}
+
 void QtMaterialDrawer::openDrawer()
 {
     Q_D(QtMaterialDrawer);
 
     emit d->stateMachine->enterOpenedState();
-    raise();
+
+    if (d->autoRaise) {
+        raise();
+    }
 }
 
 void QtMaterialDrawer::closeDrawer()
