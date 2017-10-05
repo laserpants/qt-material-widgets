@@ -18,6 +18,7 @@ SOURCES = mainwindow.cpp \
     textfieldsettingseditor.cpp \
     tabssettingseditor.cpp \
     snackbarsettingseditor.cpp \
+    dividersettingseditor.cpp \
     dialogsettingseditor.cpp \
     drawersettingseditor.cpp \
     scrollbarsettingseditor.cpp
@@ -37,6 +38,7 @@ HEADERS = mainwindow.h \
     textfieldsettingseditor.h \
     tabssettingseditor.h \
     snackbarsettingseditor.h \
+    dividersettingseditor.h \
     dialogsettingseditor.h \
     drawersettingseditor.h \
     scrollbarsettingseditor.h
@@ -59,6 +61,7 @@ FORMS += \
     circularprogresssettingsform.ui \
     slidersettingsform.ui \
     snackbarsettingsform.ui \
+    dividersettingsform.ui \
     radiobuttonsettingsform.ui \
     togglesettingsform.ui \
     textfieldsettingsform.ui \ 
