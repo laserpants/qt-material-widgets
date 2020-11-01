@@ -18,7 +18,7 @@ QtMaterialTabsPrivate::~QtMaterialTabsPrivate()
 {
 }
 
-void QtMaterialTabsPrivate::QtMaterialTabsPrivate::init()
+void QtMaterialTabsPrivate::init()
 {
     Q_Q(QtMaterialTabs);
 
