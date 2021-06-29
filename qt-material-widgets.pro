@@ -1,5 +1,3 @@
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
 TARGET = qt-material-widgets
 TEMPLATE = subdirs
 SUBDIRS = components examples

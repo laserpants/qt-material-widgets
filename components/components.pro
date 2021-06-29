@@ -1,6 +1,21 @@
+greaterThan(QT_MAJOR_VERSION, 4) {
+    QT += widgets designer
+}
+
+lessThan(QT_MAJOR_VERSION, 5) {
+    CONFIG += designer
+}
+
+CONFIG += plugin release
 TEMPLATE = lib
-CONFIG += staticlib
+TARGET = $$qtLibraryTarget(qt-material-widget)
+target.path = $$[QT_INSTALL_PLUGINS]/designer
+INSTALLS += target
+INCLUDEPATH += .
+
 SOURCES = \
+    plugin/materialtoggleplugin.cpp \
+    plugin/qtmaterialplugins.cpp \
     qtmaterialavatar.cpp \
     lib/qtmaterialstyle.cpp \
     lib/qtmaterialtheme.cpp \
@@ -49,6 +64,8 @@ SOURCES = \
     qtmateriallist.cpp \
     qtmateriallistitem.cpp
 HEADERS = \
+    plugin/materialtoggleplugin.h \
+    plugin/qtmaterialplugins.h \
     qtmaterialavatar_p.h \
     qtmaterialavatar.h \
     lib/qtmaterialstyle_p.h \
@@ -127,4 +144,4 @@ HEADERS = \
     qtmateriallistitem.h \
     qtmateriallistitem_p.h
 RESOURCES += \
-    resources.qrc
+    material_res.qrc

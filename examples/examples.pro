@@ -7,6 +7,7 @@ SOURCES = mainwindow.cpp \
     badgesettingseditor.cpp \
     checkboxsettingseditor.cpp \
     fabsettingseditor.cpp \
+    plugindemoform.cpp \
     raisedbuttonsettingseditor.cpp \
     flatbuttonsettingseditor.cpp \
     iconbuttonsettingseditor.cpp \
@@ -29,6 +30,7 @@ HEADERS = mainwindow.h \
     badgesettingseditor.h \
     checkboxsettingseditor.h \
     fabsettingseditor.h \
+    plugindemoform.h \
     raisedbuttonsettingseditor.h \
     flatbuttonsettingseditor.h \
     iconbuttonsettingseditor.h \
@@ -46,10 +48,9 @@ HEADERS = mainwindow.h \
     appbarsettingseditor.h \
     autocompletesettingseditor.h \
     menusettingseditor.h
-LIBS += $$top_builddir/components/$(OBJECTS_DIR)/libcomponents.a
+LIBS += -L../components/ -lqt-material-widget
 INCLUDEPATH += $$top_srcdir/components/
 TARGET = examples-exe
-PRE_TARGETDEPS += $$top_builddir/components/$(OBJECTS_DIR)/libcomponents.a
 
 RESOURCES += \
     examples.qrc
@@ -61,6 +62,7 @@ FORMS += \
     fabsettingsform.ui \
     flatbuttonsettingsform.ui \
     iconbuttonsettingsform.ui \
+    plugindemoform.ui \
     progresssettingsform.ui \
     circularprogresssettingsform.ui \
     slidersettingsform.ui \
