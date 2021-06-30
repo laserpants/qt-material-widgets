@@ -2,17 +2,20 @@
 #define QTMATERIALTOGGLE_H
 
 #include <QtWidgets/QAbstractButton>
+#include <QtUiPlugin/QDesignerExportWidget>
 
 class QtMaterialTogglePrivate;
 
-class QtMaterialToggle : public QAbstractButton
+class QDESIGNER_WIDGET_EXPORT QtMaterialToggle : public QAbstractButton
 {
     Q_OBJECT
 
+    Q_PROPERTY(bool useThemeColors WRITE setUseThemeColors READ useThemeColors)
     Q_PROPERTY(QColor disabledColor WRITE setDisabledColor READ disabledColor)
     Q_PROPERTY(QColor activeColor WRITE setActiveColor READ activeColor)
     Q_PROPERTY(QColor inactiveColor WRITE setInactiveColor READ inactiveColor)
     Q_PROPERTY(QColor trackColor WRITE setTrackColor READ trackColor)
+    Q_PROPERTY(Qt::Orientation orientation WRITE setOrientation READ orientation)
 
 public:
     explicit QtMaterialToggle(QWidget *parent = 0);

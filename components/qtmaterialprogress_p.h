@@ -21,7 +21,7 @@ public:
 
     QtMaterialProgress         *const q_ptr;
     QtMaterialProgressDelegate *delegate;
-    Material::ProgressType      progressType;
+    MaterialConst::ProgressType      progressType;
     QColor                      progressColor;
     QColor                      backgroundColor;
     bool                        useThemeColors;

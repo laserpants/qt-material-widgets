@@ -24,7 +24,7 @@ void QtMaterialTabsPrivate::QtMaterialTabsPrivate::init()
 
     inkBar         = new QtMaterialTabsInkBar(q);
     tabLayout      = new QHBoxLayout;
-    rippleStyle    = Material::CenteredRipple;
+    rippleStyle    = MaterialConst::CenteredRipple;
     tab            = -1;
     showHalo       = true;
     useThemeColors = true;
@@ -80,7 +80,7 @@ bool QtMaterialTabs::isHaloVisible() const
     return d->showHalo;
 }
 
-void QtMaterialTabs::setRippleStyle(Material::RippleStyle style)
+void QtMaterialTabs::setRippleStyle(MaterialConst::RippleStyle style)
 {
     Q_D(QtMaterialTabs);
 
@@ -88,7 +88,7 @@ void QtMaterialTabs::setRippleStyle(Material::RippleStyle style)
     updateTabs();
 }
 
-Material::RippleStyle QtMaterialTabs::rippleStyle() const
+MaterialConst::RippleStyle QtMaterialTabs::rippleStyle() const
 {
     Q_D(const QtMaterialTabs);
 

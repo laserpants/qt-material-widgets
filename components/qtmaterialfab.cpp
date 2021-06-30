@@ -38,7 +38,7 @@ void QtMaterialFloatingActionButtonPrivate::init()
     offsX  = 34;
     offsY  = 36;
 
-    q->setRole(Material::Primary);
+    q->setRole(MaterialConst::Primary);
     q->setFixedSize(DefaultDiameter, DefaultDiameter);
     q->setGeometry(fabGeometry());
 
@@ -103,6 +103,13 @@ void QtMaterialFloatingActionButtonPrivate::setupProperties()
 /*!
  *  \class QtMaterialFloatingActionButton
  */
+
+QtMaterialFloatingActionButton::QtMaterialFloatingActionButton(QWidget *parent)
+    : QtMaterialRaisedButton(*new QtMaterialFloatingActionButtonPrivate(this), parent)
+{
+    d_func()->init();
+}
+
 
 QtMaterialFloatingActionButton::QtMaterialFloatingActionButton(const QIcon &icon, QWidget *parent)
     : QtMaterialRaisedButton(*new QtMaterialFloatingActionButtonPrivate(this), parent)

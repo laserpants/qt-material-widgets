@@ -112,7 +112,7 @@ QtMaterialTab::QtMaterialTab(QtMaterialTabs *parent)
     setFont(f);
 
     setCornerRadius(0);
-    setRole(Material::Primary);
+    setRole(MaterialConst::Primary);
     setBackgroundMode(Qt::OpaqueMode);
     setBaseOpacity(0.25);
 

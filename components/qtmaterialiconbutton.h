@@ -8,8 +8,12 @@ class QtMaterialIconButtonPrivate;
 class QtMaterialIconButton : public QAbstractButton
 {
     Q_OBJECT
+//    Q_PROPERTY(bool useThemeColors READ setUseThemeColors WRITE useThemeColors)
+//    Q_PROPERTY(QColor color READ setColor WRITE color)
+//    Q_PROPERTY(QColor disabledColor READ setDisabledColor WRITE disabledColor)
 
 public:
+    explicit QtMaterialIconButton(QWidget *parent = 0);
     explicit QtMaterialIconButton(const QIcon &icon, QWidget *parent = 0);
     ~QtMaterialIconButton();
 

@@ -20,7 +20,7 @@ public:
 
     QtMaterialCircularProgress         *const q_ptr;
     QtMaterialCircularProgressDelegate *delegate;
-    Material::ProgressType              progressType;
+    MaterialConst::ProgressType              progressType;
     QColor                              color;
     qreal                               penWidth;
     int                                 size;

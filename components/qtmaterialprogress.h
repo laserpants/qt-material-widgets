@@ -17,8 +17,8 @@ public:
     explicit QtMaterialProgress(QWidget *parent = 0);
     ~QtMaterialProgress();
 
-    void setProgressType(Material::ProgressType type);
-    Material::ProgressType progressType() const;
+    void setProgressType(MaterialConst::ProgressType type);
+    MaterialConst::ProgressType progressType() const;
 
     void setUseThemeColors(bool state);
     bool useThemeColors() const;

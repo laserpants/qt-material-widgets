@@ -25,7 +25,7 @@ void QtMaterialProgressPrivate::init()
     Q_Q(QtMaterialProgress);
 
     delegate       = new QtMaterialProgressDelegate(q);
-    progressType   = Material::IndeterminateProgress;
+    progressType   = MaterialConst::IndeterminateProgress;
     useThemeColors = true;
 
     QPropertyAnimation *animation;
@@ -57,7 +57,7 @@ QtMaterialProgress::~QtMaterialProgress()
 {
 }
 
-void QtMaterialProgress::setProgressType(Material::ProgressType type)
+void QtMaterialProgress::setProgressType(MaterialConst::ProgressType type)
 {
     Q_D(QtMaterialProgress);
 
@@ -65,7 +65,7 @@ void QtMaterialProgress::setProgressType(Material::ProgressType type)
     update();
 }
 
-Material::ProgressType QtMaterialProgress::progressType() const
+MaterialConst::ProgressType QtMaterialProgress::progressType() const
 {
     Q_D(const QtMaterialProgress);
 
@@ -163,7 +163,7 @@ void QtMaterialProgress::paintEvent(QPaintEvent *event)
         brush.setColor(progressColor());
         painter.setBrush(brush);
 
-        if (Material::IndeterminateProgress == d->progressType) {
+        if (MaterialConst::IndeterminateProgress == d->progressType) {
             painter.drawRect(d->delegate->offset()*width()*2-width(), 0, width(), height());
         } else {
             qreal p = static_cast<qreal>(width())*(value()-minimum())/(maximum()-minimum());

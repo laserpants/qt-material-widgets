@@ -9,9 +9,11 @@ class QtMaterialScrollBar : public QScrollBar
 {
     Q_OBJECT
 
+    Q_PROPERTY(bool useThemeColors WRITE setUseThemeColors READ useThemeColors)
     Q_PROPERTY(QColor canvasColor WRITE setCanvasColor READ canvasColor)
     Q_PROPERTY(QColor backgroundColor WRITE setBackgroundColor READ backgroundColor)
     Q_PROPERTY(QColor sliderColor WRITE setSliderColor READ sliderColor)
+    Q_PROPERTY(bool hideOnMouseOut WRITE setHideOnMouseOut READ hideOnMouseOut)
 
 public:
     explicit QtMaterialScrollBar(QWidget *parent = 0);

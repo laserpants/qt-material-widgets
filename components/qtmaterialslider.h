@@ -12,9 +12,12 @@ class QtMaterialSlider : public QAbstractSlider
 {
     Q_OBJECT
 
+    Q_PROPERTY(bool useThemeColors WRITE setUseThemeColors READ useThemeColors)
     Q_PROPERTY(QColor thumbColor WRITE setThumbColor READ thumbColor)
     Q_PROPERTY(QColor trackColor WRITE setTrackColor READ trackColor)
     Q_PROPERTY(QColor disabledColor WRITE setDisabledColor READ disabledColor)
+    Q_PROPERTY(bool pageStepMode WRITE setPageStepMode READ pageStepMode)
+    Q_PROPERTY(bool invertedAppearance WRITE setInvertedAppearance)
 
 public:
     explicit QtMaterialSlider(QWidget *parent = 0);

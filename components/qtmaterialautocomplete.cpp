@@ -89,6 +89,12 @@ void QtMaterialAutoComplete::setDataSource(const QStringList &data)
     update();
 }
 
+QStringList QtMaterialAutoComplete::dataSource() const
+{
+    Q_D(const QtMaterialAutoComplete);
+    return d->dataSource;
+}
+
 void QtMaterialAutoComplete::updateResults(QString text)
 {
     Q_D(QtMaterialAutoComplete);
@@ -117,7 +123,7 @@ void QtMaterialAutoComplete::updateResults(QString text)
             item->setCornerRadius(0);
             item->setHaloVisible(false);
             item->setFixedHeight(50);
-            item->setOverlayStyle(Material::TintedOverlay);
+            item->setOverlayStyle(MaterialConst::TintedOverlay);
             d->menuLayout->addWidget(item);
             item->installEventFilter(this);
         }

@@ -28,13 +28,13 @@ void FlatButtonSettingsEditor::setupForm()
 {
     switch (m_button->role())
     {
-    case Material::Default:
+    case MaterialConst::Default:
         ui->buttonRoleComboBox->setCurrentIndex(0);
         break;
-    case Material::Primary:
+    case MaterialConst::Primary:
         ui->buttonRoleComboBox->setCurrentIndex(1);
         break;
-    case Material::Secondary:
+    case MaterialConst::Secondary:
         ui->buttonRoleComboBox->setCurrentIndex(2);
         break;
     default:
@@ -43,13 +43,13 @@ void FlatButtonSettingsEditor::setupForm()
 
     switch (m_button->overlayStyle())
     {
-    case Material::NoOverlay:
+    case MaterialConst::NoOverlay:
         ui->hoverStyleComboBox->setCurrentIndex(0);
         break;
-    case Material::TintedOverlay:
+    case MaterialConst::TintedOverlay:
         ui->hoverStyleComboBox->setCurrentIndex(1);
         break;
-    case Material::GrayOverlay:
+    case MaterialConst::GrayOverlay:
         ui->hoverStyleComboBox->setCurrentIndex(2);
         break;
     default:
@@ -58,13 +58,13 @@ void FlatButtonSettingsEditor::setupForm()
 
     switch (m_button->rippleStyle())
     {
-    case Material::CenteredRipple:
+    case MaterialConst::CenteredRipple:
         ui->rippleStyleComboBox->setCurrentIndex(0);
         break;
-    case Material::PositionedRipple:
+    case MaterialConst::PositionedRipple:
         ui->rippleStyleComboBox->setCurrentIndex(1);
         break;
-    case Material::NoRipple:
+    case MaterialConst::NoRipple:
         ui->rippleStyleComboBox->setCurrentIndex(2);
         break;
     default:
@@ -73,10 +73,10 @@ void FlatButtonSettingsEditor::setupForm()
 
     switch (m_button->iconPlacement())
     {
-    case Material::LeftIcon:
+    case MaterialConst::LeftIcon:
         ui->iconPlacementComboBox->setCurrentIndex(0);
         break;
-    case Material::RightIcon:
+    case MaterialConst::RightIcon:
         ui->iconPlacementComboBox->setCurrentIndex(1);
         break;
     }
@@ -111,13 +111,13 @@ void FlatButtonSettingsEditor::updateWidget()
     switch (ui->buttonRoleComboBox->currentIndex())
     {
     case 0:
-        m_button->setRole(Material::Default);
+        m_button->setRole(MaterialConst::Default);
         break;
     case 1:
-        m_button->setRole(Material::Primary);
+        m_button->setRole(MaterialConst::Primary);
         break;
     case 2:
-        m_button->setRole(Material::Secondary);
+        m_button->setRole(MaterialConst::Secondary);
         break;
     default:
         break;
@@ -126,13 +126,13 @@ void FlatButtonSettingsEditor::updateWidget()
     switch (ui->hoverStyleComboBox->currentIndex())
     {
     case 0:
-        m_button->setOverlayStyle(Material::NoOverlay);
+        m_button->setOverlayStyle(MaterialConst::NoOverlay);
         break;
     case 1:
-        m_button->setOverlayStyle(Material::TintedOverlay);
+        m_button->setOverlayStyle(MaterialConst::TintedOverlay);
         break;
     case 2:
-        m_button->setOverlayStyle(Material::GrayOverlay);
+        m_button->setOverlayStyle(MaterialConst::GrayOverlay);
         break;
     default:
         break;
@@ -141,13 +141,13 @@ void FlatButtonSettingsEditor::updateWidget()
     switch (ui->rippleStyleComboBox->currentIndex())
     {
     case 0:
-        m_button->setRippleStyle(Material::CenteredRipple);
+        m_button->setRippleStyle(MaterialConst::CenteredRipple);
         break;
     case 1:
-        m_button->setRippleStyle(Material::PositionedRipple);
+        m_button->setRippleStyle(MaterialConst::PositionedRipple);
         break;
     case 2:
-        m_button->setRippleStyle(Material::NoRipple);
+        m_button->setRippleStyle(MaterialConst::NoRipple);
         break;
     default:
         break;
@@ -156,10 +156,10 @@ void FlatButtonSettingsEditor::updateWidget()
     switch (ui->iconPlacementComboBox->currentIndex())
     {
     case 0:
-        m_button->setIconPlacement(Material::LeftIcon);
+        m_button->setIconPlacement(MaterialConst::LeftIcon);
         break;
     case 1:
-        m_button->setIconPlacement(Material::RightIcon);
+        m_button->setIconPlacement(MaterialConst::RightIcon);
         break;
     default:
         break;
@@ -236,7 +236,7 @@ void FlatButtonSettingsEditor::applyDefaultPreset()
     ui->checkableCheckBox->setChecked(false);
     ui->disabledCheckBox->setChecked(false);
     updateWidget();
-    m_button->applyPreset(Material::FlatPreset);
+    m_button->applyPreset(MaterialConst::FlatPreset);
 }
 
 void FlatButtonSettingsEditor::applyCheckablePreset()
@@ -255,7 +255,7 @@ void FlatButtonSettingsEditor::applyCheckablePreset()
     ui->checkableCheckBox->setChecked(true);
     ui->disabledCheckBox->setChecked(false);
     updateWidget();
-    m_button->applyPreset(Material::CheckablePreset);
+    m_button->applyPreset(MaterialConst::CheckablePreset);
 }
 
 void FlatButtonSettingsEditor::init()

@@ -3,16 +3,23 @@
 
 #include <QtWidgets/QLineEdit>
 #include <QColor>
+#include <QtUiPlugin/QDesignerExportWidget>
 
 class QtMaterialTextFieldPrivate;
 
-class QtMaterialTextField : public QLineEdit
+class QDESIGNER_WIDGET_EXPORT QtMaterialTextField : public QLineEdit
 {
     Q_OBJECT
 
+    Q_PROPERTY(bool useThemeColors WRITE setUseThemeColors READ useThemeColors)
+    Q_PROPERTY(bool showLabel WRITE setShowLabel READ hasLabel)
+    Q_PROPERTY(QString label WRITE setLabel READ label)
+    Q_PROPERTY(qreal labelFontSize WRITE setLabelFontSize READ labelFontSize)
+    Q_PROPERTY(QColor labelColor WRITE setLabelColor READ labelColor)
     Q_PROPERTY(QColor textColor WRITE setTextColor READ textColor)
     Q_PROPERTY(QColor inkColor WRITE setInkColor READ inkColor)
     Q_PROPERTY(QColor inputLineColor WRITE setInputLineColor READ inputLineColor)
+    Q_PROPERTY(bool showInputLine WRITE setShowInputLine READ hasInputLine)
 
 public:
     explicit QtMaterialTextField(QWidget *parent = 0);

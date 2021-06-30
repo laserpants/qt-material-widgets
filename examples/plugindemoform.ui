@@ -6,24 +6,651 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>907</width>
+    <height>746</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QtMaterialToggle" name="material toggle">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>20</y>
-     <width>64</width>
-     <height>48</height>
-    </rect>
-   </property>
-  </widget>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="2" column="0">
+    <widget class="QLabel" name="label_3">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto</family>
+      </font>
+     </property>
+     <property name="text">
+      <string>CheckBox</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1" colspan="3">
+    <widget class="QtMaterialCheckBox" name="qtmaterialcheckbox">
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>CheckBox</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="label_5">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto</family>
+      </font>
+     </property>
+     <property name="text">
+      <string>FloatActionButton</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1" colspan="3">
+    <widget class="QtMaterialAutoComplete" name="qtmaterialautocomplete">
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="dataSource">
+      <stringlist>
+       <string>HELLO</string>
+       <string>WORLD</string>
+       <string>MATERIAL</string>
+      </stringlist>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0">
+    <widget class="QLabel" name="label_7">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto</family>
+      </font>
+     </property>
+     <property name="text">
+      <string>IconButton</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QtMaterialFloatingActionButton" name="qtmaterialfloatingactionbutton">
+     <property name="icon">
+      <iconset resource="../components/material_res.qrc">
+       <normaloff>:/icons/icons/navigation/svg/production/ic_more_vert_24px.svg</normaloff>:/icons/icons/navigation/svg/production/ic_more_vert_24px.svg</iconset>
+     </property>
+     <property name="mini">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="1" colspan="3">
+    <widget class="QtMaterialRadioButton" name="qtmaterialradiobutton">
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>RadioButton 1</string>
+     </property>
+    </widget>
+   </item>
+   <item row="12" column="0">
+    <widget class="QLabel" name="label_11">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto</family>
+      </font>
+     </property>
+     <property name="text">
+      <string>Slider</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="0">
+    <widget class="QLabel" name="label_8">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto</family>
+      </font>
+     </property>
+     <property name="text">
+      <string>Progress</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="label_2">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto</family>
+      </font>
+     </property>
+     <property name="text">
+      <string>Avatar &amp; Badge</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <widget class="QtMaterialAvatar" name="qtmaterialavatar_2">
+     <property name="maximumSize">
+      <size>
+       <width>60</width>
+       <height>60</height>
+      </size>
+     </property>
+     <property name="size">
+      <number>40</number>
+     </property>
+     <property name="letter">
+      <char>
+       <unicode>79</unicode>
+      </char>
+     </property>
+     <property name="icon">
+      <iconset resource="../components/material_res.qrc">
+       <normaloff>:/icons/icons/communication/svg/production/ic_call_24px.svg</normaloff>:/icons/icons/communication/svg/production/ic_call_24px.svg</iconset>
+     </property>
+     <widget class="QtMaterialBadge" name="qtmaterialbadge_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>60</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="relativePosition">
+       <pointf>
+        <x>15.000000000000000</x>
+        <y>15.000000000000000</y>
+       </pointf>
+      </property>
+      <property name="icon">
+       <iconset resource="../components/material_res.qrc">
+        <normaloff>:/icons/icons/toggle/svg/production/ic_star_24px.svg</normaloff>:/icons/icons/toggle/svg/production/ic_star_24px.svg</iconset>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item row="8" column="1" colspan="3">
+    <widget class="QtMaterialProgress" name="qtmaterialprogress">
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>16777215</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="13" column="1" colspan="3">
+    <widget class="QtMaterialTextField" name="qtmaterialtextfield">
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="label">
+      <string>Input Text</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1" colspan="3">
+    <widget class="QtMaterialFlatButton" name="qtmaterialflatbutton">
+     <property name="maximumSize">
+      <size>
+       <width>150</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>FlatButton</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../components/material_res.qrc">
+       <normaloff>:/icons/icons/maps/svg/production/ic_local_see_24px.svg</normaloff>:/icons/icons/maps/svg/production/ic_local_see_24px.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="overlayStyle">
+      <enum>MaterialConst::TintedOverlay</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="11" column="0">
+    <widget class="QLabel" name="label_10">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto</family>
+      </font>
+     </property>
+     <property name="text">
+      <string>RaiseButton</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0">
+    <widget class="QLabel" name="label_6">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto</family>
+      </font>
+     </property>
+     <property name="text">
+      <string>FlatButton</string>
+     </property>
+    </widget>
+   </item>
+   <item row="14" column="1">
+    <widget class="QtMaterialToggle" name="qtmaterialtoggle"/>
+   </item>
+   <item row="13" column="0">
+    <widget class="QLabel" name="label_12">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto</family>
+      </font>
+     </property>
+     <property name="text">
+      <string>TextField</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QtMaterialAvatar" name="qtmaterialavatar">
+     <property name="maximumSize">
+      <size>
+       <width>60</width>
+       <height>60</height>
+      </size>
+     </property>
+     <property name="size">
+      <number>40</number>
+     </property>
+     <property name="letter">
+      <char>
+       <unicode>79</unicode>
+      </char>
+     </property>
+     <property name="icon">
+      <iconset resource="../components/material_res.qrc">
+       <normaloff>:/icons/icons/communication/svg/production/ic_call_24px.svg</normaloff>:/icons/icons/communication/svg/production/ic_call_24px.svg</iconset>
+     </property>
+     <widget class="QtMaterialBadge" name="qtmaterialbadge">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>60</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="relativePosition">
+       <pointf>
+        <x>15.000000000000000</x>
+        <y>15.000000000000000</y>
+       </pointf>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item row="12" column="1" colspan="3">
+    <widget class="QtMaterialSlider" name="qtmaterialslider">
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="value">
+      <number>50</number>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QtMaterialCircularProgress" name="qtmaterialcircularprogress">
+     <property name="maximumSize">
+      <size>
+       <width>60</width>
+       <height>60</height>
+      </size>
+     </property>
+     <property name="size">
+      <double>40.000000000000000</double>
+     </property>
+    </widget>
+   </item>
+   <item row="14" column="2">
+    <widget class="QtMaterialToggle" name="qtmaterialtoggle_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="11" column="1" colspan="3">
+    <widget class="QtMaterialRaisedButton" name="qtmaterialraisedbutton">
+     <property name="maximumSize">
+      <size>
+       <width>120</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>RAISEBUTTON</string>
+     </property>
+     <property name="role">
+      <enum>MaterialConst::Secondary</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="1">
+    <widget class="QtMaterialIconButton" name="qtmaterialiconbutton">
+     <property name="icon">
+      <iconset resource="../components/material_res.qrc">
+       <normaloff>:/icons/icons/content/svg/production/ic_mail_24px.svg</normaloff>:/icons/icons/content/svg/production/ic_mail_24px.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>40</width>
+       <height>40</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="label_14">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto</family>
+      </font>
+     </property>
+     <property name="text">
+      <string>Dialog</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="label_4">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto</family>
+      </font>
+     </property>
+     <property name="text">
+      <string>CirculaProgress</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QtMaterialFlatButton" name="qtmaterialflatbutton_3">
+     <property name="maximumSize">
+      <size>
+       <width>150</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Show Dialog</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../components/material_res.qrc">
+       <normaloff>:/icons/icons/communication/svg/production/ic_chat_bubble_24px.svg</normaloff>:/icons/icons/communication/svg/production/ic_chat_bubble_24px.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="role">
+      <enum>MaterialConst::Primary</enum>
+     </property>
+     <property name="overlayStyle">
+      <enum>MaterialConst::TintedOverlay</enum>
+     </property>
+     <property name="iconPlacement">
+      <enum>MaterialConst::RightIcon</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="0">
+    <widget class="QLabel" name="label_9">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto</family>
+      </font>
+     </property>
+     <property name="text">
+      <string>RadioButton</string>
+     </property>
+    </widget>
+   </item>
+   <item row="14" column="0">
+    <widget class="QLabel" name="label_13">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto</family>
+      </font>
+     </property>
+     <property name="text">
+      <string>Toggle</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="label">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto</family>
+      </font>
+     </property>
+     <property name="text">
+      <string>AutoComplete</string>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="1">
+    <widget class="QtMaterialRadioButton" name="qtmaterialradiobutton_2">
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>RadioButton 2</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
  </widget>
- <resources/>
+ <customwidgets>
+  <customwidget>
+   <class>QtMaterialAutoComplete</class>
+   <extends>QtMaterialTextField</extends>
+   <header>qtmaterialautocomplete.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QtMaterialAvatar</class>
+   <extends>QWidget</extends>
+   <header>qtmaterialavatar.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QtMaterialBadge</class>
+   <extends>QWidget</extends>
+   <header>qtmaterialbadge.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QtMaterialCheckBox</class>
+   <extends>QWidget</extends>
+   <header>qtmaterialcheckbox.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QtMaterialCircularProgress</class>
+   <extends>QProgressBar</extends>
+   <header>qtmaterialcircularprogress.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QtMaterialFloatingActionButton</class>
+   <extends>QtMaterialRaisedButton</extends>
+   <header>qtmaterialfab.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QtMaterialFlatButton</class>
+   <extends>QPushButton</extends>
+   <header>qtmaterialflatbutton.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QtMaterialIconButton</class>
+   <extends>QWidget</extends>
+   <header>qtmaterialiconbutton.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QtMaterialProgress</class>
+   <extends>QProgressBar</extends>
+   <header>qtmaterialprogress.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QtMaterialRadioButton</class>
+   <extends>QWidget</extends>
+   <header>qtmaterialradiobutton.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QtMaterialRaisedButton</class>
+   <extends>QtMaterialFlatButton</extends>
+   <header>qtmaterialraisedbutton.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QtMaterialSlider</class>
+   <extends>QWidget</extends>
+   <header>qtmaterialslider.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QtMaterialTextField</class>
+   <extends>QLineEdit</extends>
+   <header>qtmaterialtextfield.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QtMaterialToggle</class>
+   <extends>QWidget</extends>
+   <header>qtmaterialtoggle.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../components/material_res.qrc"/>
+  <include location="../components/material_res.qrc"/>
+ </resources>
  <connections/>
 </ui>

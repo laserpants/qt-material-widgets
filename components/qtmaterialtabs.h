@@ -22,8 +22,8 @@ public:
     void setHaloVisible(bool value);
     bool isHaloVisible() const;
 
-    void setRippleStyle(Material::RippleStyle style);
-    Material::RippleStyle rippleStyle() const;
+    void setRippleStyle(MaterialConst::RippleStyle style);
+    MaterialConst::RippleStyle rippleStyle() const;
 
     void setInkColor(const QColor &color);
     QColor inkColor() const;

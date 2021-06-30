@@ -10,6 +10,8 @@ class QtMaterialCircularProgress : public QProgressBar
 {
     Q_OBJECT
 
+    Q_PROPERTY(MaterialConst::ProgressType progressType WRITE setProgressType READ progressType)
+    Q_PROPERTY(bool useThemeColors WRITE setUseThemeColors READ useThemeColors)
     Q_PROPERTY(qreal lineWidth WRITE setLineWidth READ lineWidth)
     Q_PROPERTY(qreal size WRITE setSize READ size)
     Q_PROPERTY(QColor color WRITE setColor READ color)
@@ -18,8 +20,8 @@ public:
     explicit QtMaterialCircularProgress(QWidget *parent = 0);
     ~QtMaterialCircularProgress();
 
-    void setProgressType(Material::ProgressType type);
-    Material::ProgressType progressType() const;
+    void setProgressType(MaterialConst::ProgressType type);
+    MaterialConst::ProgressType progressType() const;
 
     void setUseThemeColors(bool value);
     bool useThemeColors() const;

@@ -1,7 +1,10 @@
 QT += core gui widgets
 TEMPLATE = app
 CONFIG += c++11
-SOURCES = mainwindow.cpp \
+
+#include(../components/link_components.pri)
+
+SOURCES += mainwindow.cpp \
     main.cpp \
     avatarsettingseditor.cpp \
     badgesettingseditor.cpp \
@@ -25,7 +28,7 @@ SOURCES = mainwindow.cpp \
     appbarsettingseditor.cpp \
     autocompletesettingseditor.cpp \
     menusettingseditor.cpp
-HEADERS = mainwindow.h \
+HEADERS += mainwindow.h \
     avatarsettingseditor.h \
     badgesettingseditor.h \
     checkboxsettingseditor.h \
@@ -48,12 +51,6 @@ HEADERS = mainwindow.h \
     appbarsettingseditor.h \
     autocompletesettingseditor.h \
     menusettingseditor.h
-LIBS += -L../components/ -lqt-material-widget
-INCLUDEPATH += $$top_srcdir/components/
-TARGET = examples-exe
-
-RESOURCES += \
-    examples.qrc
 
 FORMS += \
     avatarsettingsform.ui \
@@ -75,3 +72,11 @@ FORMS += \
     drawersettingsform.ui \
     scrollbarsettingsform.ui \
     appbarsettingsform.ui
+
+RESOURCES += \
+    examples.qrc
+
+LIBS += -L../components/ -lqt-material-widget
+INCLUDEPATH += $$top_srcdir/components/
+TARGET = examples-exe
+
