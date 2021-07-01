@@ -4,10 +4,11 @@
 #include <QtWidgets/QPushButton>
 #include <QScopedPointer>
 #include "lib/qtmaterialtheme.h"
+#include <QtUiPlugin/QDesignerExportWidget>
 
 class QtMaterialFlatButtonPrivate;
 
-class QtMaterialFlatButton : public QPushButton
+class QDESIGNER_WIDGET_EXPORT QtMaterialFlatButton : public QPushButton
 {
     Q_OBJECT
     Q_PROPERTY(QColor foregroundColor WRITE setForegroundColor READ foregroundColor)

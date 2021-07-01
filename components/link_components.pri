@@ -1,6 +1,7 @@
 COMP_PATH=$$PWD
 
 INCLUDEPATH += $$COMP_PATH
+DEFINES     += QDESIGNER_EXPORT_WIDGETS
 
 SOURCES += \
     $$COMP_PATH/qtmaterialavatar.cpp \

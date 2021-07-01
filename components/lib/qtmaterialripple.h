@@ -6,10 +6,11 @@
 #include <QPropertyAnimation>
 #include <QPoint>
 #include <QBrush>
+#include <QtUiPlugin/QDesignerExportWidget>
 
 class QtMaterialRippleOverlay;
 
-class QtMaterialRipple : public QParallelAnimationGroup
+class QDESIGNER_WIDGET_EXPORT QtMaterialRipple : public QParallelAnimationGroup
 {
     Q_OBJECT
 

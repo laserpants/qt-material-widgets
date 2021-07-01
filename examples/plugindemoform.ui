@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>907</width>
-    <height>746</height>
+    <height>849</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -202,7 +202,7 @@
         <x>0</x>
         <y>0</y>
         <width>60</width>
-        <height>54</height>
+        <height>60</height>
        </rect>
       </property>
       <property name="relativePosition">
@@ -350,7 +350,7 @@
         <x>0</x>
         <y>0</y>
         <width>60</width>
-        <height>54</height>
+        <height>60</height>
        </rect>
       </property>
       <property name="relativePosition">
@@ -649,7 +649,6 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../components/material_res.qrc"/>
   <include location="../components/material_res.qrc"/>
  </resources>
  <connections/>

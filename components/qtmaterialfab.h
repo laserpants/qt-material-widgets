@@ -2,10 +2,11 @@
 #define QTMATERIALFAB_H
 
 #include "qtmaterialraisedbutton.h"
+#include <QtUiPlugin/QDesignerExportWidget>
 
 class QtMaterialFloatingActionButtonPrivate;
 
-class QtMaterialFloatingActionButton : public QtMaterialRaisedButton
+class QDESIGNER_WIDGET_EXPORT QtMaterialFloatingActionButton : public QtMaterialRaisedButton
 {
     Q_OBJECT
     Q_PROPERTY(bool mini WRITE setMini READ isMini)

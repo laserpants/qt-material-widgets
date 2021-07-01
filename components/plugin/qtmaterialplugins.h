@@ -1,7 +1,7 @@
 #ifndef QTMATERIALPLUGINS_H
 #define QTMATERIALPLUGINS_H
 
-#include <QDesignerCustomWidgetCollectionInterface>
+#include <QtUiPlugin/QDesignerCustomWidgetCollectionInterface>
 #include "plugintemplate.h"
 #include "qtmaterialappbar.h"
 #include "qtmaterialautocomplete.h"

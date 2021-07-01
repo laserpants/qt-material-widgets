@@ -3,10 +3,11 @@
 
 #include "lib/qtmaterialoverlaywidget.h"
 #include <QIcon>
+#include <QtUiPlugin/QDesignerExportWidget>
 
 class QtMaterialBadgePrivate;
 
-class QtMaterialBadge : public QtMaterialOverlayWidget
+class QDESIGNER_WIDGET_EXPORT QtMaterialBadge : public QtMaterialOverlayWidget
 {
     Q_OBJECT
 

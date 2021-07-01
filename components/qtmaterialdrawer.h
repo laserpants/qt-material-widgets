@@ -2,11 +2,12 @@
 #define QTMATERIALDRAWER_H
 
 #include "lib/qtmaterialoverlaywidget.h"
+#include <QtUiPlugin/QDesignerExportWidget>
 
 class QtMaterialDrawerPrivate;
 class QtMaterialDrawerStateMachine;
 
-class QtMaterialDrawer : public QtMaterialOverlayWidget
+class QDESIGNER_WIDGET_EXPORT QtMaterialDrawer : public QtMaterialOverlayWidget
 {
     Q_OBJECT
 

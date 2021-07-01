@@ -2,10 +2,11 @@
 #define QTMATERIALAUTOCOMPLETE_H
 
 #include "qtmaterialtextfield.h"
+#include <QtUiPlugin/QDesignerExportWidget>
 
 class QtMaterialAutoCompletePrivate;
 
-class QtMaterialAutoComplete : public QtMaterialTextField
+class QDESIGNER_WIDGET_EXPORT QtMaterialAutoComplete : public QtMaterialTextField
 {
     Q_OBJECT
     Q_PROPERTY(QStringList dataSource WRITE setDataSource READ dataSource)

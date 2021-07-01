@@ -2,10 +2,11 @@
 #define QTMATERIALSNACKBAR_H
 
 #include "lib/qtmaterialoverlaywidget.h"
+#include <QtUiPlugin/QDesignerExportWidget>
 
 class QtMaterialSnackbarPrivate;
 
-class QtMaterialSnackbar : public QtMaterialOverlayWidget
+class QDESIGNER_WIDGET_EXPORT QtMaterialSnackbar : public QtMaterialOverlayWidget
 {
     Q_OBJECT
 

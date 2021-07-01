@@ -3,6 +3,7 @@
 
 #include <QtWidgets/QWidget>
 #include <QtUiPlugin/QDesignerExportWidget>
+#include <QtUiPlugin/QDesignerExportWidget>
 
 class QDESIGNER_WIDGET_EXPORT QtMaterialMenu : public QWidget
 {

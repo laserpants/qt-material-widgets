@@ -2,7 +2,7 @@ QT += core gui widgets
 TEMPLATE = app
 CONFIG += c++11
 
-#include(../components/link_components.pri)
+TARGET = examples-exe
 
 SOURCES += mainwindow.cpp \
     main.cpp \
@@ -74,9 +74,18 @@ FORMS += \
     appbarsettingsform.ui
 
 RESOURCES += \
+    ../components/material_res.qrc \
     examples.qrc
 
-LIBS += -L../components/ -lqt-material-widget
-INCLUDEPATH += $$top_srcdir/components/
-TARGET = examples-exe
+OBJECTS_DIR = $$PWD/../../qt-material-widgets-build/examples/build/obj
+MOC_DIR = $$PWD/../../qt-material-widgets-build/examples/build/moc
+RCC_DIR = $$PWD/../../qt-material-widgets-build/examples/build/qrc
+UI_DIR = $$PWD/../../qt-material-widgets-build/examples/build/ui
+DESTDIR = $$PWD/../../qt-material-widgets-build/examples/bin
 
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../qt-material-widgets-build/components/lib/ -lqt-material-widget
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../qt-material-widgets-build/components/lib/ -lqt-material-widgetd
+else:unix:!macx: LIBS += -L$$PWD/../../qt-material-widgets-build/components/lib/ -lqt-material-widget
+
+INCLUDEPATH += $$PWD/../components
+DEPENDPATH += $$PWD/../../qt-material-widgets-build/components

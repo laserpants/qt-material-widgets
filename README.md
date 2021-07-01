@@ -315,3 +315,11 @@ YouTube video preview [available here](http://www.youtube.com/watch?v=21UMeNVBPU
 - [ ] Stepper
 - [ ] Subheaders
 - [ ] Toolbar
+
+
+#### Implement Qt Desinger plugin
+- Tested on Windows 10, Ubuntu
+- Note: Must build with release mode in Windows
+- Copy lib to Qt Design plugin folder. Example:
+  + Ubuntu: /opt/Qt5.12.8/Tools/QtCreator/lib/Qt/plugins/designer/
+  + Windows 10: C:\Qt\Qt5.12.8\Tools\QtCreator\bin\plugins\designer
