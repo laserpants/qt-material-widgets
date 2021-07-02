@@ -3,11 +3,11 @@
 
 #include <QtWidgets/QLineEdit>
 #include <QColor>
-#include <QtUiPlugin/QDesignerExportWidget>
+#include "qtmaterial_global.h"
 
 class QtMaterialTextFieldPrivate;
 
-class QDESIGNER_WIDGET_EXPORT QtMaterialTextField : public QLineEdit
+class QT_MATERIAL_EXPORT QtMaterialTextField : public QLineEdit
 {
     Q_OBJECT
 

@@ -3,13 +3,13 @@
 
 #include <QtWidgets/QAbstractSlider>
 #include <QScopedPointer>
-#include <QtUiPlugin/QDesignerExportWidget>
+#include "qtmaterial_global.h"
 
 #define QT_MATERIAL_SLIDER_MARGIN 10
 
 class QtMaterialSliderPrivate;
 
-class QDESIGNER_WIDGET_EXPORT QtMaterialSlider : public QAbstractSlider
+class QT_MATERIAL_EXPORT QtMaterialSlider : public QAbstractSlider
 {
     Q_OBJECT
 

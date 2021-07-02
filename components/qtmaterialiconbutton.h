@@ -2,11 +2,11 @@
 #define QTMATERIALICONBUTTON_H
 
 #include <QtWidgets/QAbstractButton>
-#include <QtUiPlugin/QDesignerExportWidget>
+#include "qtmaterial_global.h"
 
 class QtMaterialIconButtonPrivate;
 
-class QDESIGNER_WIDGET_EXPORT QtMaterialIconButton : public QAbstractButton
+class QT_MATERIAL_EXPORT QtMaterialIconButton : public QAbstractButton
 {
     Q_OBJECT
 //    Q_PROPERTY(bool useThemeColors READ setUseThemeColors WRITE useThemeColors)

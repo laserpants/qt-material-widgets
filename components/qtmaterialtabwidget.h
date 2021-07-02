@@ -2,14 +2,14 @@
 #define QTMATERIALTABWIDGET_H
 
 #include <QWidget>
-#include <QtUiPlugin/QDesignerExportWidget>
+#include "qtmaterial_global.h"
 
 QT_BEGIN_NAMESPACE
 class QStackedWidget;
 QT_END_NAMESPACE
 class QtMaterialTabs;
 
-class QDESIGNER_WIDGET_EXPORT QtMaterialTabWidget : public QWidget
+class QT_MATERIAL_EXPORT QtMaterialTabWidget : public QWidget
 {
     Q_OBJECT
     Q_PROPERTY(int currentIndex READ currentIndex WRITE setCurrentIndex)

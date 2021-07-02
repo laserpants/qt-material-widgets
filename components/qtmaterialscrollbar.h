@@ -2,11 +2,11 @@
 #define QTMATERIALSCROLLBAR_H
 
 #include <QtWidgets/QScrollBar>
-#include <QtUiPlugin/QDesignerExportWidget>
+#include "qtmaterial_global.h"
 
 class QtMaterialScrollBarPrivate;
 
-class QDESIGNER_WIDGET_EXPORT QtMaterialScrollBar : public QScrollBar
+class QT_MATERIAL_EXPORT QtMaterialScrollBar : public QScrollBar
 {
     Q_OBJECT
 

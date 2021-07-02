@@ -2,11 +2,11 @@
 #define QTMATERIALRAISEDBUTTON_H
 
 #include "qtmaterialflatbutton.h"
-#include <QtUiPlugin/QDesignerExportWidget>
+#include "qtmaterial_global.h"
 
 class QtMaterialRaisedButtonPrivate;
 
-class QDESIGNER_WIDGET_EXPORT QtMaterialRaisedButton : public QtMaterialFlatButton
+class QT_MATERIAL_EXPORT QtMaterialRaisedButton : public QtMaterialFlatButton
 {
     Q_OBJECT
 

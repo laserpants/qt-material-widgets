@@ -4,12 +4,12 @@
 #include <QtWidgets/QWidget>
 #include <QIcon>
 #include "lib/qtmaterialtheme.h"
-#include <QtUiPlugin/QDesignerExportWidget>
+#include "qtmaterial_global.h"
 
 class QtMaterialTabsPrivate;
 class QtMaterialTab;
 
-class QDESIGNER_WIDGET_EXPORT QtMaterialTabs : public QWidget
+class QT_MATERIAL_EXPORT QtMaterialTabs : public QWidget
 {
     Q_OBJECT
 

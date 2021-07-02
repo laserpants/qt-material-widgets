@@ -2,11 +2,11 @@
 #define QTMATERIALCHECKABLE_H
 
 #include <QtWidgets/QAbstractButton>
-#include <QtUiPlugin/QDesignerExportWidget>
+#include "qtmaterial_global.h"
 
 class QtMaterialCheckablePrivate;
 
-class QDESIGNER_WIDGET_EXPORT QtMaterialCheckable : public QAbstractButton
+class QT_MATERIAL_EXPORT QtMaterialCheckable : public QAbstractButton
 {
     Q_OBJECT
 //    Q_PROPERTY(LabelPosition labelPosition READ setLabelPosition WRITE labelPosition)

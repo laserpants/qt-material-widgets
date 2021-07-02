@@ -3,11 +3,11 @@
 
 #include <QtWidgets/QWidget>
 #include <QtWidgets/QHBoxLayout>
-#include <QtUiPlugin/QDesignerExportWidget>
+#include "qtmaterial_global.h"
 
 class QtMaterialAppBarPrivate;
 
-class QDESIGNER_WIDGET_EXPORT QtMaterialAppBar : public QWidget
+class QT_MATERIAL_EXPORT QtMaterialAppBar : public QWidget
 {
     Q_OBJECT
 

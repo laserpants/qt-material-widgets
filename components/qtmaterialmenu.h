@@ -2,10 +2,10 @@
 #define QTMATERIALMENU_H
 
 #include <QtWidgets/QWidget>
-#include <QtUiPlugin/QDesignerExportWidget>
-#include <QtUiPlugin/QDesignerExportWidget>
+#include "qtmaterial_global.h"
+#include "qtmaterial_global.h"
 
-class QDESIGNER_WIDGET_EXPORT QtMaterialMenu : public QWidget
+class QT_MATERIAL_EXPORT QtMaterialMenu : public QWidget
 {
     Q_OBJECT
 

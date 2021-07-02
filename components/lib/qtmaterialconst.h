@@ -2,9 +2,9 @@
 #define QTMATERIALCONST_H
 
 #include <QObject>
-#include <QtUiPlugin/QDesignerExportWidget>
+#include "qtmaterial_global.h"
 
-class QDESIGNER_WIDGET_EXPORT MaterialConst: public QObject
+class QT_MATERIAL_EXPORT MaterialConst: public QObject
 {
     Q_OBJECT
 

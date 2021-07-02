@@ -1,7 +1,7 @@
 COMP_PATH=$$PWD
 
 INCLUDEPATH += $$COMP_PATH
-DEFINES     += QDESIGNER_EXPORT_WIDGETS
+DEFINES     += QT_MATERIAL_LIBRARY
 
 SOURCES += \
     $$COMP_PATH/qtmaterialavatar.cpp \
@@ -131,6 +131,7 @@ HEADERS += \
     $$COMP_PATH/qtmateriallistitem.h \
     $$COMP_PATH/qtmateriallistitem_p.h \
     $$PWD/lib/qtmaterialconst.h \
+    $$PWD/qtmaterial_global.h \
     $$PWD/qtmaterialtabwidget.h
 
 RESOURCES += \

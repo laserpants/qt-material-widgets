@@ -6,11 +6,11 @@
 #include <QColor>
 #include <QIcon>
 #include "qtmaterialconst.h"
-#include <QtUiPlugin/QDesignerExportWidget>
+#include "qtmaterial_global.h"
 
 class QtMaterialThemePrivate;
 
-class QDESIGNER_WIDGET_EXPORT QtMaterialTheme : public QObject
+class QT_MATERIAL_EXPORT QtMaterialTheme : public QObject
 {
     Q_OBJECT
 

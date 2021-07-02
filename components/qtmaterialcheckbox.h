@@ -2,11 +2,11 @@
 #define QTMATERIALCHECKBOX_H
 
 #include "lib/qtmaterialcheckable.h"
-#include <QtUiPlugin/QDesignerExportWidget>
+#include "qtmaterial_global.h"
 
 class QtMaterialCheckBoxPrivate;
 
-class QDESIGNER_WIDGET_EXPORT QtMaterialCheckBox : public QtMaterialCheckable
+class QT_MATERIAL_EXPORT QtMaterialCheckBox : public QtMaterialCheckable
 {
     Q_OBJECT
 
