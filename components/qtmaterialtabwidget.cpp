@@ -9,6 +9,7 @@ QtMaterialTabWidget::QtMaterialTabWidget(QWidget *parent)
     , stackWidget(new QStackedWidget)
 {
     tabBar->setObjectName(QStringLiteral("__qt__passive_tabBar"));
+    tabBar->setHaloVisible(false);
 
     connect(tabBar, QOverload<int>::of(&QtMaterialTabs::currentChanged),
             this, &QtMaterialTabWidget::setCurrentIndex);
@@ -16,6 +17,56 @@ QtMaterialTabWidget::QtMaterialTabWidget(QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(tabBar);
     layout->addWidget(stackWidget);
+}
+
+void QtMaterialTabWidget::setHaloVisible(bool value)
+{
+    tabBar->setHaloVisible(value);
+}
+
+bool QtMaterialTabWidget::isHaloVisible() const
+{
+    return tabBar->isHaloVisible();
+}
+
+void QtMaterialTabWidget::setRippleStyle(MaterialConst::RippleStyle style)
+{
+    tabBar->setRippleStyle(style);
+}
+
+MaterialConst::RippleStyle QtMaterialTabWidget::rippleStyle() const
+{
+    return tabBar->rippleStyle();
+}
+
+void QtMaterialTabWidget::setInkColor(const QColor &color)
+{
+    tabBar->setInkColor(color);
+}
+
+QColor QtMaterialTabWidget::inkColor() const
+{
+    return tabBar->inkColor();
+}
+
+void QtMaterialTabWidget::setBackgroundColor(const QColor &color)
+{
+    tabBar->setBackgroundColor(color);
+}
+
+QColor QtMaterialTabWidget::backgroundColor() const
+{
+    return tabBar->backgroundColor();
+}
+
+void QtMaterialTabWidget::setTextColor(const QColor &color)
+{
+    tabBar->setTextColor(color);
+}
+
+QColor QtMaterialTabWidget::textColor() const
+{
+    return tabBar->textColor();
 }
 
 QSize QtMaterialTabWidget::sizeHint() const

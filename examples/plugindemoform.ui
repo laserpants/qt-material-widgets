@@ -19,6 +19,12 @@
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
+     <property name="haloVisible">
+      <bool>false</bool>
+     </property>
+     <property name="rippleStyle">
+      <enum>MaterialConst::PositionedRipple</enum>
+     </property>
      <widget class="QWidget" name="page">
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">

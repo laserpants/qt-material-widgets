@@ -12,6 +12,11 @@ class QtMaterialTab;
 class QT_MATERIAL_EXPORT QtMaterialTabs : public QWidget
 {
     Q_OBJECT
+    Q_PROPERTY(bool haloVisible WRITE setHaloVisible READ isHaloVisible)
+    Q_PROPERTY(MaterialConst::RippleStyle rippleStyle WRITE setRippleStyle READ rippleStyle)
+    Q_PROPERTY(QColor inkColor WRITE setInkColor READ inkColor)
+    Q_PROPERTY(QColor backgroundColor WRITE setBackgroundColor READ backgroundColor)
+    Q_PROPERTY(QColor textColor WRITE setTextColor READ textColor)
 
 public:
     explicit QtMaterialTabs(QWidget *parent = 0);
