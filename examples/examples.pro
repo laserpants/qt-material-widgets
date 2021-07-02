@@ -67,11 +67,11 @@ FORMS += \
     radiobuttonsettingsform.ui \
     togglesettingsform.ui \
     textfieldsettingsform.ui \ 
-    tabssettingsform.ui \
     dialogsettingsform.ui \
     drawersettingsform.ui \
     scrollbarsettingsform.ui \
-    appbarsettingsform.ui
+    appbarsettingsform.ui \
+    tabssettingsform.ui
 
 RESOURCES += \
     ../components/material_res.qrc \

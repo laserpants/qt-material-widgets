@@ -50,7 +50,8 @@ SOURCES += \
     $$COMP_PATH/qtmaterialmenu.cpp \
     $$COMP_PATH/qtmaterialmenu_internal.cpp \
     $$COMP_PATH/qtmateriallist.cpp \
-    $$COMP_PATH/qtmateriallistitem.cpp
+    $$COMP_PATH/qtmateriallistitem.cpp \
+    $$PWD/qtmaterialtabwidget.cpp
 HEADERS += \
     $$COMP_PATH/qtmaterialavatar_p.h \
     $$COMP_PATH/qtmaterialavatar.h \
@@ -129,7 +130,8 @@ HEADERS += \
     $$COMP_PATH/qtmateriallist_p.h \
     $$COMP_PATH/qtmateriallistitem.h \
     $$COMP_PATH/qtmateriallistitem_p.h \
-    $$PWD/lib/qtmaterialconst.h
+    $$PWD/lib/qtmaterialconst.h \
+    $$PWD/qtmaterialtabwidget.h
 
 RESOURCES += \
     $$COMP_PATH/material_res.qrc

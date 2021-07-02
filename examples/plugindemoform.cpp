@@ -32,6 +32,8 @@ PluginDemoForm::PluginDemoForm(QWidget *parent) :
     dialogLayout->addWidget(dialogWidget);
 
     connect(closeButton, SIGNAL(pressed()), m_dialog, SLOT(hideDialog()));
+
+
 }
 
 PluginDemoForm::~PluginDemoForm()
@@ -42,4 +44,8 @@ PluginDemoForm::~PluginDemoForm()
 void PluginDemoForm::on_qtmaterialflatbutton_3_clicked()
 {
     m_dialog->showDialog();
+}
+
+void PluginDemoForm::tabIndexChanged(int index)
+{
 }

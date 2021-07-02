@@ -19,6 +19,7 @@ public:
 
 private slots:
     void on_qtmaterialflatbutton_3_clicked();
+    void tabIndexChanged(int index);
 
 private:
     Ui::PluginDemoForm *ui;

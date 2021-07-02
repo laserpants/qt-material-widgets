@@ -5,7 +5,7 @@
 #include <QScopedPointer>
 #include <QtUiPlugin/QDesignerExportWidget>
 
-#define QT_MATERIAL_SLIDER_MARGIN 30
+#define QT_MATERIAL_SLIDER_MARGIN 10
 
 class QtMaterialSliderPrivate;
 

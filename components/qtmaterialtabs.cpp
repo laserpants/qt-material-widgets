@@ -180,6 +180,42 @@ void QtMaterialTabs::setCurrentTab(int index)
     emit currentChanged(index);
 }
 
+void QtMaterialTabs::setTabText(int index, const QString &text)
+{
+    Q_D(QtMaterialTabs);
+
+    if (index > -1) {
+        QtMaterialTab *tab = static_cast<QtMaterialTab *>(d->tabLayout->itemAt(index)->widget());
+        if (tab) {
+            tab->setText(text);
+        }
+    }
+}
+
+void QtMaterialTabs::insertTab(int index, const QString &text, const QIcon &icon)
+{
+    Q_D(QtMaterialTabs);
+
+    QtMaterialTab *tab = new QtMaterialTab(this);
+    tab->setText(text);
+    tab->setHaloVisible(isHaloVisible());
+    tab->setRippleStyle(rippleStyle());
+
+    if (!icon.isNull()) {
+        tab->setIcon(icon);
+        tab->setIconSize(QSize(22, 22));
+    }
+
+    d->tabLayout->insertWidget(index, tab);
+
+    if (-1 == d->tab) {
+        d->tab = 0;
+        d->inkBar->refreshGeometry();
+        d->inkBar->raise();
+        tab->setActive(true);
+    };
+}
+
 void QtMaterialTabs::addTab(const QString &text, const QIcon &icon)
 {
     Q_D(QtMaterialTabs);
@@ -202,6 +238,27 @@ void QtMaterialTabs::addTab(const QString &text, const QIcon &icon)
         d->inkBar->raise();
         tab->setActive(true);
     }
+}
+
+void QtMaterialTabs::removeTab(int index)
+{
+    Q_D(QtMaterialTabs);
+
+    if (index > -1) {
+        QtMaterialTab *tab = static_cast<QtMaterialTab *>(d->tabLayout->itemAt(index)->widget());
+        if (tab) {
+            d->tabLayout->removeWidget(tab);
+            delete tab;
+        }
+
+        setCurrentTab(index - 1);
+    }
+}
+
+int QtMaterialTabs::count() const
+{
+    Q_D(const QtMaterialTabs);
+    return d->tabLayout->count();
 }
 
 int QtMaterialTabs::currentIndex() const

@@ -1,5 +1,5 @@
 #include "qtmaterialplugins.h"
-
+#include "qtmaterialtabwidgetplugin.h"
 QtMaterialPlugins::QtMaterialPlugins(QObject *parent) : QObject(parent)
 {
     m_plugins << new MaterialAppBarPlugin(this)
@@ -27,6 +27,7 @@ QtMaterialPlugins::QtMaterialPlugins(QObject *parent) : QObject(parent)
               << new MaterialTabsPlugin(this)
               << new MaterialTextFieldPlugin(this)
               << new MaterialTogglePlugin(this)
+              << new QtMaterialTabWidgetPlugin(this)
                  ;
 }
 

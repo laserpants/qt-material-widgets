@@ -35,14 +35,18 @@ public:
     void setTextColor(const QColor &color);
     QColor textColor() const;
 
+    void insertTab(int index, const QString &text, const QIcon &icon = QIcon());
     void addTab(const QString &text, const QIcon &icon = QIcon());
+    void removeTab(int index);
+    int count() const;
 
     void setCurrentTab(QtMaterialTab *tab);
     void setCurrentTab(int index);
+    void setTabText(int index, const QString &text);
 
     int currentIndex() const;
 
-signals:
+Q_SIGNALS:
     void currentChanged(int);
 
 protected:

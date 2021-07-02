@@ -5,10 +5,16 @@ TEMPLATE    = lib
 include(link_components.pri)
 
 SOURCES += \
-    plugin/qtmaterialplugins.cpp
+    plugin/qtmaterialplugins.cpp \
+    plugin/qtmaterialtabwidgetcontainerextension.cpp \
+    plugin/qtmaterialtabwidgetextensionfactory.cpp \
+    plugin/qtmaterialtabwidgetplugin.cpp
 HEADERS += \
     plugin/plugintemplate.h \
-    plugin/qtmaterialplugins.h
+    plugin/qtmaterialplugins.h \
+    plugin/qtmaterialtabwidgetcontainerextension.h \
+    plugin/qtmaterialtabwidgetextensionfactory.h \
+    plugin/qtmaterialtabwidgetplugin.h
 
 TARGET = $$qtLibraryTarget(qt-material-widget)
 target.path = $$[QT_INSTALL_PLUGINS]/designer

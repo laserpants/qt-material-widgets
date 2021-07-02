@@ -29,7 +29,7 @@ void QtMaterialSliderPrivate::init()
     stateMachine   = new QtMaterialSliderStateMachine(q, thumb, track);
     stepTo         = 0;
     oldValue       = q->value();
-    trackWidth     = 2;
+    trackWidth     = 4;
     hoverTrack     = false;
     hoverThumb     = false;
     hover          = false;
