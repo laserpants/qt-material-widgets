@@ -12,17 +12,9 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Gui REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core5Compat REQUIRED)
 
 add_subdirectory(components)
 add_subdirectory(examples)
-
-#set(PROJECT_SOURCES
-
-#)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 #    qt_add_executable(QtMaterialWidgets
@@ -35,9 +27,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
     if(ANDROID)
-        add_library(QtMaterialWidgets SHARED
-            ${PROJECT_SOURCES}
-        )
+        add_library(QtMaterialWidgets SHARED ${PROJECT_SOURCES})
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
@@ -46,10 +36,6 @@ else()
         )
     endif()
 endif()
-
-#target_link_libraries(QtMaterialWidgets PRIVATE Qt${QT_VERSION_MAJOR}::Core)
-#target_link_libraries(QtMaterialWidgets PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
-#target_link_libraries(QtMaterialWidgets PRIVATE Qt${QT_VERSION_MAJOR}::Core5Compat)
 
 
 #set_target_properties(QtMaterialWidgets PROPERTIES
@@ -60,7 +46,7 @@ endif()
 #    WIN32_EXECUTABLE TRUE
 #)
 
-#file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY fonts DESTINATION ${CMAKE_BINARY_DIR})
 
 if(QT_VERSION_MAJOR EQUAL 6)
 #    qt_finalize_executable(QtMaterialWidgets)

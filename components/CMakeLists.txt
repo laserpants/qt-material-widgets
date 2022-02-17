@@ -21,6 +21,7 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS StateMachine REQUIRED)
 # Create a library called "components" which includes the source file "*.cpp".
 # The extension is already found. Any number of sources could be listed here.
 set(PROJECT_SOURCES
+#    sources
     avatar.cpp
     lib/style.cpp
     lib/theme.cpp
@@ -68,6 +69,7 @@ set(PROJECT_SOURCES
     menu_internal.cpp
     list.cpp
     listitem.cpp
+#    headers
     avatar_p.h
     avatar.h
     lib/style_p.h
@@ -169,10 +171,9 @@ target_link_libraries(components PRIVATE Qt${QT_VERSION_MAJOR}::Gui)
 target_link_libraries(components PRIVATE Qt${QT_VERSION_MAJOR}::Core5Compat)
 target_link_libraries(components PRIVATE Qt${QT_VERSION_MAJOR}::StateMachine)
 
-# Make sure the compiler can find include files for our components library
+# Make sure the compiler can find include files for our 'components' library
 # when other libraries or executables link to components
 target_include_directories (components PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-
 
 set_target_properties(components PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
@@ -182,7 +183,7 @@ set_target_properties(components PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
-file(COPY icons DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY icons DESTINATION ${CMAKE_BINARY_DIR}/components)
 
 if(QT_VERSION_MAJOR EQUAL 6)
 #    qt_finalize_executable(components)
