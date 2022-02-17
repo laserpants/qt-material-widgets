@@ -3,13 +3,15 @@
 #include <QEventTransition>
 #include <QPainter>
 #include "qtmaterialtextfield.h"
+namespace md
+{
 
 /*!
  *  \class QtMaterialTextFieldStateMachine
  *  \internal
  */
 
-QtMaterialTextFieldStateMachine::QtMaterialTextFieldStateMachine(QtMaterialTextField *parent)
+TextFieldStateMachine::TextFieldStateMachine(TextField *parent)
     : QStateMachine(parent),
       m_textField(parent),
       m_normalState(new QState),
@@ -55,11 +57,11 @@ QtMaterialTextFieldStateMachine::QtMaterialTextFieldStateMachine(QtMaterialTextF
     connect(m_textField, SIGNAL(textChanged(QString)), this, SLOT(setupProperties()));
 }
 
-QtMaterialTextFieldStateMachine::~QtMaterialTextFieldStateMachine()
+TextFieldStateMachine::~TextFieldStateMachine()
 {
 }
 
-void QtMaterialTextFieldStateMachine::setLabel(QtMaterialTextFieldLabel *label)
+void TextFieldStateMachine::setLabel(TextFieldLabel *label)
 {
     if (m_label) {
         delete m_label;
@@ -92,7 +94,7 @@ void QtMaterialTextFieldStateMachine::setLabel(QtMaterialTextFieldLabel *label)
     setupProperties();
 }
 
-void QtMaterialTextFieldStateMachine::setupProperties()
+void TextFieldStateMachine::setupProperties()
 {
     if (m_label)
     {
@@ -123,7 +125,7 @@ void QtMaterialTextFieldStateMachine::setupProperties()
  *  \internal
  */
 
-QtMaterialTextFieldLabel::QtMaterialTextFieldLabel(QtMaterialTextField *parent)
+TextFieldLabel::TextFieldLabel(TextField *parent)
     : QWidget(parent),
       m_textField(parent),
       m_scale(1),
@@ -138,14 +140,14 @@ QtMaterialTextFieldLabel::QtMaterialTextFieldLabel(QtMaterialTextField *parent)
     setFont(font);
 }
 
-QtMaterialTextFieldLabel::~QtMaterialTextFieldLabel()
+TextFieldLabel::~TextFieldLabel()
 {
 }
 
 /*!
  *  \reimp
  */
-void QtMaterialTextFieldLabel::paintEvent(QPaintEvent *event)
+void TextFieldLabel::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
@@ -161,4 +163,5 @@ void QtMaterialTextFieldLabel::paintEvent(QPaintEvent *event)
 
     QPointF pos(2+m_posX, height()-36+m_posY);
     painter.drawText(pos.x(), pos.y(), m_textField->label());
+}
 }

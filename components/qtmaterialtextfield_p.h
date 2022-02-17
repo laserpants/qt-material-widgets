@@ -4,24 +4,26 @@
 #include <QtGlobal>
 #include <QColor>
 
-class QtMaterialTextField;
-class QtMaterialTextFieldStateMachine;
-class QtMaterialTextFieldLabel;
-
-class QtMaterialTextFieldPrivate
+namespace md
 {
-    Q_DISABLE_COPY(QtMaterialTextFieldPrivate)
-    Q_DECLARE_PUBLIC(QtMaterialTextField)
+class TextField;
+class TextFieldStateMachine;
+class TextFieldLabel;
+
+class TextFieldPrivate
+{
+    Q_DISABLE_COPY(TextFieldPrivate)
+    Q_DECLARE_PUBLIC(TextField)
 
 public:
-    QtMaterialTextFieldPrivate(QtMaterialTextField *q);
-    virtual ~QtMaterialTextFieldPrivate();
+    TextFieldPrivate(TextField *q);
+    virtual ~TextFieldPrivate();
 
     void init();
 
-    QtMaterialTextField             *const q_ptr;
-    QtMaterialTextFieldStateMachine *stateMachine;
-    QtMaterialTextFieldLabel        *label;
+    TextField             *const q_ptr;
+    TextFieldStateMachine *stateMachine;
+    TextFieldLabel        *label;
     QColor                           textColor;
     QColor                           labelColor;
     QColor                           inkColor;
@@ -32,5 +34,6 @@ public:
     bool                             showInputLine;
     bool                             useThemeColors;
 };
+}
 
 #endif // QTMATERIALTEXTFIELD_P_H

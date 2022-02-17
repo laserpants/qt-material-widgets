@@ -4,21 +4,23 @@
 #include <QStateMachine>
 #include <QtWidgets/QWidget>
 #include "qtmaterialtextfield.h"
+namespace md
+{
 
 class QPropertyAnimation;
-class QtMaterialTextFieldLabel;
+class TextFieldLabel;
 
-class QtMaterialTextFieldStateMachine : public QStateMachine
+class TextFieldStateMachine : public QStateMachine
 {
     Q_OBJECT
 
     Q_PROPERTY(qreal progress WRITE setProgress READ progress)
 
 public:
-    QtMaterialTextFieldStateMachine(QtMaterialTextField *parent);
-    ~QtMaterialTextFieldStateMachine();
+    TextFieldStateMachine(TextField *parent);
+    ~TextFieldStateMachine();
 
-    void setLabel(QtMaterialTextFieldLabel *label);
+    void setLabel(TextFieldLabel *label);
 
     inline void setProgress(qreal progress);
     inline qreal progress() const;
@@ -27,29 +29,29 @@ public slots:
     void setupProperties();
 
 private:
-    Q_DISABLE_COPY(QtMaterialTextFieldStateMachine)
+    Q_DISABLE_COPY(TextFieldStateMachine)
 
-    QtMaterialTextField *const m_textField;
+    TextField *const m_textField;
     QState              *const m_normalState;
     QState              *const m_focusedState;
-    QtMaterialTextFieldLabel  *m_label;
+    TextFieldLabel  *m_label;
     QPropertyAnimation        *m_offsetAnimation;
     QPropertyAnimation        *m_colorAnimation;
     qreal                      m_progress;
 };
 
-inline void QtMaterialTextFieldStateMachine::setProgress(qreal progress)
+inline void TextFieldStateMachine::setProgress(qreal progress)
 {
     m_progress = progress;
     m_textField->update();
 }
 
-inline qreal QtMaterialTextFieldStateMachine::progress() const
+inline qreal TextFieldStateMachine::progress() const
 {
     return m_progress;
 }
 
-class QtMaterialTextFieldLabel : public QWidget
+class TextFieldLabel : public QWidget
 {
     Q_OBJECT
 
@@ -58,8 +60,8 @@ class QtMaterialTextFieldLabel : public QWidget
     Q_PROPERTY(QColor color WRITE setColor READ color)
 
 public:
-    QtMaterialTextFieldLabel(QtMaterialTextField *parent);
-    ~QtMaterialTextFieldLabel();
+    TextFieldLabel(TextField *parent);
+    ~TextFieldLabel();
 
     inline void setScale(qreal scale);
     inline qreal scale() const;
@@ -74,47 +76,47 @@ protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
 private:
-    Q_DISABLE_COPY(QtMaterialTextFieldLabel)
+    Q_DISABLE_COPY(TextFieldLabel)
 
-    QtMaterialTextField *const m_textField;
+    TextField *const m_textField;
     qreal                      m_scale;
     qreal                      m_posX;
     qreal                      m_posY;
     QColor                     m_color;
 };
 
-inline void QtMaterialTextFieldLabel::setScale(qreal scale)
+inline void TextFieldLabel::setScale(qreal scale)
 {
     m_scale = scale;
     update();
 }
 
-inline qreal QtMaterialTextFieldLabel::scale() const
+inline qreal TextFieldLabel::scale() const
 {
     return m_scale;
 }
 
-inline void QtMaterialTextFieldLabel::setOffset(const QPointF &pos)
+inline void TextFieldLabel::setOffset(const QPointF &pos)
 {
     m_posX = pos.x();
     m_posY = pos.y();
     update();
 }
 
-inline QPointF QtMaterialTextFieldLabel::offset() const
+inline QPointF TextFieldLabel::offset() const
 {
     return QPointF(m_posX, m_posY);
 }
 
-inline void QtMaterialTextFieldLabel::setColor(const QColor &color)
+inline void TextFieldLabel::setColor(const QColor &color)
 {
     m_color = color;
     update();
 }
 
-inline QColor QtMaterialTextFieldLabel::color() const
+inline QColor TextFieldLabel::color() const
 {
     return m_color;
 }
-
+}
 #endif // QTMATERIALTEXTFIELD_INTERNAL_H

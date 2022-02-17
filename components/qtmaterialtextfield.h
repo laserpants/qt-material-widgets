@@ -3,10 +3,12 @@
 
 #include <QtWidgets/QLineEdit>
 #include <QColor>
+namespace md
+{
 
-class QtMaterialTextFieldPrivate;
+class TextFieldPrivate;
 
-class QtMaterialTextField : public QLineEdit
+class TextField : public QLineEdit
 {
     Q_OBJECT
 
@@ -15,8 +17,8 @@ class QtMaterialTextField : public QLineEdit
     Q_PROPERTY(QColor inputLineColor WRITE setInputLineColor READ inputLineColor)
 
 public:
-    explicit QtMaterialTextField(QWidget *parent = 0);
-    ~QtMaterialTextField();
+    explicit TextField(QWidget *parent = 0);
+    ~TextField();
 
     void setUseThemeColors(bool value);
     bool useThemeColors() const;
@@ -46,16 +48,16 @@ public:
     bool hasInputLine() const;
 
 protected:
-    QtMaterialTextField(QtMaterialTextFieldPrivate &d, QWidget *parent = 0);
+    TextField(TextFieldPrivate &d, QWidget *parent = 0);
 
     bool event(QEvent *event) Q_DECL_OVERRIDE;
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
-    const QScopedPointer<QtMaterialTextFieldPrivate> d_ptr;
+    const QScopedPointer<TextFieldPrivate> d_ptr;
 
 private:
-    Q_DISABLE_COPY(QtMaterialTextField)
-    Q_DECLARE_PRIVATE(QtMaterialTextField)
+    Q_DISABLE_COPY(TextField)
+    Q_DECLARE_PRIVATE(TextField)
 };
-
+}
 #endif // QTMATERIALTEXTFIELD_H
