@@ -2,26 +2,28 @@
 #define DRAWER_P_H
 
 #include <QObject>
-
-class QtMaterialDrawer;
-class QtMaterialDrawerWidget;
-class QtMaterialDrawerStateMachine;
-
-class QtMaterialDrawerPrivate
+namespace md
 {
-    Q_DISABLE_COPY(QtMaterialDrawerPrivate)
-    Q_DECLARE_PUBLIC(QtMaterialDrawer)
+
+class Drawer;
+class DrawerWidget;
+class DrawerStateMachine;
+
+class DrawerPrivate
+{
+    Q_DISABLE_COPY(DrawerPrivate)
+    Q_DECLARE_PUBLIC(Drawer)
 
 public:
-    QtMaterialDrawerPrivate(QtMaterialDrawer *q);
-    ~QtMaterialDrawerPrivate();
+    DrawerPrivate(Drawer *q);
+    ~DrawerPrivate();
 
     void init();
     void setClosed(bool value = true);
 
-    QtMaterialDrawer             *const q_ptr;
-    QtMaterialDrawerWidget       *widget;
-    QtMaterialDrawerStateMachine *stateMachine;
+    Drawer             *const q_ptr;
+    DrawerWidget       *widget;
+    DrawerStateMachine *stateMachine;
     QWidget                      *window;
     int                           width;
     bool                          clickToClose;
@@ -29,5 +31,5 @@ public:
     bool                          closed;
     bool                          overlay;
 };
-
+}
 #endif // DRAWER_P_H

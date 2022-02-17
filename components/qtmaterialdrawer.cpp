@@ -9,6 +9,8 @@
 #include <QLinearGradient>
 #include <QtWidgets/QVBoxLayout>
 #include "qtmaterialdrawer_internal.h"
+namespace md
+{
 
 /*!
  *  \class QtMaterialDrawerPrivate
@@ -18,7 +20,7 @@
 /*!
  *  \internal
  */
-QtMaterialDrawerPrivate::QtMaterialDrawerPrivate(QtMaterialDrawer *q)
+DrawerPrivate::DrawerPrivate(Drawer *q)
     : q_ptr(q)
 {
 }
@@ -26,19 +28,19 @@ QtMaterialDrawerPrivate::QtMaterialDrawerPrivate(QtMaterialDrawer *q)
 /*!
  *  \internal
  */
-QtMaterialDrawerPrivate::~QtMaterialDrawerPrivate()
+DrawerPrivate::~DrawerPrivate()
 {
 }
 
 /*!
  *  \internal
  */
-void QtMaterialDrawerPrivate::init()
+void DrawerPrivate::init()
 {
-    Q_Q(QtMaterialDrawer);
+    Q_Q(Drawer);
 
-    widget       = new QtMaterialDrawerWidget;
-    stateMachine = new QtMaterialDrawerStateMachine(widget, q);
+    widget       = new DrawerWidget;
+    stateMachine = new DrawerStateMachine(widget, q);
     window       = new QWidget;
     width        = 250;
     clickToClose = false;
@@ -62,93 +64,93 @@ void QtMaterialDrawerPrivate::init()
  *  \class QtMaterialDrawer
  */
 
-QtMaterialDrawer::QtMaterialDrawer(QWidget *parent)
-    : QtMaterialOverlayWidget(parent),
-      d_ptr(new QtMaterialDrawerPrivate(this))
+Drawer::Drawer(QWidget *parent)
+    : OverlayWidget(parent),
+      d_ptr(new DrawerPrivate(this))
 {
     d_func()->init();
 }
 
-QtMaterialDrawer::~QtMaterialDrawer()
+Drawer::~Drawer()
 {
 }
 
-void QtMaterialDrawer::setDrawerWidth(int width)
+void Drawer::setDrawerWidth(int width)
 {
-    Q_D(QtMaterialDrawer);
+    Q_D(Drawer);
 
     d->width = width;
     d->stateMachine->updatePropertyAssignments();
     d->widget->setFixedWidth(width+16);
 }
 
-int QtMaterialDrawer::drawerWidth() const
+int Drawer::drawerWidth() const
 {
-    Q_D(const QtMaterialDrawer);
+    Q_D(const Drawer);
 
     return d->width;
 }
 
-void QtMaterialDrawer::setDrawerLayout(QLayout *layout)
+void Drawer::setDrawerLayout(QLayout *layout)
 {
-    Q_D(QtMaterialDrawer);
+    Q_D(Drawer);
 
     d->window->setLayout(layout);
 }
 
-QLayout *QtMaterialDrawer::drawerLayout() const
+QLayout *Drawer::drawerLayout() const
 {
-    Q_D(const QtMaterialDrawer);
+    Q_D(const Drawer);
 
     return d->window->layout();
 }
 
-void QtMaterialDrawer::setClickOutsideToClose(bool state)
+void Drawer::setClickOutsideToClose(bool state)
 {
-    Q_D(QtMaterialDrawer);
+    Q_D(Drawer);
 
     d->clickToClose = state;
 }
 
-bool QtMaterialDrawer::clickOutsideToClose() const
+bool Drawer::clickOutsideToClose() const
 {
-    Q_D(const QtMaterialDrawer);
+    Q_D(const Drawer);
 
     return d->clickToClose;
 }
 
-void QtMaterialDrawer::setAutoRaise(bool state)
+void Drawer::setAutoRaise(bool state)
 {
-    Q_D(QtMaterialDrawer);
+    Q_D(Drawer);
 
     d->autoRaise = state;
 }
 
-bool QtMaterialDrawer::autoRaise() const
+bool Drawer::autoRaise() const
 {
-    Q_D(const QtMaterialDrawer);
+    Q_D(const Drawer);
 
     return d->autoRaise;
 }
 
-void QtMaterialDrawer::setOverlayMode(bool value)
+void Drawer::setOverlayMode(bool value)
 {
-    Q_D(QtMaterialDrawer);
+    Q_D(Drawer);
 
     d->overlay = value;
     update();
 }
 
-bool QtMaterialDrawer::overlayMode() const
+bool Drawer::overlayMode() const
 {
-    Q_D(const QtMaterialDrawer);
+    Q_D(const Drawer);
 
     return d->overlay;
 }
 
-void QtMaterialDrawer::openDrawer()
+void Drawer::openDrawer()
 {
-    Q_D(QtMaterialDrawer);
+    Q_D(Drawer);
 
     emit d->stateMachine->signalOpen();
 
@@ -159,9 +161,9 @@ void QtMaterialDrawer::openDrawer()
     setAttribute(Qt::WA_NoSystemBackground, false);
 }
 
-void QtMaterialDrawer::closeDrawer()
+void Drawer::closeDrawer()
 {
-    Q_D(QtMaterialDrawer);
+    Q_D(Drawer);
 
     emit d->stateMachine->signalClose();
 
@@ -171,9 +173,9 @@ void QtMaterialDrawer::closeDrawer()
     }
 }
 
-bool QtMaterialDrawer::event(QEvent *event)
+bool Drawer::event(QEvent *event)
 {
-    Q_D(QtMaterialDrawer);
+    Q_D(Drawer);
 
     switch (event->type())
     {
@@ -186,12 +188,12 @@ bool QtMaterialDrawer::event(QEvent *event)
     default:
         break;
     }
-    return QtMaterialOverlayWidget::event(event);
+    return OverlayWidget::event(event);
 }
 
-bool QtMaterialDrawer::eventFilter(QObject *obj, QEvent *event)
+bool Drawer::eventFilter(QObject *obj, QEvent *event)
 {
-    Q_D(QtMaterialDrawer);
+    Q_D(Drawer);
 
     switch (event->type())
     {
@@ -216,14 +218,14 @@ bool QtMaterialDrawer::eventFilter(QObject *obj, QEvent *event)
     default:
         break;
     }
-    return QtMaterialOverlayWidget::eventFilter(obj, event);
+    return OverlayWidget::eventFilter(obj, event);
 }
 
-void QtMaterialDrawer::paintEvent(QPaintEvent *event)
+void Drawer::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
-    Q_D(QtMaterialDrawer);
+    Q_D(Drawer);
 
     if (!d->overlay || d->stateMachine->isInClosedState()) {
         return;
@@ -231,4 +233,6 @@ void QtMaterialDrawer::paintEvent(QPaintEvent *event)
     QPainter painter(this);
     painter.setOpacity(d->stateMachine->opacity());
     painter.fillRect(rect(), Qt::SolidPattern);
+}
+
 }

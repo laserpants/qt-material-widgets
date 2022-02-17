@@ -4,19 +4,22 @@
 #include <QStateMachine>
 #include "lib/qtmaterialoverlaywidget.h"
 
-class QtMaterialDrawer;
-class QtMaterialDrawerWidget;
+namespace md
+{
 
-class QtMaterialDrawerStateMachine : public QStateMachine
+class Drawer;
+class DrawerWidget;
+
+class DrawerStateMachine : public QStateMachine
 {
     Q_OBJECT
 
     Q_PROPERTY(qreal opacity WRITE setOpacity READ opacity)
 
 public:
-    explicit QtMaterialDrawerStateMachine(QtMaterialDrawerWidget *drawer,
-                                          QtMaterialDrawer *parent);
-    ~QtMaterialDrawerStateMachine();
+    explicit DrawerStateMachine(DrawerWidget *drawer,
+                                          Drawer *parent);
+    ~DrawerStateMachine();
 
     void setOpacity(qreal opacity);
     inline qreal opacity() const;
@@ -30,10 +33,10 @@ signals:
     void signalClose();
 
 private:
-    Q_DISABLE_COPY(QtMaterialDrawerStateMachine)
+    Q_DISABLE_COPY(DrawerStateMachine)
 
-    QtMaterialDrawerWidget *const m_drawer;
-    QtMaterialDrawer       *const m_main;
+    DrawerWidget *const m_drawer;
+    Drawer       *const m_main;
     QState                 *const m_openingState;
     QState                 *const m_openedState;
     QState                 *const m_closingState;
@@ -41,20 +44,20 @@ private:
     qreal                         m_opacity;
 };
 
-inline qreal QtMaterialDrawerStateMachine::opacity() const
+inline qreal DrawerStateMachine::opacity() const
 {
     return m_opacity;
 }
 
-class QtMaterialDrawerWidget : public QtMaterialOverlayWidget
+class DrawerWidget : public OverlayWidget
 {
     Q_OBJECT
 
     Q_PROPERTY(int offset WRITE setOffset READ offset)
 
 public:
-    explicit QtMaterialDrawerWidget(QWidget *parent = 0);
-    ~QtMaterialDrawerWidget();
+    explicit DrawerWidget(QWidget *parent = 0);
+    ~DrawerWidget();
 
     void setOffset(int offset);
     inline int offset() const;
@@ -68,9 +71,9 @@ private:
     int  m_offset;
 };
 
-inline int QtMaterialDrawerWidget::offset() const
+inline int DrawerWidget::offset() const
 {
     return m_offset;
 }
-
+}
 #endif // DRAWER_INTERNAL_H

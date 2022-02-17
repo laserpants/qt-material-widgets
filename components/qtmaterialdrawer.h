@@ -2,17 +2,19 @@
 #define QTMATERIALDRAWER_H
 
 #include "lib/qtmaterialoverlaywidget.h"
+namespace md
+{
 
-class QtMaterialDrawerPrivate;
-class QtMaterialDrawerStateMachine;
+class DrawerPrivate;
+class DrawerStateMachine;
 
-class QtMaterialDrawer : public QtMaterialOverlayWidget
+class Drawer : public OverlayWidget
 {
     Q_OBJECT
 
 public:
-    explicit QtMaterialDrawer(QWidget *parent = 0);
-    ~QtMaterialDrawer();
+    explicit Drawer(QWidget *parent = 0);
+    ~Drawer();
 
     void setDrawerWidth(int width);
     int drawerWidth() const;
@@ -38,11 +40,11 @@ protected:
     bool eventFilter(QObject *obj, QEvent *event) Q_DECL_OVERRIDE;
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
-    const QScopedPointer<QtMaterialDrawerPrivate> d_ptr;
+    const QScopedPointer<DrawerPrivate> d_ptr;
 
 private:
-    Q_DISABLE_COPY(QtMaterialDrawer)
-    Q_DECLARE_PRIVATE(QtMaterialDrawer)
+    Q_DISABLE_COPY(Drawer)
+    Q_DECLARE_PRIVATE(Drawer)
 };
-
+}
 #endif // QTMATERIALDRAWER_H
