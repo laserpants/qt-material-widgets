@@ -4,10 +4,12 @@
 #include <QStateMachine>
 #include <QColor>
 
-class QtMaterialFlatButton;
+namespace md
+{
+class FlatButton;
 class QSequentialAnimationGroup;
 
-class QtMaterialFlatButtonStateMachine : public QStateMachine
+class FlatButtonStateMachine : public QStateMachine
 {
     Q_OBJECT
 
@@ -18,8 +20,8 @@ class QtMaterialFlatButtonStateMachine : public QStateMachine
     Q_PROPERTY(qreal haloScaleFactor WRITE setHaloScaleFactor READ haloScaleFactor)
 
 public:
-    explicit QtMaterialFlatButtonStateMachine(QtMaterialFlatButton *parent);
-    ~QtMaterialFlatButtonStateMachine();
+    explicit FlatButtonStateMachine(FlatButton *parent);
+    ~FlatButtonStateMachine();
 
     void setOverlayOpacity(qreal opacity);
     inline qreal overlayOpacity() const;
@@ -49,12 +51,12 @@ protected:
     bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
 
 private:
-    Q_DISABLE_COPY(QtMaterialFlatButtonStateMachine)
+    Q_DISABLE_COPY(FlatButtonStateMachine)
 
     void addTransition(QObject *object, QEvent::Type eventType, QState *fromState, QState *toState);
     void addTransition(QAbstractTransition *transition, QState *fromState, QState *toState);
 
-    QtMaterialFlatButton *const m_button;
+    FlatButton *const m_button;
     QState               *const m_topLevelState;
     QState               *const m_configState;
     QState               *const m_checkableState;
@@ -75,29 +77,30 @@ private:
     bool                        m_wasChecked;
 };
 
-inline qreal QtMaterialFlatButtonStateMachine::overlayOpacity() const
+inline qreal FlatButtonStateMachine::overlayOpacity() const
 {
     return m_overlayOpacity;
 }
 
-inline qreal QtMaterialFlatButtonStateMachine::checkedOverlayProgress() const
+inline qreal FlatButtonStateMachine::checkedOverlayProgress() const
 {
     return m_checkedOverlayProgress;
 }
 
-inline qreal QtMaterialFlatButtonStateMachine::haloOpacity() const
+inline qreal FlatButtonStateMachine::haloOpacity() const
 {
     return m_haloOpacity;
 }
 
-inline qreal QtMaterialFlatButtonStateMachine::haloSize() const
+inline qreal FlatButtonStateMachine::haloSize() const
 {
     return m_haloSize;
 }
 
-inline qreal QtMaterialFlatButtonStateMachine::haloScaleFactor() const
+inline qreal FlatButtonStateMachine::haloScaleFactor() const
 {
     return m_haloScaleFactor;
+}
 }
 
 #endif // QTMATERIALFLATBUTTON_INTERNAL_H

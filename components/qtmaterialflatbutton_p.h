@@ -5,24 +5,26 @@
 #include <QColor>
 #include "lib/qtmaterialtheme.h"
 
-class QtMaterialFlatButton;
-class QtMaterialRippleOverlay;
-class QtMaterialFlatButtonStateMachine;
-
-class QtMaterialFlatButtonPrivate
+namespace md
 {
-    Q_DISABLE_COPY(QtMaterialFlatButtonPrivate)
-    Q_DECLARE_PUBLIC(QtMaterialFlatButton)
+class FlatButton;
+class RippleOverlay;
+class FlatButtonStateMachine;
+
+class FlatButtonPrivate
+{
+    Q_DISABLE_COPY(FlatButtonPrivate)
+    Q_DECLARE_PUBLIC(FlatButton)
 
 public:
-    QtMaterialFlatButtonPrivate(QtMaterialFlatButton *q);
-    virtual ~QtMaterialFlatButtonPrivate();
+    FlatButtonPrivate(FlatButton *q);
+    virtual ~FlatButtonPrivate();
 
     void init();
 
-    QtMaterialFlatButton             *const q_ptr;
-    QtMaterialRippleOverlay          *rippleOverlay;
-    QtMaterialFlatButtonStateMachine *stateMachine;
+    FlatButton             *const q_ptr;
+    RippleOverlay          *rippleOverlay;
+    FlatButtonStateMachine *stateMachine;
     Material::Role                    role;
     Material::RippleStyle             rippleStyle;
     Material::ButtonIconPlacement     iconPlacement;
@@ -42,5 +44,6 @@ public:
     bool                              useFixedRippleRadius;
     bool                              haloVisible;
 };
+}
 
 #endif // QTMATERIALFLATBUTTON_P_H

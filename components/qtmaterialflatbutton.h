@@ -5,9 +5,11 @@
 #include <QScopedPointer>
 #include "lib/qtmaterialtheme.h"
 
-class QtMaterialFlatButtonPrivate;
+namespace md {
 
-class QtMaterialFlatButton : public QPushButton
+class FlatButtonPrivate;
+
+class FlatButton : public QPushButton
 {
     Q_OBJECT
 
@@ -19,10 +21,10 @@ class QtMaterialFlatButton : public QPushButton
     Q_PROPERTY(qreal fontSize WRITE setFontSize READ fontSize)
 
 public:
-    explicit QtMaterialFlatButton(QWidget *parent = 0, Material::ButtonPreset preset = Material::FlatPreset);
-    explicit QtMaterialFlatButton(const QString &text, QWidget *parent = 0, Material::ButtonPreset preset = Material::FlatPreset);
-    QtMaterialFlatButton(const QString &text, Material::Role role, QWidget *parent = 0, Material::ButtonPreset preset = Material::FlatPreset);
-    ~QtMaterialFlatButton();
+    explicit FlatButton(QWidget *parent = 0, Material::ButtonPreset preset = Material::FlatPreset);
+    explicit FlatButton(const QString &text, QWidget *parent = 0, Material::ButtonPreset preset = Material::FlatPreset);
+    FlatButton(const QString &text, Material::Role role, QWidget *parent = 0, Material::ButtonPreset preset = Material::FlatPreset);
+    ~FlatButton();
 
     void applyPreset(Material::ButtonPreset preset);
 
@@ -88,7 +90,7 @@ protected:
         IconPadding = 12
     };
 
-    QtMaterialFlatButton(QtMaterialFlatButtonPrivate &d, QWidget *parent = 0, Material::ButtonPreset preset = Material::FlatPreset);
+    FlatButton(FlatButtonPrivate &d, QWidget *parent = 0, Material::ButtonPreset preset = Material::FlatPreset);
 
     void checkStateSet() Q_DECL_OVERRIDE;
     void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
@@ -102,11 +104,13 @@ protected:
 
     virtual void updateClipPath();
 
-    const QScopedPointer<QtMaterialFlatButtonPrivate> d_ptr;
+    const QScopedPointer<FlatButtonPrivate> d_ptr;
 
 private:
-    Q_DISABLE_COPY(QtMaterialFlatButton)
-    Q_DECLARE_PRIVATE(QtMaterialFlatButton)
+    Q_DISABLE_COPY(FlatButton)
+    Q_DECLARE_PRIVATE(FlatButton)
 };
+
+}
 
 #endif // QTMATERIALFLATBUTTON_H

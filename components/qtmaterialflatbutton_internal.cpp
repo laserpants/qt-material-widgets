@@ -6,12 +6,14 @@
 #include "qtmaterialflatbutton.h"
 #include "lib/qtmaterialstatetransition.h"
 
+namespace md
+{
 /*!
  *  \class QtMaterialFlatButtonStateMachine
  *  \internal
  */
 
-QtMaterialFlatButtonStateMachine::QtMaterialFlatButtonStateMachine(QtMaterialFlatButton *parent)
+FlatButtonStateMachine::FlatButtonStateMachine(FlatButton *parent)
     : QStateMachine(parent),
       m_button(parent),
       m_topLevelState(new QState(QState::ParallelStates)),
@@ -105,47 +107,47 @@ QtMaterialFlatButtonStateMachine::QtMaterialFlatButtonStateMachine(QtMaterialFla
     m_haloAnimation->setLoopCount(-1);
 }
 
-QtMaterialFlatButtonStateMachine::~QtMaterialFlatButtonStateMachine()
+FlatButtonStateMachine::~FlatButtonStateMachine()
 {
 }
 
-void QtMaterialFlatButtonStateMachine::setOverlayOpacity(qreal opacity)
+void FlatButtonStateMachine::setOverlayOpacity(qreal opacity)
 {
     m_overlayOpacity = opacity;
     m_button->update();
 }
 
-void QtMaterialFlatButtonStateMachine::setCheckedOverlayProgress(qreal progress)
+void FlatButtonStateMachine::setCheckedOverlayProgress(qreal progress)
 {
     m_checkedOverlayProgress = progress;
     m_button->update();
 }
 
-void QtMaterialFlatButtonStateMachine::setHaloOpacity(qreal opacity)
+void FlatButtonStateMachine::setHaloOpacity(qreal opacity)
 {
     m_haloOpacity = opacity;
     m_button->update();
 }
 
-void QtMaterialFlatButtonStateMachine::setHaloSize(qreal size)
+void FlatButtonStateMachine::setHaloSize(qreal size)
 {
     m_haloSize = size;
     m_button->update();
 }
 
-void QtMaterialFlatButtonStateMachine::setHaloScaleFactor(qreal factor)
+void FlatButtonStateMachine::setHaloScaleFactor(qreal factor)
 {
     m_haloScaleFactor = factor;
     m_button->update();
 }
 
-void QtMaterialFlatButtonStateMachine::startAnimations()
+void FlatButtonStateMachine::startAnimations()
 {
     m_haloAnimation->start();
     start();
 }
 
-void QtMaterialFlatButtonStateMachine::setupProperties()
+void FlatButtonStateMachine::setupProperties()
 {
     QColor overlayColor;
 
@@ -173,7 +175,7 @@ void QtMaterialFlatButtonStateMachine::setupProperties()
     m_button->update();
 }
 
-void QtMaterialFlatButtonStateMachine::updateCheckedStatus()
+void FlatButtonStateMachine::updateCheckedStatus()
 {
     const bool checked = m_button->isChecked();
     if (m_wasChecked != checked) {
@@ -186,7 +188,7 @@ void QtMaterialFlatButtonStateMachine::updateCheckedStatus()
     }
 }
 
-bool QtMaterialFlatButtonStateMachine::eventFilter(QObject *watched,
+bool FlatButtonStateMachine::eventFilter(QObject *watched,
                                                    QEvent  *event)
 {
     if (QEvent::FocusIn == event->type()) {
@@ -199,7 +201,7 @@ bool QtMaterialFlatButtonStateMachine::eventFilter(QObject *watched,
     return QStateMachine::eventFilter(watched, event);
 }
 
-void QtMaterialFlatButtonStateMachine::addTransition(QObject *object,
+void FlatButtonStateMachine::addTransition(QObject *object,
                                                      QEvent::Type eventType,
                                                      QState *fromState,
                                                      QState *toState)
@@ -207,7 +209,7 @@ void QtMaterialFlatButtonStateMachine::addTransition(QObject *object,
     addTransition(new QEventTransition(object, eventType), fromState, toState);
 }
 
-void QtMaterialFlatButtonStateMachine::addTransition(QAbstractTransition *transition,
+void FlatButtonStateMachine::addTransition(QAbstractTransition *transition,
                                                      QState *fromState,
                                                      QState *toState)
 {
@@ -229,4 +231,6 @@ void QtMaterialFlatButtonStateMachine::addTransition(QAbstractTransition *transi
     transition->addAnimation(animation);
 
     fromState->addTransition(transition);
+}
+
 }
