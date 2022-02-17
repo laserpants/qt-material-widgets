@@ -56,7 +56,7 @@ void FlatButtonPrivate::init()
     useFixedRippleRadius = false;
     haloVisible          = true;
 
-    q->setStyle(&QtMaterialStyle::instance());
+    q->setStyle(&Style::instance());
     q->setAttribute(Qt::WA_Hover);
     q->setMouseTracking(true);
 
@@ -177,17 +177,17 @@ QColor FlatButton::foregroundColor() const
     if (d->useThemeColors || !d->foregroundColor.isValid())
     {
         if (Qt::OpaqueMode == d->bgMode) {
-            return QtMaterialStyle::instance().themeColor("canvas");
+            return Style::instance().themeColor("canvas");
         }
         switch (d->role)
         {
         case Material::Primary:
-            return QtMaterialStyle::instance().themeColor("primary1");
+            return Style::instance().themeColor("primary1");
         case Material::Secondary:
-            return QtMaterialStyle::instance().themeColor("accent1");
+            return Style::instance().themeColor("accent1");
         case Material::Default:
         default:
-            return QtMaterialStyle::instance().themeColor("text");
+            return Style::instance().themeColor("text");
         }
     }
     return d->foregroundColor;
@@ -212,12 +212,12 @@ QColor FlatButton::backgroundColor() const
         switch (d->role)
         {
         case Material::Primary:
-            return QtMaterialStyle::instance().themeColor("primary1");
+            return Style::instance().themeColor("primary1");
         case Material::Secondary:
-            return QtMaterialStyle::instance().themeColor("accent1");
+            return Style::instance().themeColor("accent1");
         case Material::Default:
         default:
-            return QtMaterialStyle::instance().themeColor("text");
+            return Style::instance().themeColor("text");
         }
     }
     return d->backgroundColor;
@@ -260,7 +260,7 @@ QColor FlatButton::disabledForegroundColor() const
     Q_D(const FlatButton);
 
     if (d->useThemeColors || !d->disabledColor.isValid()) {
-        return QtMaterialStyle::instance().themeColor("disabled");
+        return Style::instance().themeColor("disabled");
     } else {
         return d->disabledColor;
     }
@@ -281,7 +281,7 @@ QColor FlatButton::disabledBackgroundColor() const
     Q_D(const FlatButton);
 
     if (d->useThemeColors || !d->disabledBackgroundColor.isValid()) {
-        return QtMaterialStyle::instance().themeColor("disabled3");
+        return Style::instance().themeColor("disabled3");
     } else {
         return d->disabledBackgroundColor;
     }
@@ -520,7 +520,7 @@ void FlatButton::mousePressEvent(QMouseEvent *event)
             radiusEndValue = static_cast<qreal>(width())/2;
         }
 
-        QtMaterialRipple *ripple = new QtMaterialRipple(pos);
+        Ripple *ripple = new Ripple(pos);
 
         ripple->setRadiusEndValue(radiusEndValue);
         ripple->setOpacityStartValue(0.35);

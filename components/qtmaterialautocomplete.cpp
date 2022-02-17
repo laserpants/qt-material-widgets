@@ -113,7 +113,7 @@ void AutoComplete::updateResults(QString text)
 
     if (diff > 0) {
         for (int c = 0; c < diff; c++) {
-            QtMaterialFlatButton *item = new QtMaterialFlatButton;
+            FlatButton *item = new FlatButton;
             item->setFont(font);
             item->setTextAlignment(Qt::AlignLeft);
             item->setCornerRadius(0);
@@ -138,8 +138,8 @@ void AutoComplete::updateResults(QString text)
 
     for (int i = 0; i < results.count(); ++i) {
         QWidget *widget = d->menuLayout->itemAt(i)->widget();
-        QtMaterialFlatButton *item;
-        if ((item = static_cast<QtMaterialFlatButton *>(widget))) {
+        FlatButton *item;
+        if ((item = static_cast<FlatButton *>(widget))) {
             QString text = results.at(i);
             QRect rect = fm->boundingRect(text);
             d->maxWidth = qMax(d->maxWidth, rect.width());
@@ -228,8 +228,8 @@ bool AutoComplete::eventFilter(QObject *watched, QEvent *event)
         {
         case QEvent::MouseButtonPress: {
             emit d->stateMachine->shouldFade();
-            QtMaterialFlatButton *widget;
-            if ((widget = static_cast<QtMaterialFlatButton *>(watched))) {
+            FlatButton *widget;
+            if ((widget = static_cast<FlatButton *>(watched))) {
                 QString text(widget->text());
                 setText(text);
                 emit itemSelected(text);

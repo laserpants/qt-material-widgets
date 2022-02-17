@@ -44,10 +44,10 @@ FlatButtonStateMachine::FlatButtonStateMachine(FlatButton *parent)
 
     m_checkableState->setInitialState(parent->isChecked() ? m_checkedState
                                                           : m_uncheckedState);
-    QtMaterialStateTransition *transition;
+    StateTransition *transition;
     QPropertyAnimation *animation;
 
-    transition = new QtMaterialStateTransition(FlatButtonCheckedTransition);
+    transition = new StateTransition(FlatButtonCheckedTransition);
     transition->setTargetState(m_checkedState);
     m_uncheckedState->addTransition(transition);
 
@@ -55,7 +55,7 @@ FlatButtonStateMachine::FlatButtonStateMachine(FlatButton *parent)
     animation->setDuration(200);
     transition->addAnimation(animation);
 
-    transition = new QtMaterialStateTransition(FlatButtonUncheckedTransition);
+    transition = new StateTransition(FlatButtonUncheckedTransition);
     transition->setTargetState(m_uncheckedState);
     m_checkedState->addTransition(transition);
 
@@ -72,7 +72,7 @@ FlatButtonStateMachine::FlatButtonStateMachine(FlatButton *parent)
     addTransition(m_button, QEvent::FocusIn, m_hoveredState, m_hoveredFocusedState);
     addTransition(m_button, QEvent::FocusOut, m_hoveredFocusedState, m_hoveredState);
 
-    transition = new QtMaterialStateTransition(FlatButtonPressedTransition);
+    transition = new StateTransition(FlatButtonPressedTransition);
     transition->setTargetState(m_pressedState);
     m_hoveredState->addTransition(transition);
 
@@ -181,9 +181,9 @@ void FlatButtonStateMachine::updateCheckedStatus()
     if (m_wasChecked != checked) {
         m_wasChecked = checked;
         if (checked) {
-            postEvent(new QtMaterialStateTransitionEvent(FlatButtonCheckedTransition));
+            postEvent(new StateTransitionEvent(FlatButtonCheckedTransition));
         } else {
-            postEvent(new QtMaterialStateTransitionEvent(FlatButtonUncheckedTransition));
+            postEvent(new StateTransitionEvent(FlatButtonUncheckedTransition));
         }
     }
 }
@@ -194,7 +194,7 @@ bool FlatButtonStateMachine::eventFilter(QObject *watched,
     if (QEvent::FocusIn == event->type()) {
         QFocusEvent *focusEvent = static_cast<QFocusEvent *>(event);
         if (focusEvent && Qt::MouseFocusReason == focusEvent->reason()) {
-            postEvent(new QtMaterialStateTransitionEvent(FlatButtonPressedTransition));
+            postEvent(new StateTransitionEvent(FlatButtonPressedTransition));
             return true;
         }
     }

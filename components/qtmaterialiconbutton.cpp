@@ -30,7 +30,7 @@ void IconButtonPrivate::init()
 
     rippleOverlay->installEventFilter(q);
 
-    q->setStyle(&QtMaterialStyle::instance());
+    q->setStyle(&Style::instance());
 
     QSizePolicy policy;
     policy.setWidthForHeight(true);
@@ -106,7 +106,7 @@ QColor IconButton::color() const
     Q_D(const IconButton);
 
     if (d->useThemeColors || !d->color.isValid()) {
-        return QtMaterialStyle::instance().themeColor("text");
+        return Style::instance().themeColor("text");
     }
     return d->color;
 }
@@ -126,7 +126,7 @@ QColor IconButton::disabledColor() const
     Q_D(const IconButton);
 
     if (d->useThemeColors || !d->disabledColor.isValid()) {
-        return QtMaterialStyle::instance().themeColor("disabled");
+        return Style::instance().themeColor("disabled");
     }
     return d->disabledColor;
 }
