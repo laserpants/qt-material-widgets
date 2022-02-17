@@ -3,13 +3,16 @@
 
 #include <QtWidgets/QWidget>
 
-class QtMaterialMenu : public QWidget
+namespace md
+{
+class Menu : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit QtMaterialMenu(QWidget *parent = 0);
-    ~QtMaterialMenu();
+    explicit Menu(QWidget *parent = 0);
+    ~Menu();
 };
+}
 
 #endif // QTMATERIALMENU_H
