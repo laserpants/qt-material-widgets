@@ -2,10 +2,12 @@
 #define QTMATERIALBADGE_H
 
 #include "lib/qtmaterialoverlaywidget.h"
+namespace md
+{
 
-class QtMaterialBadgePrivate;
+class BadgePrivate;
 
-class QtMaterialBadge : public QtMaterialOverlayWidget
+class Badge : public OverlayWidget
 {
     Q_OBJECT
 
@@ -14,10 +16,10 @@ class QtMaterialBadge : public QtMaterialOverlayWidget
     Q_PROPERTY(QPointF relativePosition WRITE setRelativePosition READ relativePosition)
 
 public:
-    explicit QtMaterialBadge(QWidget *parent = 0);
-    explicit QtMaterialBadge(const QIcon &icon, QWidget *parent = 0);
-    explicit QtMaterialBadge(const QString &text, QWidget *parent = 0);
-    ~QtMaterialBadge();
+    explicit Badge(QWidget *parent = 0);
+    explicit Badge(const QIcon &icon, QWidget *parent = 0);
+    explicit Badge(const QString &text, QWidget *parent = 0);
+    ~Badge();
 
     void setUseThemeColors(bool value);
     bool useThemeColors() const;
@@ -51,11 +53,13 @@ protected:
 
     int getDiameter() const;
 
-    const QScopedPointer<QtMaterialBadgePrivate> d_ptr;
+    const QScopedPointer<BadgePrivate> d_ptr;
 
 private:
-    Q_DISABLE_COPY(QtMaterialBadge)
-    Q_DECLARE_PRIVATE(QtMaterialBadge)
+    Q_DISABLE_COPY(Badge)
+    Q_DECLARE_PRIVATE(Badge)
 };
+
+}
 
 #endif // QTMATERIALBADGE_H

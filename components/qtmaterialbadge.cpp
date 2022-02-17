@@ -3,6 +3,9 @@
 #include <QPainter>
 #include "lib/qtmaterialstyle.h"
 
+namespace md
+{
+
 /*!
  *  \class QtMaterialBadgePrivate
  *  \internal
@@ -11,7 +14,7 @@
 /*!
  *  \internal
  */
-QtMaterialBadgePrivate::QtMaterialBadgePrivate(QtMaterialBadge *q)
+BadgePrivate::BadgePrivate(Badge *q)
     : q_ptr(q)
 {
 }
@@ -19,16 +22,16 @@ QtMaterialBadgePrivate::QtMaterialBadgePrivate(QtMaterialBadge *q)
 /*!
  *  \internal
  */
-QtMaterialBadgePrivate::~QtMaterialBadgePrivate()
+BadgePrivate::~BadgePrivate()
 {
 }
 
 /*!
  *  \internal
  */
-void QtMaterialBadgePrivate::init()
+void BadgePrivate::init()
 {
-    Q_Q(QtMaterialBadge);
+    Q_Q(Badge);
 
     x              = 0;
     y              = 0;
@@ -49,38 +52,38 @@ void QtMaterialBadgePrivate::init()
  *  \class QtMaterialBadge
  */
 
-QtMaterialBadge::QtMaterialBadge(QWidget *parent)
-    : QtMaterialOverlayWidget(parent),
-      d_ptr(new QtMaterialBadgePrivate(this))
+Badge::Badge(QWidget *parent)
+    : OverlayWidget(parent),
+      d_ptr(new BadgePrivate(this))
 {
     d_func()->init();
 }
 
-QtMaterialBadge::QtMaterialBadge(const QIcon &icon, QWidget *parent)
-    : QtMaterialOverlayWidget(parent),
-      d_ptr(new QtMaterialBadgePrivate(this))
+Badge::Badge(const QIcon &icon, QWidget *parent)
+    : OverlayWidget(parent),
+      d_ptr(new BadgePrivate(this))
 {
     d_func()->init();
 
     setIcon(icon);
 }
 
-QtMaterialBadge::QtMaterialBadge(const QString &text, QWidget *parent)
-    : QtMaterialOverlayWidget(parent),
-      d_ptr(new QtMaterialBadgePrivate(this))
+Badge::Badge(const QString &text, QWidget *parent)
+    : OverlayWidget(parent),
+      d_ptr(new BadgePrivate(this))
 {
     d_func()->init();
 
     setText(text);
 }
 
-QtMaterialBadge::~QtMaterialBadge()
+Badge::~Badge()
 {
 }
 
-void QtMaterialBadge::setUseThemeColors(bool value)
+void Badge::setUseThemeColors(bool value)
 {
-    Q_D(QtMaterialBadge);
+    Q_D(Badge);
 
     if (d->useThemeColors == value) {
         return;
@@ -90,16 +93,16 @@ void QtMaterialBadge::setUseThemeColors(bool value)
     update();
 }
 
-bool QtMaterialBadge::useThemeColors() const
+bool Badge::useThemeColors() const
 {
-    Q_D(const QtMaterialBadge);
+    Q_D(const Badge);
 
     return d->useThemeColors;
 }
 
-void QtMaterialBadge::setTextColor(const QColor &color)
+void Badge::setTextColor(const QColor &color)
 {
-    Q_D(QtMaterialBadge);
+    Q_D(Badge);
 
     d->textColor = color;
 
@@ -107,20 +110,20 @@ void QtMaterialBadge::setTextColor(const QColor &color)
     update();
 }
 
-QColor QtMaterialBadge::textColor() const
+QColor Badge::textColor() const
 {
-    Q_D(const QtMaterialBadge);
+    Q_D(const Badge);
 
     if (d->useThemeColors || !d->textColor.isValid()) {
-        return QtMaterialStyle::instance().themeColor("canvas");
+        return Style::instance().themeColor("canvas");
     } else {
         return d->textColor;
     }
 }
 
-void QtMaterialBadge::setBackgroundColor(const QColor &color)
+void Badge::setBackgroundColor(const QColor &color)
 {
-    Q_D(QtMaterialBadge);
+    Q_D(Badge);
 
     d->backgroundColor = color;
 
@@ -128,64 +131,64 @@ void QtMaterialBadge::setBackgroundColor(const QColor &color)
     update();
 }
 
-QColor QtMaterialBadge::backgroundColor() const
+QColor Badge::backgroundColor() const
 {
-    Q_D(const QtMaterialBadge);
+    Q_D(const Badge);
 
     if (d->useThemeColors || !d->backgroundColor.isValid()) {
-        return QtMaterialStyle::instance().themeColor("accent1");
+        return Style::instance().themeColor("accent1");
     } else {
         return d->backgroundColor;
     }
 }
 
-void QtMaterialBadge::setRelativePosition(const QPointF &pos)
+void Badge::setRelativePosition(const QPointF &pos)
 {
     setRelativePosition(pos.x(), pos.y());
 }
 
-void QtMaterialBadge::setRelativePosition(qreal x, qreal y)
+void Badge::setRelativePosition(qreal x, qreal y)
 {
-    Q_D(QtMaterialBadge);
+    Q_D(Badge);
 
     d->x = x;
     d->y = y;
     update();
 }
 
-QPointF QtMaterialBadge::relativePosition() const
+QPointF Badge::relativePosition() const
 {
-    Q_D(const QtMaterialBadge);
+    Q_D(const Badge);
 
     return QPointF(d->x, d->y);
 }
 
-void QtMaterialBadge::setRelativeXPosition(qreal x)
+void Badge::setRelativeXPosition(qreal x)
 {
-    Q_D(QtMaterialBadge);
+    Q_D(Badge);
 
     d->x = x;
     update();
 }
 
-qreal QtMaterialBadge::relativeXPosition() const
+qreal Badge::relativeXPosition() const
 {
-    Q_D(const QtMaterialBadge);
+    Q_D(const Badge);
 
     return d->x;
 }
 
-void QtMaterialBadge::setRelativeYPosition(qreal y)
+void Badge::setRelativeYPosition(qreal y)
 {
-    Q_D(QtMaterialBadge);
+    Q_D(Badge);
 
     d->y = y;
     update();
 }
 
-qreal QtMaterialBadge::relativeYPosition() const
+qreal Badge::relativeYPosition() const
 {
-    Q_D(const QtMaterialBadge);
+    Q_D(const Badge);
 
     return d->y;
 }
@@ -193,30 +196,30 @@ qreal QtMaterialBadge::relativeYPosition() const
 /*!
  *  \reimp
  */
-QSize QtMaterialBadge::sizeHint() const
+QSize Badge::sizeHint() const
 {
     const int s = getDiameter();
     return QSize(s+4, s+4);
 }
 
-void QtMaterialBadge::setIcon(const QIcon &icon)
+void Badge::setIcon(const QIcon &icon)
 {
-    Q_D(QtMaterialBadge);
+    Q_D(Badge);
 
     d->icon = icon;
     update();
 }
 
-QIcon QtMaterialBadge::icon() const
+QIcon Badge::icon() const
 {
-    Q_D(const QtMaterialBadge);
+    Q_D(const Badge);
 
     return d->icon;
 }
 
-void QtMaterialBadge::setText(const QString &text)
+void Badge::setText(const QString &text)
 {
-    Q_D(QtMaterialBadge);
+    Q_D(Badge);
 
     d->text = text;
 
@@ -229,9 +232,9 @@ void QtMaterialBadge::setText(const QString &text)
     update();
 }
 
-QString QtMaterialBadge::text() const
+QString Badge::text() const
 {
-    Q_D(const QtMaterialBadge);
+    Q_D(const Badge);
 
     return d->text;
 }
@@ -239,11 +242,11 @@ QString QtMaterialBadge::text() const
 /*!
  *  \reimp
  */
-void QtMaterialBadge::paintEvent(QPaintEvent *event)
+void Badge::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
-    Q_D(QtMaterialBadge);
+    Q_D(Badge);
 
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
@@ -253,7 +256,7 @@ void QtMaterialBadge::paintEvent(QPaintEvent *event)
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(isEnabled() ? backgroundColor()
-                               : QtMaterialStyle::instance().themeColor("disabled"));
+                               : Style::instance().themeColor("disabled"));
     painter.setBrush(brush);
     painter.setPen(Qt::NoPen);
 
@@ -282,13 +285,15 @@ void QtMaterialBadge::paintEvent(QPaintEvent *event)
     }
 }
 
-int QtMaterialBadge::getDiameter() const
+int Badge::getDiameter() const
 {
-    Q_D(const QtMaterialBadge);
+    Q_D(const Badge);
 
     if (d->icon.isNull()) {
         return qMax(d->size.width(), d->size.height()) + d->padding;
     } else {
         return 24;
     }
+}
+
 }

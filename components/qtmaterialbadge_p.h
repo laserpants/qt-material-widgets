@@ -6,20 +6,22 @@
 #include <QIcon>
 #include <QColor>
 
-class QtMaterialBadge;
-
-class QtMaterialBadgePrivate
+namespace md
 {
-    Q_DISABLE_COPY(QtMaterialBadgePrivate)
-    Q_DECLARE_PUBLIC(QtMaterialBadge)
+class Badge;
+
+class BadgePrivate
+{
+    Q_DISABLE_COPY(BadgePrivate)
+    Q_DECLARE_PUBLIC(Badge)
 
 public:
-    QtMaterialBadgePrivate(QtMaterialBadge *q);
-    ~QtMaterialBadgePrivate();
+    BadgePrivate(Badge *q);
+    ~BadgePrivate();
 
     void init();
 
-    QtMaterialBadge *const q_ptr;
+    Badge *const q_ptr;
     QString                text;
     QColor                 textColor;
     QColor                 backgroundColor;
@@ -30,5 +32,6 @@ public:
     int                    padding;
     bool                   useThemeColors;
 };
+}
 
 #endif // QTMATERIALBADGE_P_H
