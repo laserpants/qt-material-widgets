@@ -9,6 +9,8 @@
 #include "qtmaterialautocomplete_internal.h"
 #include "qtmaterialflatbutton.h"
 
+namespace md
+{
 /*!
  *  \class QtMaterialAutoCompletePrivate
  *  \internal
@@ -17,28 +19,28 @@
 /*!
  *  \internal
  */
-QtMaterialAutoCompletePrivate::QtMaterialAutoCompletePrivate(QtMaterialAutoComplete *q)
-    : QtMaterialTextFieldPrivate(q)
+AutoCompletePrivate::AutoCompletePrivate(AutoComplete *q)
+    : TextFieldPrivate(q)
 {
 }
 
 /*!
  *  \internal
  */
-QtMaterialAutoCompletePrivate::~QtMaterialAutoCompletePrivate()
+AutoCompletePrivate::~AutoCompletePrivate()
 {
 }
 
 /*!
  *  \internal
  */
-void QtMaterialAutoCompletePrivate::init()
+void AutoCompletePrivate::init()
 {
-    Q_Q(QtMaterialAutoComplete);
+    Q_Q(AutoComplete);
 
     menu         = new QWidget;
     frame        = new QWidget;
-    stateMachine = new QtMaterialAutoCompleteStateMachine(menu);
+    stateMachine = new AutoCompleteStateMachine(menu);
     menuLayout   = new QVBoxLayout;
     maxWidth     = 0;
 
@@ -71,27 +73,27 @@ void QtMaterialAutoCompletePrivate::init()
  *  \class QtMaterialAutoComplete
  */
 
-QtMaterialAutoComplete::QtMaterialAutoComplete(QWidget *parent)
-    : QtMaterialTextField(*new QtMaterialAutoCompletePrivate(this), parent)
+AutoComplete::AutoComplete(QWidget *parent)
+    : TextField(*new AutoCompletePrivate(this), parent)
 {
     d_func()->init();
 }
 
-QtMaterialAutoComplete::~QtMaterialAutoComplete()
+AutoComplete::~AutoComplete()
 {
 }
 
-void QtMaterialAutoComplete::setDataSource(const QStringList &data)
+void AutoComplete::setDataSource(const QStringList &data)
 {
-    Q_D(QtMaterialAutoComplete);
+    Q_D(AutoComplete);
 
     d->dataSource = data;
     update();
 }
 
-void QtMaterialAutoComplete::updateResults(QString text)
+void AutoComplete::updateResults(QString text)
 {
-    Q_D(QtMaterialAutoComplete);
+    Q_D(AutoComplete);
 
     QStringList results;
     QString trimmed(text.trimmed());
@@ -156,9 +158,9 @@ void QtMaterialAutoComplete::updateResults(QString text)
     d->menu->update();
 }
 
-bool QtMaterialAutoComplete::QtMaterialAutoComplete::event(QEvent *event)
+bool AutoComplete::AutoComplete::event(QEvent *event)
 {
-    Q_D(QtMaterialAutoComplete);
+    Q_D(AutoComplete);
 
     switch (event->type())
     {
@@ -178,12 +180,12 @@ bool QtMaterialAutoComplete::QtMaterialAutoComplete::event(QEvent *event)
     default:
         break;
     }
-    return QtMaterialTextField::event(event);
+    return TextField::event(event);
 }
 
-bool QtMaterialAutoComplete::eventFilter(QObject *watched, QEvent *event)
+bool AutoComplete::eventFilter(QObject *watched, QEvent *event)
 {
-    Q_D(QtMaterialAutoComplete);
+    Q_D(AutoComplete);
 
     if (d->frame == watched)
     {
@@ -238,5 +240,7 @@ bool QtMaterialAutoComplete::eventFilter(QObject *watched, QEvent *event)
             break;
         }
     }
-    return QtMaterialTextField::eventFilter(watched, event);
+    return TextField::eventFilter(watched, event);
+}
+
 }

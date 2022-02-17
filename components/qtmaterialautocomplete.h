@@ -3,15 +3,18 @@
 
 #include "qtmaterialtextfield.h"
 
-class QtMaterialAutoCompletePrivate;
+namespace md
+{
 
-class QtMaterialAutoComplete : public QtMaterialTextField
+class AutoCompletePrivate;
+
+class AutoComplete : public TextField
 {
     Q_OBJECT
 
 public:
-    explicit QtMaterialAutoComplete(QWidget *parent = 0);
-    ~QtMaterialAutoComplete();
+    explicit AutoComplete(QWidget *parent = 0);
+    ~AutoComplete();
 
     void setDataSource(const QStringList &data);
 
@@ -26,8 +29,10 @@ protected:
     bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
 
 private:
-    Q_DISABLE_COPY(QtMaterialAutoComplete)
-    Q_DECLARE_PRIVATE(QtMaterialAutoComplete)
+    Q_DISABLE_COPY(AutoComplete)
+    Q_DECLARE_PRIVATE(AutoComplete)
 };
+
+}
 
 #endif // QTMATERIALAUTOCOMPLETE_H

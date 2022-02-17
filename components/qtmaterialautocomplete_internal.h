@@ -4,13 +4,16 @@
 #include <QStateMachine>
 #include "qtmaterialautocomplete.h"
 
-class QtMaterialAutoCompleteStateMachine : public QStateMachine
+namespace md
+{
+
+class AutoCompleteStateMachine : public QStateMachine
 {
     Q_OBJECT
 
 public:
-    explicit QtMaterialAutoCompleteStateMachine(QWidget *menu);
-    ~QtMaterialAutoCompleteStateMachine();
+    explicit AutoCompleteStateMachine(QWidget *menu);
+    ~AutoCompleteStateMachine();
 
 signals:
     void shouldOpen();
@@ -18,12 +21,14 @@ signals:
     void shouldFade();
 
 private:
-    Q_DISABLE_COPY(QtMaterialAutoCompleteStateMachine)
+    Q_DISABLE_COPY(AutoCompleteStateMachine)
 
     QWidget *const m_menu;
     QState  *const m_closedState;
     QState  *const m_openState;
     QState  *const m_closingState;
 };
+
+}
 
 #endif // QTMATERIALAUTOCOMPLETESTATEMACHINE_H

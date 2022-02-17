@@ -3,28 +3,33 @@
 
 #include "qtmaterialtextfield_p.h"
 
+namespace md
+{
+
 class QWidget;
 class QVBoxLayout;
-class QtMaterialAutoCompleteOverlay;
-class QtMaterialAutoCompleteStateMachine;
+class AutoCompleteOverlay;
+class AutoCompleteStateMachine;
 
-class QtMaterialAutoCompletePrivate : public QtMaterialTextFieldPrivate
+class AutoCompletePrivate : public TextFieldPrivate
 {
-    Q_DISABLE_COPY(QtMaterialAutoCompletePrivate)
-    Q_DECLARE_PUBLIC(QtMaterialAutoComplete)
+    Q_DISABLE_COPY(AutoCompletePrivate)
+    Q_DECLARE_PUBLIC(AutoComplete)
 
 public:
-    QtMaterialAutoCompletePrivate(QtMaterialAutoComplete *q);
-    virtual ~QtMaterialAutoCompletePrivate();
+    AutoCompletePrivate(AutoComplete *q);
+    virtual ~AutoCompletePrivate();
 
     void init();
 
     QWidget                            *menu;
     QWidget                            *frame;
-    QtMaterialAutoCompleteStateMachine *stateMachine;
+    AutoCompleteStateMachine *stateMachine;
     QVBoxLayout                        *menuLayout;
     QStringList                         dataSource;
     int                                 maxWidth;
 };
+
+}
 
 #endif // QTMATERIALAUTOCOMPLETE_P_H
