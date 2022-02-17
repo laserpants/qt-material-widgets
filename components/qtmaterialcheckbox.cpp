@@ -4,6 +4,8 @@
 #include <QSignalTransition>
 #include <QState>
 #include "lib/qtmaterialcheckable_internal.h"
+namespace md
+{
 
 /*!
  *  \class QtMaterialCheckBoxPrivate
@@ -13,24 +15,24 @@
 /*!
  *  \internal
  */
-QtMaterialCheckBoxPrivate::QtMaterialCheckBoxPrivate(QtMaterialCheckBox *q)
-    : QtMaterialCheckablePrivate(q)
+CheckBoxPrivate::CheckBoxPrivate(CheckBox *q)
+    : CheckablePrivate(q)
 {
 }
 
 /*!
  *  \internal
  */
-QtMaterialCheckBoxPrivate::~QtMaterialCheckBoxPrivate()
+CheckBoxPrivate::~CheckBoxPrivate()
 {
 }
 
 /*!
  *  \internal
  */
-void QtMaterialCheckBoxPrivate::init()
+void CheckBoxPrivate::init()
 {
-    Q_Q(QtMaterialCheckBox);
+    Q_Q(CheckBox);
 
     checkedState->assignProperty(checkedIcon, "iconSize", 24);
     uncheckedState->assignProperty(checkedIcon, "iconSize", 0);
@@ -74,12 +76,14 @@ void QtMaterialCheckBoxPrivate::init()
  *  \class QtMaterialCheckBox
  */
 
-QtMaterialCheckBox::QtMaterialCheckBox(QWidget *parent)
-    : QtMaterialCheckable(*new QtMaterialCheckBoxPrivate(this), parent)
+CheckBox::CheckBox(QWidget *parent)
+    : Checkable(*new CheckBoxPrivate(this), parent)
 {
     d_func()->init();
 }
 
-QtMaterialCheckBox::~QtMaterialCheckBox()
+CheckBox::~CheckBox()
 {
+}
+
 }

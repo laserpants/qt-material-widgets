@@ -3,19 +3,23 @@
 
 #include "lib/qtmaterialcheckable.h"
 
-class QtMaterialCheckBoxPrivate;
+namespace md
+{
 
-class QtMaterialCheckBox : public QtMaterialCheckable
+class CheckBoxPrivate;
+
+class CheckBox : public Checkable
 {
     Q_OBJECT
 
 public:
-    explicit QtMaterialCheckBox(QWidget *parent = 0);
-    ~QtMaterialCheckBox();
+    explicit CheckBox(QWidget *parent = 0);
+    ~CheckBox();
 
 private:
-    Q_DISABLE_COPY(QtMaterialCheckBox)
-    Q_DECLARE_PRIVATE(QtMaterialCheckBox)
+    Q_DISABLE_COPY(CheckBox)
+    Q_DECLARE_PRIVATE(CheckBox)
 };
 
+}
 #endif // QTMATERIALCHECKBOX_H

@@ -2,19 +2,21 @@
 #define QTMATERIALCHECKBOX_P_H
 
 #include "lib/qtmaterialcheckable_p.h"
-
-class QtMaterialCheckBox;
-
-class QtMaterialCheckBoxPrivate : public QtMaterialCheckablePrivate
+namespace md
 {
-    Q_DISABLE_COPY(QtMaterialCheckBoxPrivate)
-    Q_DECLARE_PUBLIC(QtMaterialCheckBox)
+
+class CheckBox;
+
+class CheckBoxPrivate : public CheckablePrivate
+{
+    Q_DISABLE_COPY(CheckBoxPrivate)
+    Q_DECLARE_PUBLIC(CheckBox)
 
 public:
-    QtMaterialCheckBoxPrivate(QtMaterialCheckBox *q);
-    ~QtMaterialCheckBoxPrivate();
+    CheckBoxPrivate(CheckBox *q);
+    ~CheckBoxPrivate();
 
     void init();
 };
-
+}
 #endif // QTMATERIALCHECKBOX_P_H
