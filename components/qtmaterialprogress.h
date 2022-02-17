@@ -4,9 +4,12 @@
 #include <QtWidgets/QProgressBar>
 #include "lib/qtmaterialtheme.h"
 
-class QtMaterialProgressPrivate;
+namespace md
+{
 
-class QtMaterialProgress : public QProgressBar
+class ProgressBarPrivate;
+
+class ProgressBar : public QProgressBar
 {
     Q_OBJECT
 
@@ -14,8 +17,8 @@ class QtMaterialProgress : public QProgressBar
     Q_PROPERTY(QColor backgroundColor WRITE setProgressColor READ backgroundColor)
 
 public:
-    explicit QtMaterialProgress(QWidget *parent = 0);
-    ~QtMaterialProgress();
+    explicit ProgressBar(QWidget *parent = 0);
+    ~ProgressBar();
 
     void setProgressType(Material::ProgressType type);
     Material::ProgressType progressType() const;
@@ -32,11 +35,11 @@ public:
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
-    const QScopedPointer<QtMaterialProgressPrivate> d_ptr;
+    const QScopedPointer<ProgressBarPrivate> d_ptr;
 
 private:
-    Q_DISABLE_COPY(QtMaterialProgress)
-    Q_DECLARE_PRIVATE(QtMaterialProgress)
+    Q_DISABLE_COPY(ProgressBar)
+    Q_DECLARE_PRIVATE(ProgressBar)
 };
-
+}
 #endif // QTMATERIALPROGRESS_H
