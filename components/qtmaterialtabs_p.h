@@ -3,24 +3,26 @@
 
 #include <QtGlobal>
 #include "lib/qtmaterialtheme.h"
+namespace md
+{
 
 class QHBoxLayout;
-class QtMaterialTabs;
-class QtMaterialTabsInkBar;
+class Tabs;
+class TabsInkBar;
 
-class QtMaterialTabsPrivate
+class TabsPrivate
 {
-    Q_DISABLE_COPY(QtMaterialTabsPrivate)
-    Q_DECLARE_PUBLIC(QtMaterialTabs)
+    Q_DISABLE_COPY(TabsPrivate)
+    Q_DECLARE_PUBLIC(Tabs)
 
 public:
-    QtMaterialTabsPrivate(QtMaterialTabs *q);
-    ~QtMaterialTabsPrivate();
+    TabsPrivate(Tabs *q);
+    ~TabsPrivate();
 
     void init();
 
-    QtMaterialTabs       *const q_ptr;
-    QtMaterialTabsInkBar *inkBar;
+    Tabs       *const q_ptr;
+    TabsInkBar *inkBar;
     QHBoxLayout          *tabLayout;
     Material::RippleStyle rippleStyle;
     QColor                inkColor;
@@ -30,5 +32,5 @@ public:
     bool                  showHalo;
     bool                  useThemeColors;
 };
-
+}
 #endif // QTMATERIALTABS_P_H

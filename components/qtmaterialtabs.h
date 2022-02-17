@@ -4,17 +4,19 @@
 #include <QtWidgets/QWidget>
 #include <QIcon>
 #include "lib/qtmaterialtheme.h"
+namespace md
+{
 
-class QtMaterialTabsPrivate;
-class QtMaterialTab;
+class TabsPrivate;
+class Tab;
 
-class QtMaterialTabs : public QWidget
+class Tabs : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit QtMaterialTabs(QWidget *parent = 0);
-    ~QtMaterialTabs();
+    explicit Tabs(QWidget *parent = 0);
+    ~Tabs();
 
     void setUseThemeColors(bool value);
     bool useThemeColors() const;
@@ -36,7 +38,7 @@ public:
 
     void addTab(const QString &text, const QIcon &icon = QIcon());
 
-    void setCurrentTab(QtMaterialTab *tab);
+    void setCurrentTab(Tab *tab);
     void setCurrentTab(int index);
 
     int currentIndex() const;
@@ -48,11 +50,11 @@ protected:
     void setTabActive(int index, bool active = true);
     void updateTabs();
 
-    const QScopedPointer<QtMaterialTabsPrivate> d_ptr;
+    const QScopedPointer<TabsPrivate> d_ptr;
 
 private:
-    Q_DISABLE_COPY(QtMaterialTabs)
-    Q_DECLARE_PRIVATE(QtMaterialTabs)
+    Q_DISABLE_COPY(Tabs)
+    Q_DECLARE_PRIVATE(Tabs)
 };
-
+}
 #endif // QTMATERIALTABS_H

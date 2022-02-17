@@ -4,18 +4,21 @@
 #include "lib/qtmaterialoverlaywidget.h"
 #include "qtmaterialflatbutton.h"
 
-class QPropertyAnimation;
-class QtMaterialTabs;
+namespace md
+{
 
-class QtMaterialTabsInkBar : public QtMaterialOverlayWidget
+class QPropertyAnimation;
+class Tabs;
+
+class TabsInkBar : public OverlayWidget
 {
     Q_OBJECT
 
     Q_PROPERTY(qreal tweenValue WRITE setTweenValue READ tweenValue)
 
 public:
-    QtMaterialTabsInkBar(QtMaterialTabs *parent);
-    ~QtMaterialTabsInkBar();
+    TabsInkBar(Tabs *parent);
+    ~TabsInkBar();
 
     inline void setTweenValue(qreal value);
     inline qreal tweenValue() const;
@@ -28,33 +31,33 @@ protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
 private:
-    Q_DISABLE_COPY(QtMaterialTabsInkBar)
+    Q_DISABLE_COPY(TabsInkBar)
 
-    QtMaterialTabs     *const m_tabs;
+    Tabs     *const m_tabs;
     QPropertyAnimation *const m_animation;
     QRect                     m_geometry;
     QRect                     m_previousGeometry;
     qreal                     m_tween;
 };
 
-inline void QtMaterialTabsInkBar::setTweenValue(qreal value)
+inline void TabsInkBar::setTweenValue(qreal value)
 {
     m_tween = value;
     refreshGeometry();
 }
 
-inline qreal QtMaterialTabsInkBar::tweenValue() const
+inline qreal TabsInkBar::tweenValue() const
 {
     return m_tween;
 }
 
-class QtMaterialTab : public QtMaterialFlatButton
+class Tab : public FlatButton
 {
     Q_OBJECT
 
 public:
-    explicit QtMaterialTab(QtMaterialTabs *parent);
-    ~QtMaterialTab();
+    explicit Tab(Tabs *parent);
+    ~Tab();
 
     inline void setActive(bool state);
     inline bool isActive() const;
@@ -68,21 +71,21 @@ protected:
     void paintForeground(QPainter *painter) Q_DECL_OVERRIDE;
 
 private:
-    Q_DISABLE_COPY(QtMaterialTab)
+    Q_DISABLE_COPY(Tab)
 
-    QtMaterialTabs *const m_tabs;
+    Tabs *const m_tabs;
     bool                  m_active;
 };
 
-inline void QtMaterialTab::setActive(bool state)
+inline void Tab::setActive(bool state)
 {
     m_active = state;
     update();
 }
 
-inline bool QtMaterialTab::isActive() const
+inline bool Tab::isActive() const
 {
     return m_active;
 }
-
+}
 #endif // QTMATERIALTABS_INTERNAL_H

@@ -6,14 +6,16 @@
 #include <QEvent>
 #include "qtmaterialtabs.h"
 #include <QDebug>
+namespace md
+{
 
 /*!
  *  \class QtMaterialTabsInkBar
  *  \internal
  */
 
-QtMaterialTabsInkBar::QtMaterialTabsInkBar(QtMaterialTabs *parent)
-    : QtMaterialOverlayWidget(parent),
+TabsInkBar::TabsInkBar(Tabs *parent)
+    : OverlayWidget(parent),
       m_tabs(parent),
       m_animation(new QPropertyAnimation(parent)),
       m_tween(0)
@@ -31,11 +33,11 @@ QtMaterialTabsInkBar::QtMaterialTabsInkBar(QtMaterialTabs *parent)
     setAttribute(Qt::WA_NoSystemBackground);
 }
 
-QtMaterialTabsInkBar::~QtMaterialTabsInkBar()
+TabsInkBar::~TabsInkBar()
 {
 }
 
-void QtMaterialTabsInkBar::refreshGeometry()
+void TabsInkBar::refreshGeometry()
 {
     QLayoutItem *item = m_tabs->layout()->itemAt(m_tabs->currentIndex());
 
@@ -55,7 +57,7 @@ void QtMaterialTabsInkBar::refreshGeometry()
     }
 }
 
-void QtMaterialTabsInkBar::animate()
+void TabsInkBar::animate()
 {
     raise();
 
@@ -67,7 +69,7 @@ void QtMaterialTabsInkBar::animate()
     m_animation->start();
 }
 
-bool QtMaterialTabsInkBar::eventFilter(QObject *obj, QEvent *event)
+bool TabsInkBar::eventFilter(QObject *obj, QEvent *event)
 {
     switch (event->type())
     {
@@ -80,10 +82,10 @@ bool QtMaterialTabsInkBar::eventFilter(QObject *obj, QEvent *event)
     default:
         break;
     }
-    return QtMaterialOverlayWidget::eventFilter(obj, event);
+    return OverlayWidget::eventFilter(obj, event);
 }
 
-void QtMaterialTabsInkBar::paintEvent(QPaintEvent *event)
+void TabsInkBar::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
@@ -98,8 +100,8 @@ void QtMaterialTabsInkBar::paintEvent(QPaintEvent *event)
  *  \internal
  */
 
-QtMaterialTab::QtMaterialTab(QtMaterialTabs *parent)
-    : QtMaterialFlatButton(parent),
+Tab::Tab(Tabs *parent)
+    : FlatButton(parent),
       m_tabs(parent),
       m_active(false)
 {
@@ -119,25 +121,25 @@ QtMaterialTab::QtMaterialTab(QtMaterialTabs *parent)
     connect(this, SIGNAL(clicked(bool)), this, SLOT(activateTab()));
 }
 
-QtMaterialTab::~QtMaterialTab()
+Tab::~Tab()
 {
 }
 
-QSize QtMaterialTab::sizeHint() const
+QSize Tab::sizeHint() const
 {
     if (icon().isNull()) {
-        return QtMaterialFlatButton::sizeHint();
+        return FlatButton::sizeHint();
     } else {
         return QSize(40, iconSize().height()+46);
     }
 }
 
-void QtMaterialTab::activateTab()
+void Tab::activateTab()
 {
     m_tabs->setCurrentTab(this);
 }
 
-void QtMaterialTab::paintForeground(QPainter *painter)
+void Tab::paintForeground(QPainter *painter)
 {
     painter->setPen(foregroundColor());
 
@@ -175,4 +177,5 @@ void QtMaterialTab::paintForeground(QPainter *painter)
         painter->setOpacity(0.36);
         painter->fillRect(rect(), overlay);
     }
+}
 }
