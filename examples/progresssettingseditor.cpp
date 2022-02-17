@@ -1,12 +1,9 @@
 #include "progresssettingseditor.h"
-#include <QColorDialog>
-#include <qtmaterialprogress.h>
-#include <lib/qtmaterialtheme.h>
 
 ProgressSettingsEditor::ProgressSettingsEditor(QWidget *parent)
     : QWidget(parent),
       ui(new Ui::ProgressSettingsForm),
-      m_progress(new QtMaterialProgress)
+      m_progress(new ProgressBar)
 {
     QVBoxLayout *layout = new QVBoxLayout;
     setLayout(layout);

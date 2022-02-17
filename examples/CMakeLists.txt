@@ -14,6 +14,7 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Gui REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core5Compat REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS StateMachine REQUIRED)
 
 # Add executable called "examples" that is built from the source files
 # "*.cpp". The extensions are automatically found.
@@ -25,66 +26,66 @@ set(PROJECT_SOURCES
     mainwindow.cpp    
     avatarsettingseditor.cpp 
     badgesettingseditor.cpp
-#    checkboxsettingseditor.cpp
-#    fabsettingseditor.cpp
-#    raisedbuttonsettingseditor.cpp
-#    flatbuttonsettingseditor.cpp
-#    iconbuttonsettingseditor.cpp
-#    progresssettingseditor.cpp
-#    circularprogresssettingseditor.cpp
-#    slidersettingseditor.cpp
-#    radiobuttonsettingseditor.cpp
-#    togglesettingseditor.cpp
-#    textfieldsettingseditor.cpp
-#    tabssettingseditor.cpp
-#    snackbarsettingseditor.cpp
-#    dialogsettingseditor.cpp
-#    drawersettingseditor.cpp
-#    scrollbarsettingseditor.cpp
+    checkboxsettingseditor.cpp
+    fabsettingseditor.cpp
+    raisedbuttonsettingseditor.cpp
+    flatbuttonsettingseditor.cpp
+    iconbuttonsettingseditor.cpp
+    progresssettingseditor.cpp
+    circularprogresssettingseditor.cpp
+    slidersettingseditor.cpp
+    radiobuttonsettingseditor.cpp
+    togglesettingseditor.cpp
+    textfieldsettingseditor.cpp
+    tabssettingseditor.cpp
+    snackbarsettingseditor.cpp
+    dialogsettingseditor.cpp
+    drawersettingseditor.cpp
+    scrollbarsettingseditor.cpp
     appbarsettingseditor.cpp
-#    autocompletesettingseditor.cpp
-#    menusettingseditor.cpp
+    autocompletesettingseditor.cpp
+    menusettingseditor.cpp
     # Headers
     mainwindow.h 
     avatarsettingseditor.h 
     badgesettingseditor.h
-#    checkboxsettingseditor.h
-#    fabsettingseditor.h
-#    raisedbuttonsettingseditor.h
-#    flatbuttonsettingseditor.h
-#    iconbuttonsettingseditor.h
-#    progresssettingseditor.h
-#    circularprogresssettingseditor.h
-#    slidersettingseditor.h
-#    radiobuttonsettingseditor.h
-#    togglesettingseditor.h
-#    textfieldsettingseditor.h
-#    tabssettingseditor.h
-#    snackbarsettingseditor.h
-#    dialogsettingseditor.h
-#    drawersettingseditor.h
-#    scrollbarsettingseditor.h
+    checkboxsettingseditor.h
+    fabsettingseditor.h
+    raisedbuttonsettingseditor.h
+    flatbuttonsettingseditor.h
+    iconbuttonsettingseditor.h
+    progresssettingseditor.h
+    circularprogresssettingseditor.h
+    slidersettingseditor.h
+    radiobuttonsettingseditor.h
+    togglesettingseditor.h
+    textfieldsettingseditor.h
+    tabssettingseditor.h
+    snackbarsettingseditor.h
+    dialogsettingseditor.h
+    drawersettingseditor.h
+    scrollbarsettingseditor.h
     appbarsettingseditor.h
-#    autocompletesettingseditor.h
-#    menusettingseditor.h
+    autocompletesettingseditor.h
+    menusettingseditor.h
     # Forms
     avatarsettingsform.ui 
     badgesettingsform.ui
-#    checkboxsettingsform.ui
-#    fabsettingsform.ui
-#    flatbuttonsettingsform.ui
-#    iconbuttonsettingsform.ui
-#    progresssettingsform.ui
-#    circularprogresssettingsform.ui
-#    slidersettingsform.ui
-#    snackbarsettingsform.ui
-#    radiobuttonsettingsform.ui
-#    togglesettingsform.ui
-#    textfieldsettingsform.ui
-#    tabssettingsform.ui
-#    dialogsettingsform.ui
-#    drawersettingsform.ui
-#    scrollbarsettingsform.ui
+    checkboxsettingsform.ui
+    fabsettingsform.ui
+    flatbuttonsettingsform.ui
+    iconbuttonsettingsform.ui
+    progresssettingsform.ui
+    circularprogresssettingsform.ui
+    slidersettingsform.ui
+    snackbarsettingsform.ui
+    radiobuttonsettingsform.ui
+    togglesettingsform.ui
+    textfieldsettingsform.ui
+    tabssettingsform.ui
+    dialogsettingsform.ui
+    drawersettingsform.ui
+    scrollbarsettingsform.ui
     appbarsettingsform.ui
 )
 
@@ -115,6 +116,7 @@ target_link_libraries(examples PRIVATE Qt${QT_VERSION_MAJOR}::Core)
 target_link_libraries(examples PRIVATE Qt${QT_VERSION_MAJOR}::Gui)
 target_link_libraries(examples PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(examples PRIVATE Qt${QT_VERSION_MAJOR}::Core5Compat)
+target_link_libraries(examples PRIVATE Qt${QT_VERSION_MAJOR}::StateMachine)
 
 
 # Link the executable to the 'components' library. Since the 'components' library has

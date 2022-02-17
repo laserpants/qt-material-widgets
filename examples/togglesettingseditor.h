@@ -2,9 +2,13 @@
 #define TOGGLESETTINGSEDITOR_H
 
 #include <QWidget>
+#include <QColorDialog>
+
+#include <qtmaterialtoggle.h>
+
 #include "ui_togglesettingsform.h"
 
-class QtMaterialToggle;
+using namespace md;
 
 class ToggleSettingsEditor : public QWidget
 {
@@ -21,7 +25,7 @@ protected slots:
 
 private:
     Ui::ToggleSettingsForm *const ui;
-    QtMaterialToggle       *const m_toggle;
+    Toggle       *const m_toggle;
 };
 
 #endif // TOGGLESETTINGSEDITOR_H

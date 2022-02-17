@@ -2,9 +2,15 @@
 #define FABSETTINGSEDITOR_H
 
 #include <QWidget>
+#include <QVBoxLayout>
+#include <QDebug>
+#include <QColorDialog>
+
+#include <qtmaterialfab.h>
+
 #include "ui_fabsettingsform.h"
 
-class QtMaterialFloatingActionButton;
+using namespace md;
 
 class FloatingActionButtonSettingsEditor : public QWidget
 {
@@ -21,7 +27,7 @@ protected slots:
 
 private:
     Ui::FloatingActionButtonSettingsForm *const ui;
-    QtMaterialFloatingActionButton       *const m_fab;
+    FloatingActionButton       *const m_fab;
 };
 
 #endif // FABSETTINGSEDITOR_H

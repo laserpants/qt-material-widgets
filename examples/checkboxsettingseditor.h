@@ -2,9 +2,14 @@
 #define CHECKBOXSETTINGSEDITOR_H
 
 #include <QWidget>
+#include <QVBoxLayout>
+#include <QColorDialog>
+
+#include <qtmaterialcheckbox.h>
+
 #include "ui_checkboxsettingsform.h"
 
-class QtMaterialCheckable;
+using namespace md;
 
 class CheckBoxSettingsEditor : public QWidget
 {
@@ -21,7 +26,7 @@ protected slots:
 
 private:
     Ui::CheckBoxSettingsForm *const ui;
-    QtMaterialCheckable      *const m_checkBox;
+    Checkable      *const m_checkBox;
 };
 
 #endif // CHECKBOXSETTINGSEDITOR_H

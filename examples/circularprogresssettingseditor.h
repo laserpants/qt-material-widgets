@@ -2,9 +2,14 @@
 #define CIRCULARPROGRESSSETTINGSEDITOR_H
 
 #include <QWidget>
+#include <QVBoxLayout>
+#include <QColorDialog>
+
+#include <qtmaterialcircularprogress.h>
+
 #include "ui_circularprogresssettingsform.h"
 
-class QtMaterialCircularProgress;
+using namespace md;
 
 class CircularProgressSettingsEditor : public QWidget
 {
@@ -21,7 +26,7 @@ protected slots:
 
 private:
     Ui::CircularProgressSettingsForm *const ui;
-    QtMaterialCircularProgress       *const m_progress;
+    CircularProgress       *const m_progress;
 };
 
 #endif // CIRCULARPROGRESSSETTINGSEDITOR_H

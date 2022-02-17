@@ -1,12 +1,9 @@
 #include "flatbuttonsettingseditor.h"
-#include <QColorDialog>
-#include <QDebug>
-#include <qtmaterialflatbutton.h>
 
 FlatButtonSettingsEditor::FlatButtonSettingsEditor(QWidget *parent)
     : QWidget(parent),
       ui(new Ui::FlatButtonSettingsForm),
-      m_button(new QtMaterialFlatButton("I'm flat"))
+      m_button(new FlatButton("I'm flat"))
 {
     init();
 }
@@ -16,7 +13,7 @@ FlatButtonSettingsEditor::~FlatButtonSettingsEditor()
     delete ui;
 }
 
-FlatButtonSettingsEditor::FlatButtonSettingsEditor(QtMaterialFlatButton *button, QWidget *parent)
+FlatButtonSettingsEditor::FlatButtonSettingsEditor(FlatButton *button, QWidget *parent)
     : QWidget(parent),
       ui(new Ui::FlatButtonSettingsForm),
       m_button(button)
@@ -180,7 +177,7 @@ void FlatButtonSettingsEditor::updateWidget()
     m_button->setCheckable(ui->checkableCheckBox->isChecked());
     m_button->setChecked(ui->checkedCheckBox->isChecked());
     m_button->setHaloVisible(ui->showHaloCheckBox->isChecked());
-    m_button->setIcon(ui->iconCheckBox->isChecked() ? QtMaterialTheme::icon("toggle", "star")
+    m_button->setIcon(ui->iconCheckBox->isChecked() ? Theme::icon("toggle", "star")
                                                     : QIcon());
     m_button->setUseThemeColors(ui->useThemeColorsCheckBox->isChecked());
     m_button->setBackgroundMode(ui->transparentCheckBox->isChecked()

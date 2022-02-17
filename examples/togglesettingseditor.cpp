@@ -1,11 +1,9 @@
 #include "togglesettingseditor.h"
-#include <QColorDialog>
-#include <qtmaterialtoggle.h>
 
 ToggleSettingsEditor::ToggleSettingsEditor(QWidget *parent)
     : QWidget(parent),
       ui(new Ui::ToggleSettingsForm),
-      m_toggle(new QtMaterialToggle)
+      m_toggle(new Toggle)
 {
     QVBoxLayout *layout = new QVBoxLayout;
     setLayout(layout);

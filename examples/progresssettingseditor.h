@@ -2,9 +2,14 @@
 #define PROGRESSSETTINGSEDITOR_H
 
 #include <QWidget>
+#include <QColorDialog>
+
+#include <qtmaterialprogress.h>
+#include <lib/qtmaterialtheme.h>
+
 #include "ui_progresssettingsform.h"
 
-class QtMaterialProgress;
+using namespace md;
 
 class ProgressSettingsEditor : public QWidget
 {
@@ -21,7 +26,7 @@ protected slots:
 
 private:
     Ui::ProgressSettingsForm *const ui;
-    QtMaterialProgress       *const m_progress;
+    ProgressBar       *const m_progress;
 };
 
 #endif // PROGRESSSETTINGSEDITOR_H

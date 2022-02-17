@@ -2,9 +2,14 @@
 #define TEXTFIELDSETTINGSEDITOR_H
 
 #include <QWidget>
+#include <QVBoxLayout>
+#include <QColorDialog>
+
+#include <qtmaterialtextfield.h>
+
 #include "ui_textfieldsettingsform.h"
 
-class QtMaterialTextField;
+using namespace md;
 
 class TextFieldSettingsEditor : public QWidget
 {
@@ -22,7 +27,7 @@ protected slots:
 
 private:
     Ui::TextFieldSettingsForm *const ui;
-    QtMaterialTextField       *const m_textField;
+    TextField       *const m_textField;
 };
 
 #endif // TEXTFIELDSETTINGSEDITOR_H

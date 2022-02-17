@@ -1,12 +1,9 @@
 #include "iconbuttonsettingseditor.h"
-#include <QColorDialog>
-#include <qtmaterialiconbutton.h>
-#include <lib/qtmaterialtheme.h>
 
 IconButtonSettingsEditor::IconButtonSettingsEditor(QWidget *parent)
     : QWidget(parent),
       ui(new Ui::IconButtonSettingsForm),
-      m_button(new QtMaterialIconButton(Theme::icon("toggle", "star")))
+      m_button(new IconButton(Theme::icon("toggle", "star")))
 {
     init();
 }

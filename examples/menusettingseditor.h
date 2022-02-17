@@ -2,11 +2,15 @@
 #define MENUSETTINGSEDITOR_H
 
 #include <QWidget>
-//#include "ui_menusettingsform.h"
+#include <QVBoxLayout>
+#include <QDebug>
 
+#include <qtmaterialmenu.h>
 #include "lib/qtmaterialoverlaywidget.h"
 
-class QtMaterialMenu;
+//#include "ui_menusettingsform.h"
+
+using namespace md;
 
 class MenuSettingsEditor : public QWidget
 {
@@ -23,7 +27,7 @@ protected slots:
 
 private:
     //Ui::MenuSettingsForm *const ui;
-    QtMaterialMenu       *const m_menu;
+    Menu       *const m_menu;
 };
 
 #endif // MENUSETTINGSEDITOR_H

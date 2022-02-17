@@ -1,13 +1,9 @@
 #include "dialogsettingseditor.h"
-#include <QVBoxLayout>
-#include <QColorDialog>
-#include <qtmaterialdialog.h>
-#include <qtmaterialflatbutton.h>
 
 DialogSettingsEditor::DialogSettingsEditor(QWidget *parent)
     : QWidget(parent),
       ui(new Ui::DialogSettingsForm),
-      m_dialog(new QtMaterialDialog)
+      m_dialog(new Dialog)
 {
     QVBoxLayout *layout = new QVBoxLayout;
     setLayout(layout);
@@ -32,7 +28,7 @@ DialogSettingsEditor::DialogSettingsEditor(QWidget *parent)
     QVBoxLayout *dialogWidgetLayout = new QVBoxLayout;
     dialogWidget->setLayout(dialogWidgetLayout);
 
-    QtMaterialFlatButton *closeButton = new QtMaterialFlatButton("Close");
+    FlatButton *closeButton = new FlatButton("Close");
     dialogWidgetLayout->addWidget(closeButton);
     dialogWidgetLayout->setAlignment(closeButton, Qt::AlignBottom | Qt::AlignCenter);
 

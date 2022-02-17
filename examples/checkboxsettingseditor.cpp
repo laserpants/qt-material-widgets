@@ -1,12 +1,9 @@
 #include "checkboxsettingseditor.h"
-#include <QVBoxLayout>
-#include <QColorDialog>
-#include <qtmaterialcheckbox.h>
 
 CheckBoxSettingsEditor::CheckBoxSettingsEditor(QWidget *parent)
     : QWidget(parent),
       ui(new Ui::CheckBoxSettingsForm),
-      m_checkBox(new QtMaterialCheckBox)
+      m_checkBox(new CheckBox)
 {
     QVBoxLayout *layout = new QVBoxLayout;
     setLayout(layout);
@@ -52,10 +49,10 @@ void CheckBoxSettingsEditor::setupForm()
 {
     switch (m_checkBox->labelPosition())
     {
-    case QtMaterialCheckable::LabelPositionLeft:
+    case Checkable::LabelPositionLeft:
         ui->labelPositionComboBox->setCurrentIndex(0);
         break;
-    case QtMaterialCheckable::LabelPositionRight:
+    case Checkable::LabelPositionRight:
         ui->labelPositionComboBox->setCurrentIndex(1);
         break;
     default:
@@ -73,10 +70,10 @@ void CheckBoxSettingsEditor::updateWidget()
     switch (ui->labelPositionComboBox->currentIndex())
     {
     case 0:
-        m_checkBox->setLabelPosition(QtMaterialCheckable::LabelPositionLeft);
+        m_checkBox->setLabelPosition(Checkable::LabelPositionLeft);
         break;
     case 1:
-        m_checkBox->setLabelPosition(QtMaterialCheckable::LabelPositionRight);
+        m_checkBox->setLabelPosition(Checkable::LabelPositionRight);
         break;
     default:
         break;

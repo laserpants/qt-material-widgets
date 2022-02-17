@@ -2,9 +2,15 @@
 #define SCROLLBARSETTINGSEDITOR_H
 
 #include <QWidget>
+#include <QVBoxLayout>
+#include <QColorDialog>
+#include <QtWidgets/QTextEdit>
+
+#include <qtmaterialscrollbar.h>
+
 #include "ui_scrollbarsettingsform.h"
 
-class QtMaterialScrollBar;
+using namespace md;
 
 class ScrollBarSettingsEditor : public QWidget
 {
@@ -20,8 +26,8 @@ protected slots:
 
 private:
     Ui::ScrollBarSettingsForm *const ui;
-    QtMaterialScrollBar       *const m_verticalScrollbar;
-    QtMaterialScrollBar       *const m_horizontalScrollbar;
+    ScrollBar       *const m_verticalScrollbar;
+    ScrollBar       *const m_horizontalScrollbar;
 };
 
 #endif // SCROLLBARSETTINGSEDITOR_H

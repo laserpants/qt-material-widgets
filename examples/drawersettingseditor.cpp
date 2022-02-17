@@ -1,12 +1,9 @@
 #include "drawersettingseditor.h"
-#include <QVBoxLayout>
-#include <QColorDialog>
-#include <qtmaterialdrawer.h>
 
 DrawerSettingsEditor::DrawerSettingsEditor(QWidget *parent)
     : QWidget(parent),
       ui(new Ui::DrawerSettingsForm),
-      m_drawer(new QtMaterialDrawer)
+      m_drawer(new Drawer)
 {
     QVBoxLayout *layout = new QVBoxLayout;
     setLayout(layout);

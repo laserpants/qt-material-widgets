@@ -2,9 +2,15 @@
 #define DIALOGSETTINGSEDITOR_H
 
 #include <QWidget>
+#include <QVBoxLayout>
+#include <QColorDialog>
+#include <qtmaterialdialog.h>
+
+#include <qtmaterialflatbutton.h>
+
 #include "ui_dialogsettingsform.h"
 
-class QtMaterialDialog;
+using namespace md;
 
 class DialogSettingsEditor : public QWidget
 {
@@ -20,7 +26,7 @@ protected slots:
 
 private:
     Ui::DialogSettingsForm *const ui;
-    QtMaterialDialog       *const m_dialog;
+    Dialog       *const m_dialog;
 };
 
 #endif // DIALOGSETTINGSEDITOR_H
