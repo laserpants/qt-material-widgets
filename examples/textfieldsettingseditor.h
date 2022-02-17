@@ -5,7 +5,7 @@
 #include <QVBoxLayout>
 #include <QColorDialog>
 
-#include <qtmaterialtextfield.h>
+#include <textfield.h>
 
 #include "ui_textfieldsettingsform.h"
 

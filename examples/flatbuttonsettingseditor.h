@@ -5,7 +5,7 @@
 #include <QColorDialog>
 #include <QDebug>
 
-#include <qtmaterialflatbutton.h>
+#include <flatbutton.h>
 
 #include "ui_flatbuttonsettingsform.h"
 

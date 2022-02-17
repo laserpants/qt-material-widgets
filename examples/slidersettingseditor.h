@@ -5,7 +5,7 @@
 #include <QVBoxLayout>
 #include <QColorDialog>
 
-#include <qtmaterialslider.h>
+#include <slider.h>
 
 #include "ui_slidersettingsform.h"
 

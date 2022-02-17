@@ -6,7 +6,7 @@
 #include <QRadioButton>
 #include <QColorDialog>
 
-#include <qtmaterialradiobutton.h>
+#include <radiobutton.h>
 
 #include "ui_radiobuttonsettingsform.h"
 

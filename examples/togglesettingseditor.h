@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QColorDialog>
 
-#include <qtmaterialtoggle.h>
+#include <toggle.h>
 
 #include "ui_togglesettingsform.h"
 

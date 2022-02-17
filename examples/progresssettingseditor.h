@@ -4,8 +4,8 @@
 #include <QWidget>
 #include <QColorDialog>
 
-#include <qtmaterialprogress.h>
-#include <lib/qtmaterialtheme.h>
+#include <progress.h>
+#include <lib/theme.h>
 
 #include "ui_progresssettingsform.h"
 

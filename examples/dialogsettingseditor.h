@@ -4,9 +4,9 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QColorDialog>
-#include <qtmaterialdialog.h>
+#include <dialog.h>
 
-#include <qtmaterialflatbutton.h>
+#include <flatbutton.h>
 
 #include "ui_dialogsettingsform.h"
 

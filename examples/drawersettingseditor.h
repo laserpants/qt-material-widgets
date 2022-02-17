@@ -5,7 +5,7 @@
 #include <QVBoxLayout>
 #include <QColorDialog>
 
-#include <qtmaterialdrawer.h>
+#include <drawer.h>
 
 #include "ui_drawersettingsform.h"
 

@@ -5,7 +5,7 @@
 #include <QVBoxLayout>
 #include <QColorDialog>
 
-#include <qtmaterialtabs.h>
+#include <tabs.h>
 
 #include "ui_tabssettingsform.h"
 

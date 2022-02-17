@@ -1,4 +1,0 @@
-#ifndef QTMATERIALLIST_P_H
-#define QTMATERIALLIST_P_H
-
-#endif // QTMATERIALLIST_P_H

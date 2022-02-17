@@ -6,7 +6,7 @@
 #include <QDebug>
 #include <QColorDialog>
 
-#include <qtmaterialfab.h>
+#include <fab.h>
 
 #include "ui_fabsettingsform.h"
 

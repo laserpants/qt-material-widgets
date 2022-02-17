@@ -6,9 +6,9 @@
 #include <QColorDialog>
 #include <QPalette>
 
-#include <qtmaterialappbar.h>
-#include <qtmaterialiconbutton.h>
-#include <lib/qtmaterialtheme.h>
+#include <appbar.h>
+#include <iconbutton.h>
+#include <lib/theme.h>
 
 #include "ui_appbarsettingsform.h"
 

@@ -6,7 +6,7 @@
 #include <QColorDialog>
 #include <QtWidgets/QTextEdit>
 
-#include <qtmaterialscrollbar.h>
+#include <scrollbar.h>
 
 #include "ui_scrollbarsettingsform.h"
 

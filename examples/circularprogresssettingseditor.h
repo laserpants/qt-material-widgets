@@ -5,7 +5,7 @@
 #include <QVBoxLayout>
 #include <QColorDialog>
 
-#include <qtmaterialcircularprogress.h>
+#include <circularprogress.h>
 
 #include "ui_circularprogresssettingsform.h"
 

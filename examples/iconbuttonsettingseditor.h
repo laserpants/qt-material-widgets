@@ -4,8 +4,8 @@
 #include <QWidget>
 #include <QColorDialog>
 
-#include <qtmaterialiconbutton.h>
-#include <lib/qtmaterialtheme.h>
+#include <iconbutton.h>
+#include <lib/theme.h>
 
 #include "ui_iconbuttonsettingsform.h"
 

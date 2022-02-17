@@ -5,8 +5,8 @@
 #include <QVBoxLayout>
 #include <QDebug>
 
-#include <qtmaterialmenu.h>
-#include "lib/qtmaterialoverlaywidget.h"
+#include <menu.h>
+#include "lib/overlaywidget.h"
 
 //#include "ui_menusettingsform.h"
 

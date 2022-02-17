@@ -5,7 +5,7 @@
 #include <QVBoxLayout>
 #include <QColorDialog>
 
-#include <qtmaterialcheckbox.h>
+#include <checkbox.h>
 
 #include "ui_checkboxsettingsform.h"
 

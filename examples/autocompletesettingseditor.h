@@ -8,8 +8,8 @@
 #include <QVBoxLayout>
 #include <QDebug>
 
-#include <qtmaterialautocomplete.h>
-#include "lib/qtmaterialoverlaywidget.h"
+#include <autocomplete.h>
+#include "lib/overlaywidget.h"
 
 using namespace md;
 

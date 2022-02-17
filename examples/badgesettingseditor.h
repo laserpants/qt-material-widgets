@@ -3,8 +3,8 @@
 
 #include <QWidget>
 
-#include <qtmaterialavatar.h>
-#include <qtmaterialbadge.h>
+#include <avatar.h>
+#include <badge.h>
 
 #include "ui_badgesettingsform.h"
 

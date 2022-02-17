@@ -4,8 +4,8 @@
 #include <QWidget>
 
 #include <QColorDialog>
-#include <qtmaterialavatar.h>
-#include <lib/qtmaterialtheme.h>
+#include <avatar.h>
+#include <lib/theme.h>
 
 #include "ui_avatarsettingsform.h"
 
