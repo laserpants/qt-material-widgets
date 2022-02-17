@@ -1,6 +1,8 @@
 #include "qtmaterialscrollbar_internal.h"
 #include <QPropertyAnimation>
 #include <QEventTransition>
+namespace md
+{
 
 /*!
  *  \class QtMaterialScrollBarStateMachine
@@ -10,7 +12,7 @@
 /*!
  *  \internal
  */
-QtMaterialScrollBarStateMachine::QtMaterialScrollBarStateMachine(QtMaterialScrollBar *parent)
+ScrollBarStateMachine::ScrollBarStateMachine(ScrollBar *parent)
     : QStateMachine(parent),
       m_scrollBar(parent),
       m_focusState(new QState),
@@ -46,6 +48,7 @@ QtMaterialScrollBarStateMachine::QtMaterialScrollBarStateMachine(QtMaterialScrol
 /*!
  *  \internal
  */
-QtMaterialScrollBarStateMachine::~QtMaterialScrollBarStateMachine()
+ScrollBarStateMachine::~ScrollBarStateMachine()
 {
+}
 }

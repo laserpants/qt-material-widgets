@@ -2,10 +2,12 @@
 #define QTMATERIALSCROLLBAR_H
 
 #include <QtWidgets/QScrollBar>
+namespace md
+{
 
-class QtMaterialScrollBarPrivate;
+class ScrollBarPrivate;
 
-class QtMaterialScrollBar : public QScrollBar
+class ScrollBar : public QScrollBar
 {
     Q_OBJECT
 
@@ -14,8 +16,8 @@ class QtMaterialScrollBar : public QScrollBar
     Q_PROPERTY(QColor sliderColor WRITE setSliderColor READ sliderColor)
 
 public:
-    explicit QtMaterialScrollBar(QWidget *parent = 0);
-    ~QtMaterialScrollBar();
+    explicit ScrollBar(QWidget *parent = 0);
+    ~ScrollBar();
 
     QSize sizeHint() const Q_DECL_OVERRIDE;
 
@@ -37,11 +39,11 @@ public:
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
-    const QScopedPointer<QtMaterialScrollBarPrivate> d_ptr;
+    const QScopedPointer<ScrollBarPrivate> d_ptr;
 
 private:
-    Q_DISABLE_COPY(QtMaterialScrollBar)
-    Q_DECLARE_PRIVATE(QtMaterialScrollBar)
+    Q_DISABLE_COPY(ScrollBar)
+    Q_DECLARE_PRIVATE(ScrollBar)
 };
-
+}
 #endif // QTMATERIALSCROLLBAR_H

@@ -3,38 +3,40 @@
 
 #include <QStateMachine>
 #include "qtmaterialscrollbar.h"
+namespace md
+{
 
-class QtMaterialScrollBarStateMachine : public QStateMachine
+class ScrollBarStateMachine : public QStateMachine
 {
     Q_OBJECT
 
     Q_PROPERTY(qreal opacity WRITE setOpacity READ opacity)
 
 public:
-    QtMaterialScrollBarStateMachine(QtMaterialScrollBar *parent);
-    ~QtMaterialScrollBarStateMachine();
+    ScrollBarStateMachine(ScrollBar *parent);
+    ~ScrollBarStateMachine();
 
     inline void setOpacity(qreal opacity);
     inline qreal opacity() const;
 
 private:
-    Q_DISABLE_COPY(QtMaterialScrollBarStateMachine)
+    Q_DISABLE_COPY(ScrollBarStateMachine)
 
-    QtMaterialScrollBar *const m_scrollBar;
+    ScrollBar *const m_scrollBar;
     QState              *const m_focusState;
     QState              *const m_blurState;
     qreal                m_opacity;
 };
 
-inline void QtMaterialScrollBarStateMachine::setOpacity(qreal opacity)
+inline void ScrollBarStateMachine::setOpacity(qreal opacity)
 {
     m_opacity = opacity;
     m_scrollBar->update();
 }
 
-inline qreal QtMaterialScrollBarStateMachine::opacity() const
+inline qreal ScrollBarStateMachine::opacity() const
 {
     return m_opacity;
 }
-
+}
 #endif // QTMATERIALSCROLLBAR_INTERNAL_H

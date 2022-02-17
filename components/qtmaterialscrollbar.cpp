@@ -5,31 +5,33 @@
 #include <QDebug>
 #include "qtmaterialscrollbar_internal.h"
 #include "lib/qtmaterialstyle.h"
+namespace md
+{
 
 /*!
  *  \class QtMaterialScrollBarPrivate
  *  \internal
  */
 
-QtMaterialScrollBarPrivate::QtMaterialScrollBarPrivate(QtMaterialScrollBar *q)
+ScrollBarPrivate::ScrollBarPrivate(ScrollBar *q)
     : q_ptr(q)
 {
 }
 
-QtMaterialScrollBarPrivate::~QtMaterialScrollBarPrivate()
+ScrollBarPrivate::~ScrollBarPrivate()
 {
 }
 
-void QtMaterialScrollBarPrivate::init()
+void ScrollBarPrivate::init()
 {
-    Q_Q(QtMaterialScrollBar);
+    Q_Q(ScrollBar);
 
-    stateMachine   = new QtMaterialScrollBarStateMachine(q);
+    stateMachine   = new ScrollBarStateMachine(q);
     hideOnMouseOut = true;
     useThemeColors = true;
 
     q->setMouseTracking(true);
-    q->setStyle(&QtMaterialStyle::instance());
+    q->setStyle(&Style::instance());
     q->setStyleSheet("QScrollBar:vertical { margin: 0; }"
                      "QScrollBar::add-line:vertical { height: 0; margin: 0; }"
                      "QScrollBar::sub-line:vertical { height: 0; margin: 0; }");
@@ -41,21 +43,21 @@ void QtMaterialScrollBarPrivate::init()
  *  \class QtMaterialScrollBar
  */
 
-QtMaterialScrollBar::QtMaterialScrollBar(QWidget *parent)
+ScrollBar::ScrollBar(QWidget *parent)
     : QScrollBar(parent),
-      d_ptr(new QtMaterialScrollBarPrivate(this))
+      d_ptr(new ScrollBarPrivate(this))
 {
     d_func()->init();
 }
 
-QtMaterialScrollBar::~QtMaterialScrollBar()
+ScrollBar::~ScrollBar()
 {
 }
 
 /*!
  *  \reimp
  */
-QSize QtMaterialScrollBar::sizeHint() const
+QSize ScrollBar::sizeHint() const
 {
     if (Qt::Horizontal == orientation()) {
         return QSize(1, 10);
@@ -64,9 +66,9 @@ QSize QtMaterialScrollBar::sizeHint() const
     }
 }
 
-void QtMaterialScrollBar::setUseThemeColors(bool value)
+void ScrollBar::setUseThemeColors(bool value)
 {
-    Q_D(QtMaterialScrollBar);
+    Q_D(ScrollBar);
 
     if (d->useThemeColors == value) {
         return;
@@ -76,16 +78,16 @@ void QtMaterialScrollBar::setUseThemeColors(bool value)
     update();
 }
 
-bool QtMaterialScrollBar::useThemeColors() const
+bool ScrollBar::useThemeColors() const
 {
-    Q_D(const QtMaterialScrollBar);
+    Q_D(const ScrollBar);
 
     return d->useThemeColors;
 }
 
-void QtMaterialScrollBar::setCanvasColor(const QColor &color)
+void ScrollBar::setCanvasColor(const QColor &color)
 {
-    Q_D(QtMaterialScrollBar);
+    Q_D(ScrollBar);
 
     d->canvasColor = color;
 
@@ -93,9 +95,9 @@ void QtMaterialScrollBar::setCanvasColor(const QColor &color)
     update();
 }
 
-QColor QtMaterialScrollBar::canvasColor() const
+QColor ScrollBar::canvasColor() const
 {
-    Q_D(const QtMaterialScrollBar);
+    Q_D(const ScrollBar);
 
     if (d->useThemeColors || !d->canvasColor.isValid()) {
         return parentWidget()->palette().color(backgroundRole());
@@ -104,9 +106,9 @@ QColor QtMaterialScrollBar::canvasColor() const
     }
 }
 
-void QtMaterialScrollBar::setBackgroundColor(const QColor &color)
+void ScrollBar::setBackgroundColor(const QColor &color)
 {
-    Q_D(QtMaterialScrollBar);
+    Q_D(ScrollBar);
 
     d->backgroundColor = color;
 
@@ -114,20 +116,20 @@ void QtMaterialScrollBar::setBackgroundColor(const QColor &color)
     update();
 }
 
-QColor QtMaterialScrollBar::backgroundColor() const
+QColor ScrollBar::backgroundColor() const
 {
-    Q_D(const QtMaterialScrollBar);
+    Q_D(const ScrollBar);
 
     if (d->useThemeColors || !d->backgroundColor.isValid()) {
-        return QtMaterialStyle::instance().themeColor("border");
+        return Style::instance().themeColor("border");
     } else {
         return d->backgroundColor;
     }
 }
 
-void QtMaterialScrollBar::setSliderColor(const QColor &color)
+void ScrollBar::setSliderColor(const QColor &color)
 {
-    Q_D(QtMaterialScrollBar);
+    Q_D(ScrollBar);
 
     d->sliderColor = color;
 
@@ -135,28 +137,28 @@ void QtMaterialScrollBar::setSliderColor(const QColor &color)
     update();
 }
 
-QColor QtMaterialScrollBar::sliderColor() const
+QColor ScrollBar::sliderColor() const
 {
-    Q_D(const QtMaterialScrollBar);
+    Q_D(const ScrollBar);
 
     if (d->useThemeColors || !d->sliderColor.isValid()) {
-        return QtMaterialStyle::instance().themeColor("primary1");
+        return Style::instance().themeColor("primary1");
     } else {
         return d->sliderColor;
     }
 }
 
-void QtMaterialScrollBar::setHideOnMouseOut(bool value)
+void ScrollBar::setHideOnMouseOut(bool value)
 {
-    Q_D(QtMaterialScrollBar);
+    Q_D(ScrollBar);
 
     d->hideOnMouseOut = value;
     update();
 }
 
-bool QtMaterialScrollBar::hideOnMouseOut() const
+bool ScrollBar::hideOnMouseOut() const
 {
-    Q_D(const QtMaterialScrollBar);
+    Q_D(const ScrollBar);
 
     return d->hideOnMouseOut;
 }
@@ -164,11 +166,11 @@ bool QtMaterialScrollBar::hideOnMouseOut() const
 /*!
  *  \reimp
  */
-void QtMaterialScrollBar::paintEvent(QPaintEvent *event)
+void ScrollBar::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
-    Q_D(QtMaterialScrollBar);
+    Q_D(ScrollBar);
 
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
@@ -209,4 +211,5 @@ void QtMaterialScrollBar::paintEvent(QPaintEvent *event)
     painter.setBrush(brush);
 
     painter.drawRoundedRect(handle, 9, 9);
+}
 }

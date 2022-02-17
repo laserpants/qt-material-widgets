@@ -3,28 +3,30 @@
 
 #include <QtGlobal>
 #include <QColor>
-
-class QtMaterialScrollBar;
-class QtMaterialScrollBarStateMachine;
-
-class QtMaterialScrollBarPrivate
+namespace md
 {
-    Q_DISABLE_COPY(QtMaterialScrollBarPrivate)
-    Q_DECLARE_PUBLIC(QtMaterialScrollBar)
+
+class ScrollBar;
+class ScrollBarStateMachine;
+
+class ScrollBarPrivate
+{
+    Q_DISABLE_COPY(ScrollBarPrivate)
+    Q_DECLARE_PUBLIC(ScrollBar)
 
 public:
-    QtMaterialScrollBarPrivate(QtMaterialScrollBar *q);
-    ~QtMaterialScrollBarPrivate();
+    ScrollBarPrivate(ScrollBar *q);
+    ~ScrollBarPrivate();
 
     void init();
 
-    QtMaterialScrollBar             *const q_ptr;
-    QtMaterialScrollBarStateMachine *stateMachine;
+    ScrollBar             *const q_ptr;
+    ScrollBarStateMachine *stateMachine;
     QColor                           backgroundColor;
     QColor                           sliderColor;
     QColor                           canvasColor;
     bool                             hideOnMouseOut;
     bool                             useThemeColors;
 };
-
+}
 #endif // QTMATERIALSCROLLBAR_P_H
