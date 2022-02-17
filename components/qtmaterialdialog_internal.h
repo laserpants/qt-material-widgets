@@ -2,12 +2,14 @@
 #define QTMATERIALDIALOG_INTERNAL_H
 
 #include <QtWidgets/QWidget>
+namespace md
+{
 
 class QStackedLayout;
-class QtMaterialDialog;
-class QtMaterialDialogWindow;
+class Dialog;
+class DialogWindow;
 
-class QtMaterialDialogProxy : public QWidget
+class DialogProxy : public QWidget
 {
     Q_OBJECT
 
@@ -20,11 +22,11 @@ class QtMaterialDialogProxy : public QWidget
     };
 
 public:
-    QtMaterialDialogProxy(QtMaterialDialogWindow *source,
+    DialogProxy(DialogWindow *source,
                           QStackedLayout *layout,
-                          QtMaterialDialog *dialog,
+                          Dialog *dialog,
                           QWidget *parent = 0);
-    ~QtMaterialDialogProxy();
+    ~DialogProxy();
 
     void setOpacity(qreal opacity);
     inline qreal opacity() const;
@@ -40,29 +42,29 @@ protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
 private:
-    Q_DISABLE_COPY(QtMaterialDialogProxy)
+    Q_DISABLE_COPY(DialogProxy)
 
-    QtMaterialDialogWindow *const m_source;
+    DialogWindow *const m_source;
     QStackedLayout         *const m_layout;
-    QtMaterialDialog       *const m_dialog;
+    Dialog       *const m_dialog;
     qreal                         m_opacity;
     TransparencyMode              m_mode;
 };
 
-inline qreal QtMaterialDialogProxy::opacity() const
+inline qreal DialogProxy::opacity() const
 {
     return m_opacity;
 }
 
-class QtMaterialDialogWindow : public QWidget
+class DialogWindow : public QWidget
 {
     Q_OBJECT
 
     Q_PROPERTY(int offset WRITE setOffset READ offset)
 
 public:
-    explicit QtMaterialDialogWindow(QtMaterialDialog *dialog, QWidget *parent = 0);
-    ~QtMaterialDialogWindow();
+    explicit DialogWindow(Dialog *dialog, QWidget *parent = 0);
+    ~DialogWindow();
 
     void setOffset(int offset);
     int offset() const;
@@ -71,9 +73,10 @@ protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
 private:
-    Q_DISABLE_COPY(QtMaterialDialogWindow)
+    Q_DISABLE_COPY(DialogWindow)
 
-    QtMaterialDialog *const m_dialog;
+    Dialog *const m_dialog;
 };
 
 #endif // QTMATERIALDIALOG_INTERNAL_H
+}

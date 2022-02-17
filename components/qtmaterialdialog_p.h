@@ -2,29 +2,31 @@
 #define QTMATERIALDIALOG_P_H
 
 #include <QtGlobal>
+namespace md
+{
 
 class QStateMachine;
-class QtMaterialDialog;
+class Dialog;
 class QStackedLayout;
-class QtMaterialDialogWindow;
-class QtMaterialDialogProxy;
+class DialogWindow;
+class DialogProxy;
 
-class QtMaterialDialogPrivate
+class DialogPrivate
 {
-    Q_DISABLE_COPY(QtMaterialDialogPrivate)
-    Q_DECLARE_PUBLIC(QtMaterialDialog)
+    Q_DISABLE_COPY(DialogPrivate)
+    Q_DECLARE_PUBLIC(Dialog)
 
 public:
-    QtMaterialDialogPrivate(QtMaterialDialog *q);
-    ~QtMaterialDialogPrivate();
+    DialogPrivate(Dialog *q);
+    ~DialogPrivate();
 
     void init();
 
-    QtMaterialDialog       *const q_ptr;
-    QtMaterialDialogWindow *dialogWindow;
+    Dialog       *const q_ptr;
+    DialogWindow *dialogWindow;
     QStackedLayout         *proxyStack;
     QStateMachine          *stateMachine;
-    QtMaterialDialogProxy  *proxy;
+    DialogProxy  *proxy;
 };
-
+}
 #endif // QTMATERIALDIALOG_P_H

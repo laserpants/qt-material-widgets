@@ -4,16 +4,18 @@
 #include <QEvent>
 #include <QtWidgets/QStackedLayout>
 #include "qtmaterialdialog.h"
+namespace md
+{
 
 /*!
  *  \class QtMaterialDialogProxy
  *  \internal
  */
 
-QtMaterialDialogProxy::QtMaterialDialogProxy(
-        QtMaterialDialogWindow *source,
+DialogProxy::DialogProxy(
+        DialogWindow *source,
         QStackedLayout         *layout,
-        QtMaterialDialog       *dialog,
+        Dialog       *dialog,
         QWidget                *parent)
     : QWidget(parent),
       m_source(source),
@@ -24,11 +26,11 @@ QtMaterialDialogProxy::QtMaterialDialogProxy(
 {
 }
 
-QtMaterialDialogProxy::~QtMaterialDialogProxy()
+DialogProxy::~DialogProxy()
 {
 }
 
-void QtMaterialDialogProxy::setOpacity(qreal opacity)
+void DialogProxy::setOpacity(qreal opacity)
 {
     m_opacity = opacity;
     m_mode = SemiTransparent;
@@ -37,7 +39,7 @@ void QtMaterialDialogProxy::setOpacity(qreal opacity)
 }
 
 
-void QtMaterialDialogProxy::makeOpaque()
+void DialogProxy::makeOpaque()
 {
     m_dialog->setAttribute(Qt::WA_TransparentForMouseEvents, false);
     m_layout->setCurrentIndex(0);
@@ -46,19 +48,19 @@ void QtMaterialDialogProxy::makeOpaque()
     update();
 }
 
-void QtMaterialDialogProxy::makeTransparent()
+void DialogProxy::makeTransparent()
 {
     m_opacity = 0.0;
     m_mode = Transparent;
     update();
 }
 
-QSize QtMaterialDialogProxy::sizeHint() const
+QSize DialogProxy::sizeHint() const
 {
     return m_source->sizeHint();
 }
 
-bool QtMaterialDialogProxy::event(QEvent *event)
+bool DialogProxy::event(QEvent *event)
 {
     const QEvent::Type type = event->type();
 
@@ -68,7 +70,7 @@ bool QtMaterialDialogProxy::event(QEvent *event)
     return QWidget::event(event);
 }
 
-void QtMaterialDialogProxy::paintEvent(QPaintEvent *event)
+void DialogProxy::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
@@ -88,31 +90,31 @@ void QtMaterialDialogProxy::paintEvent(QPaintEvent *event)
  *  \internal
  */
 
-QtMaterialDialogWindow::QtMaterialDialogWindow(
-        QtMaterialDialog *dialog,
+DialogWindow::DialogWindow(
+        Dialog *dialog,
         QWidget          *parent)
     : QWidget(parent),
       m_dialog(dialog)
 {
 }
 
-QtMaterialDialogWindow::~QtMaterialDialogWindow()
+DialogWindow::~DialogWindow()
 {
 }
 
-void QtMaterialDialogWindow::setOffset(int offset)
+void DialogWindow::setOffset(int offset)
 {
     QMargins margins = m_dialog->layout()->contentsMargins();
     margins.setBottom(offset);
     m_dialog->layout()->setContentsMargins(margins);
 }
 
-int QtMaterialDialogWindow::offset() const
+int DialogWindow::offset() const
 {
     return m_dialog->layout()->contentsMargins().bottom();
 }
 
-void QtMaterialDialogWindow::paintEvent(QPaintEvent *event)
+void DialogWindow::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
@@ -124,4 +126,6 @@ void QtMaterialDialogWindow::paintEvent(QPaintEvent *event)
     painter.setPen(Qt::NoPen);
     painter.setBrush(brush);
     painter.drawRect(rect());
+}
+
 }

@@ -9,29 +9,31 @@
 #include <QPainter>
 #include "qtmaterialdialog_internal.h"
 #include "lib/qtmaterialstatetransition.h"
+namespace md
+{
 
 /*!
  *  \class QtMaterialDialogPrivate
  *  \internal
  */
 
-QtMaterialDialogPrivate::QtMaterialDialogPrivate(QtMaterialDialog *q)
+DialogPrivate::DialogPrivate(Dialog *q)
     : q_ptr(q)
 {
 }
 
-QtMaterialDialogPrivate::~QtMaterialDialogPrivate()
+DialogPrivate::~DialogPrivate()
 {
 }
 
-void QtMaterialDialogPrivate::init()
+void DialogPrivate::init()
 {
-    Q_Q(QtMaterialDialog);
+    Q_Q(Dialog);
 
-    dialogWindow = new QtMaterialDialogWindow(q);
+    dialogWindow = new DialogWindow(q);
     proxyStack   = new QStackedLayout;
     stateMachine = new QStateMachine(q);
-    proxy        = new QtMaterialDialogProxy(dialogWindow, proxyStack, q);
+    proxy        = new DialogProxy(dialogWindow, proxyStack, q);
 
     QVBoxLayout *layout = new QVBoxLayout;
     q->setLayout(layout);
@@ -62,13 +64,13 @@ void QtMaterialDialogPrivate::init()
     stateMachine->addState(visibleState);
     stateMachine->setInitialState(hiddenState);
 
-    QtMaterialStateTransition *transition;
+    StateTransition *transition;
 
-    transition = new QtMaterialStateTransition(DialogShowTransition);
+    transition = new StateTransition(DialogShowTransition);
     transition->setTargetState(visibleState);
     hiddenState->addTransition(transition);
 
-    transition = new QtMaterialStateTransition(DialogHideTransition);
+    transition = new StateTransition(DialogHideTransition);
     transition->setTargetState(hiddenState);
     visibleState->addTransition(transition);
 
@@ -107,53 +109,53 @@ void QtMaterialDialogPrivate::init()
  *  \class QtMaterialDialog
  */
 
-QtMaterialDialog::QtMaterialDialog(QWidget *parent)
-    : QtMaterialOverlayWidget(parent),
-      d_ptr(new QtMaterialDialogPrivate(this))
+Dialog::Dialog(QWidget *parent)
+    : OverlayWidget(parent),
+      d_ptr(new DialogPrivate(this))
 {
     d_func()->init();
 }
 
-QtMaterialDialog::~QtMaterialDialog()
+Dialog::~Dialog()
 {
 }
 
-QLayout *QtMaterialDialog::windowLayout() const
+QLayout *Dialog::windowLayout() const
 {
-    Q_D(const QtMaterialDialog);
+    Q_D(const Dialog);
 
     return d->dialogWindow->layout();
 }
 
-void QtMaterialDialog::setWindowLayout(QLayout *layout)
+void Dialog::setWindowLayout(QLayout *layout)
 {
-    Q_D(QtMaterialDialog);
+    Q_D(Dialog);
 
     d->dialogWindow->setLayout(layout);
 }
 
-void QtMaterialDialog::showDialog()
+void Dialog::showDialog()
 {
-    Q_D(QtMaterialDialog);
+    Q_D(Dialog);
 
-    d->stateMachine->postEvent(new QtMaterialStateTransitionEvent(DialogShowTransition));
+    d->stateMachine->postEvent(new StateTransitionEvent(DialogShowTransition));
     raise();
 }
 
-void QtMaterialDialog::hideDialog()
+void Dialog::hideDialog()
 {
-    Q_D(QtMaterialDialog);
+    Q_D(Dialog);
 
-    d->stateMachine->postEvent(new QtMaterialStateTransitionEvent(DialogHideTransition));
+    d->stateMachine->postEvent(new StateTransitionEvent(DialogHideTransition));
     setAttribute(Qt::WA_TransparentForMouseEvents);
     d->proxyStack->setCurrentIndex(1);
 }
 
-void QtMaterialDialog::paintEvent(QPaintEvent *event)
+void Dialog::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
-    Q_D(QtMaterialDialog);
+    Q_D(Dialog);
 
     QPainter painter(this);
 
@@ -164,4 +166,5 @@ void QtMaterialDialog::paintEvent(QPaintEvent *event)
     painter.setPen(Qt::NoPen);
     painter.setOpacity(d->proxy->opacity()/2.4);
     painter.drawRect(rect());
+}
 }

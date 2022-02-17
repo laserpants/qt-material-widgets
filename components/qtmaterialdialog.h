@@ -3,17 +3,19 @@
 
 #include <QScopedPointer>
 #include "lib/qtmaterialoverlaywidget.h"
+namespace md
+{
 
 class QLayout;
-class QtMaterialDialogPrivate;
+class DialogPrivate;
 
-class QtMaterialDialog : public QtMaterialOverlayWidget
+class Dialog : public OverlayWidget
 {
     Q_OBJECT
 
 public:
-    explicit QtMaterialDialog(QWidget *parent = 0);
-    ~QtMaterialDialog();
+    explicit Dialog(QWidget *parent = 0);
+    ~Dialog();
 
     QLayout *windowLayout() const;
     void setWindowLayout(QLayout *layout);
@@ -25,11 +27,11 @@ public slots:
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
-    const QScopedPointer<QtMaterialDialogPrivate> d_ptr;
+    const QScopedPointer<DialogPrivate> d_ptr;
 
 private:
-    Q_DISABLE_COPY(QtMaterialDialog)
-    Q_DECLARE_PRIVATE(QtMaterialDialog)
+    Q_DISABLE_COPY(Dialog)
+    Q_DECLARE_PRIVATE(Dialog)
 };
-
+}
 #endif // QTMATERIALDIALOG_H
