@@ -2,9 +2,10 @@
 #define QTMATERIALDIALOG_P_H
 
 #include <QtGlobal>
+#include <QtWidgets/QApplication>
 #include <QtWidgets/QStackedLayout>
 #include <QtWidgets/QGraphicsDropShadowEffect>
-#include <QtWidgets/QApplication>
+
 #include <QStateMachine>
 #include <QState>
 #include <QPropertyAnimation>

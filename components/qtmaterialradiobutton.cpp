@@ -1,9 +1,9 @@
 #include "qtmaterialradiobutton.h"
+#include "qtmaterialradiobutton_p.h"
+#include "lib/qtmaterialcheckable_internal.h"
 
 namespace md
 {
-
-
 /*!
  *  \class RadioButtonPrivate
  *  \internal

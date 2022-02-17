@@ -14,6 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Gui REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core5Compat REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS StateMachine REQUIRED)
 
@@ -44,7 +45,7 @@ set(PROJECT_SOURCES
     qtmaterialslider.cpp 
     qtmaterialsnackbar_internal.cpp 
     qtmaterialsnackbar.cpp 
-#    qtmaterialradiobutton.cpp
+    qtmaterialradiobutton.cpp
     qtmaterialtoggle_internal.cpp 
     qtmaterialtoggle.cpp 
     qtmaterialtextfield_internal.cpp 
@@ -106,8 +107,8 @@ set(PROJECT_SOURCES
     qtmaterialsnackbar_internal.h 
     qtmaterialsnackbar_p.h 
     qtmaterialsnackbar.h 
-#    qtmaterialradiobutton_p.h
-#    qtmaterialradiobutton.h
+    qtmaterialradiobutton_p.h
+    qtmaterialradiobutton.h
     qtmaterialtoggle_internal.h 
     qtmaterialtoggle_p.h 
     qtmaterialtoggle.h 
@@ -164,6 +165,7 @@ endif()
 
 target_link_libraries(components PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(components PRIVATE Qt${QT_VERSION_MAJOR}::Core)
+target_link_libraries(components PRIVATE Qt${QT_VERSION_MAJOR}::Gui)
 target_link_libraries(components PRIVATE Qt${QT_VERSION_MAJOR}::Core5Compat)
 target_link_libraries(components PRIVATE Qt${QT_VERSION_MAJOR}::StateMachine)
 
