@@ -2,13 +2,15 @@
 #define QTMATERIALFAB_P_H
 
 #include "qtmaterialraisedbutton_p.h"
-
-class QtMaterialFloatingActionButton;
-
-class QtMaterialFloatingActionButtonPrivate : public QtMaterialRaisedButtonPrivate
+namespace md
 {
-    Q_DISABLE_COPY(QtMaterialFloatingActionButtonPrivate)
-    Q_DECLARE_PUBLIC(QtMaterialFloatingActionButton)
+
+class FloatingActionButton;
+
+class FloatingActionButtonPrivate : public RaisedButtonPrivate
+{
+    Q_DISABLE_COPY(FloatingActionButtonPrivate)
+    Q_DECLARE_PUBLIC(FloatingActionButton)
 
 public:
     enum {
@@ -21,8 +23,8 @@ public:
         MiniIconSize = 18
     };
 
-    QtMaterialFloatingActionButtonPrivate(QtMaterialFloatingActionButton *q);
-    ~QtMaterialFloatingActionButtonPrivate();
+    FloatingActionButtonPrivate(FloatingActionButton *q);
+    ~FloatingActionButtonPrivate();
 
     void init();
     QRect fabGeometry() const;
@@ -37,14 +39,14 @@ public:
     int        offsY;
 };
 
-inline int QtMaterialFloatingActionButtonPrivate::diameter() const
+inline int FloatingActionButtonPrivate::diameter() const
 {
     return mini ? MiniDiameter : DefaultDiameter;
 }
 
-inline int QtMaterialFloatingActionButtonPrivate::iconSize() const
+inline int FloatingActionButtonPrivate::iconSize() const
 {
     return mini ? MiniIconSize : DefaultIconSize;
 }
-
+}
 #endif // QTMATERIALFAB_P_H

@@ -5,6 +5,8 @@
 #include <QEvent>
 #include <QPainter>
 #include "lib/qtmaterialrippleoverlay.h"
+namespace md
+{
 
 /*!
  *  \class QtMaterialFloatingActionButtonPrivate
@@ -14,24 +16,24 @@
 /*!
  *  \internal
  */
-QtMaterialFloatingActionButtonPrivate::QtMaterialFloatingActionButtonPrivate(QtMaterialFloatingActionButton *q)
-    : QtMaterialRaisedButtonPrivate(q)
+FloatingActionButtonPrivate::FloatingActionButtonPrivate(FloatingActionButton *q)
+    : RaisedButtonPrivate(q)
 {
 }
 
 /*!
  *  \internal
  */
-QtMaterialFloatingActionButtonPrivate::~QtMaterialFloatingActionButtonPrivate()
+FloatingActionButtonPrivate::~FloatingActionButtonPrivate()
 {
 }
 
 /*!
  *  \internal
  */
-void QtMaterialFloatingActionButtonPrivate::init()
+void FloatingActionButtonPrivate::init()
 {
-    Q_Q(QtMaterialFloatingActionButton);
+    Q_Q(FloatingActionButton);
 
     corner = Qt::BottomRightCorner;
     mini   = false;
@@ -54,9 +56,9 @@ void QtMaterialFloatingActionButtonPrivate::init()
 /*!
  *  \internal
  */
-QRect QtMaterialFloatingActionButtonPrivate::fabGeometry() const
+QRect FloatingActionButtonPrivate::fabGeometry() const
 {
-    Q_Q(const QtMaterialFloatingActionButton);
+    Q_Q(const FloatingActionButton);
 
     QWidget *parent = q->parentWidget();
     if (!parent) {
@@ -83,7 +85,7 @@ QRect QtMaterialFloatingActionButtonPrivate::fabGeometry() const
 /*!
  *  \internal
  */
-void QtMaterialFloatingActionButtonPrivate::setupProperties()
+void FloatingActionButtonPrivate::setupProperties()
 {
     if (mini) {
         effect->setColor(QColor(0, 0, 0, 80));
@@ -104,37 +106,37 @@ void QtMaterialFloatingActionButtonPrivate::setupProperties()
  *  \class QtMaterialFloatingActionButton
  */
 
-QtMaterialFloatingActionButton::QtMaterialFloatingActionButton(const QIcon &icon, QWidget *parent)
-    : QtMaterialRaisedButton(*new QtMaterialFloatingActionButtonPrivate(this), parent)
+FloatingActionButton::FloatingActionButton(const QIcon &icon, QWidget *parent)
+    : RaisedButton(*new FloatingActionButtonPrivate(this), parent)
 {
     d_func()->init();
 
     setIcon(icon);
 }
 
-QtMaterialFloatingActionButton::~QtMaterialFloatingActionButton()
+FloatingActionButton::~FloatingActionButton()
 {
 }
 
 /*!
  *  \reimp
  */
-QSize QtMaterialFloatingActionButton::sizeHint() const
+QSize FloatingActionButton::sizeHint() const
 {
-    Q_D(const QtMaterialFloatingActionButton);
+    Q_D(const FloatingActionButton);
 
     if (d->mini) {
-        return QSize(QtMaterialFloatingActionButtonPrivate::MiniDiameter,
-                     QtMaterialFloatingActionButtonPrivate::MiniDiameter);
+        return QSize(FloatingActionButtonPrivate::MiniDiameter,
+                     FloatingActionButtonPrivate::MiniDiameter);
     } else {
-        return QSize(QtMaterialFloatingActionButtonPrivate::DefaultDiameter,
-                     QtMaterialFloatingActionButtonPrivate::DefaultDiameter);
+        return QSize(FloatingActionButtonPrivate::DefaultDiameter,
+                     FloatingActionButtonPrivate::DefaultDiameter);
     }
 }
 
-void QtMaterialFloatingActionButton::setMini(bool state)
+void FloatingActionButton::setMini(bool state)
 {
-    Q_D(QtMaterialFloatingActionButton);
+    Q_D(FloatingActionButton);
 
     if (d->mini == state) {
         return;
@@ -151,16 +153,16 @@ void QtMaterialFloatingActionButton::setMini(bool state)
     update();
 }
 
-bool QtMaterialFloatingActionButton::isMini() const
+bool FloatingActionButton::isMini() const
 {
-    Q_D(const QtMaterialFloatingActionButton);
+    Q_D(const FloatingActionButton);
 
     return d->mini;
 }
 
-void QtMaterialFloatingActionButton::setCorner(Qt::Corner corner)
+void FloatingActionButton::setCorner(Qt::Corner corner)
 {
-    Q_D(QtMaterialFloatingActionButton);
+    Q_D(FloatingActionButton);
 
     if (d->corner == corner) {
         return;
@@ -171,16 +173,16 @@ void QtMaterialFloatingActionButton::setCorner(Qt::Corner corner)
     update();
 }
 
-Qt::Corner QtMaterialFloatingActionButton::corner() const
+Qt::Corner FloatingActionButton::corner() const
 {
-    Q_D(const QtMaterialFloatingActionButton);
+    Q_D(const FloatingActionButton);
 
     return d->corner;
 }
 
-void QtMaterialFloatingActionButton::setOffset(int x, int y)
+void FloatingActionButton::setOffset(int x, int y)
 {
-    Q_D(QtMaterialFloatingActionButton);
+    Q_D(FloatingActionButton);
 
     d->offsX = x;
     d->offsY = y;
@@ -188,41 +190,41 @@ void QtMaterialFloatingActionButton::setOffset(int x, int y)
     update();
 }
 
-QSize QtMaterialFloatingActionButton::offset() const
+QSize FloatingActionButton::offset() const
 {
-    Q_D(const QtMaterialFloatingActionButton);
+    Q_D(const FloatingActionButton);
 
     return QSize(d->offsX, d->offsY);
 }
 
-void QtMaterialFloatingActionButton::setXOffset(int x)
+void FloatingActionButton::setXOffset(int x)
 {
-    Q_D(QtMaterialFloatingActionButton);
+    Q_D(FloatingActionButton);
 
     d->offsX = x;
     setGeometry(d->fabGeometry());
     update();
 }
 
-int QtMaterialFloatingActionButton::xOffset() const
+int FloatingActionButton::xOffset() const
 {
-    Q_D(const QtMaterialFloatingActionButton);
+    Q_D(const FloatingActionButton);
 
     return d->offsX;
 }
 
-void QtMaterialFloatingActionButton::setYOffset(int y)
+void FloatingActionButton::setYOffset(int y)
 {
-    Q_D(QtMaterialFloatingActionButton);
+    Q_D(FloatingActionButton);
 
     d->offsY = y;
     setGeometry(d->fabGeometry());
     update();
 }
 
-int QtMaterialFloatingActionButton::yOffset() const
+int FloatingActionButton::yOffset() const
 {
-    Q_D(const QtMaterialFloatingActionButton);
+    Q_D(const FloatingActionButton);
 
     return d->offsY;
 }
@@ -230,12 +232,12 @@ int QtMaterialFloatingActionButton::yOffset() const
 /*!
  *  \reimp
  */
-bool QtMaterialFloatingActionButton::event(QEvent *event)
+bool FloatingActionButton::event(QEvent *event)
 {
-    Q_D(QtMaterialFloatingActionButton);
+    Q_D(FloatingActionButton);
 
     if (!parent()) {
-        return QtMaterialRaisedButton::event(event);
+        return RaisedButton::event(event);
     }
     switch (event->type())
     {
@@ -253,33 +255,33 @@ bool QtMaterialFloatingActionButton::event(QEvent *event)
     default:
         break;
     }
-    return QtMaterialRaisedButton::event(event);
+    return RaisedButton::event(event);
 }
 
 /*!
  *  \reimp
  */
-bool QtMaterialFloatingActionButton::eventFilter(QObject *obj, QEvent *event)
+bool FloatingActionButton::eventFilter(QObject *obj, QEvent *event)
 {
     const QEvent::Type type = event->type();
 
     if (QEvent::Move == type || QEvent::Resize == type)
     {
-        Q_D(QtMaterialFloatingActionButton);
+        Q_D(FloatingActionButton);
         setGeometry(d->fabGeometry());
     }
 
-    return QtMaterialRaisedButton::eventFilter(obj, event);
+    return RaisedButton::eventFilter(obj, event);
 }
 
 /*!
  *  \reimp
  */
-void QtMaterialFloatingActionButton::paintEvent(QPaintEvent *event)
+void FloatingActionButton::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
-    Q_D(QtMaterialFloatingActionButton);
+    Q_D(FloatingActionButton);
 
     QRect square = QRect(0, 0, d->diameter(), d->diameter());
     square.moveCenter(rect().center());
@@ -311,11 +313,13 @@ void QtMaterialFloatingActionButton::paintEvent(QPaintEvent *event)
     painter.drawPixmap(iconGeometry, pixmap);
 }
 
-void QtMaterialFloatingActionButton::updateClipPath()
+void FloatingActionButton::updateClipPath()
 {
-    Q_D(QtMaterialFloatingActionButton);
+    Q_D(FloatingActionButton);
 
     QPainterPath path;
     path.addEllipse(0, 0, d->diameter(), d->diameter());
     d->rippleOverlay->setClipPath(path);
+}
+
 }

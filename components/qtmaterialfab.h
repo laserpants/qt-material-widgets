@@ -2,16 +2,18 @@
 #define QTMATERIALFAB_H
 
 #include "qtmaterialraisedbutton.h"
+namespace md
+{
 
-class QtMaterialFloatingActionButtonPrivate;
+class FloatingActionButtonPrivate;
 
-class QtMaterialFloatingActionButton : public QtMaterialRaisedButton
+class FloatingActionButton : public RaisedButton
 {
     Q_OBJECT
 
 public:
-    explicit QtMaterialFloatingActionButton(const QIcon &icon, QWidget *parent = 0);
-    ~QtMaterialFloatingActionButton();
+    explicit FloatingActionButton(const QIcon &icon, QWidget *parent = 0);
+    ~FloatingActionButton();
 
     QSize sizeHint() const Q_DECL_OVERRIDE;
 
@@ -38,9 +40,9 @@ protected:
     void updateClipPath() Q_DECL_OVERRIDE;
 
 private:
-    Q_DISABLE_COPY(QtMaterialFloatingActionButton)
-    Q_DECLARE_PRIVATE(QtMaterialFloatingActionButton)
+    Q_DISABLE_COPY(FloatingActionButton)
+    Q_DECLARE_PRIVATE(FloatingActionButton)
 
 };
-
+}
 #endif // QTMATERIALFAB_H
