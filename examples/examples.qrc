@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/images">
-        <file>assets/uxceo-128.jpg</file>
-        <file>assets/sikh.jpg</file>
-    </qresource>
-</RCC>
