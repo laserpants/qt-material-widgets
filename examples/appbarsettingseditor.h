@@ -2,9 +2,17 @@
 #define APPBARSETTINGSEDITOR_H
 
 #include <QWidget>
+#include <QtWidgets/QVBoxLayout>
+#include <QColorDialog>
+#include <QPalette>
+
+#include <qtmaterialappbar.h>
+#include <qtmaterialiconbutton.h>
+#include <lib/qtmaterialtheme.h>
+
 #include "ui_appbarsettingsform.h"
 
-class QtMaterialAppBar;
+using namespace md;
 
 class AppBarSettingsEditor : public QWidget
 {
@@ -21,7 +29,7 @@ protected slots:
 
 private:
     Ui::AppBarSettingsForm *const ui;
-    QtMaterialAppBar       *const m_appBar;
+    AppBar       *const m_appBar;
 };
 
 #endif // APPBARSETTINGSEDITOR_H

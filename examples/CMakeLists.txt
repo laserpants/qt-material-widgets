@@ -24,7 +24,7 @@ set(PROJECT_SOURCES
     main.cpp
     mainwindow.cpp    
     avatarsettingseditor.cpp 
-#    badgesettingseditor.cpp
+    badgesettingseditor.cpp
 #    checkboxsettingseditor.cpp
 #    fabsettingseditor.cpp
 #    raisedbuttonsettingseditor.cpp
@@ -41,13 +41,13 @@ set(PROJECT_SOURCES
 #    dialogsettingseditor.cpp
 #    drawersettingseditor.cpp
 #    scrollbarsettingseditor.cpp
-#    appbarsettingseditor.cpp
+    appbarsettingseditor.cpp
 #    autocompletesettingseditor.cpp
 #    menusettingseditor.cpp
     # Headers
     mainwindow.h 
     avatarsettingseditor.h 
-#    badgesettingseditor.h
+    badgesettingseditor.h
 #    checkboxsettingseditor.h
 #    fabsettingseditor.h
 #    raisedbuttonsettingseditor.h
@@ -64,12 +64,12 @@ set(PROJECT_SOURCES
 #    dialogsettingseditor.h
 #    drawersettingseditor.h
 #    scrollbarsettingseditor.h
-#    appbarsettingseditor.h
+    appbarsettingseditor.h
 #    autocompletesettingseditor.h
 #    menusettingseditor.h
     # Forms
     avatarsettingsform.ui 
-#    badgesettingsform.ui
+    badgesettingsform.ui
 #    checkboxsettingsform.ui
 #    fabsettingsform.ui
 #    flatbuttonsettingsform.ui
@@ -85,7 +85,7 @@ set(PROJECT_SOURCES
 #    dialogsettingsform.ui
 #    drawersettingsform.ui
 #    scrollbarsettingsform.ui
-#    appbarsettingsform.ui
+    appbarsettingsform.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

@@ -6,10 +6,10 @@
 #include <QColorDialog>
 #include <qtmaterialavatar.h>
 #include <lib/qtmaterialtheme.h>
+
 #include "ui_avatarsettingsform.h"
 
 using namespace md;
-//class Avatar;
 
 class AvatarSettingsEditor : public QWidget
 {

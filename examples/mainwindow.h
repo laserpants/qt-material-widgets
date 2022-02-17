@@ -7,7 +7,7 @@
 #include <QtWidgets/QListWidget>
 
 #include "avatarsettingseditor.h"
-//#include "badgesettingseditor.h"
+#include "badgesettingseditor.h"
 //#include "checkboxsettingseditor.h"
 //#include "fabsettingseditor.h"
 //#include "raisedbuttonsettingseditor.h"
@@ -24,7 +24,7 @@
 //#include "dialogsettingseditor.h"
 //#include "drawersettingseditor.h"
 //#include "scrollbarsettingseditor.h"
-//#include "appbarsettingseditor.h"
+#include "appbarsettingseditor.h"
 //#include "autocompletesettingseditor.h"
 //#include "menusettingseditor.h"
 

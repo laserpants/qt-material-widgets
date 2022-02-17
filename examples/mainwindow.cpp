@@ -3,6 +3,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
+    this->showMaximized();
     QWidget *widget = new QWidget;
     QHBoxLayout *layout = new QHBoxLayout;
 
@@ -19,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
     setCentralWidget(widget);
 
     AvatarSettingsEditor *avatar = new AvatarSettingsEditor;
-//    BadgeSettingsEditor *badge = new BadgeSettingsEditor;
+    BadgeSettingsEditor *badge = new BadgeSettingsEditor;
 //    CheckBoxSettingsEditor *checkbox = new CheckBoxSettingsEditor;
 //    FloatingActionButtonSettingsEditor *fab = new FloatingActionButtonSettingsEditor;
 //    RaisedButtonSettingsEditor *raisedButton = new RaisedButtonSettingsEditor;
@@ -36,14 +37,14 @@ MainWindow::MainWindow(QWidget *parent)
 //    DialogSettingsEditor *dialog = new DialogSettingsEditor;
 //    DrawerSettingsEditor *drawer = new DrawerSettingsEditor;
 //    ScrollBarSettingsEditor *scrollBar = new ScrollBarSettingsEditor;
-//    AppBarSettingsEditor *appBar = new AppBarSettingsEditor;
+    AppBarSettingsEditor *appBar = new AppBarSettingsEditor;
 //    AutoCompleteSettingsEditor *autocomplete = new AutoCompleteSettingsEditor;
 //    MenuSettingsEditor *menu = new MenuSettingsEditor;
 
     stack->addWidget(avatar);
-//    stack->addWidget(appBar);
+    stack->addWidget(appBar);
 //    stack->addWidget(autocomplete);
-//    stack->addWidget(badge);
+    stack->addWidget(badge);
 //    stack->addWidget(checkbox);
 //    stack->addWidget(circularProgress);
 //    stack->addWidget(dialog);
@@ -64,9 +65,9 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     list->addItem("Avatar");
-//    list->addItem("App Bar");
+    list->addItem("App Bar");
 //    list->addItem("Auto Complete");
-//    list->addItem("Badge");
+    list->addItem("Badge");
 //    list->addItem("Checkbox");
 //    list->addItem("Circular Progress");
 //    list->addItem("Dialog");
