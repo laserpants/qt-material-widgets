@@ -4,7 +4,7 @@
 #include <QWidget>
 #include "ui_badgesettingsform.h"
 
-class QtMaterialAvatar;
+class Avatar;
 class QtMaterialBadge;
 
 class BadgeSettingsEditor : public QWidget
@@ -22,7 +22,7 @@ protected slots:
 
 private:
     Ui::BadgeSettingsForm *const ui;
-    QtMaterialAvatar      *const m_avatar;
+    Avatar      *const m_avatar;
     QtMaterialBadge       *const m_badge;
 };
 

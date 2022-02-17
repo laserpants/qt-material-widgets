@@ -2,9 +2,14 @@
 #define AVATARSETTINGSEDITOR_H
 
 #include <QWidget>
+
+#include <QColorDialog>
+#include <qtmaterialavatar.h>
+#include <lib/qtmaterialtheme.h>
 #include "ui_avatarsettingsform.h"
 
-class QtMaterialAvatar;
+using namespace md;
+//class Avatar;
 
 class AvatarSettingsEditor : public QWidget
 {
@@ -21,7 +26,7 @@ protected slots:
 
 private:
     Ui::AvatarSettingsForm *const ui;
-    QtMaterialAvatar       *const m_avatar;
+    Avatar       *const m_avatar;
 };
 
 #endif // AVATARSETTINGSEDITOR_H

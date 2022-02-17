@@ -6,7 +6,7 @@
 BadgeSettingsEditor::BadgeSettingsEditor(QWidget *parent)
     : QWidget(parent),
       ui(new Ui::BadgeSettingsForm),
-      m_avatar(new QtMaterialAvatar(QImage(":/images/assets/sikh.jpg"))),
+      m_avatar(new Avatar(QImage(":/images/assets/sikh.jpg"))),
       m_badge(new QtMaterialBadge)
 {
     QVBoxLayout *layout = new QVBoxLayout;
