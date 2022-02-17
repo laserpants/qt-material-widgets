@@ -1,11 +1,14 @@
 #include "qtmaterialcircularprogress_internal.h"
 
+namespace md
+{
+
 /*!
  *  \class QtMaterialCircularProgressDelegate
  *  \internal
  */
 
-QtMaterialCircularProgressDelegate::QtMaterialCircularProgressDelegate(QtMaterialCircularProgress *parent)
+CircularProgressDelegate::CircularProgressDelegate(CircularProgress *parent)
     : QObject(parent),
       m_progress(parent),
       m_dashOffset(0),
@@ -15,6 +18,8 @@ QtMaterialCircularProgressDelegate::QtMaterialCircularProgressDelegate(QtMateria
     Q_ASSERT(parent);
 }
 
-QtMaterialCircularProgressDelegate::~QtMaterialCircularProgressDelegate()
+CircularProgressDelegate::~CircularProgressDelegate()
 {
+}
+
 }

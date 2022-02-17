@@ -3,8 +3,10 @@
 
 #include <QObject>
 #include "qtmaterialcircularprogress.h"
+namespace md
+{
 
-class QtMaterialCircularProgressDelegate : public QObject
+class CircularProgressDelegate : public QObject
 {
     Q_OBJECT
 
@@ -13,8 +15,8 @@ class QtMaterialCircularProgressDelegate : public QObject
     Q_PROPERTY(int angle WRITE setAngle READ angle)
 
 public:
-    QtMaterialCircularProgressDelegate(QtMaterialCircularProgress *parent);
-    ~QtMaterialCircularProgressDelegate();
+    CircularProgressDelegate(CircularProgress *parent);
+    ~CircularProgressDelegate();
 
     inline void setDashOffset(qreal offset);
     inline qreal dashOffset() const;
@@ -26,45 +28,47 @@ public:
     inline int angle() const;
 
 private:
-    Q_DISABLE_COPY(QtMaterialCircularProgressDelegate)
+    Q_DISABLE_COPY(CircularProgressDelegate)
 
-    QtMaterialCircularProgress *const m_progress;
+    CircularProgress *const m_progress;
     qreal                             m_dashOffset;
     qreal                             m_dashLength;
     int                               m_angle;
 };
 
-inline void QtMaterialCircularProgressDelegate::setDashOffset(qreal offset)
+inline void CircularProgressDelegate::setDashOffset(qreal offset)
 {
     m_dashOffset = offset;
     m_progress->update();
 }
 
-inline qreal QtMaterialCircularProgressDelegate::dashOffset() const
+inline qreal CircularProgressDelegate::dashOffset() const
 {
     return m_dashOffset;
 }
 
-inline void QtMaterialCircularProgressDelegate::setDashLength(qreal length)
+inline void CircularProgressDelegate::setDashLength(qreal length)
 {
     m_dashLength = length;
     m_progress->update();
 }
 
-inline qreal QtMaterialCircularProgressDelegate::dashLength() const
+inline qreal CircularProgressDelegate::dashLength() const
 {
     return m_dashLength;
 }
 
-inline void QtMaterialCircularProgressDelegate::setAngle(int angle)
+inline void CircularProgressDelegate::setAngle(int angle)
 {
     m_angle = angle;
     m_progress->update();
 }
 
-inline int QtMaterialCircularProgressDelegate::angle() const
+inline int CircularProgressDelegate::angle() const
 {
     return m_angle;
+}
+
 }
 
 #endif // QTMATERIALCIRCULARPROGRESS_INTERNAL_H

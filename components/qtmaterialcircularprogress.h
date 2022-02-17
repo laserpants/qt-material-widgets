@@ -4,9 +4,12 @@
 #include <QtWidgets/QProgressBar>
 #include "lib/qtmaterialtheme.h"
 
-class QtMaterialCircularProgressPrivate;
+namespace md
+{
 
-class QtMaterialCircularProgress : public QProgressBar
+class CircularProgressPrivate;
+
+class CircularProgress : public QProgressBar
 {
     Q_OBJECT
 
@@ -15,8 +18,8 @@ class QtMaterialCircularProgress : public QProgressBar
     Q_PROPERTY(QColor color WRITE setColor READ color)
 
 public:
-    explicit QtMaterialCircularProgress(QWidget *parent = 0);
-    ~QtMaterialCircularProgress();
+    explicit CircularProgress(QWidget *parent = 0);
+    ~CircularProgress();
 
     void setProgressType(Material::ProgressType type);
     Material::ProgressType progressType() const;
@@ -38,11 +41,13 @@ public:
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
-    const QScopedPointer<QtMaterialCircularProgressPrivate> d_ptr;
+    const QScopedPointer<CircularProgressPrivate> d_ptr;
 
 private:
-    Q_DISABLE_COPY(QtMaterialCircularProgress)
-    Q_DECLARE_PRIVATE(QtMaterialCircularProgress)
+    Q_DISABLE_COPY(CircularProgress)
+    Q_DECLARE_PRIVATE(CircularProgress)
 };
+
+}
 
 #endif // QTMATERIALCIRCULARPROGRESS_H
