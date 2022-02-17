@@ -4,23 +4,28 @@
 #include <QtGlobal>
 #include <QColor>
 
-class QtMaterialAppBar;
-
-class QtMaterialAppBarPrivate
+namespace md
 {
-    Q_DISABLE_COPY(QtMaterialAppBarPrivate)
-    Q_DECLARE_PUBLIC(QtMaterialAppBar)
+
+class AppBar;
+
+class AppBarPrivate
+{
+    Q_DISABLE_COPY(AppBarPrivate)
+    Q_DECLARE_PUBLIC(AppBar)
 
 public:
-    QtMaterialAppBarPrivate(QtMaterialAppBar *q);
-    ~QtMaterialAppBarPrivate();
+    AppBarPrivate(AppBar *q);
+    ~AppBarPrivate();
 
     void init();
 
-    QtMaterialAppBar *const q_ptr;
+    AppBar *const q_ptr;
     bool                    useThemeColors;
     QColor                  foregroundColor;
     QColor                  backgroundColor;
 };
+
+}
 
 #endif // QTMATERIALAPPBAR_P_H

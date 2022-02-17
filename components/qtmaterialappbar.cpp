@@ -4,6 +4,7 @@
 #include <QPainter>
 #include "lib/qtmaterialstyle.h"
 
+namespace md {
 /*!
  *  \class QtMaterialAppBarPrivate
  *  \internal
@@ -12,7 +13,7 @@
 /*!
  *  \internal
  */
-QtMaterialAppBarPrivate::QtMaterialAppBarPrivate(QtMaterialAppBar *q)
+AppBarPrivate::AppBarPrivate(AppBar *q)
     : q_ptr(q)
 {
 }
@@ -20,16 +21,16 @@ QtMaterialAppBarPrivate::QtMaterialAppBarPrivate(QtMaterialAppBar *q)
 /*!
  *  \internal
  */
-QtMaterialAppBarPrivate::~QtMaterialAppBarPrivate()
+AppBarPrivate::~AppBarPrivate()
 {
 }
 
 /*!
  *  \internal
  */
-void QtMaterialAppBarPrivate::init()
+void AppBarPrivate::init()
 {
-    Q_Q(QtMaterialAppBar);
+    Q_Q(AppBar);
 
     useThemeColors = true;
 
@@ -48,23 +49,23 @@ void QtMaterialAppBarPrivate::init()
  *  \class QtMaterialAppBar
  */
 
-QtMaterialAppBar::QtMaterialAppBar(QWidget *parent)
+AppBar::AppBar(QWidget *parent)
     : QWidget(parent),
-      d_ptr(new QtMaterialAppBarPrivate(this))
+      d_ptr(new AppBarPrivate(this))
 {
     d_func()->init();
 }
 
-QtMaterialAppBar::~QtMaterialAppBar()
+AppBar::~AppBar()
 {
 }
 
-QSize QtMaterialAppBar::sizeHint() const
+QSize AppBar::sizeHint() const
 {
     return QSize(-1, 64);
 }
 
-void QtMaterialAppBar::paintEvent(QPaintEvent *event)
+void AppBar::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
@@ -73,9 +74,9 @@ void QtMaterialAppBar::paintEvent(QPaintEvent *event)
     painter.fillRect(rect(), backgroundColor());
 }
 
-void QtMaterialAppBar::setUseThemeColors(bool value)
+void AppBar::setUseThemeColors(bool value)
 {
-    Q_D(QtMaterialAppBar);
+    Q_D(AppBar);
 
     if (d->useThemeColors == value) {
         return;
@@ -85,16 +86,16 @@ void QtMaterialAppBar::setUseThemeColors(bool value)
     update();
 }
 
-bool QtMaterialAppBar::useThemeColors() const
+bool AppBar::useThemeColors() const
 {
-    Q_D(const QtMaterialAppBar);
+    Q_D(const AppBar);
 
     return d->useThemeColors;
 }
 
-void QtMaterialAppBar::setForegroundColor(const QColor &color)
+void AppBar::setForegroundColor(const QColor &color)
 {
-    Q_D(QtMaterialAppBar);
+    Q_D(AppBar);
 
     d->foregroundColor = color;
 
@@ -104,9 +105,9 @@ void QtMaterialAppBar::setForegroundColor(const QColor &color)
     update();
 }
 
-QColor QtMaterialAppBar::foregroundColor() const
+QColor AppBar::foregroundColor() const
 {
-    Q_D(const QtMaterialAppBar);
+    Q_D(const AppBar);
 
     if (d->useThemeColors || !d->foregroundColor.isValid()) {
         return QtMaterialStyle::instance().themeColor("primary1");
@@ -115,9 +116,9 @@ QColor QtMaterialAppBar::foregroundColor() const
     }
 }
 
-void QtMaterialAppBar::setBackgroundColor(const QColor &color)
+void AppBar::setBackgroundColor(const QColor &color)
 {
-    Q_D(QtMaterialAppBar);
+    Q_D(AppBar);
 
     d->backgroundColor = color;
 
@@ -127,13 +128,15 @@ void QtMaterialAppBar::setBackgroundColor(const QColor &color)
     update();
 }
 
-QColor QtMaterialAppBar::backgroundColor() const
+QColor AppBar::backgroundColor() const
 {
-    Q_D(const QtMaterialAppBar);
+    Q_D(const AppBar);
 
     if (d->useThemeColors || !d->backgroundColor.isValid()) {
         return QtMaterialStyle::instance().themeColor("primary1");
     } else {
         return d->backgroundColor;
     }
+}
+
 }

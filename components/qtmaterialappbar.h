@@ -4,9 +4,12 @@
 #include <QtWidgets/QWidget>
 #include <QtWidgets/QHBoxLayout>
 
-class QtMaterialAppBarPrivate;
+namespace md
+{
 
-class QtMaterialAppBar : public QWidget
+class AppBarPrivate;
+
+class AppBar : public QWidget
 {
     Q_OBJECT
 
@@ -14,8 +17,8 @@ class QtMaterialAppBar : public QWidget
     Q_PROPERTY(QColor backgroundColor WRITE setBackgroundColor READ backgroundColor)
 
 public:
-    explicit QtMaterialAppBar(QWidget *parent = 0);
-    ~QtMaterialAppBar();
+    explicit AppBar(QWidget *parent = 0);
+    ~AppBar();
 
     QSize sizeHint() const Q_DECL_OVERRIDE;
 
@@ -33,16 +36,18 @@ public:
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
-    const QScopedPointer<QtMaterialAppBarPrivate> d_ptr;
+    const QScopedPointer<AppBarPrivate> d_ptr;
 
 private:
-    Q_DISABLE_COPY(QtMaterialAppBar)
-    Q_DECLARE_PRIVATE(QtMaterialAppBar)
+    Q_DISABLE_COPY(AppBar)
+    Q_DECLARE_PRIVATE(AppBar)
 };
 
-inline QHBoxLayout *QtMaterialAppBar::appBarLayout() const
+inline QHBoxLayout *AppBar::appBarLayout() const
 {
     return static_cast<QHBoxLayout *>(layout());
+}
+
 }
 
 #endif // QTMATERIALAPPBAR_H
