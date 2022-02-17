@@ -2,23 +2,25 @@
 #define QTMATERIALRADIOBUTTON_H
 
 #include "lib/qtmaterialcheckable.h"
+namespace md
+{
 
-class QtMaterialRadioButtonPrivate;
+class RadioButtonPrivate;
 
-class QtMaterialRadioButton : public QtMaterialCheckable
+class RadioButton : public Checkable
 {
     Q_OBJECT
 
 public:
-    explicit QtMaterialRadioButton(QWidget *parent = 0);
-    ~QtMaterialRadioButton();
+    explicit RadioButton(QWidget *parent = 0);
+    ~RadioButton();
 
 protected:
     void setupProperties();
 
 private:
-    Q_DISABLE_COPY(QtMaterialRadioButton)
-    Q_DECLARE_PRIVATE(QtMaterialRadioButton)
+    Q_DISABLE_COPY(RadioButton)
+    Q_DECLARE_PRIVATE(RadioButton)
 };
-
+}
 #endif // QTMATERIALRADIOBUTTON_H

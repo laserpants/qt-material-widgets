@@ -5,24 +5,27 @@
 #include <QPropertyAnimation>
 #include <QColor>
 #include "lib/qtmaterialcheckable_internal.h"
+namespace md
+{
+
 
 /*!
  *  \class QtMaterialRadioButtonPrivate
  *  \internal
  */
 
-QtMaterialRadioButtonPrivate::QtMaterialRadioButtonPrivate(QtMaterialRadioButton *q)
-    : QtMaterialCheckablePrivate(q)
+RadioButtonPrivate::RadioButtonPrivate(RadioButton *q)
+    : CheckablePrivate(q)
 {
 }
 
-QtMaterialRadioButtonPrivate::~QtMaterialRadioButtonPrivate()
+RadioButtonPrivate::~RadioButtonPrivate()
 {
 }
 
-void QtMaterialRadioButtonPrivate::init()
+void RadioButtonPrivate::init()
 {
-    Q_Q(QtMaterialRadioButton);
+    Q_Q(RadioButton);
 
     q->setAutoExclusive(true);
 
@@ -78,23 +81,24 @@ void QtMaterialRadioButtonPrivate::init()
  *  \class QtMaterialRadioButton
  */
 
-QtMaterialRadioButton::QtMaterialRadioButton(QWidget *parent)
-    : QtMaterialCheckable(*new QtMaterialRadioButtonPrivate(this), parent)
+RadioButton::RadioButton(QWidget *parent)
+    : Checkable(*new RadioButtonPrivate(this), parent)
 {
     d_func()->init();
 }
 
-QtMaterialRadioButton::~QtMaterialRadioButton()
+RadioButton::~RadioButton()
 {
 }
 
-void QtMaterialRadioButton::setupProperties()
+void RadioButton::setupProperties()
 {
-    QtMaterialCheckable::setupProperties();
+    Checkable::setupProperties();
 
-    Q_D(QtMaterialRadioButton);
+    Q_D(RadioButton);
 
     d->checkedState->assignProperty(d->checkedIcon, "color", checkedColor());
     d->checkedState->assignProperty(d->uncheckedIcon, "color", uncheckedColor());
     d->uncheckedState->assignProperty(d->uncheckedIcon, "color", uncheckedColor());
+}
 }
