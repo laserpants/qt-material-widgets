@@ -3,18 +3,20 @@
 
 #include <QStateMachine>
 #include <QTimer>
+namespace md
+{
 
-class QtMaterialSnackbar;
+class SnackBar;
 
-class QtMaterialSnackbarStateMachine : public QStateMachine
+class SnackBarStateMachine : public QStateMachine
 {
     Q_OBJECT
 
     Q_PROPERTY(qreal offset WRITE setOffset READ offset)
 
 public:
-    QtMaterialSnackbarStateMachine(QtMaterialSnackbar *parent);
-    ~QtMaterialSnackbarStateMachine();
+    SnackBarStateMachine(SnackBar *parent);
+    ~SnackBarStateMachine();
 
     void setOffset(qreal offset);
     inline qreal offset() const;
@@ -29,16 +31,16 @@ protected:
     bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
 
 private:
-    Q_DISABLE_COPY(QtMaterialSnackbarStateMachine)
+    Q_DISABLE_COPY(SnackBarStateMachine)
 
-    QtMaterialSnackbar *const m_snackbar;
+    SnackBar *const m_snackbar;
     QTimer                    m_timer;
     qreal                     m_offset;
 };
 
-inline qreal QtMaterialSnackbarStateMachine::offset() const
+inline qreal SnackBarStateMachine::offset() const
 {
     return m_offset;
 }
-
+}
 #endif // QTMATERIALSNACKBAR_INTERNAL_H

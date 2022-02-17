@@ -3,8 +3,10 @@
 #include "qtmaterialsnackbar.h"
 #include "lib/qtmaterialstatetransition.h"
 #include <QDebug>
+namespace md
+{
 
-QtMaterialSnackbarStateMachine::QtMaterialSnackbarStateMachine(QtMaterialSnackbar *parent)
+SnackBarStateMachine::SnackBarStateMachine(SnackBar *parent)
     : QStateMachine(parent),
       m_snackbar(parent)
 {
@@ -20,25 +22,25 @@ QtMaterialSnackbarStateMachine::QtMaterialSnackbarStateMachine(QtMaterialSnackba
 
     setInitialState(hiddenState);
 
-    QtMaterialStateTransition *transition;
+    StateTransition *transition;
 
-    transition = new QtMaterialStateTransition(SnackbarShowTransition);
+    transition = new StateTransition(SnackbarShowTransition);
     transition->setTargetState(visibleState);
     hiddenState->addTransition(transition);
 
-    transition = new QtMaterialStateTransition(SnackbarHideTransition);
+    transition = new StateTransition(SnackbarHideTransition);
     transition->setTargetState(visibleState);
     hiddenState->addTransition(transition);
 
-    transition = new QtMaterialStateTransition(SnackbarHideTransition);
+    transition = new StateTransition(SnackbarHideTransition);
     transition->setTargetState(finalState);
     visibleState->addTransition(transition);
 
-    transition = new QtMaterialStateTransition(SnackbarWaitTransition);
+    transition = new StateTransition(SnackbarWaitTransition);
     transition->setTargetState(hiddenState);
     finalState->addTransition(transition);
 
-    transition = new QtMaterialStateTransition(SnackbarNextTransition);
+    transition = new StateTransition(SnackbarNextTransition);
     transition->setTargetState(visibleState);
     finalState->addTransition(transition);
 
@@ -63,11 +65,11 @@ QtMaterialSnackbarStateMachine::QtMaterialSnackbarStateMachine(QtMaterialSnackba
     m_snackbar->installEventFilter(this);
 }
 
-QtMaterialSnackbarStateMachine::~QtMaterialSnackbarStateMachine()
+SnackBarStateMachine::~SnackBarStateMachine()
 {
 }
 
-bool QtMaterialSnackbarStateMachine::eventFilter(QObject *watched, QEvent *event)
+bool SnackBarStateMachine::eventFilter(QObject *watched, QEvent *event)
 {
     if (QEvent::MouseButtonPress == event->type() && m_snackbar->clickToDismissMode()) {
         progress();
@@ -75,25 +77,26 @@ bool QtMaterialSnackbarStateMachine::eventFilter(QObject *watched, QEvent *event
     return QStateMachine::eventFilter(watched, event);
 }
 
-void QtMaterialSnackbarStateMachine::setOffset(qreal offset)
+void SnackBarStateMachine::setOffset(qreal offset)
 {
     m_offset = offset;
     m_snackbar->update();
 }
 
-void QtMaterialSnackbarStateMachine::progress()
+void SnackBarStateMachine::progress()
 {
     m_timer.stop();
-    postEvent(new QtMaterialStateTransitionEvent(SnackbarHideTransition));
+    postEvent(new StateTransitionEvent(SnackbarHideTransition));
     if (m_snackbar->clickToDismissMode()) {
         m_snackbar->setAttribute(Qt::WA_TransparentForMouseEvents, true);
     }
 }
 
-void QtMaterialSnackbarStateMachine::snackbarShown()
+void SnackBarStateMachine::snackbarShown()
 {
     m_timer.start(m_snackbar->autoHideDuration());
     if (m_snackbar->clickToDismissMode()) {
         m_snackbar->setAttribute(Qt::WA_TransparentForMouseEvents, false);
     }
+}
 }

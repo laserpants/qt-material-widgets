@@ -2,16 +2,18 @@
 #define QTMATERIALSNACKBAR_H
 
 #include "lib/qtmaterialoverlaywidget.h"
+namespace md
+{
 
-class QtMaterialSnackbarPrivate;
+class SnackBarPrivate;
 
-class QtMaterialSnackbar : public QtMaterialOverlayWidget
+class SnackBar : public OverlayWidget
 {
     Q_OBJECT
 
 public:
-    explicit QtMaterialSnackbar(QWidget *parent = 0);
-    ~QtMaterialSnackbar();
+    explicit SnackBar(QWidget *parent = 0);
+    ~SnackBar();
 
     void setAutoHideDuration(int duration);
     int autoHideDuration() const;
@@ -47,11 +49,11 @@ protected slots:
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
-    const QScopedPointer<QtMaterialSnackbarPrivate> d_ptr;
+    const QScopedPointer<SnackBarPrivate> d_ptr;
 
 private:
-    Q_DISABLE_COPY(QtMaterialSnackbar)
-    Q_DECLARE_PRIVATE(QtMaterialSnackbar)
+    Q_DISABLE_COPY(SnackBar)
+    Q_DECLARE_PRIVATE(SnackBar)
 };
-
+}
 #endif // QTMATERIALSNACKBAR_H

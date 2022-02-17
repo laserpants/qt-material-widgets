@@ -3,23 +3,25 @@
 
 #include <QObject>
 #include <QColor>
-
-class QtMaterialSnackbar;
-class QtMaterialSnackbarStateMachine;
-
-class QtMaterialSnackbarPrivate
+namespace md
 {
-    Q_DISABLE_COPY(QtMaterialSnackbarPrivate)
-    Q_DECLARE_PUBLIC(QtMaterialSnackbar)
+
+class SnackBar;
+class SnackBarStateMachine;
+
+class SnackBarPrivate
+{
+    Q_DISABLE_COPY(SnackBarPrivate)
+    Q_DECLARE_PUBLIC(Snackbar)
 
 public:
-    QtMaterialSnackbarPrivate(QtMaterialSnackbar *q);
-    ~QtMaterialSnackbarPrivate();
+    SnackBarPrivate(SnackBar *q);
+    ~SnackBarPrivate();
 
     void init();
 
-    QtMaterialSnackbar             *const q_ptr;
-    QtMaterialSnackbarStateMachine *stateMachine;
+    SnackBar             *const q_ptr;
+    SnackBarStateMachine *stateMachine;
     QColor                          backgroundColor;
     QColor                          textColor;
     qreal                           bgOpacity;
@@ -29,5 +31,5 @@ public:
     bool                            clickDismiss;
     bool                            useThemeColors;
 };
-
+}
 #endif // QTMATERIALSNACKBAR_P_H
