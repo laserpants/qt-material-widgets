@@ -4,20 +4,22 @@
 #include <QtGlobal>
 #include <QColor>
 #include <QRectF>
-
-class QtMaterialSlider;
-class QtMaterialSliderThumb;
-class QtMaterialSliderTrack;
-class QtMaterialSliderStateMachine;
-
-class QtMaterialSliderPrivate
+namespace md
 {
-    Q_DISABLE_COPY(QtMaterialSliderPrivate)
-    Q_DECLARE_PUBLIC(QtMaterialSlider)
+
+class Slider;
+class SliderThumb;
+class SliderTrack;
+class SliderStateMachine;
+
+class SliderPrivate
+{
+    Q_DISABLE_COPY(SliderPrivate)
+    Q_DECLARE_PUBLIC(Slider)
 
 public:
-    QtMaterialSliderPrivate(QtMaterialSlider *q);
-    ~QtMaterialSliderPrivate();
+    SliderPrivate(Slider *q);
+    ~SliderPrivate();
 
     void init();
 
@@ -28,10 +30,10 @@ public:
 
     void setHovered(bool status);
 
-    QtMaterialSlider             *const q_ptr;
-    QtMaterialSliderThumb        *thumb;
-    QtMaterialSliderTrack        *track;
-    QtMaterialSliderStateMachine *stateMachine;
+    Slider             *const q_ptr;
+    SliderThumb        *thumb;
+    SliderTrack        *track;
+    SliderStateMachine *stateMachine;
     QColor                        thumbColor;
     QColor                        trackColor;
     QColor                        disabledColor;
@@ -45,5 +47,5 @@ public:
     bool                          pageStepMode;
     bool                          useThemeColors;
 };
-
+}
 #endif // QTMATERIALSLIDER_P_H

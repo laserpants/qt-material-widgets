@@ -5,10 +5,12 @@
 #include <QScopedPointer>
 
 #define QT_MATERIAL_SLIDER_MARGIN 30
+namespace md
+{
 
-class QtMaterialSliderPrivate;
+class SliderPrivate;
 
-class QtMaterialSlider : public QAbstractSlider
+class Slider : public QAbstractSlider
 {
     Q_OBJECT
 
@@ -17,8 +19,8 @@ class QtMaterialSlider : public QAbstractSlider
     Q_PROPERTY(QColor disabledColor WRITE setDisabledColor READ disabledColor)
 
 public:
-    explicit QtMaterialSlider(QWidget *parent = 0);
-    ~QtMaterialSlider();
+    explicit Slider(QWidget *parent = 0);
+    ~Slider();
 
     void setUseThemeColors(bool value);
     bool useThemeColors() const;
@@ -48,11 +50,11 @@ protected:
 
     void updateThumbOffset();
 
-    const QScopedPointer<QtMaterialSliderPrivate> d_ptr;
+    const QScopedPointer<SliderPrivate> d_ptr;
 
 private:
-    Q_DISABLE_COPY(QtMaterialSlider)
-    Q_DECLARE_PRIVATE(QtMaterialSlider)
+    Q_DISABLE_COPY(Slider)
+    Q_DECLARE_PRIVATE(Slider)
 };
-
+}
 #endif // QTMATERIALSLIDER_H

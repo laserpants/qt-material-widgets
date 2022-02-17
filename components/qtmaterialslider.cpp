@@ -5,28 +5,30 @@
 #include "qtmaterialslider_internal.h"
 #include "lib/qtmaterialstyle.h"
 #include "lib/qtmaterialstatetransitionevent.h"
+namespace md
+{
 
 /*!
  *  \class QtMaterialSliderPrivate
  *  \internal
  */
 
-QtMaterialSliderPrivate::QtMaterialSliderPrivate(QtMaterialSlider *q)
+SliderPrivate::SliderPrivate(Slider *q)
     : q_ptr(q)
 {
 }
 
-QtMaterialSliderPrivate::~QtMaterialSliderPrivate()
+SliderPrivate::~SliderPrivate()
 {
 }
 
-void QtMaterialSliderPrivate::init()
+void SliderPrivate::init()
 {
-    Q_Q(QtMaterialSlider);
+    Q_Q(Slider);
 
-    thumb          = new QtMaterialSliderThumb(q);
-    track          = new QtMaterialSliderTrack(thumb, q);
-    stateMachine   = new QtMaterialSliderStateMachine(q, thumb, track);
+    thumb          = new SliderThumb(q);
+    track          = new SliderTrack(thumb, q);
+    stateMachine   = new SliderStateMachine(q, thumb, track);
     stepTo         = 0;
     oldValue       = q->value();
     trackWidth     = 2;
@@ -55,9 +57,9 @@ void QtMaterialSliderPrivate::init()
     QCoreApplication::processEvents();
 }
 
-QRectF QtMaterialSliderPrivate::trackBoundingRect() const
+QRectF SliderPrivate::trackBoundingRect() const
 {
-    Q_Q(const QtMaterialSlider);
+    Q_Q(const Slider);
 
     qreal hw = static_cast<qreal>(trackWidth)/2;
 
@@ -68,9 +70,9 @@ QRectF QtMaterialSliderPrivate::trackBoundingRect() const
                  q->height() - QT_MATERIAL_SLIDER_MARGIN*2);
 }
 
-QRectF QtMaterialSliderPrivate::thumbBoundingRect() const
+QRectF SliderPrivate::thumbBoundingRect() const
 {
-    Q_Q(const QtMaterialSlider);
+    Q_Q(const Slider);
 
     return Qt::Horizontal == q->orientation()
         ? QRectF(thumb->offset(), q->height()/2 - QT_MATERIAL_SLIDER_MARGIN,
@@ -79,9 +81,9 @@ QRectF QtMaterialSliderPrivate::thumbBoundingRect() const
                  QT_MATERIAL_SLIDER_MARGIN*2, QT_MATERIAL_SLIDER_MARGIN*2);
 }
 
-int QtMaterialSliderPrivate::valueFromPosition(const QPoint &pos) const
+int SliderPrivate::valueFromPosition(const QPoint &pos) const
 {
-    Q_Q(const QtMaterialSlider);
+    Q_Q(const Slider);
 
     const int position = Qt::Horizontal == q->orientation() ? pos.x() : pos.y();
 
@@ -89,7 +91,7 @@ int QtMaterialSliderPrivate::valueFromPosition(const QPoint &pos) const
         ? q->width() - QT_MATERIAL_SLIDER_MARGIN*2
         : q->height() - QT_MATERIAL_SLIDER_MARGIN*2;
 
-    return QtMaterialStyle::sliderValueFromPosition(
+    return Style::sliderValueFromPosition(
                 q->minimum(),
                 q->maximum(),
                 position - QT_MATERIAL_SLIDER_MARGIN,
@@ -97,9 +99,9 @@ int QtMaterialSliderPrivate::valueFromPosition(const QPoint &pos) const
                 q->invertedAppearance());
 }
 
-void QtMaterialSliderPrivate::setHovered(bool status)
+void SliderPrivate::setHovered(bool status)
 {
-    Q_Q(QtMaterialSlider);
+    Q_Q(Slider);
 
     if (hover == status) {
         return;
@@ -109,9 +111,9 @@ void QtMaterialSliderPrivate::setHovered(bool status)
 
     if (!q->hasFocus()) {
         if (status) {
-            stateMachine->postEvent(new QtMaterialStateTransitionEvent(SliderNoFocusMouseEnter));
+            stateMachine->postEvent(new StateTransitionEvent(SliderNoFocusMouseEnter));
         } else {
-            stateMachine->postEvent(new QtMaterialStateTransitionEvent(SliderNoFocusMouseLeave));
+            stateMachine->postEvent(new StateTransitionEvent(SliderNoFocusMouseLeave));
         }
     }
 
@@ -122,20 +124,20 @@ void QtMaterialSliderPrivate::setHovered(bool status)
  *  \class QtMaterialSlider
  */
 
-QtMaterialSlider::QtMaterialSlider(QWidget *parent)
+Slider::Slider(QWidget *parent)
     : QAbstractSlider(parent),
-      d_ptr(new QtMaterialSliderPrivate(this))
+      d_ptr(new SliderPrivate(this))
 {
     d_func()->init();
 }
 
-QtMaterialSlider::~QtMaterialSlider()
+Slider::~Slider()
 {
 }
 
-void QtMaterialSlider::setUseThemeColors(bool value)
+void Slider::setUseThemeColors(bool value)
 {
-    Q_D(QtMaterialSlider);
+    Q_D(Slider);
 
     if (d->useThemeColors == value) {
         return;
@@ -145,16 +147,16 @@ void QtMaterialSlider::setUseThemeColors(bool value)
     d->stateMachine->setupProperties();
 }
 
-bool QtMaterialSlider::useThemeColors() const
+bool Slider::useThemeColors() const
 {
-    Q_D(const QtMaterialSlider);
+    Q_D(const Slider);
 
     return d->useThemeColors;
 }
 
-void QtMaterialSlider::setThumbColor(const QColor &color)
+void Slider::setThumbColor(const QColor &color)
 {
-    Q_D(QtMaterialSlider);
+    Q_D(Slider);
 
     d->thumbColor = color;
 
@@ -163,20 +165,20 @@ void QtMaterialSlider::setThumbColor(const QColor &color)
     update();
 }
 
-QColor QtMaterialSlider::thumbColor() const
+QColor Slider::thumbColor() const
 {
-    Q_D(const QtMaterialSlider);
+    Q_D(const Slider);
 
     if (d->useThemeColors || !d->thumbColor.isValid()) {
-        return QtMaterialStyle::instance().themeColor("primary1");
+        return Style::instance().themeColor("primary1");
     } else {
         return d->thumbColor;
     }
 }
 
-void QtMaterialSlider::setTrackColor(const QColor &color)
+void Slider::setTrackColor(const QColor &color)
 {
-    Q_D(QtMaterialSlider);
+    Q_D(Slider);
 
     d->trackColor = color;
 
@@ -185,20 +187,20 @@ void QtMaterialSlider::setTrackColor(const QColor &color)
     update();
 }
 
-QColor QtMaterialSlider::trackColor() const
+QColor Slider::trackColor() const
 {
-    Q_D(const QtMaterialSlider);
+    Q_D(const Slider);
 
     if (d->useThemeColors || !d->trackColor.isValid()) {
-        return QtMaterialStyle::instance().themeColor("accent3");
+        return Style::instance().themeColor("accent3");
     } else {
         return d->trackColor;
     }
 }
 
-void QtMaterialSlider::setDisabledColor(const QColor &color)
+void Slider::setDisabledColor(const QColor &color)
 {
-    Q_D(QtMaterialSlider);
+    Q_D(Slider);
 
     d->disabledColor = color;
 
@@ -207,27 +209,27 @@ void QtMaterialSlider::setDisabledColor(const QColor &color)
     update();
 }
 
-QColor QtMaterialSlider::disabledColor() const
+QColor Slider::disabledColor() const
 {
-    Q_D(const QtMaterialSlider);
+    Q_D(const Slider);
 
     if (d->useThemeColors || !d->disabledColor.isValid()) {
-        return QtMaterialStyle::instance().themeColor("disabled");
+        return Style::instance().themeColor("disabled");
     } else {
         return d->disabledColor;
     }
 }
 
-void QtMaterialSlider::setPageStepMode(bool pageStep)
+void Slider::setPageStepMode(bool pageStep)
 {
-    Q_D(QtMaterialSlider);
+    Q_D(Slider);
 
     d->pageStepMode = pageStep;
 }
 
-bool QtMaterialSlider::pageStepMode() const
+bool Slider::pageStepMode() const
 {
-    Q_D(const QtMaterialSlider);
+    Q_D(const Slider);
 
     return d->pageStepMode;
 }
@@ -235,14 +237,14 @@ bool QtMaterialSlider::pageStepMode() const
 /*!
  *  \remip
  */
-QSize QtMaterialSlider::minimumSizeHint() const
+QSize Slider::minimumSizeHint() const
 {
     return Qt::Horizontal == orientation()
             ? QSize(130, 34)
             : QSize(34, 130);
 }
 
-void QtMaterialSlider::setInvertedAppearance(bool value)
+void Slider::setInvertedAppearance(bool value)
 {
     QAbstractSlider::setInvertedAppearance(value);
 
@@ -252,9 +254,9 @@ void QtMaterialSlider::setInvertedAppearance(bool value)
 /*!
  *  \remip
  */
-void QtMaterialSlider::sliderChange(SliderChange change)
+void Slider::sliderChange(SliderChange change)
 {
-    Q_D(QtMaterialSlider);
+    Q_D(Slider);
 
     if (SliderOrientationChange == change)
     {
@@ -268,12 +270,12 @@ void QtMaterialSlider::sliderChange(SliderChange change)
     {
         if (minimum() == value()) {
             triggerAction(SliderToMinimum);
-            d->stateMachine->postEvent(new QtMaterialStateTransitionEvent(SliderChangedToMinimum));
+            d->stateMachine->postEvent(new StateTransitionEvent(SliderChangedToMinimum));
         } else if (maximum() == value()) {
             triggerAction(SliderToMaximum);
         }
         if (minimum() == d->oldValue) {
-            d->stateMachine->postEvent(new QtMaterialStateTransitionEvent(SliderChangedFromMinimum));
+            d->stateMachine->postEvent(new StateTransitionEvent(SliderChangedFromMinimum));
         }
         d->oldValue = value();
     }
@@ -286,9 +288,9 @@ void QtMaterialSlider::sliderChange(SliderChange change)
 /*!
  *  \remip
  */
-void QtMaterialSlider::mouseMoveEvent(QMouseEvent *event)
+void Slider::mouseMoveEvent(QMouseEvent *event)
 {
-    Q_D(QtMaterialSlider);
+    Q_D(Slider);
 
     if (isSliderDown())
     {
@@ -320,9 +322,9 @@ void QtMaterialSlider::mouseMoveEvent(QMouseEvent *event)
 /*!
  *  \remip
  */
-void QtMaterialSlider::mousePressEvent(QMouseEvent *event)
+void Slider::mousePressEvent(QMouseEvent *event)
 {
-    Q_D(QtMaterialSlider);
+    Q_D(Slider);
 
     const QPoint pos = event->pos();
 
@@ -355,9 +357,9 @@ void QtMaterialSlider::mousePressEvent(QMouseEvent *event)
 /*!
  *  \remip
  */
-void QtMaterialSlider::mouseReleaseEvent(QMouseEvent *event)
+void Slider::mouseReleaseEvent(QMouseEvent *event)
 {
-    Q_D(QtMaterialSlider);
+    Q_D(Slider);
 
     if (isSliderDown()) {
         setSliderDown(false);
@@ -372,9 +374,9 @@ void QtMaterialSlider::mouseReleaseEvent(QMouseEvent *event)
 /*!
  *  \remip
  */
-void QtMaterialSlider::leaveEvent(QEvent *event)
+void Slider::leaveEvent(QEvent *event)
 {
-    Q_D(QtMaterialSlider);
+    Q_D(Slider);
 
     if (d->hoverTrack) {
         d->hoverTrack = false;
@@ -390,11 +392,11 @@ void QtMaterialSlider::leaveEvent(QEvent *event)
     QAbstractSlider::leaveEvent(event);
 }
 
-void QtMaterialSlider::updateThumbOffset()
+void Slider::updateThumbOffset()
 {
-    Q_D(QtMaterialSlider);
+    Q_D(Slider);
 
-    const int offset = QtMaterialStyle::sliderPositionFromValue(
+    const int offset = Style::sliderPositionFromValue(
         minimum(),
         maximum(),
         sliderPosition(),
@@ -404,4 +406,5 @@ void QtMaterialSlider::updateThumbOffset()
         invertedAppearance());
 
     d->thumb->setOffset(offset);
+}
 }

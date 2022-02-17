@@ -8,16 +8,18 @@
 #include "qtmaterialslider.h"
 #include "lib/qtmaterialstyle.h"
 #include "lib/qtmaterialstatetransition.h"
+namespace md
+{
 
 /*!
  *  \class QtMaterialSliderStateMachine
  *  \internal
  */
 
-QtMaterialSliderStateMachine::QtMaterialSliderStateMachine(
-        QtMaterialSlider      *slider,
-        QtMaterialSliderThumb *thumb,
-        QtMaterialSliderTrack *track)
+SliderStateMachine::SliderStateMachine(
+        Slider      *slider,
+        SliderThumb *thumb,
+        SliderTrack *track)
     : QStateMachine(slider),
       m_slider(slider),
       m_thumb(thumb),
@@ -50,12 +52,12 @@ QtMaterialSliderStateMachine::QtMaterialSliderStateMachine(
     m_slidingState->assignProperty(thumb, "diameter", 17);
 
     QAbstractTransition *transition;
-    QtMaterialStateTransition *customTransition;
+    StateTransition *customTransition;
     QPropertyAnimation *animation;
 
     // Show halo on mouse enter
 
-    customTransition = new QtMaterialStateTransition(SliderNoFocusMouseEnter);
+    customTransition = new StateTransition(SliderNoFocusMouseEnter);
     customTransition->setTargetState(m_focusState);
 
     animation = new QPropertyAnimation(thumb, "haloSize", this);
@@ -88,7 +90,7 @@ QtMaterialSliderStateMachine::QtMaterialSliderStateMachine(
 
     // Hide halo on mouse leave, except if widget has focus
 
-    customTransition = new QtMaterialStateTransition(SliderNoFocusMouseLeave);
+    customTransition = new StateTransition(SliderNoFocusMouseLeave);
     customTransition->setTargetState(m_inactiveState);
 
     animation = new QPropertyAnimation(thumb, "haloSize", this);
@@ -152,7 +154,7 @@ QtMaterialSliderStateMachine::QtMaterialSliderStateMachine(
 
     m_sndState->setInitialState(m_minState);
 
-    customTransition = new QtMaterialStateTransition(SliderChangedFromMinimum);
+    customTransition = new StateTransition(SliderChangedFromMinimum);
     customTransition->setTargetState(m_normalState);
 
     animation = new QPropertyAnimation(thumb, "fillColor", this);
@@ -173,7 +175,7 @@ QtMaterialSliderStateMachine::QtMaterialSliderStateMachine(
 
     m_minState->addTransition(customTransition);
 
-    customTransition = new QtMaterialStateTransition(SliderChangedToMinimum);
+    customTransition = new StateTransition(SliderChangedToMinimum);
     customTransition->setTargetState(m_minState);
 
     animation = new QPropertyAnimation(thumb, "fillColor", this);
@@ -197,11 +199,11 @@ QtMaterialSliderStateMachine::QtMaterialSliderStateMachine(
     setupProperties();
 }
 
-QtMaterialSliderStateMachine::~QtMaterialSliderStateMachine()
+SliderStateMachine::~SliderStateMachine()
 {
 }
 
-void QtMaterialSliderStateMachine::setupProperties()
+void SliderStateMachine::setupProperties()
 {
     QColor trackColor = m_slider->trackColor();
     QColor thumbColor = m_slider->thumbColor();
@@ -233,8 +235,8 @@ void QtMaterialSliderStateMachine::setupProperties()
  *  \internal
  */
 
-QtMaterialSliderThumb::QtMaterialSliderThumb(QtMaterialSlider *slider)
-    : QtMaterialOverlayWidget(slider->parentWidget()),
+SliderThumb::SliderThumb(Slider *slider)
+    : OverlayWidget(slider->parentWidget()),
       m_slider(slider),
       m_diameter(11),
       m_borderWidth(2),
@@ -246,20 +248,20 @@ QtMaterialSliderThumb::QtMaterialSliderThumb(QtMaterialSlider *slider)
     setAttribute(Qt::WA_TransparentForMouseEvents, true);
 }
 
-QtMaterialSliderThumb::~QtMaterialSliderThumb()
+SliderThumb::~SliderThumb()
 {
 }
 
-bool QtMaterialSliderThumb::eventFilter(QObject *obj, QEvent *event)
+bool SliderThumb::eventFilter(QObject *obj, QEvent *event)
 {
     if (QEvent::ParentChange == event->type()) {
         setParent(m_slider->parentWidget());
     }
 
-    return QtMaterialOverlayWidget::eventFilter(obj, event);
+    return OverlayWidget::eventFilter(obj, event);
 }
 
-void QtMaterialSliderThumb::paintEvent(QPaintEvent *event)
+void SliderThumb::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
@@ -325,8 +327,8 @@ void QtMaterialSliderThumb::paintEvent(QPaintEvent *event)
  *  \internal
  */
 
-QtMaterialSliderTrack::QtMaterialSliderTrack(QtMaterialSliderThumb *thumb, QtMaterialSlider *slider)
-    : QtMaterialOverlayWidget(slider->parentWidget()),
+SliderTrack::SliderTrack(SliderThumb *thumb, Slider *slider)
+    : OverlayWidget(slider->parentWidget()),
       m_slider(slider),
       m_thumb(thumb),
       m_trackWidth(2)
@@ -338,20 +340,20 @@ QtMaterialSliderTrack::QtMaterialSliderTrack(QtMaterialSliderThumb *thumb, QtMat
     connect(slider, SIGNAL(sliderMoved(int)), this, SLOT(update()));
 }
 
-QtMaterialSliderTrack::~QtMaterialSliderTrack()
+SliderTrack::~SliderTrack()
 {
 }
 
-bool QtMaterialSliderTrack::eventFilter(QObject *obj, QEvent *event)
+bool SliderTrack::eventFilter(QObject *obj, QEvent *event)
 {
     if (QEvent::ParentChange == event->type()) {
         setParent(m_slider->parentWidget());
     }
 
-    return QtMaterialOverlayWidget::eventFilter(obj, event);
+    return OverlayWidget::eventFilter(obj, event);
 }
 
-void QtMaterialSliderTrack::paintEvent(QPaintEvent *event)
+void SliderTrack::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
@@ -405,4 +407,5 @@ void QtMaterialSliderTrack::paintEvent(QPaintEvent *event)
 
     painter.fillRect(bgRect, bg);
     painter.fillRect(fgRect, fg);
+}
 }
