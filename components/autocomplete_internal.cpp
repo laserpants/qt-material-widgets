@@ -1,13 +1,9 @@
 #include "autocomplete_internal.h"
-#include <QSignalTransition>
-#include <QPropertyAnimation>
-#include <QtWidgets/QGraphicsOpacityEffect>
-#include <QDebug>
 
 namespace md
 {
 /*!
- *  \class QtMaterialAutoCompleteStateMachine
+ *  \class AutoCompleteStateMachine
  *  \internal
  */
 

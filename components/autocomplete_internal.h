@@ -1,7 +1,12 @@
 #ifndef AUTOCOMPLETESTATEMACHINE_H
 #define AUTOCOMPLETESTATEMACHINE_H
 
+#include <QtWidgets/QGraphicsOpacityEffect>
 #include <QStateMachine>
+#include <QSignalTransition>
+#include <QPropertyAnimation>
+#include <QDebug>
+
 #include "autocomplete.h"
 
 namespace md

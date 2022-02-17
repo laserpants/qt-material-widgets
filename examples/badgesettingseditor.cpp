@@ -1,12 +1,9 @@
 #include "badgesettingseditor.h"
-#include <QColorDialog>
-#include <avatar.h>
-#include <badge.h>
 
 BadgeSettingsEditor::BadgeSettingsEditor(QWidget *parent)
     : QWidget(parent),
       ui(new Ui::BadgeSettingsForm),
-      m_avatar(new Avatar(QImage(":/images/assets/sikh.jpg"))),
+      m_avatar(new Avatar(QImage(QDir::currentPath()+"/assets/sikh.jpg"))),
       m_badge(new Badge)
 {
     QVBoxLayout *layout = new QVBoxLayout;

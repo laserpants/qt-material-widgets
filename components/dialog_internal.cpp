@@ -82,7 +82,7 @@ void DialogProxy::paintEvent(QPaintEvent *event)
 }
 
 /*!
- *  \class QtMaterialDialogWindow
+ *  \class DialogWindow
  *  \internal
  */
 

@@ -70,7 +70,8 @@ void AvatarSettingsEditor::updateWidget()
         m_avatar->setLetter(QChar('X'));
         break;
     case 1:
-        m_avatar->setImage(QImage(":/images/assets/sikh.jpg"));
+        qDebug()<<QDir::currentPath()+"/assets/sikh.jpg";
+        m_avatar->setImage(QImage(QDir::currentPath()+"/assets/sikh.jpg"));
         break;
     case 2:
         m_avatar->setIcon(Theme::icon("communication", "message"));

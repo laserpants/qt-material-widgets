@@ -1,11 +1,10 @@
 #include "lib/style.h"
-#include <QFontDatabase>
 #include "lib/theme.h"
 
 namespace md
 {
 /*!
- *  \class QtMaterialStylePrivate
+ *  \class StylePrivate
  *  \internal
  */
 
@@ -22,15 +21,15 @@ void StylePrivate::init()
 {
     Q_Q(Style);
 
-    QFontDatabase::addApplicationFont(":/fonts/roboto_regular");
-    QFontDatabase::addApplicationFont(":/fonts/roboto_medium");
-    QFontDatabase::addApplicationFont(":/fonts/roboto_bold");
+    QFontDatabase::addApplicationFont(QDir::currentPath()+"/../fonts/roboto_regular");
+    QFontDatabase::addApplicationFont(QDir::currentPath()+"/../fonts/roboto_medium");
+    QFontDatabase::addApplicationFont(QDir::currentPath()+"/../fonts/roboto_bold");
 
     q->setTheme(new Theme);
 }
 
 /*!
- *  \class QtMaterialStyle
+ *  \class Style
  *  \internal
  */
 

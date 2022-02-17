@@ -2,7 +2,13 @@
 #define CIRCULARPROGRESS_P_H
 
 #include <QtGlobal>
+#include <QPropertyAnimation>
+#include <QParallelAnimationGroup>
+#include <QPainter>
+#include <QPainterPath>
+
 #include "lib/theme.h"
+
 namespace md
 {
 

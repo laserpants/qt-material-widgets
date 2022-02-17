@@ -1,13 +1,12 @@
 #include "badge.h"
 #include "badge_p.h"
-#include <QPainter>
 #include "lib/style.h"
 
 namespace md
 {
 
 /*!
- *  \class QtMaterialBadgePrivate
+ *  \class BadgePrivate
  *  \internal
  */
 

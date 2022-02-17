@@ -1,13 +1,11 @@
 #include "avatar.h"
 #include "avatar_p.h"
-#include <QPainter>
-#include <QPainterPath>
 #include "lib/style.h"
 
 namespace md
 {
 /*!
- *  \class QtMaterialAvatarPrivate
+ *  \class AvatarPrivate
  *  \internal
  */
 

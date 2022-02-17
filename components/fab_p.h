@@ -1,7 +1,13 @@
 #ifndef FAB_P_H
 #define FAB_P_H
 
+#include <QtWidgets/QGraphicsDropShadowEffect>
+#include <QState>
+#include <QEvent>
+#include <QPainter>
+
 #include "raisedbutton_p.h"
+
 namespace md
 {
 

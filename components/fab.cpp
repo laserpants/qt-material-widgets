@@ -1,15 +1,12 @@
 #include "fab.h"
 #include "fab_p.h"
-#include <QtWidgets/QGraphicsDropShadowEffect>
-#include <QState>
-#include <QEvent>
-#include <QPainter>
 #include "lib/rippleoverlay.h"
+
 namespace md
 {
 
 /*!
- *  \class QtMaterialFloatingActionButtonPrivate
+ *  \class FloatingActionButtonPrivate
  *  \internal
  */
 

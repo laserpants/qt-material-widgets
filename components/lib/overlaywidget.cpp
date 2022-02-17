@@ -4,7 +4,7 @@
 namespace md
 {
 /*!
- *  \class QtMaterialOverlayWidget
+ *  \class OverlayWidget
  *  \internal
  */
 

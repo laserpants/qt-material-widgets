@@ -2,6 +2,8 @@
 #define BADGESETTINGSEDITOR_H
 
 #include <QWidget>
+#include <QColorDialog>
+#include <QDir>
 
 #include <avatar.h>
 #include <badge.h>

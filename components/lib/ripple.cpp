@@ -4,7 +4,7 @@
 namespace md
 {
 /*!
- *  \class QtMaterialRipple
+ *  \class Ripple
  *  \internal
  */
 

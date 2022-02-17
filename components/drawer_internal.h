@@ -2,6 +2,12 @@
 #define DRAWER_INTERNAL_H
 
 #include <QStateMachine>
+#include <QState>
+#include <QPainter>
+#include <QtWidgets/QLayout>
+#include <QSignalTransition>
+#include <QPropertyAnimation>
+
 #include "lib/overlaywidget.h"
 
 namespace md
@@ -52,7 +58,6 @@ inline qreal DrawerStateMachine::opacity() const
 class DrawerWidget : public OverlayWidget
 {
     Q_OBJECT
-
     Q_PROPERTY(int offset WRITE setOffset READ offset)
 
 public:

@@ -8,7 +8,7 @@
 namespace md
 {
 /*!
- *  \class QtMaterialCheckablePrivate
+ *  \class CheckablePrivate
  *  \internal
  */
 
@@ -26,8 +26,8 @@ void CheckablePrivate::init()
     Q_Q(Checkable);
 
     rippleOverlay          = new RippleOverlay;
-    checkedIcon            = new CheckableIcon(QIcon(":/icons/icons/toggle/svg/production/ic_check_box_24px.svg"), q);
-    uncheckedIcon          = new CheckableIcon(QIcon(":/icons/icons/toggle/svg/production/ic_check_box_outline_blank_24px.svg"), q);
+    checkedIcon            = new CheckableIcon(QIcon(QDir::currentPath()+"/../components/icons/toggle/svg/production/ic_check_box_24px.svg"), q);
+    uncheckedIcon          = new CheckableIcon(QIcon(QDir::currentPath()+"/../components/icons/toggle/svg/production/ic_check_box_outline_blank_24px.svg"), q);
     stateMachine           = new QStateMachine(q);
     uncheckedState         = new QState;
     checkedState           = new QState;

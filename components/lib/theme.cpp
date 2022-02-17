@@ -1,12 +1,10 @@
 #include "lib/theme.h"
 #include "lib/theme_p.h"
-#include <QString>
-#include <QStringBuilder>
-#include <QDebug>
+
 namespace md
 {
-/*!material
- *  \class QtMaterialThemePrivate
+/*!
+ *  \class ThemePrivate
  *  \internal
  */
 
@@ -156,7 +154,7 @@ void Theme::setColor(const QString &key, Material::Color color)
 
 QIcon Theme::icon(QString category, QString icon)
 {
-    return QIcon(":/icons/icons/" % category % "/svg/production/ic_" % icon % "_24px.svg");
+    return QIcon(QDir::currentPath() % "/../components/icons/" % category % "/svg/production/ic_" % icon % "_24px.svg");
 }
 
 }

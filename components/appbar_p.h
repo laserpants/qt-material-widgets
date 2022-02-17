@@ -3,6 +3,8 @@
 
 #include <QtGlobal>
 #include <QColor>
+#include <QtWidgets/QGraphicsDropShadowEffect>
+#include <QPainter>
 
 namespace md
 {

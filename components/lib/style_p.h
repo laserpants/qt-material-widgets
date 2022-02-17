@@ -2,6 +2,8 @@
 #define STYLE_P_H
 
 #include <QtGlobal>
+#include <QFontDatabase>
+#include <QDir>
 
 namespace md
 {

@@ -1,9 +1,5 @@
 #include "circularprogress.h"
 #include "circularprogress_p.h"
-#include <QPropertyAnimation>
-#include <QParallelAnimationGroup>
-#include <QPainter>
-#include <QPainterPath>
 #include "circularprogress_internal.h"
 #include "lib/style.h"
 
@@ -11,7 +7,7 @@ namespace md
 {
 
 /*!
- *  \class QtMaterialCircularProgressPrivate
+ *  \class CircularProgressPrivate
  *  \internal
  */
 

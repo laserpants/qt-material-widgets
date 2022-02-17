@@ -1,14 +1,10 @@
 #include "drawer_internal.h"
-#include <QState>
-#include <QPainter>
-#include <QtWidgets/QLayout>
-#include <QSignalTransition>
-#include <QPropertyAnimation>
 #include "drawer.h"
+
 namespace md
 {
 /*!
- *  \class QtMaterialDrawerStateMachine
+ *  \class DrawerStateMachine
  *  \internal
  */
 

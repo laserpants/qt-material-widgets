@@ -1,12 +1,10 @@
 #include "appbar.h"
 #include "appbar_p.h"
-#include <QtWidgets/QGraphicsDropShadowEffect>
-#include <QPainter>
 #include "lib/style.h"
 
 namespace md {
 /*!
- *  \class QtMaterialAppBarPrivate
+ *  \class AppBarPrivate
  *  \internal
  */
 

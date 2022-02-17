@@ -2,8 +2,9 @@
 #define AVATARSETTINGSEDITOR_H
 
 #include <QWidget>
-
 #include <QColorDialog>
+#include <QDir>
+
 #include <avatar.h>
 #include <lib/theme.h>
 

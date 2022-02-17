@@ -5,6 +5,7 @@
 #include <QSize>
 #include <QIcon>
 #include <QColor>
+#include <QPainter>
 
 namespace md
 {

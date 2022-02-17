@@ -7,6 +7,9 @@
 #include <QIcon>
 #include <QPixmap>
 #include <QColor>
+#include <QPainter>
+#include <QPainterPath>
+
 #include "lib/theme.h"
 
 namespace md
