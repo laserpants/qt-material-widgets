@@ -2,10 +2,12 @@
 #define QTMATERIALTOGGLE_H
 
 #include <QtWidgets/QAbstractButton>
+namespace md
+{
 
-class QtMaterialTogglePrivate;
+class TogglePrivate;
 
-class QtMaterialToggle : public QAbstractButton
+class Toggle : public QAbstractButton
 {
     Q_OBJECT
 
@@ -15,8 +17,8 @@ class QtMaterialToggle : public QAbstractButton
     Q_PROPERTY(QColor trackColor WRITE setTrackColor READ trackColor)
 
 public:
-    explicit QtMaterialToggle(QWidget *parent = 0);
-    ~QtMaterialToggle();
+    explicit Toggle(QWidget *parent = 0);
+    ~Toggle();
 
     void setUseThemeColors(bool value);
     bool useThemeColors() const;
@@ -42,11 +44,11 @@ protected:
     bool event(QEvent *event) Q_DECL_OVERRIDE;
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
-    const QScopedPointer<QtMaterialTogglePrivate> d_ptr;
+    const QScopedPointer<TogglePrivate> d_ptr;
 
 private:
-    Q_DISABLE_COPY(QtMaterialToggle)
-    Q_DECLARE_PRIVATE(QtMaterialToggle)
+    Q_DISABLE_COPY(Toggle)
+    Q_DECLARE_PRIVATE(Toggle)
 };
-
+}
 #endif // QTMATERIALTOGGLE_H

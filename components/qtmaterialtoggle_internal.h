@@ -3,20 +3,22 @@
 
 #include <QtWidgets/QWidget>
 #include "lib/qtmaterialrippleoverlay.h"
+namespace md
+{
 
-class QtMaterialToggle;
-class QtMaterialToggleThumb;
-class QtMaterialToggleTrack;
+class Toggle;
+class ToggleThumb;
+class ToggleTrack;
 
-class QtMaterialToggleRippleOverlay : public QtMaterialRippleOverlay
+class ToggleRippleOverlay : public RippleOverlay
 {
     Q_OBJECT
 
 public:
-    QtMaterialToggleRippleOverlay(QtMaterialToggleThumb *thumb,
-                                  QtMaterialToggleTrack *track,
-                                  QtMaterialToggle *parent);
-    ~QtMaterialToggleRippleOverlay();
+    ToggleRippleOverlay(ToggleThumb *thumb,
+                                  ToggleTrack *track,
+                                  Toggle *parent);
+    ~ToggleRippleOverlay();
 
 protected slots:
     void addToggleRipple();
@@ -26,14 +28,14 @@ protected:
     QRect overlayGeometry() const Q_DECL_OVERRIDE;
 
 private:
-    Q_DISABLE_COPY(QtMaterialToggleRippleOverlay)
+    Q_DISABLE_COPY(ToggleRippleOverlay)
 
-    QtMaterialToggle      *const m_toggle;
-    QtMaterialToggleThumb *const m_thumb;
-    QtMaterialToggleTrack *const m_track;
+    Toggle      *const m_toggle;
+    ToggleThumb *const m_thumb;
+    ToggleTrack *const m_track;
 };
 
-class QtMaterialToggleThumb : public QWidget
+class ToggleThumb : public QWidget
 {
     Q_OBJECT
 
@@ -41,8 +43,8 @@ class QtMaterialToggleThumb : public QWidget
     Q_PROPERTY(QColor thumbColor WRITE setThumbColor READ thumbColor)
 
 public:
-    QtMaterialToggleThumb(QtMaterialToggle *parent);
-    ~QtMaterialToggleThumb();
+    ToggleThumb(Toggle *parent);
+    ~ToggleThumb();
 
     void setShift(qreal shift);
     inline qreal shift() const;
@@ -57,46 +59,46 @@ protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
 private:
-    Q_DISABLE_COPY(QtMaterialToggleThumb)
+    Q_DISABLE_COPY(ToggleThumb)
 
     void updateOffset();
 
-    QtMaterialToggle *const m_toggle;
+    Toggle *const m_toggle;
     QColor                  m_thumbColor;
     qreal                   m_shift;
     qreal                   m_offset;
 };
 
-inline qreal QtMaterialToggleThumb::shift() const
+inline qreal ToggleThumb::shift() const
 {
     return m_shift;
 }
 
-inline qreal QtMaterialToggleThumb::offset() const
+inline qreal ToggleThumb::offset() const
 {
     return m_offset;
 }
 
-inline void QtMaterialToggleThumb::setThumbColor(const QColor &color)
+inline void ToggleThumb::setThumbColor(const QColor &color)
 {
     m_thumbColor = color;
     update();
 }
 
-inline QColor QtMaterialToggleThumb::thumbColor() const
+inline QColor ToggleThumb::thumbColor() const
 {
     return m_thumbColor;
 }
 
-class QtMaterialToggleTrack : public QWidget
+class ToggleTrack : public QWidget
 {
     Q_OBJECT
 
     Q_PROPERTY(QColor trackColor WRITE setTrackColor READ trackColor)
 
 public:
-    QtMaterialToggleTrack(QtMaterialToggle *parent);
-    ~QtMaterialToggleTrack();
+    ToggleTrack(Toggle *parent);
+    ~ToggleTrack();
 
     void setTrackColor(const QColor &color);
     inline QColor trackColor() const;
@@ -106,15 +108,15 @@ protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
 private:
-    Q_DISABLE_COPY(QtMaterialToggleTrack)
+    Q_DISABLE_COPY(ToggleTrack)
 
-    QtMaterialToggle *const m_toggle;
+    Toggle *const m_toggle;
     QColor                  m_trackColor;
 };
 
-inline QColor QtMaterialToggleTrack::trackColor() const
+inline QColor ToggleTrack::trackColor() const
 {
     return m_trackColor;
 }
-
+}
 #endif // QTMATERIALTOGGLE_INTERNAL_H

@@ -2,31 +2,33 @@
 #define QTMATERIALTOGGLE_P_H
 
 #include <Qt>
+namespace md
+{
 
 class QStateMachine;
 class QState;
 class QColor;
-class QtMaterialToggle;
-class QtMaterialToggleTrack;
-class QtMaterialToggleThumb;
-class QtMaterialToggleRippleOverlay;
+class Toggle;
+class ToggleTrack;
+class ToggleThumb;
+class ToggleRippleOverlay;
 
-class QtMaterialTogglePrivate
+class TogglePrivate
 {
-    Q_DISABLE_COPY(QtMaterialTogglePrivate)
-    Q_DECLARE_PUBLIC(QtMaterialToggle)
+    Q_DISABLE_COPY(TogglePrivate)
+    Q_DECLARE_PUBLIC(Toggle)
 
 public:
-    QtMaterialTogglePrivate(QtMaterialToggle *q);
-    ~QtMaterialTogglePrivate();
+    TogglePrivate(Toggle *q);
+    ~TogglePrivate();
 
     void init();
     void setupProperties();
 
-    QtMaterialToggle              *const q_ptr;
-    QtMaterialToggleTrack         *track;
-    QtMaterialToggleThumb         *thumb;
-    QtMaterialToggleRippleOverlay *rippleOverlay;
+    Toggle              *const q_ptr;
+    ToggleTrack         *track;
+    ToggleThumb         *thumb;
+    ToggleRippleOverlay *rippleOverlay;
     QStateMachine                 *stateMachine;
     QState                        *offState;
     QState                        *onState;
@@ -37,5 +39,5 @@ public:
     QColor                         trackColor;
     bool                           useThemeColors;
 };
-
+}
 #endif // QTMATERIALTOGGLE_P_H
