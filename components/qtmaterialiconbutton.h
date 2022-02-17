@@ -3,15 +3,18 @@
 
 #include <QtWidgets/QAbstractButton>
 
-class QtMaterialIconButtonPrivate;
+namespace md
+{
 
-class QtMaterialIconButton : public QAbstractButton
+class IconButtonPrivate;
+
+class IconButton : public QAbstractButton
 {
     Q_OBJECT
 
 public:
-    explicit QtMaterialIconButton(const QIcon &icon, QWidget *parent = 0);
-    ~QtMaterialIconButton();
+    explicit IconButton(const QIcon &icon, QWidget *parent = 0);
+    ~IconButton();
 
     QSize sizeHint() const Q_DECL_OVERRIDE;
 
@@ -25,18 +28,20 @@ public:
     QColor disabledColor() const;
 
 protected:
-    QtMaterialIconButton(QtMaterialIconButtonPrivate &d, QWidget *parent = 0);
+    IconButton(IconButtonPrivate &d, QWidget *parent = 0);
 
     bool event(QEvent *event) Q_DECL_OVERRIDE;
     bool eventFilter(QObject *obj, QEvent *event) Q_DECL_OVERRIDE;
     void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
-    const QScopedPointer<QtMaterialIconButtonPrivate> d_ptr;
+    const QScopedPointer<IconButtonPrivate> d_ptr;
 
 private:
-    Q_DISABLE_COPY(QtMaterialIconButton)
-    Q_DECLARE_PRIVATE(QtMaterialIconButton)
+    Q_DISABLE_COPY(IconButton)
+    Q_DECLARE_PRIVATE(IconButton)
 };
+
+}
 
 #endif // QTMATERIALICONBUTTON_H

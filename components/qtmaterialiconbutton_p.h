@@ -3,27 +3,32 @@
 
 #include <QtGlobal>
 
-class QtMaterialIconButton;
-class QtMaterialRippleOverlay;
+
+namespace md
+{
+class IconButton;
+class RippleOverlay;
 class QColor;
 
-class QtMaterialIconButtonPrivate
+class IconButtonPrivate
 {
-    Q_DISABLE_COPY(QtMaterialIconButtonPrivate)
-    Q_DECLARE_PUBLIC(QtMaterialIconButton)
+    Q_DISABLE_COPY(IconButtonPrivate)
+    Q_DECLARE_PUBLIC(IconButton)
 
 public:
-    QtMaterialIconButtonPrivate(QtMaterialIconButton *q);
-    virtual ~QtMaterialIconButtonPrivate();
+    IconButtonPrivate(IconButton *q);
+    virtual ~IconButtonPrivate();
 
     void init();
     void updateRipple();
 
-    QtMaterialIconButton    *const q_ptr;
-    QtMaterialRippleOverlay *rippleOverlay;
+    IconButton    *const q_ptr;
+    RippleOverlay *rippleOverlay;
     QColor                   color;
     QColor                   disabledColor;
     bool                     useThemeColors;
 };
+
+}
 
 #endif // QTMATERIALICONBUTTON_P_H

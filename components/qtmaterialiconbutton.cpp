@@ -5,25 +5,27 @@
 #include "lib/qtmaterialstyle.h"
 #include "lib/qtmaterialrippleoverlay.h"
 
+namespace md
+{
 /*!
  *  \class QtMaterialIconButtonPrivate
  *  \internal
  */
 
-QtMaterialIconButtonPrivate::QtMaterialIconButtonPrivate(QtMaterialIconButton *q)
+IconButtonPrivate::IconButtonPrivate(IconButton *q)
     : q_ptr(q)
 {
 }
 
-QtMaterialIconButtonPrivate::~QtMaterialIconButtonPrivate()
+IconButtonPrivate::~IconButtonPrivate()
 {
 }
 
-void QtMaterialIconButtonPrivate::init()
+void IconButtonPrivate::init()
 {
-    Q_Q(QtMaterialIconButton);
+    Q_Q(IconButton);
 
-    rippleOverlay  = new QtMaterialRippleOverlay(q->parentWidget());
+    rippleOverlay  = new RippleOverlay(q->parentWidget());
     useThemeColors = true;
 
     rippleOverlay->installEventFilter(q);
@@ -35,9 +37,9 @@ void QtMaterialIconButtonPrivate::init()
     q->setSizePolicy(policy);
 }
 
-void QtMaterialIconButtonPrivate::updateRipple()
+void IconButtonPrivate::updateRipple()
 {
-    Q_Q(QtMaterialIconButton);
+    Q_Q(IconButton);
 
     QRect r(q->rect());
     r.setSize(QSize(q->width()*2, q->height()*2));
@@ -49,30 +51,30 @@ void QtMaterialIconButtonPrivate::updateRipple()
  *  \class QtMaterialIconButton
  */
 
-QtMaterialIconButton::QtMaterialIconButton(const QIcon &icon, QWidget *parent)
+IconButton::IconButton(const QIcon &icon, QWidget *parent)
     : QAbstractButton(parent),
-      d_ptr(new QtMaterialIconButtonPrivate(this))
+      d_ptr(new IconButtonPrivate(this))
 {
     d_func()->init();
 
     setIcon(icon);
 }
 
-QtMaterialIconButton::~QtMaterialIconButton()
+IconButton::~IconButton()
 {
 }
 
 /*!
  *  \reimp
  */
-QSize QtMaterialIconButton::sizeHint() const
+QSize IconButton::sizeHint() const
 {
     return iconSize();
 }
 
-void QtMaterialIconButton::setUseThemeColors(bool value)
+void IconButton::setUseThemeColors(bool value)
 {
-    Q_D(QtMaterialIconButton);
+    Q_D(IconButton);
 
     if (d->useThemeColors == value) {
         return;
@@ -82,16 +84,16 @@ void QtMaterialIconButton::setUseThemeColors(bool value)
     update();
 }
 
-bool QtMaterialIconButton::useThemeColors() const
+bool IconButton::useThemeColors() const
 {
-    Q_D(const QtMaterialIconButton);
+    Q_D(const IconButton);
 
     return d->useThemeColors;
 }
 
-void QtMaterialIconButton::setColor(const QColor &color)
+void IconButton::setColor(const QColor &color)
 {
-    Q_D(QtMaterialIconButton);
+    Q_D(IconButton);
 
     d->color = color;
 
@@ -99,9 +101,9 @@ void QtMaterialIconButton::setColor(const QColor &color)
     update();
 }
 
-QColor QtMaterialIconButton::color() const
+QColor IconButton::color() const
 {
-    Q_D(const QtMaterialIconButton);
+    Q_D(const IconButton);
 
     if (d->useThemeColors || !d->color.isValid()) {
         return QtMaterialStyle::instance().themeColor("text");
@@ -109,9 +111,9 @@ QColor QtMaterialIconButton::color() const
     return d->color;
 }
 
-void QtMaterialIconButton::setDisabledColor(const QColor &color)
+void IconButton::setDisabledColor(const QColor &color)
 {
-    Q_D(QtMaterialIconButton);
+    Q_D(IconButton);
 
     d->disabledColor = color;
 
@@ -119,9 +121,9 @@ void QtMaterialIconButton::setDisabledColor(const QColor &color)
     update();
 }
 
-QColor QtMaterialIconButton::disabledColor() const
+QColor IconButton::disabledColor() const
 {
-    Q_D(const QtMaterialIconButton);
+    Q_D(const IconButton);
 
     if (d->useThemeColors || !d->disabledColor.isValid()) {
         return QtMaterialStyle::instance().themeColor("disabled");
@@ -129,7 +131,7 @@ QColor QtMaterialIconButton::disabledColor() const
     return d->disabledColor;
 }
 
-QtMaterialIconButton::QtMaterialIconButton(QtMaterialIconButtonPrivate &d, QWidget *parent)
+IconButton::IconButton(IconButtonPrivate &d, QWidget *parent)
     : QAbstractButton(parent),
       d_ptr(&d)
 {
@@ -139,9 +141,9 @@ QtMaterialIconButton::QtMaterialIconButton(QtMaterialIconButtonPrivate &d, QWidg
 /*!
  *  \reimp
  */
-bool QtMaterialIconButton::event(QEvent *event)
+bool IconButton::event(QEvent *event)
 {
-    Q_D(QtMaterialIconButton);
+    Q_D(IconButton);
 
     switch (event->type())
     {
@@ -165,11 +167,11 @@ bool QtMaterialIconButton::event(QEvent *event)
 /*!
  *  \reimp
  */
-bool QtMaterialIconButton::eventFilter(QObject *obj, QEvent *event)
+bool IconButton::eventFilter(QObject *obj, QEvent *event)
 {
     if (QEvent::Resize == event->type())
     {
-        Q_D(QtMaterialIconButton);
+        Q_D(IconButton);
 
         d->updateRipple();
     }
@@ -179,9 +181,9 @@ bool QtMaterialIconButton::eventFilter(QObject *obj, QEvent *event)
 /*!
  *  \reimp
  */
-void QtMaterialIconButton::mousePressEvent(QMouseEvent *event)
+void IconButton::mousePressEvent(QMouseEvent *event)
 {
-    Q_D(QtMaterialIconButton);
+    Q_D(IconButton);
 
     d->rippleOverlay->addRipple(QPoint(d->rippleOverlay->width(),
                                        d->rippleOverlay->height())/2,
@@ -194,7 +196,7 @@ void QtMaterialIconButton::mousePressEvent(QMouseEvent *event)
 /*!
  *  \reimp
  */
-void QtMaterialIconButton::paintEvent(QPaintEvent *event)
+void IconButton::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
@@ -209,4 +211,6 @@ void QtMaterialIconButton::paintEvent(QPaintEvent *event)
     const qreal w = pixmap.width();
     const qreal h = pixmap.height();
     painter.drawPixmap(QRect((r.width()-w)/2, (r.height()-h)/2, w, h), pixmap);
+}
+
 }
