@@ -9,29 +9,34 @@
 #include <QColor>
 #include "lib/qtmaterialtheme.h"
 
-class QtMaterialAvatar;
-
-class QtMaterialAvatarPrivate
+namespace md
 {
-    Q_DISABLE_COPY(QtMaterialAvatarPrivate)
-    Q_DECLARE_PUBLIC(QtMaterialAvatar)
+
+class Avatar;
+
+class AvatarPrivate
+{
+    Q_DISABLE_COPY(AvatarPrivate)
+    Q_DECLARE_PUBLIC(Avatar)
 
 public:
-    QtMaterialAvatarPrivate(QtMaterialAvatar *q);
-    ~QtMaterialAvatarPrivate();
+    AvatarPrivate(Avatar *q);
+    ~AvatarPrivate();
 
     void init();
 
-    QtMaterialAvatar *const q_ptr;
-    int                     size;
-    Material::AvatarType    type;
-    QChar                   letter;
-    QImage                  image;
-    QIcon                   icon;
-    QPixmap                 pixmap;
-    bool                    useThemeColors;
-    QColor                  textColor;
-    QColor                  backgroundColor;
+    Avatar *const q_ptr;
+    int size;
+    Material::AvatarType type;
+    QChar letter;
+    QImage image;
+    QIcon icon;
+    QPixmap pixmap;
+    bool useThemeColors;
+    QColor textColor;
+    QColor backgroundColor;
 };
+
+}
 
 #endif // QTMATERIALAVATAR_P_H

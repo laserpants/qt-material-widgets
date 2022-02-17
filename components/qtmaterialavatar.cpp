@@ -4,6 +4,8 @@
 #include <QPainterPath>
 #include "lib/qtmaterialstyle.h"
 
+namespace md
+{
 /*!
  *  \class QtMaterialAvatarPrivate
  *  \internal
@@ -12,7 +14,7 @@
 /*!
  *  \internal
  */
-QtMaterialAvatarPrivate::QtMaterialAvatarPrivate(QtMaterialAvatar *q)
+AvatarPrivate::AvatarPrivate(Avatar *q)
     : q_ptr(q)
 {
 }
@@ -20,16 +22,16 @@ QtMaterialAvatarPrivate::QtMaterialAvatarPrivate(QtMaterialAvatar *q)
 /*!
  *  \internal
  */
-QtMaterialAvatarPrivate::~QtMaterialAvatarPrivate()
+AvatarPrivate::~AvatarPrivate()
 {
 }
 
 /*!
  *  \internal
  */
-void QtMaterialAvatarPrivate::init()
+void AvatarPrivate::init()
 {
-    Q_Q(QtMaterialAvatar);
+    Q_Q(Avatar);
 
     size           = 40;
     type           = Material::LetterAvatar;
@@ -48,47 +50,47 @@ void QtMaterialAvatarPrivate::init()
  *  \class QtMaterialAvatar
  */
 
-QtMaterialAvatar::QtMaterialAvatar(QWidget *parent)
+Avatar::Avatar(QWidget *parent)
     : QWidget(parent),
-      d_ptr(new QtMaterialAvatarPrivate(this))
+      d_ptr(new AvatarPrivate(this))
 {
     d_func()->init();
 }
 
-QtMaterialAvatar::QtMaterialAvatar(const QIcon &icon, QWidget *parent)
+Avatar::Avatar(const QIcon &icon, QWidget *parent)
     : QWidget(parent),
-      d_ptr(new QtMaterialAvatarPrivate(this))
+      d_ptr(new AvatarPrivate(this))
 {
     d_func()->init();
 
     setIcon(icon);
 }
 
-QtMaterialAvatar::QtMaterialAvatar(const QChar &letter, QWidget *parent)
+Avatar::Avatar(const QChar &letter, QWidget *parent)
     : QWidget(parent),
-      d_ptr(new QtMaterialAvatarPrivate(this))
+      d_ptr(new AvatarPrivate(this))
 {
     d_func()->init();
 
     setLetter(letter);
 }
 
-QtMaterialAvatar::QtMaterialAvatar(const QImage &image, QWidget *parent)
+Avatar::Avatar(const QImage &image, QWidget *parent)
     : QWidget(parent),
-      d_ptr(new QtMaterialAvatarPrivate(this))
+      d_ptr(new AvatarPrivate(this))
 {
     d_func()->init();
 
     setImage(image);
 }
 
-QtMaterialAvatar::~QtMaterialAvatar()
+Avatar::~Avatar()
 {
 }
 
-void QtMaterialAvatar::setUseThemeColors(bool value)
+void Avatar::setUseThemeColors(bool value)
 {
-    Q_D(QtMaterialAvatar);
+    Q_D(Avatar);
 
     if (d->useThemeColors == value) {
         return;
@@ -98,16 +100,16 @@ void QtMaterialAvatar::setUseThemeColors(bool value)
     update();
 }
 
-bool QtMaterialAvatar::useThemeColors() const
+bool Avatar::useThemeColors() const
 {
-    Q_D(const QtMaterialAvatar);
+    Q_D(const Avatar);
 
     return d->useThemeColors;
 }
 
-void QtMaterialAvatar::setTextColor(const QColor &color)
+void Avatar::setTextColor(const QColor &color)
 {
-    Q_D(QtMaterialAvatar);
+    Q_D(Avatar);
 
     d->textColor = color;
 
@@ -115,9 +117,9 @@ void QtMaterialAvatar::setTextColor(const QColor &color)
     update();
 }
 
-QColor QtMaterialAvatar::textColor() const
+QColor Avatar::textColor() const
 {
-    Q_D(const QtMaterialAvatar);
+    Q_D(const Avatar);
 
     if (d->useThemeColors || !d->textColor.isValid()) {
         return QtMaterialStyle::instance().themeColor("canvas");
@@ -126,19 +128,19 @@ QColor QtMaterialAvatar::textColor() const
     }
 }
 
-void QtMaterialAvatar::setBackgroundColor(const QColor &color)
+void Avatar::setBackgroundColor(const QColor &color)
 {
-    Q_D(QtMaterialAvatar);
+    Q_D(Avatar);
 
     d->backgroundColor = color;
-    
+
     MATERIAL_DISABLE_THEME_COLORS
     update();
 }
 
-QColor QtMaterialAvatar::backgroundColor() const
+QColor Avatar::backgroundColor() const
 {
-    Q_D(const QtMaterialAvatar);
+    Q_D(const Avatar);
 
     if (d->useThemeColors || !d->backgroundColor.isValid()) {
         return QtMaterialStyle::instance().themeColor("primary1");
@@ -150,16 +152,16 @@ QColor QtMaterialAvatar::backgroundColor() const
 /*!
  *  \reimp
  */
-QSize QtMaterialAvatar::sizeHint() const
+QSize Avatar::sizeHint() const
 {
-    Q_D(const QtMaterialAvatar);
+    Q_D(const Avatar);
 
     return QSize(d->size+2, d->size+2);
 }
 
-void QtMaterialAvatar::setSize(int size)
+void Avatar::setSize(int size)
 {
-    Q_D(QtMaterialAvatar);
+    Q_D(Avatar);
 
     d->size = size;
 
@@ -176,25 +178,25 @@ void QtMaterialAvatar::setSize(int size)
     update();
 }
 
-int QtMaterialAvatar::size() const
+int Avatar::size() const
 {
-    Q_D(const QtMaterialAvatar);
+    Q_D(const Avatar);
 
     return d->size;
 }
 
-void QtMaterialAvatar::setLetter(const QChar &letter)
+void Avatar::setLetter(const QChar &letter)
 {
-    Q_D(QtMaterialAvatar);
+    Q_D(Avatar);
 
     d->letter = letter;
     d->type = Material::LetterAvatar;
     update();
 }
 
-void QtMaterialAvatar::setImage(const QImage &image)
+void Avatar::setImage(const QImage &image)
 {
-    Q_D(QtMaterialAvatar);
+    Q_D(Avatar);
 
     d->image = image;
     d->type = Material::ImageAvatar;
@@ -205,18 +207,18 @@ void QtMaterialAvatar::setImage(const QImage &image)
     update();
 }
 
-void QtMaterialAvatar::setIcon(const QIcon &icon)
+void Avatar::setIcon(const QIcon &icon)
 {
-    Q_D(QtMaterialAvatar);
+    Q_D(Avatar);
 
     d->icon = icon;
     d->type = Material::IconAvatar;
     update();
 }
 
-Material::AvatarType QtMaterialAvatar::type() const
+Material::AvatarType Avatar::type() const
 {
-    Q_D(const QtMaterialAvatar);
+    Q_D(const Avatar);
 
     return d->type;
 }
@@ -224,11 +226,11 @@ Material::AvatarType QtMaterialAvatar::type() const
 /*!
  *  \reimp
  */
-void QtMaterialAvatar::paintEvent(QPaintEvent *event)
+void Avatar::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
-    Q_D(QtMaterialAvatar);
+    Q_D(Avatar);
 
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
@@ -291,4 +293,6 @@ void QtMaterialAvatar::paintEvent(QPaintEvent *event)
     default:
         break;
     }
+}
+
 }

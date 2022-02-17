@@ -4,18 +4,19 @@
 #include <QtWidgets/QWidget>
 #include "lib/qtmaterialtheme.h"
 
-class QtMaterialAvatarPrivate;
+namespace md {
+class AvatarPrivate;
 
-class QtMaterialAvatar : public QWidget
+class Avatar : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit QtMaterialAvatar(QWidget *parent = 0);
-    explicit QtMaterialAvatar(const QIcon &icon, QWidget *parent = 0);
-    explicit QtMaterialAvatar(const QChar &letter, QWidget *parent = 0);
-    explicit QtMaterialAvatar(const QImage &image, QWidget *parent = 0);
-    ~QtMaterialAvatar();
+    explicit Avatar(QWidget *parent = 0);
+    explicit Avatar(const QIcon &icon, QWidget *parent = 0);
+    explicit Avatar(const QChar &letter, QWidget *parent = 0);
+    explicit Avatar(const QImage &image, QWidget *parent = 0);
+    ~Avatar();
 
     void setUseThemeColors(bool value);
     bool useThemeColors() const;
@@ -40,11 +41,12 @@ public:
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
-    const QScopedPointer<QtMaterialAvatarPrivate> d_ptr;
+    const QScopedPointer<AvatarPrivate> d_ptr;
 
 private:
-    Q_DISABLE_COPY(QtMaterialAvatar)
-    Q_DECLARE_PRIVATE(QtMaterialAvatar)
+    Q_DISABLE_COPY(Avatar)
+    Q_DECLARE_PRIVATE(Avatar)
 };
+}
 
 #endif // QTMATERIALAVATAR_H
