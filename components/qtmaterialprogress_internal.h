@@ -3,36 +3,38 @@
 
 #include <QObject>
 #include "qtmaterialprogress.h"
+namespace md
+{
 
-class QtMaterialProgressDelegate : public QObject
+class ProgressBarDelegate : public QObject
 {
     Q_OBJECT
 
     Q_PROPERTY(qreal offset WRITE setOffset READ offset)
 
 public:
-    QtMaterialProgressDelegate(QtMaterialProgress *parent);
-    ~QtMaterialProgressDelegate();
+    ProgressBarDelegate(ProgressBar *parent);
+    ~ProgressBarDelegate();
 
     inline void setOffset(qreal offset);
     inline qreal offset() const;
 
 private:
-    Q_DISABLE_COPY(QtMaterialProgressDelegate)
+    Q_DISABLE_COPY(ProgressBarDelegate)
 
-    QtMaterialProgress *const m_progress;
+    ProgressBar *const m_progress;
     qreal                     m_offset;
 };
 
-inline void QtMaterialProgressDelegate::setOffset(qreal offset)
+inline void ProgressBarDelegate::setOffset(qreal offset)
 {
     m_offset = offset;
     m_progress->update();
 }
 
-inline qreal QtMaterialProgressDelegate::offset() const
+inline qreal ProgressBarDelegate::offset() const
 {
     return m_offset;
 }
-
+}
 #endif // QTMATERIALPROGRESS_INTERNAL_H

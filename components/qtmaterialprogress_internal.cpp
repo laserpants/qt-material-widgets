@@ -5,7 +5,7 @@
  *  \internal
  */
 
-QtMaterialProgressDelegate::QtMaterialProgressDelegate(QtMaterialProgress *parent)
+ProgressBarDelegate::ProgressBarDelegate(ProgressBar *parent)
     : QObject(parent),
       m_progress(parent),
       m_offset(0)
@@ -13,6 +13,6 @@ QtMaterialProgressDelegate::QtMaterialProgressDelegate(QtMaterialProgress *paren
     Q_ASSERT(parent);
 }
 
-QtMaterialProgressDelegate::~QtMaterialProgressDelegate()
+ProgressBarDelegate::~ProgressBarDelegate()
 {
 }

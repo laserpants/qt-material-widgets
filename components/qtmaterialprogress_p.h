@@ -4,27 +4,29 @@
 #include <QtGlobal>
 #include <QColor>
 #include "lib/qtmaterialtheme.h"
-
-class QtMaterialProgress;
-class QtMaterialProgressDelegate;
-
-class QtMaterialProgressPrivate
+namespace md
 {
-    Q_DISABLE_COPY(QtMaterialProgressPrivate)
-    Q_DECLARE_PUBLIC(QtMaterialProgress)
+
+class ProgressBar;
+class ProgressBarDelegate;
+
+class ProgressBarPrivate
+{
+    Q_DISABLE_COPY(ProgressBarPrivate)
+    Q_DECLARE_PUBLIC(ProgressBar)
 
 public:
-    QtMaterialProgressPrivate(QtMaterialProgress *q);
-    ~QtMaterialProgressPrivate();
+    ProgressBarPrivate(ProgressBar *q);
+    ~ProgressBarPrivate();
 
     void init();
 
-    QtMaterialProgress         *const q_ptr;
-    QtMaterialProgressDelegate *delegate;
+    ProgressBar         *const q_ptr;
+    ProgressBarDelegate *delegate;
     Material::ProgressType      progressType;
     QColor                      progressColor;
     QColor                      backgroundColor;
     bool                        useThemeColors;
 };
-
+}
 #endif // QTMATERIALPROGRESS_P_H

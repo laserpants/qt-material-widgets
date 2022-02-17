@@ -5,26 +5,28 @@
 #include <QPainterPath>
 #include "qtmaterialprogress_internal.h"
 #include "lib/qtmaterialstyle.h"
+namespace md
+{
 
 /*!
- *  \class QtMaterialProgressPrivate
+ *  \class ProgressBarPrivate
  *  \internal
  */
 
-QtMaterialProgressPrivate::QtMaterialProgressPrivate(QtMaterialProgress *q)
+ProgressBarPrivate::ProgressBarPrivate(ProgressBar *q)
     : q_ptr(q)
 {
 }
 
-QtMaterialProgressPrivate::~QtMaterialProgressPrivate()
+ProgressBarPrivate::~ProgressBarPrivate()
 {
 }
 
-void QtMaterialProgressPrivate::init()
+void ProgressBarPrivate::init()
 {
-    Q_Q(QtMaterialProgress);
+    Q_Q(ProgressBar);
 
-    delegate       = new QtMaterialProgressDelegate(q);
+    delegate       = new ProgressBarDelegate(q);
     progressType   = Material::IndeterminateProgress;
     useThemeColors = true;
 
@@ -46,35 +48,35 @@ void QtMaterialProgressPrivate::init()
  *  \class QtMaterialProgress
  */
 
-QtMaterialProgress::QtMaterialProgress(QWidget *parent)
+ProgressBar::ProgressBar(QWidget *parent)
     : QProgressBar(parent),
-      d_ptr(new QtMaterialProgressPrivate(this))
+      d_ptr(new ProgressBarPrivate(this))
 {
     d_func()->init();
 }
 
-QtMaterialProgress::~QtMaterialProgress()
+ProgressBar::~ProgressBar()
 {
 }
 
-void QtMaterialProgress::setProgressType(Material::ProgressType type)
+void ProgressBar::setProgressType(Material::ProgressType type)
 {
-    Q_D(QtMaterialProgress);
+    Q_D(ProgressBar);
 
     d->progressType = type;
     update();
 }
 
-Material::ProgressType QtMaterialProgress::progressType() const
+Material::ProgressType ProgressBar::progressType() const
 {
-    Q_D(const QtMaterialProgress);
+    Q_D(const ProgressBar);
 
     return d->progressType;
 }
 
-void QtMaterialProgress::setUseThemeColors(bool state)
+void ProgressBar::setUseThemeColors(bool state)
 {
-    Q_D(QtMaterialProgress);
+    Q_D(ProgressBar);
 
     if (d->useThemeColors == state) {
         return;
@@ -84,16 +86,16 @@ void QtMaterialProgress::setUseThemeColors(bool state)
     update();
 }
 
-bool QtMaterialProgress::useThemeColors() const
+bool ProgressBar::useThemeColors() const
 {
-    Q_D(const QtMaterialProgress);
+    Q_D(const ProgressBar);
 
     return d->useThemeColors;
 }
 
-void QtMaterialProgress::setProgressColor(const QColor &color)
+void ProgressBar::setProgressColor(const QColor &color)
 {
-    Q_D(QtMaterialProgress);
+    Q_D(ProgressBar);
 
     d->progressColor = color;
 
@@ -101,20 +103,20 @@ void QtMaterialProgress::setProgressColor(const QColor &color)
     update();
 }
 
-QColor QtMaterialProgress::progressColor() const
+QColor ProgressBar::progressColor() const
 {
-    Q_D(const QtMaterialProgress);
+    Q_D(const ProgressBar);
 
     if (d->useThemeColors || !d->progressColor.isValid()) {
-        return QtMaterialStyle::instance().themeColor("primary1");
+        return Style::instance().themeColor("primary1");
     } else {
         return d->progressColor;
     }
 }
 
-void QtMaterialProgress::setBackgroundColor(const QColor &color)
+void ProgressBar::setBackgroundColor(const QColor &color)
 {
-    Q_D(QtMaterialProgress);
+    Q_D(ProgressBar);
 
     d->backgroundColor = color;
 
@@ -122,12 +124,12 @@ void QtMaterialProgress::setBackgroundColor(const QColor &color)
     update();
 }
 
-QColor QtMaterialProgress::backgroundColor() const
+QColor ProgressBar::backgroundColor() const
 {
-    Q_D(const QtMaterialProgress);
+    Q_D(const ProgressBar);
 
     if (d->useThemeColors || !d->backgroundColor.isValid()) {
-        return QtMaterialStyle::instance().themeColor("border");
+        return Style::instance().themeColor("border");
     } else {
         return d->backgroundColor;
     }
@@ -136,11 +138,11 @@ QColor QtMaterialProgress::backgroundColor() const
 /*!
  *  \reimp
  */
-void QtMaterialProgress::paintEvent(QPaintEvent *event)
+void ProgressBar::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
-    Q_D(QtMaterialProgress);
+    Q_D(ProgressBar);
 
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
@@ -148,7 +150,7 @@ void QtMaterialProgress::paintEvent(QPaintEvent *event)
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(isEnabled() ? backgroundColor()
-                               : QtMaterialStyle::instance().themeColor("disabled"));
+                               : Style::instance().themeColor("disabled"));
     painter.setBrush(brush);
     painter.setPen(Qt::NoPen);
 
@@ -170,4 +172,5 @@ void QtMaterialProgress::paintEvent(QPaintEvent *event)
             painter.drawRect(0, 0, p, height());
         }
     }
+}
 }
