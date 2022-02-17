@@ -12,21 +12,23 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Gui REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core5Compat REQUIRED)
 
 add_subdirectory(components)
+add_subdirectory(examples)
 
-set(PROJECT_SOURCES
+#set(PROJECT_SOURCES
 
-)
+#)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(QtMaterialWidgets
-        MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}
-    )
+#    qt_add_executable(QtMaterialWidgets
+#        MANUAL_FINALIZATION
+#        ${PROJECT_SOURCES}
+#    )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET QtMaterialWidgets APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
@@ -45,20 +47,21 @@ else()
     endif()
 endif()
 
-target_link_libraries(QtMaterialWidgets PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
-target_link_libraries(QtMaterialWidgets PRIVATE Qt${QT_VERSION_MAJOR}::Core)
-target_link_libraries(QtMaterialWidgets PRIVATE Qt${QT_VERSION_MAJOR}::Core5Compat)
+#target_link_libraries(QtMaterialWidgets PRIVATE Qt${QT_VERSION_MAJOR}::Core)
+#target_link_libraries(QtMaterialWidgets PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+#target_link_libraries(QtMaterialWidgets PRIVATE Qt${QT_VERSION_MAJOR}::Core5Compat)
 
-set_target_properties(QtMaterialWidgets PROPERTIES
-    MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
-    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-    MACOSX_BUNDLE TRUE
-    WIN32_EXECUTABLE TRUE
-)
+
+#set_target_properties(QtMaterialWidgets PROPERTIES
+#    MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
+#    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+#    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+#    MACOSX_BUNDLE TRUE
+#    WIN32_EXECUTABLE TRUE
+#)
 
 #file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(QtMaterialWidgets)
+#    qt_finalize_executable(QtMaterialWidgets)
 endif()

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(components VERSION 0.1 LANGUAGES CXX)
+#project(components VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -17,6 +17,8 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core5Compat REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS StateMachine REQUIRED)
 
+# Create a library called "components" which includes the source file "*.cpp".
+# The extension is already found. Any number of sources could be listed here.
 set(PROJECT_SOURCES
     qtmaterialavatar.cpp 
     lib/qtmaterialstyle.cpp 
@@ -145,25 +147,18 @@ set(PROJECT_SOURCES
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(components
-        MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}
-    )
+    add_library(components SHARED ${PROJECT_SOURCES})
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET components APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
     if(ANDROID)
-        add_library(components SHARED
-            ${PROJECT_SOURCES}
-        )
+        add_library(components SHARED ${PROJECT_SOURCES})
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
-        add_executable(components
-            ${PROJECT_SOURCES}
-        )
+#        add_executable(components ${PROJECT_SOURCES})
     endif()
 endif()
 
@@ -171,6 +166,11 @@ target_link_libraries(components PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(components PRIVATE Qt${QT_VERSION_MAJOR}::Core)
 target_link_libraries(components PRIVATE Qt${QT_VERSION_MAJOR}::Core5Compat)
 target_link_libraries(components PRIVATE Qt${QT_VERSION_MAJOR}::StateMachine)
+
+# Make sure the compiler can find include files for our components library
+# when other libraries or executables link to components
+target_include_directories (components PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
 
 set_target_properties(components PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
@@ -183,5 +183,5 @@ set_target_properties(components PROPERTIES
 file(COPY icons DESTINATION ${CMAKE_BINARY_DIR})
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(components)
+#    qt_finalize_executable(components)
 endif()
