@@ -1,13 +1,5 @@
-#include "qtmaterialautocomplete.h"
 #include "qtmaterialautocomplete_p.h"
-#include <QtWidgets/QGraphicsDropShadowEffect>
-#include <QtWidgets/QVBoxLayout>
-#include <QEvent>
-#include <QTimer>
-#include <QPainter>
-#include <QDebug>
-#include "qtmaterialautocomplete_internal.h"
-#include "qtmaterialflatbutton.h"
+
 
 namespace md
 {

@@ -1,7 +1,10 @@
 #ifndef QTMATERIALRADIOBUTTON_H
 #define QTMATERIALRADIOBUTTON_H
 
+#include "qtmaterialradiobutton_p.h"
+#include "lib/qtmaterialcheckable_internal.h"
 #include "lib/qtmaterialcheckable.h"
+
 namespace md
 {
 

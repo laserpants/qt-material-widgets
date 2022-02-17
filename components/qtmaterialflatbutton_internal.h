@@ -3,12 +3,18 @@
 
 #include <QStateMachine>
 #include <QColor>
+#include <QEventTransition>
+#include <QPropertyAnimation>
+#include <QFocusEvent>
+#include <QSequentialAnimationGroup>
+
+#include "qtmaterialflatbutton.h"
+#include "lib/qtmaterialstatetransition.h"
 
 namespace md
 {
-class FlatButton;
-class QSequentialAnimationGroup;
 
+class FlatButton;
 class FlatButtonStateMachine : public QStateMachine
 {
     Q_OBJECT

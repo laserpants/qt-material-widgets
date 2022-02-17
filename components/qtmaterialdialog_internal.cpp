@@ -1,9 +1,5 @@
 #include "qtmaterialdialog_internal.h"
-#include <QPainter>
-#include <QPixmap>
-#include <QEvent>
-#include <QtWidgets/QStackedLayout>
-#include "qtmaterialdialog.h"
+
 namespace md
 {
 

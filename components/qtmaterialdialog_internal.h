@@ -2,10 +2,16 @@
 #define QTMATERIALDIALOG_INTERNAL_H
 
 #include <QtWidgets/QWidget>
+#include <QPainter>
+#include <QPixmap>
+#include <QEvent>
+#include <QtWidgets/QStackedLayout>
+
+#include "qtmaterialdialog.h"
+
 namespace md
 {
 
-class QStackedLayout;
 class Dialog;
 class DialogWindow;
 
@@ -77,6 +83,7 @@ private:
 
     Dialog *const m_dialog;
 };
+}
 
 #endif // QTMATERIALDIALOG_INTERNAL_H
-}
+

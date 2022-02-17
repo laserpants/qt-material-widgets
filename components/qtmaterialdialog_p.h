@@ -2,12 +2,18 @@
 #define QTMATERIALDIALOG_P_H
 
 #include <QtGlobal>
+#include <QtWidgets/QStackedLayout>
+#include <QtWidgets/QGraphicsDropShadowEffect>
+#include <QtWidgets/QApplication>
+#include <QStateMachine>
+#include <QState>
+#include <QPropertyAnimation>
+#include <QPainter>
+
 namespace md
 {
 
-class QStateMachine;
 class Dialog;
-class QStackedLayout;
 class DialogWindow;
 class DialogProxy;
 

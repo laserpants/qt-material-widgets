@@ -1,13 +1,10 @@
 #include "qtmaterialtabs.h"
-#include "qtmaterialtabs_p.h"
-#include <QtWidgets/QHBoxLayout>
-#include "qtmaterialtabs_internal.h"
-#include "lib/qtmaterialstyle.h"
+
 namespace md
 {
 
 /*!
- *  \QtMaterialTabsPrivate
+ *  \TabsPrivate
  *  \internal
  */
 
@@ -35,7 +32,8 @@ void TabsPrivate::TabsPrivate::init()
     q->setStyle(&Style::instance());
 
     tabLayout->setSpacing(0);
-    tabLayout->setMargin(0);
+
+//    tabLayout->setMargin(0); // FIXME: throwing an error
 }
 
 /*!

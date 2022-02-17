@@ -2,11 +2,16 @@
 #define QTMATERIALDIALOG_H
 
 #include <QScopedPointer>
+#include <QLayout>
+
+#include "qtmaterialdialog_p.h"
+#include "qtmaterialdialog_internal.h"
+#include "lib/qtmaterialstatetransition.h"
 #include "lib/qtmaterialoverlaywidget.h"
+
 namespace md
 {
 
-class QLayout;
 class DialogPrivate;
 
 class Dialog : public OverlayWidget

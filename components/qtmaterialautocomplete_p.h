@@ -1,13 +1,21 @@
 #ifndef QTMATERIALAUTOCOMPLETE_P_H
 #define QTMATERIALAUTOCOMPLETE_P_H
 
+#include <QtWidgets/QGraphicsDropShadowEffect>
+#include <QtWidgets/QVBoxLayout>
+#include <QEvent>
+#include <QTimer>
+#include <QPainter>
+#include <QDebug>
+
+#include "qtmaterialautocomplete.h"
+#include "qtmaterialautocomplete_internal.h"
+#include "qtmaterialflatbutton.h"
 #include "qtmaterialtextfield_p.h"
 
 namespace md
 {
 
-class QWidget;
-class QVBoxLayout;
 class AutoCompleteOverlay;
 class AutoCompleteStateMachine;
 

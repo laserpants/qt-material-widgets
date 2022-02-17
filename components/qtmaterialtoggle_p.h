@@ -1,13 +1,15 @@
 #ifndef QTMATERIALTOGGLE_P_H
 #define QTMATERIALTOGGLE_P_H
 
-#include <Qt>
+#include <QtWidgets/QApplication>
+#include <QStateMachine>
+#include <QSignalTransition>
+#include <QPropertyAnimation>
+#include <QColor>
+
 namespace md
 {
 
-class QStateMachine;
-class QState;
-class QColor;
 class Toggle;
 class ToggleTrack;
 class ToggleThumb;

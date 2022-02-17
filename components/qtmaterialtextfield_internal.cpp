@@ -1,13 +1,10 @@
 #include "qtmaterialtextfield_internal.h"
-#include <QPropertyAnimation>
-#include <QEventTransition>
-#include <QPainter>
-#include "qtmaterialtextfield.h"
+
 namespace md
 {
 
 /*!
- *  \class QtMaterialTextFieldStateMachine
+ *  \class TextFieldStateMachine
  *  \internal
  */
 

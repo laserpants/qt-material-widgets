@@ -2,13 +2,18 @@
 #define QTMATERIALCHECKABLE_P_H
 
 #include <QtGlobal>
+#include <QPainter>
+#include <QEvent>
+#include <QStateMachine>
+#include <QSignalTransition>
+#include <QEventTransition>
+#include <QColor>
+#include <QCoreApplication>
+
 #include "lib/qtmaterialcheckable.h"
 
 namespace md
 {
-class QStateMachine;
-class QState;
-class QSignalTransition;
 class RippleOverlay;
 class CheckableIcon;
 

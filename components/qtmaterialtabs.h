@@ -2,8 +2,14 @@
 #define QTMATERIALTABS_H
 
 #include <QtWidgets/QWidget>
+#include <QtWidgets/QHBoxLayout>
 #include <QIcon>
+
+#include "qtmaterialtabs_p.h"
+#include "qtmaterialtabs_internal.h"
+#include "lib/qtmaterialstyle.h"
 #include "lib/qtmaterialtheme.h"
+
 namespace md
 {
 

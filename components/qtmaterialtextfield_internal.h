@@ -1,13 +1,17 @@
 #ifndef QTMATERIALTEXTFIELD_INTERNAL_H
 #define QTMATERIALTEXTFIELD_INTERNAL_H
 
-#include <QStateMachine>
 #include <QtWidgets/QWidget>
+#include <QStateMachine>
+#include <QPropertyAnimation>
+#include <QEventTransition>
+#include <QPainter>
+
 #include "qtmaterialtextfield.h"
+
 namespace md
 {
 
-class QPropertyAnimation;
 class TextFieldLabel;
 
 class TextFieldStateMachine : public QStateMachine

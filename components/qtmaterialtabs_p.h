@@ -2,11 +2,13 @@
 #define QTMATERIALTABS_P_H
 
 #include <QtGlobal>
+#include <QtWidgets/QHBoxLayout>
+
 #include "lib/qtmaterialtheme.h"
+
 namespace md
 {
 
-class QHBoxLayout;
 class Tabs;
 class TabsInkBar;
 

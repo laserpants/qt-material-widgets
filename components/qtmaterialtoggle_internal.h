@@ -2,7 +2,12 @@
 #define QTMATERIALTOGGLE_INTERNAL_H
 
 #include <QtWidgets/QWidget>
+#include <QtWidgets/QGraphicsDropShadowEffect>
+#include <QPainter>
+#include <QEvent>
+
 #include "lib/qtmaterialrippleoverlay.h"
+
 namespace md
 {
 

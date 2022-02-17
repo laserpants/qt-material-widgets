@@ -1,13 +1,17 @@
 #ifndef QTMATERIALRAISEDBUTTON_P_H
 #define QTMATERIALRAISEDBUTTON_P_H
 
+#include <QtWidgets/QGraphicsDropShadowEffect>
+#include <QStateMachine>
+#include <QPropertyAnimation>
+#include <QEventTransition>
+
 #include "qtmaterialflatbutton_p.h"
+#include "qtmaterialraisedbutton.h"
+
 namespace md
 {
 
-class QStateMachine;
-class QState;
-class QGraphicsDropShadowEffect;
 class RaisedButton;
 
 class RaisedButtonPrivate : public FlatButtonPrivate

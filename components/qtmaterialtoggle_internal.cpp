@@ -1,9 +1,8 @@
 #include "qtmaterialtoggle_internal.h"
-#include <QPainter>
-#include <QEvent>
-#include <QtWidgets/QGraphicsDropShadowEffect>
+
 #include "qtmaterialtoggle.h"
 #include "lib/qtmaterialripple.h"
+
 namespace md
 {
 

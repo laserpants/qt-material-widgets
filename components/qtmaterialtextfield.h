@@ -3,6 +3,7 @@
 
 #include <QtWidgets/QLineEdit>
 #include <QColor>
+
 namespace md
 {
 

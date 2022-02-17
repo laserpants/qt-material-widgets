@@ -2,6 +2,7 @@
 #define QTMATERIALSNACKBAR_H
 
 #include "lib/qtmaterialoverlaywidget.h"
+
 namespace md
 {
 

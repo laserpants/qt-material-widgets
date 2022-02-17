@@ -3,6 +3,7 @@
 
 #include <QtGlobal>
 #include <QColor>
+
 namespace md
 {
 

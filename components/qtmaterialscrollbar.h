@@ -2,6 +2,14 @@
 #define QTMATERIALSCROLLBAR_H
 
 #include <QtWidgets/QScrollBar>
+#include <QPainter>
+#include <QPainterPath>
+#include <QDebug>
+
+#include "qtmaterialscrollbar_p.h"
+#include "qtmaterialscrollbar_internal.h"
+#include "lib/qtmaterialstyle.h"
+
 namespace md
 {
 

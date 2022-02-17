@@ -44,7 +44,7 @@ set(PROJECT_SOURCES
     qtmaterialslider.cpp 
     qtmaterialsnackbar_internal.cpp 
     qtmaterialsnackbar.cpp 
-    qtmaterialradiobutton.cpp 
+#    qtmaterialradiobutton.cpp
     qtmaterialtoggle_internal.cpp 
     qtmaterialtoggle.cpp 
     qtmaterialtextfield_internal.cpp 
@@ -106,8 +106,8 @@ set(PROJECT_SOURCES
     qtmaterialsnackbar_internal.h 
     qtmaterialsnackbar_p.h 
     qtmaterialsnackbar.h 
-    qtmaterialradiobutton_p.h 
-    qtmaterialradiobutton.h 
+#    qtmaterialradiobutton_p.h
+#    qtmaterialradiobutton.h
     qtmaterialtoggle_internal.h 
     qtmaterialtoggle_p.h 
     qtmaterialtoggle.h 

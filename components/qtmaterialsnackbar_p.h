@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QColor>
+
 namespace md
 {
 
@@ -12,7 +13,7 @@ class SnackBarStateMachine;
 class SnackBarPrivate
 {
     Q_DISABLE_COPY(SnackBarPrivate)
-    Q_DECLARE_PUBLIC(Snackbar)
+    Q_DECLARE_PUBLIC(SnackBar)
 
 public:
     SnackBarPrivate(SnackBar *q);

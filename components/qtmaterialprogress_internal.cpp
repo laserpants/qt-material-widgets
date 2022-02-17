@@ -1,5 +1,7 @@
 #include "qtmaterialprogress_internal.h"
 
+namespace md
+{
 /*!
  *  \class QtMaterialProgressDelegate
  *  \internal
@@ -15,4 +17,5 @@ ProgressBarDelegate::ProgressBarDelegate(ProgressBar *parent)
 
 ProgressBarDelegate::~ProgressBarDelegate()
 {
+}
 }

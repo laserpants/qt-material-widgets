@@ -1,14 +1,5 @@
 #include "qtmaterialdrawer.h"
-#include "qtmaterialdrawer_p.h"
-#include <QPainter>
-#include <QEvent>
-#include <QDebug>
-#include <QMouseEvent>
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QLayout>
-#include <QLinearGradient>
-#include <QtWidgets/QVBoxLayout>
-#include "qtmaterialdrawer_internal.h"
+
 namespace md
 {
 

@@ -3,8 +3,11 @@
 
 #include <QStateMachine>
 #include "qtmaterialscrollbar.h"
+
 namespace md
 {
+
+class ScrollBar;
 
 class ScrollBarStateMachine : public QStateMachine
 {
@@ -31,7 +34,7 @@ private:
 inline void ScrollBarStateMachine::setOpacity(qreal opacity)
 {
     m_opacity = opacity;
-    m_scrollBar->update();
+//    m_scrollBar->update(); // FIXME: incomplete type 'class md::ScrollBar'
 }
 
 inline qreal ScrollBarStateMachine::opacity() const

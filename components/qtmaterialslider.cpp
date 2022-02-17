@@ -5,6 +5,7 @@
 #include "qtmaterialslider_internal.h"
 #include "lib/qtmaterialstyle.h"
 #include "lib/qtmaterialstatetransitionevent.h"
+
 namespace md
 {
 

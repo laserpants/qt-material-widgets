@@ -1,7 +1,14 @@
 #ifndef QTMATERIALRADIOBUTTON_P_H
 #define QTMATERIALRADIOBUTTON_P_H
 
+#include <QStateMachine>
+#include <QState>
+#include <QPropertyAnimation>
+#include <QColor>
+
+#include "qtmaterialradiobutton.h"
 #include "lib/qtmaterialcheckable_p.h"
+
 namespace md
 {
 

@@ -1,7 +1,19 @@
 #ifndef QTMATERIALDRAWER_H
 #define QTMATERIALDRAWER_H
 
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QVBoxLayout>
+#include <QPainter>
+#include <QEvent>
+#include <QDebug>
+#include <QMouseEvent>
+#include <QLinearGradient>
+
+#include "qtmaterialdrawer_p.h"
+#include "qtmaterialdrawer_internal.h"
 #include "lib/qtmaterialoverlaywidget.h"
+
 namespace md
 {
 

@@ -1,10 +1,4 @@
 #include "qtmaterialflatbutton_internal.h"
-#include <QEventTransition>
-#include <QPropertyAnimation>
-#include <QFocusEvent>
-#include <QSequentialAnimationGroup>
-#include "qtmaterialflatbutton.h"
-#include "lib/qtmaterialstatetransition.h"
 
 namespace md
 {

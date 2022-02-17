@@ -1,13 +1,20 @@
 #ifndef QTMATERIALTABS_INTERNAL_H
 #define QTMATERIALTABS_INTERNAL_H
 
+#include <QPainter>
+#include <QPropertyAnimation>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QLayoutItem>
+#include <QEvent>
+#include <QDebug>
+
+#include "qtmaterialtabs.h"
 #include "lib/qtmaterialoverlaywidget.h"
 #include "qtmaterialflatbutton.h"
 
 namespace md
 {
 
-class QPropertyAnimation;
 class Tabs;
 
 class TabsInkBar : public OverlayWidget

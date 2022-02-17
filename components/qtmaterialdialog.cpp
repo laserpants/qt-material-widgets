@@ -1,19 +1,10 @@
 #include "qtmaterialdialog.h"
-#include "qtmaterialdialog_p.h"
-#include <QtWidgets/QStackedLayout>
-#include <QtWidgets/QGraphicsDropShadowEffect>
-#include <QStateMachine>
-#include <QState>
-#include <QtWidgets/QApplication>
-#include <QPropertyAnimation>
-#include <QPainter>
-#include "qtmaterialdialog_internal.h"
-#include "lib/qtmaterialstatetransition.h"
+
 namespace md
 {
 
 /*!
- *  \class QtMaterialDialogPrivate
+ *  \class DialogPrivate
  *  \internal
  */
 
@@ -106,7 +97,7 @@ void DialogPrivate::init()
 }
 
 /*!
- *  \class QtMaterialDialog
+ *  \class Dialog
  */
 
 Dialog::Dialog(QWidget *parent)

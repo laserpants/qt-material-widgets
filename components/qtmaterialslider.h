@@ -5,6 +5,7 @@
 #include <QScopedPointer>
 
 #define QT_MATERIAL_SLIDER_MARGIN 30
+
 namespace md
 {
 

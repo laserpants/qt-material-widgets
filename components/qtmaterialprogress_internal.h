@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "qtmaterialprogress.h"
+
 namespace md
 {
 

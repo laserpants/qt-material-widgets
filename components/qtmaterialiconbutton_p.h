@@ -2,13 +2,12 @@
 #define QTMATERIALICONBUTTON_P_H
 
 #include <QtGlobal>
-
+#include <QColor>
 
 namespace md
 {
 class IconButton;
 class RippleOverlay;
-class QColor;
 
 class IconButtonPrivate
 {

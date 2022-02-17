@@ -4,6 +4,7 @@
 #include <QtGlobal>
 #include <QColor>
 #include <QRectF>
+
 namespace md
 {
 
