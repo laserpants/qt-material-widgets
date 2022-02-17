@@ -2,20 +2,22 @@
 #define QTMATERIALRAISEDBUTTON_P_H
 
 #include "qtmaterialflatbutton_p.h"
+namespace md
+{
 
 class QStateMachine;
 class QState;
 class QGraphicsDropShadowEffect;
-class QtMaterialRaisedButton;
+class RaisedButton;
 
-class QtMaterialRaisedButtonPrivate : public QtMaterialFlatButtonPrivate
+class RaisedButtonPrivate : public FlatButtonPrivate
 {
-    Q_DISABLE_COPY(QtMaterialRaisedButtonPrivate)
-    Q_DECLARE_PUBLIC(QtMaterialRaisedButton)
+    Q_DISABLE_COPY(RaisedButtonPrivate)
+    Q_DECLARE_PUBLIC(RaisedButton)
 
 public:
-    QtMaterialRaisedButtonPrivate(QtMaterialRaisedButton *q);
-    ~QtMaterialRaisedButtonPrivate();
+    RaisedButtonPrivate(RaisedButton *q);
+    ~RaisedButtonPrivate();
 
     void init();
 
@@ -24,5 +26,5 @@ public:
     QState                    *pressedState;
     QGraphicsDropShadowEffect *effect;
 };
-
+}
 #endif // QTMATERIALRAISEDBUTTON_P_H

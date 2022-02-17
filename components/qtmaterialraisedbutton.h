@@ -2,26 +2,28 @@
 #define QTMATERIALRAISEDBUTTON_H
 
 #include "qtmaterialflatbutton.h"
+namespace md
+{
 
-class QtMaterialRaisedButtonPrivate;
+class RaisedButtonPrivate;
 
-class QtMaterialRaisedButton : public QtMaterialFlatButton
+class RaisedButton : public FlatButton
 {
     Q_OBJECT
 
 public:
-    explicit QtMaterialRaisedButton(QWidget *parent = 0);
-    explicit QtMaterialRaisedButton(const QString &text, QWidget *parent = 0);
-    ~QtMaterialRaisedButton();
+    explicit RaisedButton(QWidget *parent = 0);
+    explicit RaisedButton(const QString &text, QWidget *parent = 0);
+    ~RaisedButton();
 
 protected:
-    QtMaterialRaisedButton(QtMaterialRaisedButtonPrivate &d, QWidget *parent = 0);
+    RaisedButton(RaisedButtonPrivate &d, QWidget *parent = 0);
 
     bool event(QEvent *event) Q_DECL_OVERRIDE;
 
 private:
-    Q_DISABLE_COPY(QtMaterialRaisedButton)
-    Q_DECLARE_PRIVATE(QtMaterialRaisedButton)
+    Q_DISABLE_COPY(RaisedButton)
+    Q_DECLARE_PRIVATE(RaisedButton)
 };
-
+}
 #endif // QTMATERIALRAISEDBUTTON_H

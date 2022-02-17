@@ -4,6 +4,8 @@
 #include <QtWidgets/QGraphicsDropShadowEffect>
 #include <QPropertyAnimation>
 #include <QEventTransition>
+namespace md
+{
 
 /*!
  *  \class QtMaterialRaisedButtonPrivate
@@ -13,24 +15,24 @@
 /*!
  *  \internal
  */
-QtMaterialRaisedButtonPrivate::QtMaterialRaisedButtonPrivate(QtMaterialRaisedButton *q)
-    : QtMaterialFlatButtonPrivate(q)
+RaisedButtonPrivate::RaisedButtonPrivate(RaisedButton *q)
+    : FlatButtonPrivate(q)
 {
 }
 
 /*!
  *  \internal
  */
-QtMaterialRaisedButtonPrivate::~QtMaterialRaisedButtonPrivate()
+RaisedButtonPrivate::~RaisedButtonPrivate()
 {
 }
 
 /*!
  *  \internal
  */
-void QtMaterialRaisedButtonPrivate::init()
+void RaisedButtonPrivate::init()
 {
-    Q_Q(QtMaterialRaisedButton);
+    Q_Q(RaisedButton);
 
     shadowStateMachine = new QStateMachine(q);
     normalState        = new QState;
@@ -87,33 +89,33 @@ void QtMaterialRaisedButtonPrivate::init()
  *  \class QtMaterialRaisedButton
  */
 
-QtMaterialRaisedButton::QtMaterialRaisedButton(QWidget *parent)
-    : QtMaterialFlatButton(*new QtMaterialRaisedButtonPrivate(this), parent)
+RaisedButton::RaisedButton(QWidget *parent)
+    : FlatButton(*new RaisedButtonPrivate(this), parent)
 {
     d_func()->init();
 }
 
-QtMaterialRaisedButton::QtMaterialRaisedButton(const QString &text, QWidget *parent)
-    : QtMaterialFlatButton(*new QtMaterialRaisedButtonPrivate(this), parent)
+RaisedButton::RaisedButton(const QString &text, QWidget *parent)
+    : FlatButton(*new RaisedButtonPrivate(this), parent)
 {
     d_func()->init();
 
     setText(text);
 }
 
-QtMaterialRaisedButton::~QtMaterialRaisedButton()
+RaisedButton::~RaisedButton()
 {
 }
 
-QtMaterialRaisedButton::QtMaterialRaisedButton(QtMaterialRaisedButtonPrivate &d, QWidget *parent)
-    : QtMaterialFlatButton(d, parent)
+RaisedButton::RaisedButton(RaisedButtonPrivate &d, QWidget *parent)
+    : FlatButton(d, parent)
 {
     d_func()->init();
 }
 
-bool QtMaterialRaisedButton::event(QEvent *event)
+bool RaisedButton::event(QEvent *event)
 {
-    Q_D(QtMaterialRaisedButton);
+    Q_D(RaisedButton);
 
     if (QEvent::EnabledChange == event->type()) {
         if (isEnabled()) {
@@ -124,5 +126,6 @@ bool QtMaterialRaisedButton::event(QEvent *event)
             d->effect->setEnabled(false);
         }
     }
-    return QtMaterialFlatButton::event(event);
+    return FlatButton::event(event);
+}
 }
