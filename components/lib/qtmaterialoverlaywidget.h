@@ -3,13 +3,15 @@
 
 #include <QtWidgets/QWidget>
 
-class QtMaterialOverlayWidget : public QWidget
+namespace md
+{
+class OverlayWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit QtMaterialOverlayWidget(QWidget *parent = 0);
-    ~QtMaterialOverlayWidget();
+    explicit OverlayWidget(QWidget *parent = 0);
+    ~OverlayWidget();
 
 protected:
     bool event(QEvent *event) Q_DECL_OVERRIDE;
@@ -18,7 +20,8 @@ protected:
     virtual QRect overlayGeometry() const;
 
 private:
-    Q_DISABLE_COPY(QtMaterialOverlayWidget)
+    Q_DISABLE_COPY(OverlayWidget)
 };
+}
 
 #endif // QTMATERIALOVERLAYWIDGET_H

@@ -2,24 +2,26 @@
 #include <QPainter>
 #include "lib/qtmaterialripple.h"
 
+namespace md
+{
 /*!
  *  \class QtMaterialRippleOverlay
  *  \internal
  */
 
-QtMaterialRippleOverlay::QtMaterialRippleOverlay(QWidget *parent)
-    : QtMaterialOverlayWidget(parent),
+RippleOverlay::RippleOverlay(QWidget *parent)
+    : OverlayWidget(parent),
       m_useClip(false)
 {
     setAttribute(Qt::WA_TransparentForMouseEvents);
     setAttribute(Qt::WA_NoSystemBackground);
 }
 
-QtMaterialRippleOverlay::~QtMaterialRippleOverlay()
+RippleOverlay::~RippleOverlay()
 {
 }
 
-void QtMaterialRippleOverlay::addRipple(QtMaterialRipple *ripple)
+void RippleOverlay::addRipple(Ripple *ripple)
 {
     ripple->setOverlay(this);
     m_ripples.push_back(ripple);
@@ -29,14 +31,14 @@ void QtMaterialRippleOverlay::addRipple(QtMaterialRipple *ripple)
     connect(this, SIGNAL(destroyed(QObject*)), ripple, SLOT(deleteLater()));
 }
 
-void QtMaterialRippleOverlay::addRipple(const QPoint &position, qreal radius)
+void RippleOverlay::addRipple(const QPoint &position, qreal radius)
 {
-    QtMaterialRipple *ripple = new QtMaterialRipple(position);
+    Ripple *ripple = new Ripple(position);
     ripple->setRadiusEndValue(radius);
     addRipple(ripple);
 }
 
-void QtMaterialRippleOverlay::removeRipple(QtMaterialRipple *ripple)
+void RippleOverlay::removeRipple(Ripple *ripple)
 {
     if (m_ripples.removeOne(ripple)) {
         delete ripple;
@@ -47,7 +49,7 @@ void QtMaterialRippleOverlay::removeRipple(QtMaterialRipple *ripple)
 /*!
  *  \reimp
  */
-void QtMaterialRippleOverlay::paintEvent(QPaintEvent *event)
+void RippleOverlay::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
@@ -59,17 +61,19 @@ void QtMaterialRippleOverlay::paintEvent(QPaintEvent *event)
         painter.setClipPath(m_clipPath);
     }
 
-    QList<QtMaterialRipple *>::const_iterator i;
+    QList<Ripple *>::const_iterator i;
     for (i = m_ripples.begin(); i != m_ripples.end(); ++i) {
         paintRipple(&painter, *i);
     }
 }
 
-void QtMaterialRippleOverlay::paintRipple(QPainter *painter, QtMaterialRipple *ripple)
+void RippleOverlay::paintRipple(QPainter *painter, Ripple *ripple)
 {
     const qreal radius = ripple->radius();
     const QPointF center = ripple->center();
     painter->setOpacity(ripple->opacity());
     painter->setBrush(ripple->brush());
     painter->drawEllipse(center, radius, radius);
+}
+
 }

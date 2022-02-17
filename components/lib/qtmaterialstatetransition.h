@@ -4,19 +4,22 @@
 #include <QAbstractTransition>
 #include "lib/qtmaterialstatetransitionevent.h"
 
-class QtMaterialStateTransition : public QAbstractTransition
+namespace md
+{
+class StateTransition : public QAbstractTransition
 {
     Q_OBJECT
 
 public:
-    QtMaterialStateTransition(QtMaterialStateTransitionType type);
+    StateTransition(StateTransitionType type);
 
 protected:
     virtual bool eventTest(QEvent *event);
     virtual void onTransition(QEvent *);
 
 private:
-    QtMaterialStateTransitionType m_type;
+    StateTransitionType m_type;
 };
+}
 
 #endif // QTMATERIALSTATETRANSITION_H

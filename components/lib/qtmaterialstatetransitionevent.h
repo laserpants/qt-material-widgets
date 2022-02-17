@@ -3,7 +3,9 @@
 
 #include <QEvent>
 
-enum QtMaterialStateTransitionType {
+namespace md
+{
+enum StateTransitionType {
     // Snackbar
     SnackbarShowTransition = 1,
     SnackbarHideTransition,
@@ -28,15 +30,16 @@ enum QtMaterialStateTransitionType {
     MaxTransitionType = 65535
 };
 
-struct QtMaterialStateTransitionEvent : public QEvent
+struct StateTransitionEvent : public QEvent
 {
-    QtMaterialStateTransitionEvent(QtMaterialStateTransitionType type)
+    StateTransitionEvent(StateTransitionType type)
         : QEvent(QEvent::Type(QEvent::User + 1)),
           type(type)
     {
     }
 
-    QtMaterialStateTransitionType type;
+    StateTransitionType type;
 };
+}
 
 #endif // QTMATERIALSTATETRANSITIONEVENT_H

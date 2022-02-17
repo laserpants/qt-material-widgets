@@ -4,27 +4,29 @@
 #include <QtGlobal>
 #include "lib/qtmaterialcheckable.h"
 
+namespace md
+{
 class QStateMachine;
 class QState;
 class QSignalTransition;
-class QtMaterialRippleOverlay;
-class QtMaterialCheckableIcon;
+class RippleOverlay;
+class CheckableIcon;
 
-class QtMaterialCheckablePrivate
+class CheckablePrivate
 {
-    Q_DISABLE_COPY(QtMaterialCheckablePrivate)
-    Q_DECLARE_PUBLIC(QtMaterialCheckable)
+    Q_DISABLE_COPY(CheckablePrivate)
+    Q_DECLARE_PUBLIC(Checkable)
 
 public:
-    QtMaterialCheckablePrivate(QtMaterialCheckable *q);
-    virtual ~QtMaterialCheckablePrivate();
+    CheckablePrivate(Checkable *q);
+    virtual ~CheckablePrivate();
 
     void init();
 
-    QtMaterialCheckable                *const q_ptr;
-    QtMaterialRippleOverlay            *rippleOverlay;
-    QtMaterialCheckableIcon            *checkedIcon;
-    QtMaterialCheckableIcon            *uncheckedIcon;
+    Checkable                *const q_ptr;
+    RippleOverlay            *rippleOverlay;
+    CheckableIcon            *checkedIcon;
+    CheckableIcon            *uncheckedIcon;
     QStateMachine                      *stateMachine;
     QState                             *uncheckedState;
     QState                             *checkedState;
@@ -32,12 +34,13 @@ public:
     QState                             *disabledCheckedState;
     QSignalTransition                  *uncheckedTransition;
     QSignalTransition                  *checkedTransition;
-    QtMaterialCheckable::LabelPosition  labelPosition;
+    Checkable::LabelPosition  labelPosition;
     QColor                              checkedColor;
     QColor                              uncheckedColor;
     QColor                              textColor;
     QColor                              disabledColor;
     bool                                useThemeColors;
 };
+}
 
 #endif // QTMATERIALCHECKABLE_P_H

@@ -1,19 +1,22 @@
 #include "lib/qtmaterialstatetransition.h"
 
-QtMaterialStateTransition::QtMaterialStateTransition(QtMaterialStateTransitionType type)
+namespace md
+{
+StateTransition::StateTransition(StateTransitionType type)
     : m_type(type)
 {
 }
 
-bool QtMaterialStateTransition::eventTest(QEvent *event)
+bool StateTransition::eventTest(QEvent *event)
 {
     if (event->type() != QEvent::Type(QEvent::User + 1)) {
         return false;
     }
-    QtMaterialStateTransitionEvent *transition = static_cast<QtMaterialStateTransitionEvent *>(event);
+    StateTransitionEvent *transition = static_cast<StateTransitionEvent *>(event);
     return (m_type == transition->type);
 }
 
-void QtMaterialStateTransition::onTransition(QEvent *)
+void StateTransition::onTransition(QEvent *)
 {
+}
 }

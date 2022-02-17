@@ -2,29 +2,31 @@
 #include <QFontDatabase>
 #include "lib/qtmaterialtheme.h"
 
+namespace md
+{
 /*!
  *  \class QtMaterialStylePrivate
  *  \internal
  */
 
-QtMaterialStylePrivate::QtMaterialStylePrivate(QtMaterialStyle *q)
+StylePrivate::StylePrivate(Style *q)
     : q_ptr(q)
 {
 }
 
-QtMaterialStylePrivate::~QtMaterialStylePrivate()
+StylePrivate::~StylePrivate()
 {
 }
 
-void QtMaterialStylePrivate::init()
+void StylePrivate::init()
 {
-    Q_Q(QtMaterialStyle);
+    Q_Q(Style);
 
     QFontDatabase::addApplicationFont(":/fonts/roboto_regular");
     QFontDatabase::addApplicationFont(":/fonts/roboto_medium");
     QFontDatabase::addApplicationFont(":/fonts/roboto_bold");
 
-    q->setTheme(new QtMaterialTheme);
+    q->setTheme(new Theme);
 }
 
 /*!
@@ -32,26 +34,28 @@ void QtMaterialStylePrivate::init()
  *  \internal
  */
 
-void QtMaterialStyle::setTheme(QtMaterialTheme *theme)
+void Style::setTheme(Theme *theme)
 {
-    Q_D(QtMaterialStyle);
+    Q_D(Style);
 
     d->theme = theme;
     theme->setParent(this);
 }
 
-QColor QtMaterialStyle::themeColor(const QString &key) const
+QColor Style::themeColor(const QString &key) const
 {
-    Q_D(const QtMaterialStyle);
+    Q_D(const Style);
 
     Q_ASSERT(d->theme);
 
     return d->theme->getColor(key);
 }
 
-QtMaterialStyle::QtMaterialStyle()
+Style::Style()
     : QCommonStyle(),
-      d_ptr(new QtMaterialStylePrivate(this))
+      d_ptr(new StylePrivate(this))
 {
     d_func()->init();
+}
+
 }

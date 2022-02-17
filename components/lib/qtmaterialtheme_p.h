@@ -4,21 +4,24 @@
 #include <QHash>
 #include <QColor>
 
-class QtMaterialTheme;
-
-class QtMaterialThemePrivate
+namespace md
 {
-    Q_DISABLE_COPY(QtMaterialThemePrivate)
-    Q_DECLARE_PUBLIC(QtMaterialTheme)
+class Theme;
+
+class ThemePrivate
+{
+    Q_DISABLE_COPY(ThemePrivate)
+    Q_DECLARE_PUBLIC(Theme)
 
 public:
-    QtMaterialThemePrivate(QtMaterialTheme *q);
-    ~QtMaterialThemePrivate();
+    ThemePrivate(Theme *q);
+    ~ThemePrivate();
 
     QColor rgba(int r, int g, int b, qreal a) const;
 
-    QtMaterialTheme *const q_ptr;
+    Theme *const q_ptr;
     QHash<QString, QColor> colors;
 };
+}
 
 #endif // QTMATERIALTHEME_P_H

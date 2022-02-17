@@ -7,34 +7,37 @@
 #define MATERIAL_DISABLE_THEME_COLORS \
     if (d->useThemeColors == true) { d->useThemeColors = false; }
 
-class QtMaterialTheme;
+namespace md
+{
+class Theme;
 
-class QtMaterialStyle : public QCommonStyle
+class Style : public QCommonStyle
 {
     Q_OBJECT
 
 public:
-    inline static QtMaterialStyle &instance();
+    inline static Style &instance();
 
-    void setTheme(QtMaterialTheme *theme);
+    void setTheme(Theme *theme);
     QColor themeColor(const QString &key) const;
 
 protected:
-    const QScopedPointer<QtMaterialStylePrivate> d_ptr;
+    const QScopedPointer<StylePrivate> d_ptr;
 
 private:
-    Q_DECLARE_PRIVATE(QtMaterialStyle)
+    Q_DECLARE_PRIVATE(Style)
 
-    QtMaterialStyle();
+    Style();
 
-    QtMaterialStyle(QtMaterialStyle const &);
-    void operator=(QtMaterialStyle const &);
+    Style(Style const &);
+    void operator=(Style const &);
 };
 
-inline QtMaterialStyle &QtMaterialStyle::instance()
+inline Style &Style::instance()
 {
-    static QtMaterialStyle instance;
+    static Style instance;
     return instance;
+}
 }
 
 #endif // QTMATERIALSTYLE_H

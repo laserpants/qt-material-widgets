@@ -12,27 +12,29 @@
 #include "lib/qtmaterialstyle.h"
 #include "lib/qtmaterialcheckable_internal.h"
 
+namespace md
+{
 /*!
  *  \class QtMaterialCheckablePrivate
  *  \internal
  */
 
-QtMaterialCheckablePrivate::QtMaterialCheckablePrivate(QtMaterialCheckable *q)
+CheckablePrivate::CheckablePrivate(Checkable *q)
     : q_ptr(q)
 {
 }
 
-QtMaterialCheckablePrivate::~QtMaterialCheckablePrivate()
+CheckablePrivate::~CheckablePrivate()
 {
 }
 
-void QtMaterialCheckablePrivate::init()
+void CheckablePrivate::init()
 {
-    Q_Q(QtMaterialCheckable);
+    Q_Q(Checkable);
 
-    rippleOverlay          = new QtMaterialRippleOverlay;
-    checkedIcon            = new QtMaterialCheckableIcon(QIcon(":/icons/icons/toggle/svg/production/ic_check_box_24px.svg"), q);
-    uncheckedIcon          = new QtMaterialCheckableIcon(QIcon(":/icons/icons/toggle/svg/production/ic_check_box_outline_blank_24px.svg"), q);
+    rippleOverlay          = new RippleOverlay;
+    checkedIcon            = new CheckableIcon(QIcon(":/icons/icons/toggle/svg/production/ic_check_box_24px.svg"), q);
+    uncheckedIcon          = new CheckableIcon(QIcon(":/icons/icons/toggle/svg/production/ic_check_box_outline_blank_24px.svg"), q);
     stateMachine           = new QStateMachine(q);
     uncheckedState         = new QState;
     checkedState           = new QState;
@@ -40,14 +42,14 @@ void QtMaterialCheckablePrivate::init()
     disabledCheckedState   = new QState;
     uncheckedTransition    = new QSignalTransition(q, SIGNAL(toggled(bool)));
     checkedTransition      = new QSignalTransition(q, SIGNAL(toggled(bool)));
-    labelPosition          = QtMaterialCheckable::LabelPositionRight;
+    labelPosition          = Checkable::LabelPositionRight;
     useThemeColors         = true;
 
     rippleOverlay->setParent(q->parentWidget());
     rippleOverlay->installEventFilter(q);
 
     q->setCheckable(true);
-    q->setStyle(&QtMaterialStyle::instance());
+    q->setStyle(&Style::instance());
     q->setFont(QFont("Roboto", 11, QFont::Normal));
 
     stateMachine->addState(uncheckedState);
@@ -125,35 +127,35 @@ void QtMaterialCheckablePrivate::init()
  *  \class QtMaterialCheckable
  */
 
-QtMaterialCheckable::QtMaterialCheckable(QWidget *parent)
+Checkable::Checkable(QWidget *parent)
     : QAbstractButton(parent),
-      d_ptr(new QtMaterialCheckablePrivate(this))
+      d_ptr(new CheckablePrivate(this))
 {
     d_func()->init();
 }
 
-QtMaterialCheckable::~QtMaterialCheckable()
+Checkable::~Checkable()
 {
 }
 
-void QtMaterialCheckable::setLabelPosition(LabelPosition placement)
+void Checkable::setLabelPosition(LabelPosition placement)
 {
-    Q_D(QtMaterialCheckable);
+    Q_D(Checkable);
 
     d->labelPosition = placement;
     update();
 }
 
-QtMaterialCheckable::LabelPosition QtMaterialCheckable::labelPosition() const
+Checkable::LabelPosition Checkable::labelPosition() const
 {
-    Q_D(const QtMaterialCheckable);
+    Q_D(const Checkable);
 
     return d->labelPosition;
 }
 
-void QtMaterialCheckable::setUseThemeColors(bool value)
+void Checkable::setUseThemeColors(bool value)
 {
-    Q_D(QtMaterialCheckable);
+    Q_D(Checkable);
 
     if (d->useThemeColors == value) {
         return;
@@ -163,16 +165,16 @@ void QtMaterialCheckable::setUseThemeColors(bool value)
     setupProperties();
 }
 
-bool QtMaterialCheckable::useThemeColors() const
+bool Checkable::useThemeColors() const
 {
-    Q_D(const QtMaterialCheckable);
+    Q_D(const Checkable);
 
     return d->useThemeColors;
 }
 
-void QtMaterialCheckable::setCheckedColor(const QColor &color)
+void Checkable::setCheckedColor(const QColor &color)
 {
-    Q_D(QtMaterialCheckable);
+    Q_D(Checkable);
 
     d->checkedColor = color;
 
@@ -180,20 +182,20 @@ void QtMaterialCheckable::setCheckedColor(const QColor &color)
     setupProperties();
 }
 
-QColor QtMaterialCheckable::checkedColor() const
+QColor Checkable::checkedColor() const
 {
-    Q_D(const QtMaterialCheckable);
+    Q_D(const Checkable);
 
     if (d->useThemeColors || !d->checkedColor.isValid()) {
-        return QtMaterialStyle::instance().themeColor("primary1");
+        return Style::instance().themeColor("primary1");
     } else {
         return d->checkedColor;
     }
 }
 
-void QtMaterialCheckable::setUncheckedColor(const QColor &color)
+void Checkable::setUncheckedColor(const QColor &color)
 {
-    Q_D(QtMaterialCheckable);
+    Q_D(Checkable);
 
     d->uncheckedColor = color;
 
@@ -201,20 +203,20 @@ void QtMaterialCheckable::setUncheckedColor(const QColor &color)
     setupProperties();
 }
 
-QColor QtMaterialCheckable::uncheckedColor() const
+QColor Checkable::uncheckedColor() const
 {
-    Q_D(const QtMaterialCheckable);
+    Q_D(const Checkable);
 
     if (d->useThemeColors || !d->uncheckedColor.isValid()) {
-        return QtMaterialStyle::instance().themeColor("text");
+        return Style::instance().themeColor("text");
     } else {
         return d->uncheckedColor;
     }
 }
 
-void QtMaterialCheckable::setTextColor(const QColor &color)
+void Checkable::setTextColor(const QColor &color)
 {
-    Q_D(QtMaterialCheckable);
+    Q_D(Checkable);
 
     d->textColor = color;
 
@@ -222,20 +224,20 @@ void QtMaterialCheckable::setTextColor(const QColor &color)
     setupProperties();
 }
 
-QColor QtMaterialCheckable::textColor() const
+QColor Checkable::textColor() const
 {
-    Q_D(const QtMaterialCheckable);
+    Q_D(const Checkable);
 
     if (d->useThemeColors || !d->textColor.isValid()) {
-        return QtMaterialStyle::instance().themeColor("text");
+        return Style::instance().themeColor("text");
     } else {
         return d->textColor;
     }
 }
 
-void QtMaterialCheckable::setDisabledColor(const QColor &color)
+void Checkable::setDisabledColor(const QColor &color)
 {
-    Q_D(QtMaterialCheckable);
+    Q_D(Checkable);
 
     d->disabledColor = color;
 
@@ -243,43 +245,43 @@ void QtMaterialCheckable::setDisabledColor(const QColor &color)
     setupProperties();
 }
 
-QColor QtMaterialCheckable::disabledColor() const
+QColor Checkable::disabledColor() const
 {
-    Q_D(const QtMaterialCheckable);
+    Q_D(const Checkable);
 
     if (d->useThemeColors || !d->disabledColor.isValid()) {
-        return QtMaterialStyle::instance().themeColor("accent3");
+        return Style::instance().themeColor("accent3");
     } else {
         return d->disabledColor;
     }
 }
 
-void QtMaterialCheckable::setCheckedIcon(const QIcon &icon)
+void Checkable::setCheckedIcon(const QIcon &icon)
 {
-    Q_D(QtMaterialCheckable);
+    Q_D(Checkable);
 
     d->checkedIcon->setIcon(icon);
     update();
 }
 
-QIcon QtMaterialCheckable::checkedIcon() const
+QIcon Checkable::checkedIcon() const
 {
-    Q_D(const QtMaterialCheckable);
+    Q_D(const Checkable);
 
     return d->checkedIcon->icon();
 }
 
-void QtMaterialCheckable::setUncheckedIcon(const QIcon &icon)
+void Checkable::setUncheckedIcon(const QIcon &icon)
 {
-    Q_D(QtMaterialCheckable);
+    Q_D(Checkable);
 
     d->uncheckedIcon->setIcon(icon);
     update();
 }
 
-QIcon QtMaterialCheckable::uncheckedIcon() const
+QIcon Checkable::uncheckedIcon() const
 {
-    Q_D(const QtMaterialCheckable);
+    Q_D(const Checkable);
 
     return d->uncheckedIcon->icon();
 }
@@ -287,7 +289,7 @@ QIcon QtMaterialCheckable::uncheckedIcon() const
 /*!
  *  \reimp
  */
-QSize QtMaterialCheckable::sizeHint() const
+QSize Checkable::sizeHint() const
 {
     if (text().isEmpty()) {
         return QSize(40, 40);
@@ -295,7 +297,7 @@ QSize QtMaterialCheckable::sizeHint() const
     return QSize(fontMetrics().size(Qt::TextShowMnemonic, text()).width()+52, 40);
 }
 
-QtMaterialCheckable::QtMaterialCheckable(QtMaterialCheckablePrivate &d, QWidget *parent)
+Checkable::Checkable(CheckablePrivate &d, QWidget *parent)
     : QAbstractButton(parent),
       d_ptr(&d)
 {
@@ -305,9 +307,9 @@ QtMaterialCheckable::QtMaterialCheckable(QtMaterialCheckablePrivate &d, QWidget 
 /*!
  *  \reimp
  */
-bool QtMaterialCheckable::event(QEvent *event)
+bool Checkable::event(QEvent *event)
 {
-    Q_D(QtMaterialCheckable);
+    Q_D(Checkable);
 
     switch (event->type())
     {
@@ -332,11 +334,11 @@ bool QtMaterialCheckable::event(QEvent *event)
 /*!
  *  \reimp
  */
-bool QtMaterialCheckable::eventFilter(QObject *obj, QEvent *event)
+bool Checkable::eventFilter(QObject *obj, QEvent *event)
 {
     if (QEvent::Resize == event->type())
     {
-        Q_D(QtMaterialCheckable);
+        Q_D(Checkable);
 
         d->rippleOverlay->setGeometry(geometry().adjusted(-8, -8, 8, 8));
     }
@@ -346,21 +348,21 @@ bool QtMaterialCheckable::eventFilter(QObject *obj, QEvent *event)
 /*!
  *  \reimp
  */
-void QtMaterialCheckable::mousePressEvent(QMouseEvent *event)
+void Checkable::mousePressEvent(QMouseEvent *event)
 {
     Q_UNUSED(event)
 
-    Q_D(QtMaterialCheckable);
+    Q_D(Checkable);
 
     if (!isEnabled()) {
         return;
     }
 
-    QtMaterialRipple *ripple;
-    if (QtMaterialCheckable::LabelPositionLeft == d->labelPosition) {
-         ripple = new QtMaterialRipple(QPoint(width()-14, 28));
+    Ripple *ripple;
+    if (Checkable::LabelPositionLeft == d->labelPosition) {
+         ripple = new Ripple(QPoint(width()-14, 28));
     } else {
-         ripple = new QtMaterialRipple(QPoint(28, 28));
+         ripple = new Ripple(QPoint(28, 28));
     }
     ripple->setRadiusEndValue(22);
     ripple->setColor(isChecked() ? checkedColor() : uncheckedColor());
@@ -375,11 +377,11 @@ void QtMaterialCheckable::mousePressEvent(QMouseEvent *event)
 /*!
  *  \reimp
  */
-void QtMaterialCheckable::paintEvent(QPaintEvent *event)
+void Checkable::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
-    Q_D(QtMaterialCheckable);
+    Q_D(Checkable);
 
     QPainter painter(this);
 
@@ -387,16 +389,16 @@ void QtMaterialCheckable::paintEvent(QPaintEvent *event)
     pen.setColor(isEnabled() ? textColor() : disabledColor());
     painter.setPen(pen);
 
-    if (QtMaterialCheckable::LabelPositionLeft == d->labelPosition) {
+    if (Checkable::LabelPositionLeft == d->labelPosition) {
         painter.drawText(4, 25, text());
     } else {
         painter.drawText(48, 25, text());
     }
 }
 
-void QtMaterialCheckable::setupProperties()
+void Checkable::setupProperties()
 {
-    Q_D(QtMaterialCheckable);
+    Q_D(Checkable);
 
     d->checkedState->assignProperty(d->checkedIcon, "color", checkedColor());
     d->checkedState->assignProperty(d->uncheckedIcon, "color", checkedColor());
@@ -416,4 +418,6 @@ void QtMaterialCheckable::setupProperties()
     }
 
     update();
+}
+
 }

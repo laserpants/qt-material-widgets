@@ -6,6 +6,8 @@
 #include <QColor>
 #include <QIcon>
 
+namespace md
+{
 namespace Material
 {
     enum ButtonPreset {
@@ -316,15 +318,15 @@ namespace Material
     };
 }
 
-class QtMaterialThemePrivate;
+class ThemePrivate;
 
-class QtMaterialTheme : public QObject
+class Theme : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit QtMaterialTheme(QObject *parent = 0);
-    ~QtMaterialTheme();
+    explicit Theme(QObject *parent = 0);
+    ~Theme();
 
     QColor getColor(const QString &key) const;
 
@@ -334,11 +336,12 @@ public:
     static QIcon icon(QString category, QString icon);
 
 protected:
-    const QScopedPointer<QtMaterialThemePrivate> d_ptr;
+    const QScopedPointer<ThemePrivate> d_ptr;
 
 private:
-    Q_DISABLE_COPY(QtMaterialTheme)
-    Q_DECLARE_PRIVATE(QtMaterialTheme)
+    Q_DISABLE_COPY(Theme)
+    Q_DECLARE_PRIVATE(Theme)
 };
+}
 
 #endif // QTMATERIALTHEME_H

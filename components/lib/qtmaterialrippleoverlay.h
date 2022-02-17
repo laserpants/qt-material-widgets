@@ -4,20 +4,22 @@
 #include <QPainterPath>
 #include "lib/qtmaterialoverlaywidget.h"
 
-class QtMaterialRipple;
+namespace md
+{
+class Ripple;
 
-class QtMaterialRippleOverlay : public QtMaterialOverlayWidget
+class RippleOverlay : public OverlayWidget
 {
     Q_OBJECT
 
 public:
-    explicit QtMaterialRippleOverlay(QWidget *parent = 0);
-    ~QtMaterialRippleOverlay();
+    explicit RippleOverlay(QWidget *parent = 0);
+    ~RippleOverlay();
 
-    void addRipple(QtMaterialRipple *ripple);
+    void addRipple(Ripple *ripple);
     void addRipple(const QPoint &position, qreal radius = 300);
 
-    void removeRipple(QtMaterialRipple *ripple);
+    void removeRipple(Ripple *ripple);
 
     inline void setClipping(bool enable);
     inline bool hasClipping() const;
@@ -27,38 +29,39 @@ public:
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
-    inline QList<QtMaterialRipple *> ripples() const;
+    inline QList<Ripple *> ripples() const;
 
 private:
-    Q_DISABLE_COPY(QtMaterialRippleOverlay)
+    Q_DISABLE_COPY(RippleOverlay)
 
-    void paintRipple(QPainter *painter, QtMaterialRipple *ripple);
+    void paintRipple(QPainter *painter, Ripple *ripple);
 
-    QList<QtMaterialRipple *> m_ripples;
+    QList<Ripple *> m_ripples;
     QPainterPath              m_clipPath;
     bool                      m_useClip;
 };
 
-inline void QtMaterialRippleOverlay::setClipping(bool enable)
+inline void RippleOverlay::setClipping(bool enable)
 {
     m_useClip = enable;
     update();
 }
 
-inline bool QtMaterialRippleOverlay::hasClipping() const
+inline bool RippleOverlay::hasClipping() const
 {
     return m_useClip;
 }
 
-inline void QtMaterialRippleOverlay::setClipPath(const QPainterPath &path)
+inline void RippleOverlay::setClipPath(const QPainterPath &path)
 {
     m_clipPath = path;
     update();
 }
 
-inline QList<QtMaterialRipple *> QtMaterialRippleOverlay::ripples() const
+inline QList<Ripple *> RippleOverlay::ripples() const
 {
     return m_ripples;
+}
 }
 
 #endif // QTMATERIALRIPPLEOVERLAY_H

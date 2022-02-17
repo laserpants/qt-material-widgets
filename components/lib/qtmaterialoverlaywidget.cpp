@@ -1,12 +1,14 @@
 #include "lib/qtmaterialoverlaywidget.h"
 #include <QEvent>
 
+namespace md
+{
 /*!
  *  \class QtMaterialOverlayWidget
  *  \internal
  */
 
-QtMaterialOverlayWidget::QtMaterialOverlayWidget(QWidget *parent)
+OverlayWidget::OverlayWidget(QWidget *parent)
     : QWidget(parent)
 {
     if (parent) {
@@ -14,14 +16,14 @@ QtMaterialOverlayWidget::QtMaterialOverlayWidget(QWidget *parent)
     }
 }
 
-QtMaterialOverlayWidget::~QtMaterialOverlayWidget()
+OverlayWidget::~OverlayWidget()
 {
 }
 
 /*!
  *  \reimp
  */
-bool QtMaterialOverlayWidget::event(QEvent *event)
+bool OverlayWidget::event(QEvent *event)
 {
     if (!parent()) {
         return QWidget::event(event);
@@ -48,7 +50,7 @@ bool QtMaterialOverlayWidget::event(QEvent *event)
 /*!
  *  \reimp
  */
-bool QtMaterialOverlayWidget::eventFilter(QObject *obj, QEvent *event)
+bool OverlayWidget::eventFilter(QObject *obj, QEvent *event)
 {
     switch (event->type())
     {
@@ -62,11 +64,13 @@ bool QtMaterialOverlayWidget::eventFilter(QObject *obj, QEvent *event)
     return QWidget::eventFilter(obj, event);
 }
 
-QRect QtMaterialOverlayWidget::overlayGeometry() const
+QRect OverlayWidget::overlayGeometry() const
 {
     QWidget *widget = parentWidget();
     if (!widget) {
         return QRect();
     }
     return widget->rect();
+}
+
 }

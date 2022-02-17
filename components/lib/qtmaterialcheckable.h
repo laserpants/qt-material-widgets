@@ -2,10 +2,11 @@
 #define QTMATERIALCHECKABLE_H
 
 #include <QtWidgets/QAbstractButton>
+namespace md
+{
+class CheckablePrivate;
 
-class QtMaterialCheckablePrivate;
-
-class QtMaterialCheckable : public QAbstractButton
+class Checkable : public QAbstractButton
 {
     Q_OBJECT
 
@@ -15,8 +16,8 @@ public:
         LabelPositionRight,
     };
 
-    explicit QtMaterialCheckable(QWidget *parent = 0);
-    ~QtMaterialCheckable();
+    explicit Checkable(QWidget *parent = 0);
+    ~Checkable();
 
     void setLabelPosition(LabelPosition placement);
     LabelPosition labelPosition() const;
@@ -45,7 +46,7 @@ public:
     QSize sizeHint() const Q_DECL_OVERRIDE;
 
 protected:
-    QtMaterialCheckable(QtMaterialCheckablePrivate &d, QWidget *parent = 0);
+    Checkable(CheckablePrivate &d, QWidget *parent = 0);
 
     bool event(QEvent *event) Q_DECL_OVERRIDE;
     bool eventFilter(QObject *obj, QEvent *event) Q_DECL_OVERRIDE;
@@ -54,11 +55,12 @@ protected:
 
     virtual void setupProperties();
 
-    const QScopedPointer<QtMaterialCheckablePrivate> d_ptr;
+    const QScopedPointer<CheckablePrivate> d_ptr;
 
 private:
-    Q_DISABLE_COPY(QtMaterialCheckable)
-    Q_DECLARE_PRIVATE(QtMaterialCheckable)
+    Q_DISABLE_COPY(Checkable)
+    Q_DECLARE_PRIVATE(Checkable)
 };
+}
 
 #endif // QTMATERIALCHECKABLE_H

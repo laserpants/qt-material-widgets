@@ -7,9 +7,11 @@
 #include <QPoint>
 #include <QBrush>
 
-class QtMaterialRippleOverlay;
+namespace md
+{
+class RippleOverlay;
 
-class QtMaterialRipple : public QParallelAnimationGroup
+class Ripple : public QParallelAnimationGroup
 {
     Q_OBJECT
 
@@ -17,11 +19,11 @@ class QtMaterialRipple : public QParallelAnimationGroup
     Q_PROPERTY(qreal opacity WRITE setOpacity READ opacity)
 
 public:
-    explicit QtMaterialRipple(const QPoint &center, QObject *parent = 0);
-    QtMaterialRipple(const QPoint &center, QtMaterialRippleOverlay *overlay, QObject *parent = 0);
-    ~QtMaterialRipple();
+    explicit Ripple(const QPoint &center, QObject *parent = 0);
+    Ripple(const QPoint &center, RippleOverlay *overlay, QObject *parent = 0);
+    ~Ripple();
 
-    inline void setOverlay(QtMaterialRippleOverlay *overlay);
+    inline void setOverlay(RippleOverlay *overlay);
 
     void setRadius(qreal radius);
     inline qreal radius() const;
@@ -50,7 +52,7 @@ protected slots:
     void destroy();
 
 private:
-    Q_DISABLE_COPY(QtMaterialRipple)
+    Q_DISABLE_COPY(Ripple)
 
     QPropertyAnimation *animate(const QByteArray &property,
                                 const QEasingCurve &easing = QEasingCurve::OutQuad,
@@ -58,7 +60,7 @@ private:
 
     void init();
 
-    QtMaterialRippleOverlay  *m_overlay;
+    RippleOverlay  *m_overlay;
     QPropertyAnimation *const m_radiusAnimation;
     QPropertyAnimation *const m_opacityAnimation;
     qreal                     m_radius;
@@ -67,70 +69,71 @@ private:
     QBrush                    m_brush;
 };
 
-inline void QtMaterialRipple::setOverlay(QtMaterialRippleOverlay *overlay)
+inline void Ripple::setOverlay(RippleOverlay *overlay)
 {
     m_overlay = overlay;
 }
 
-inline qreal QtMaterialRipple::radius() const
+inline qreal Ripple::radius() const
 {
     return m_radius;
 }
 
-inline qreal QtMaterialRipple::opacity() const
+inline qreal Ripple::opacity() const
 {
     return m_opacity;
 }
 
-inline QColor QtMaterialRipple::color() const
+inline QColor Ripple::color() const
 {
     return m_brush.color();
 }
 
-inline QBrush QtMaterialRipple::brush() const
+inline QBrush Ripple::brush() const
 {
     return m_brush;
 }
 
-inline QPoint QtMaterialRipple::center() const
+inline QPoint Ripple::center() const
 {
     return m_center;
 }
 
-inline QPropertyAnimation *QtMaterialRipple::radiusAnimation() const
+inline QPropertyAnimation *Ripple::radiusAnimation() const
 {
     return m_radiusAnimation;
 }
 
-inline QPropertyAnimation *QtMaterialRipple::opacityAnimation() const
+inline QPropertyAnimation *Ripple::opacityAnimation() const
 {
     return m_opacityAnimation;
 }
 
-inline void QtMaterialRipple::setOpacityStartValue(qreal value)
+inline void Ripple::setOpacityStartValue(qreal value)
 {
     m_opacityAnimation->setStartValue(value);
 }
 
-inline void QtMaterialRipple::setOpacityEndValue(qreal value)
+inline void Ripple::setOpacityEndValue(qreal value)
 {
     m_opacityAnimation->setEndValue(value);
 }
 
-inline void QtMaterialRipple::setRadiusStartValue(qreal value)
+inline void Ripple::setRadiusStartValue(qreal value)
 {
     m_radiusAnimation->setStartValue(value);
 }
 
-inline void QtMaterialRipple::setRadiusEndValue(qreal value)
+inline void Ripple::setRadiusEndValue(qreal value)
 {
     m_radiusAnimation->setEndValue(value);
 }
 
-inline void QtMaterialRipple::setDuration(int msecs)
+inline void Ripple::setDuration(int msecs)
 {
     m_radiusAnimation->setDuration(msecs);
     m_opacityAnimation->setDuration(msecs);
+}
 }
 
 #endif // QTMATERIALRIPPLE_H

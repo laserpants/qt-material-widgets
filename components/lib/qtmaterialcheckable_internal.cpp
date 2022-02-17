@@ -4,12 +4,14 @@
 #include <QTransform>
 #include "lib/qtmaterialcheckable.h"
 
+namespace md
+{
 /*!
  *  \class QtMaterialCheckableIcon
  *  \internal
  */
 
-QtMaterialCheckableIcon::QtMaterialCheckableIcon(const QIcon &icon, QtMaterialCheckable *parent)
+CheckableIcon::CheckableIcon(const QIcon &icon, Checkable *parent)
     : QWidget(parent),
       m_checkable(parent),
       m_color(Qt::black),
@@ -22,16 +24,16 @@ QtMaterialCheckableIcon::QtMaterialCheckableIcon(const QIcon &icon, QtMaterialCh
     setAttribute(Qt::WA_TransparentForMouseEvents);
 }
 
-QtMaterialCheckableIcon::~QtMaterialCheckableIcon()
+CheckableIcon::~CheckableIcon()
 {
 }
 
-QSize QtMaterialCheckableIcon::sizeHint() const
+QSize CheckableIcon::sizeHint() const
 {
     return QSize(m_iconSize, m_iconSize);
 }
 
-void QtMaterialCheckableIcon::paintEvent(QPaintEvent *event)
+void CheckableIcon::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
@@ -47,7 +49,7 @@ void QtMaterialCheckableIcon::paintEvent(QPaintEvent *event)
         const qreal z = m_iconSize/24;
 
         QTransform t;
-        if (QtMaterialCheckable::LabelPositionLeft == m_checkable->labelPosition()) {
+        if (Checkable::LabelPositionLeft == m_checkable->labelPosition()) {
             t.translate(p+width()-42, p);
         } else {
             t.translate(p, p);
@@ -60,4 +62,6 @@ void QtMaterialCheckableIcon::paintEvent(QPaintEvent *event)
         icon.fillRect(pixmap.rect(), color());
         painter.drawPixmap(0, 0, pixmap);
     }
+}
+
 }

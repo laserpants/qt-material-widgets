@@ -1,12 +1,14 @@
 #include "qtmaterialripple.h"
 #include "lib/qtmaterialrippleoverlay.h"
 
+namespace md
+{
 /*!
  *  \class QtMaterialRipple
  *  \internal
  */
 
-QtMaterialRipple::QtMaterialRipple(const QPoint &center, QObject *parent)
+Ripple::Ripple(const QPoint &center, QObject *parent)
     : QParallelAnimationGroup(parent),
       m_overlay(0),
       m_radiusAnimation(animate("radius")),
@@ -18,8 +20,8 @@ QtMaterialRipple::QtMaterialRipple(const QPoint &center, QObject *parent)
     init();
 }
 
-QtMaterialRipple::QtMaterialRipple(const QPoint &center,
-                                   QtMaterialRippleOverlay *overlay,
+Ripple::Ripple(const QPoint &center,
+                                   RippleOverlay *overlay,
                                    QObject *parent)
     : QParallelAnimationGroup(parent),
       m_overlay(overlay),
@@ -32,11 +34,11 @@ QtMaterialRipple::QtMaterialRipple(const QPoint &center,
     init();
 }
 
-QtMaterialRipple::~QtMaterialRipple()
+Ripple::~Ripple()
 {
 }
 
-void QtMaterialRipple::setRadius(qreal radius)
+void Ripple::setRadius(qreal radius)
 {
     Q_ASSERT(m_overlay);
 
@@ -47,7 +49,7 @@ void QtMaterialRipple::setRadius(qreal radius)
     m_overlay->update();
 }
 
-void QtMaterialRipple::setOpacity(qreal opacity)
+void Ripple::setOpacity(qreal opacity)
 {
     Q_ASSERT(m_overlay);
 
@@ -58,7 +60,7 @@ void QtMaterialRipple::setOpacity(qreal opacity)
     m_overlay->update();
 }
 
-void QtMaterialRipple::setColor(const QColor &color)
+void Ripple::setColor(const QColor &color)
 {
     if (m_brush.color() == color) {
         return;
@@ -70,7 +72,7 @@ void QtMaterialRipple::setColor(const QColor &color)
     }
 }
 
-void QtMaterialRipple::setBrush(const QBrush &brush)
+void Ripple::setBrush(const QBrush &brush)
 {
     m_brush = brush;
 
@@ -79,7 +81,7 @@ void QtMaterialRipple::setBrush(const QBrush &brush)
     }
 }
 
-void QtMaterialRipple::destroy()
+void Ripple::destroy()
 {
     Q_ASSERT(m_overlay);
 
@@ -89,7 +91,7 @@ void QtMaterialRipple::destroy()
 /*!
  *  \internal
  */
-QPropertyAnimation *QtMaterialRipple::animate(const QByteArray &property,
+QPropertyAnimation *Ripple::animate(const QByteArray &property,
                                               const QEasingCurve &easing,
                                               int duration)
 {
@@ -105,7 +107,7 @@ QPropertyAnimation *QtMaterialRipple::animate(const QByteArray &property,
 /*!
  *  \internal
  */
-void QtMaterialRipple::init()
+void Ripple::init()
 {
     setOpacityStartValue(0.5);
     setOpacityEndValue(0);
@@ -116,4 +118,6 @@ void QtMaterialRipple::init()
     m_brush.setStyle(Qt::SolidPattern);
 
     connect(this, SIGNAL(finished()), this, SLOT(destroy()));
+}
+
 }
