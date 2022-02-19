@@ -25,7 +25,7 @@ YouTube video preview [available here](http://www.youtube.com/watch?v=21UMeNVBPU
         Auto Complete
       </td>
       <td>
-        <code>QtMaterialAutoComplete</code>
+        <code>md::AutoComplete</code>
       </td>
     </tr>
     <tr>
