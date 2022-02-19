@@ -12,7 +12,7 @@ YouTube video preview [available here](http://www.youtube.com/watch?v=21UMeNVBPU
         App Bar
       </td>
       <td>
-        <code>QtMaterialAppBar</code>
+        <code>md::AppBar</code>
       </td>
     </tr>
     <tr>
@@ -38,7 +38,7 @@ YouTube video preview [available here](http://www.youtube.com/watch?v=21UMeNVBPU
         Avatar
       </td>
       <td>
-        <code>QtMaterialAvatar</code>
+        <code>md::Avatar</code>
       </td>
     </tr>
     <tr>
@@ -51,7 +51,7 @@ YouTube video preview [available here](http://www.youtube.com/watch?v=21UMeNVBPU
         Badge
       </td>
       <td>
-        <code>QtMaterialBadge</code>
+        <code>md::Badge</code>
       </td>
     </tr>
     <tr>
@@ -64,7 +64,7 @@ YouTube video preview [available here](http://www.youtube.com/watch?v=21UMeNVBPU
         Check Box
       </td>
       <td>
-        <code>QtMaterialCheckBox</code>
+        <code>md::CheckBox</code>
       </td>
     </tr>
     <tr>
@@ -77,7 +77,7 @@ YouTube video preview [available here](http://www.youtube.com/watch?v=21UMeNVBPU
         Circular Progress
       </td>
       <td>
-        <code>QtMaterialCircularProgress</code>
+        <code>md::CircularProgress</code>
       </td>
     </tr>
     <tr>
@@ -90,7 +90,7 @@ YouTube video preview [available here](http://www.youtube.com/watch?v=21UMeNVBPU
         Dialog
       </td>
       <td>
-        <code>QtMaterialDialog</code>
+        <code>md::Dialog</code>
       </td>
     </tr>
     <tr>
@@ -103,7 +103,7 @@ YouTube video preview [available here](http://www.youtube.com/watch?v=21UMeNVBPU
         Drawer
       </td>
       <td>
-        <code>QtMaterialDrawer</code>
+        <code>md::Drawer</code>
       </td>
     </tr>
     <tr>
@@ -116,7 +116,7 @@ YouTube video preview [available here](http://www.youtube.com/watch?v=21UMeNVBPU
         FAB
       </td>
       <td>
-        <code>QtMaterialFloatingActionButton</code>
+        <code>md::FloatingActionButton</code>
       </td>
     </tr>
     <tr>
@@ -129,7 +129,7 @@ YouTube video preview [available here](http://www.youtube.com/watch?v=21UMeNVBPU
         Flat Button
       </td>
       <td>
-        <code>QtMaterialFlatButton</code>
+        <code>md::FlatButton</code>
       </td>
     </tr>
     <tr>
@@ -155,7 +155,7 @@ YouTube video preview [available here](http://www.youtube.com/watch?v=21UMeNVBPU
         Progress
       </td>
       <td>
-        <code>QtMaterialProgress</code>
+        <code>md::Progress</code>
       </td>
     </tr>
     <tr>
@@ -168,7 +168,7 @@ YouTube video preview [available here](http://www.youtube.com/watch?v=21UMeNVBPU
         Radio Button
       </td>
       <td>
-        <code>QtMaterialRadioButton</code>
+        <code>md::RadioButton</code>
       </td>
     </tr>
     <tr>
@@ -181,7 +181,7 @@ YouTube video preview [available here](http://www.youtube.com/watch?v=21UMeNVBPU
         Raised Button
       </td>
       <td>
-        <code>QtMaterialRaisedButton</code>
+        <code>md::RaisedButton</code>
       </td>
     </tr>
     <tr>
@@ -194,7 +194,7 @@ YouTube video preview [available here](http://www.youtube.com/watch?v=21UMeNVBPU
         Scroll Bar
       </td>
       <td>
-        <code>QtMaterialScrollBar</code>
+        <code>md::ScrollBar</code>
       </td>
     </tr>
     <tr>
@@ -207,7 +207,7 @@ YouTube video preview [available here](http://www.youtube.com/watch?v=21UMeNVBPU
         Slider
       </td>
       <td>
-        <code>QtMaterialSlider</code>
+        <code>md::Slider</code>
       </td>
     </tr>
     <tr>
@@ -220,7 +220,7 @@ YouTube video preview [available here](http://www.youtube.com/watch?v=21UMeNVBPU
         Snackbar
       </td>
       <td>
-        <code>QtMaterialSnackBar</code>
+        <code>md::SnackBar</code>
       </td>
     </tr>
     <tr>
@@ -233,7 +233,7 @@ YouTube video preview [available here](http://www.youtube.com/watch?v=21UMeNVBPU
         Tabs
       </td>
       <td>
-        <code>QtMaterialTabs</code>
+        <code>md::Tabs</code>
       </td>
     </tr>
     <tr>
@@ -246,7 +246,7 @@ YouTube video preview [available here](http://www.youtube.com/watch?v=21UMeNVBPU
         Text Field
       </td>
       <td>
-        <code>QtMaterialTextField</code>
+        <code>md::TextField</code>
       </td>
     </tr>
     <tr>
@@ -259,7 +259,7 @@ YouTube video preview [available here](http://www.youtube.com/watch?v=21UMeNVBPU
         Toggle
       </td>
       <td>
-        <code>QtMaterialToggle</code>
+        <code>md::Toggle</code>
       </td>
     </tr>
     <tr>
