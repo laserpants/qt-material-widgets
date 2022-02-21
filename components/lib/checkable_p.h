@@ -9,7 +9,6 @@
 #include <QEventTransition>
 #include <QColor>
 #include <QCoreApplication>
-#include <QDir>
 
 #include "lib/checkable.h"
 

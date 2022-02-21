@@ -21,9 +21,9 @@ void StylePrivate::init()
 {
     Q_Q(Style);
 
-    QFontDatabase::addApplicationFont(QDir::currentPath()+"/../fonts/roboto_regular");
-    QFontDatabase::addApplicationFont(QDir::currentPath()+"/../fonts/roboto_medium");
-    QFontDatabase::addApplicationFont(QDir::currentPath()+"/../fonts/roboto_bold");
+    QFontDatabase::addApplicationFont(":/fonts/fonts/roboto_regular");
+    QFontDatabase::addApplicationFont(":/fonts/fonts/roboto_medium");
+    QFontDatabase::addApplicationFont(":/fonts/fonts/roboto_bold");
 
     q->setTheme(new Theme);
 }

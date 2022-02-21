@@ -147,6 +147,8 @@ set(PROJECT_SOURCES
     list_p.h
     listitem.h
     listitem_p.h
+    # resources
+    resources.qrc
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -182,8 +184,6 @@ set_target_properties(components PROPERTIES
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
 )
-
-file(COPY icons DESTINATION ${CMAKE_BINARY_DIR}/components)
 
 if(QT_VERSION_MAJOR EQUAL 6)
 #    qt_finalize_executable(components)

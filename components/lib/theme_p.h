@@ -5,7 +5,6 @@
 #include <QColor>
 #include <QString>
 #include <QStringBuilder>
-#include <QDir>
 #include <QDebug>
 
 namespace md

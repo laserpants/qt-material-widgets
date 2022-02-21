@@ -3,7 +3,6 @@
 
 #include <QtGlobal>
 #include <QFontDatabase>
-#include <QDir>
 
 namespace md
 {
