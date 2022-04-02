@@ -4,13 +4,13 @@
 #include <QtWidgets/QPushButton>
 #include <QScopedPointer>
 #include "lib/qtmaterialtheme.h"
+#include "qtmaterial_global.h"
 
 class QtMaterialFlatButtonPrivate;
 
-class QtMaterialFlatButton : public QPushButton
+class QT_MATERIAL_EXPORT QtMaterialFlatButton : public QPushButton
 {
     Q_OBJECT
-
     Q_PROPERTY(QColor foregroundColor WRITE setForegroundColor READ foregroundColor)
     Q_PROPERTY(QColor backgroundColor WRITE setBackgroundColor READ backgroundColor)
     Q_PROPERTY(QColor overlayColor WRITE setOverlayColor READ overlayColor)
@@ -18,19 +18,27 @@ class QtMaterialFlatButton : public QPushButton
     Q_PROPERTY(QColor disabledBackgroundColor WRITE setDisabledBackgroundColor READ disabledBackgroundColor)
     Q_PROPERTY(qreal fontSize WRITE setFontSize READ fontSize)
 
+    Q_PROPERTY(bool useThemeColors WRITE setUseThemeColors READ useThemeColors)
+    Q_PROPERTY(bool haloVisible WRITE setHaloVisible READ isHaloVisible)
+    Q_PROPERTY(MaterialConst::Role role WRITE setRole READ role)
+    Q_PROPERTY(MaterialConst::OverlayStyle overlayStyle WRITE setOverlayStyle READ overlayStyle)
+    Q_PROPERTY(MaterialConst::RippleStyle rippleStyle WRITE setRippleStyle READ rippleStyle)
+    Q_PROPERTY(MaterialConst::ButtonIconPlacement iconPlacement WRITE setIconPlacement READ iconPlacement)
+    Q_PROPERTY(qreal cornerRadius WRITE setCornerRadius READ cornerRadius)
+    Q_PROPERTY(Qt::BGMode backgroundMode WRITE setBackgroundMode READ backgroundMode)
+    Q_PROPERTY(qreal baseOpacity WRITE setBaseOpacity READ baseOpacity)
+    Q_PROPERTY(bool checkable WRITE setCheckable)
+
 public:
-    explicit QtMaterialFlatButton(QWidget *parent = 0, Material::ButtonPreset preset = Material::FlatPreset);
-    explicit QtMaterialFlatButton(const QString &text, QWidget *parent = 0, Material::ButtonPreset preset = Material::FlatPreset);
-    QtMaterialFlatButton(const QString &text, Material::Role role, QWidget *parent = 0, Material::ButtonPreset preset = Material::FlatPreset);
+    explicit QtMaterialFlatButton(QWidget *parent = 0, MaterialConst::ButtonPreset preset = MaterialConst::FlatPreset);
+    explicit QtMaterialFlatButton(const QString &text, QWidget *parent = 0, MaterialConst::ButtonPreset preset = MaterialConst::FlatPreset);
+    QtMaterialFlatButton(const QString &text, MaterialConst::Role role, QWidget *parent = 0, MaterialConst::ButtonPreset preset = MaterialConst::FlatPreset);
     ~QtMaterialFlatButton();
 
-    void applyPreset(Material::ButtonPreset preset);
+    void applyPreset(MaterialConst::ButtonPreset preset);
 
     void setUseThemeColors(bool value);
     bool useThemeColors() const;
-
-    void setRole(Material::Role role);
-    Material::Role role() const;
 
     void setForegroundColor(const QColor &color);
     QColor foregroundColor() const;
@@ -53,14 +61,17 @@ public:
     void setHaloVisible(bool visible);
     bool isHaloVisible() const;
 
-    void setOverlayStyle(Material::OverlayStyle style);
-    Material::OverlayStyle overlayStyle() const;
+    void setRole(MaterialConst::Role role);
+    MaterialConst::Role role() const;
 
-    void setRippleStyle(Material::RippleStyle style);
-    Material::RippleStyle rippleStyle() const;
+    void setOverlayStyle(MaterialConst::OverlayStyle style);
+    MaterialConst::OverlayStyle overlayStyle() const;
 
-    void setIconPlacement(Material::ButtonIconPlacement placement);
-    Material::ButtonIconPlacement iconPlacement() const;
+    void setRippleStyle(MaterialConst::RippleStyle style);
+    MaterialConst::RippleStyle rippleStyle() const;
+
+    void setIconPlacement(MaterialConst::ButtonIconPlacement placement);
+    MaterialConst::ButtonIconPlacement iconPlacement() const;
 
     void setCornerRadius(qreal radius);
     qreal cornerRadius() const;
@@ -88,7 +99,7 @@ protected:
         IconPadding = 12
     };
 
-    QtMaterialFlatButton(QtMaterialFlatButtonPrivate &d, QWidget *parent = 0, Material::ButtonPreset preset = Material::FlatPreset);
+    QtMaterialFlatButton(QtMaterialFlatButtonPrivate &d, QWidget *parent = 0, MaterialConst::ButtonPreset preset = MaterialConst::FlatPreset);
 
     void checkStateSet() Q_DECL_OVERRIDE;
     void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;

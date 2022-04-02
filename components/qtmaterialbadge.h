@@ -2,16 +2,20 @@
 #define QTMATERIALBADGE_H
 
 #include "lib/qtmaterialoverlaywidget.h"
+#include <QIcon>
+#include "qtmaterial_global.h"
 
 class QtMaterialBadgePrivate;
 
-class QtMaterialBadge : public QtMaterialOverlayWidget
+class QT_MATERIAL_EXPORT QtMaterialBadge : public QtMaterialOverlayWidget
 {
     Q_OBJECT
 
     Q_PROPERTY(QColor textColor WRITE setTextColor READ textColor)
     Q_PROPERTY(QColor backgroundColor WRITE setBackgroundColor READ backgroundColor)
     Q_PROPERTY(QPointF relativePosition WRITE setRelativePosition READ relativePosition)
+    Q_PROPERTY(QIcon icon WRITE setIcon READ icon)
+    Q_PROPERTY(QString text WRITE setText READ text)
 
 public:
     explicit QtMaterialBadge(QWidget *parent = 0);

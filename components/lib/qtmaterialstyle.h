@@ -3,13 +3,14 @@
 
 #include <QtWidgets/QCommonStyle>
 #include "lib/qtmaterialstyle_p.h"
+#include "qtmaterial_global.h"
 
 #define MATERIAL_DISABLE_THEME_COLORS \
     if (d->useThemeColors == true) { d->useThemeColors = false; }
 
 class QtMaterialTheme;
 
-class QtMaterialStyle : public QCommonStyle
+class QT_MATERIAL_EXPORT QtMaterialStyle : public QCommonStyle
 {
     Q_OBJECT
 

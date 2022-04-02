@@ -45,11 +45,11 @@ void QtMaterialTabsInkBar::refreshGeometry()
         const qreal s = 1-m_tween;
 
         if (QAbstractAnimation::Running != m_animation->state()) {
-            m_geometry = QRect(r.left(), r.bottom()-1, r.width(), 2);
+            m_geometry = QRect(r.left(), r.bottom()-1, r.width(), 4);
         } else {
             const qreal left = m_previousGeometry.left()*s + r.left()*m_tween;
             const qreal width = m_previousGeometry.width()*s + r.width()*m_tween;
-            m_geometry = QRect(left, r.bottom()-1, width, 2);
+            m_geometry = QRect(left, r.bottom()-1, width, 4);
         }
         m_tabs->update();
     }
@@ -112,7 +112,7 @@ QtMaterialTab::QtMaterialTab(QtMaterialTabs *parent)
     setFont(f);
 
     setCornerRadius(0);
-    setRole(Material::Primary);
+    setRole(MaterialConst::Primary);
     setBackgroundMode(Qt::OpaqueMode);
     setBaseOpacity(0.25);
 

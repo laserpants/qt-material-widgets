@@ -22,7 +22,7 @@ public:
     QtMaterialTabs       *const q_ptr;
     QtMaterialTabsInkBar *inkBar;
     QHBoxLayout          *tabLayout;
-    Material::RippleStyle rippleStyle;
+    MaterialConst::RippleStyle rippleStyle;
     QColor                inkColor;
     QColor                backgroundColor;
     QColor                textColor;

@@ -4,13 +4,19 @@
 #include <QtWidgets/QWidget>
 #include <QIcon>
 #include "lib/qtmaterialtheme.h"
+#include "qtmaterial_global.h"
 
 class QtMaterialTabsPrivate;
 class QtMaterialTab;
 
-class QtMaterialTabs : public QWidget
+class QT_MATERIAL_EXPORT QtMaterialTabs : public QWidget
 {
     Q_OBJECT
+    Q_PROPERTY(bool haloVisible WRITE setHaloVisible READ isHaloVisible)
+    Q_PROPERTY(MaterialConst::RippleStyle rippleStyle WRITE setRippleStyle READ rippleStyle)
+    Q_PROPERTY(QColor inkColor WRITE setInkColor READ inkColor)
+    Q_PROPERTY(QColor backgroundColor WRITE setBackgroundColor READ backgroundColor)
+    Q_PROPERTY(QColor textColor WRITE setTextColor READ textColor)
 
 public:
     explicit QtMaterialTabs(QWidget *parent = 0);
@@ -22,8 +28,8 @@ public:
     void setHaloVisible(bool value);
     bool isHaloVisible() const;
 
-    void setRippleStyle(Material::RippleStyle style);
-    Material::RippleStyle rippleStyle() const;
+    void setRippleStyle(MaterialConst::RippleStyle style);
+    MaterialConst::RippleStyle rippleStyle() const;
 
     void setInkColor(const QColor &color);
     QColor inkColor() const;
@@ -34,14 +40,18 @@ public:
     void setTextColor(const QColor &color);
     QColor textColor() const;
 
+    void insertTab(int index, const QString &text, const QIcon &icon = QIcon());
     void addTab(const QString &text, const QIcon &icon = QIcon());
+    void removeTab(int index);
+    int count() const;
 
     void setCurrentTab(QtMaterialTab *tab);
     void setCurrentTab(int index);
+    void setTabText(int index, const QString &text);
 
     int currentIndex() const;
 
-signals:
+Q_SIGNALS:
     void currentChanged(int);
 
 protected:

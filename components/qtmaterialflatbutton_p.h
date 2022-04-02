@@ -23,10 +23,10 @@ public:
     QtMaterialFlatButton             *const q_ptr;
     QtMaterialRippleOverlay          *rippleOverlay;
     QtMaterialFlatButtonStateMachine *stateMachine;
-    Material::Role                    role;
-    Material::RippleStyle             rippleStyle;
-    Material::ButtonIconPlacement     iconPlacement;
-    Material::OverlayStyle            overlayStyle;
+    MaterialConst::Role                    role;
+    MaterialConst::RippleStyle             rippleStyle;
+    MaterialConst::ButtonIconPlacement     iconPlacement;
+    MaterialConst::OverlayStyle            overlayStyle;
     Qt::BGMode                        bgMode;
     Qt::Alignment                     textAlignment;
     QColor                            backgroundColor;

@@ -143,6 +143,7 @@ QtMaterialToggle::QtMaterialToggle(QWidget *parent)
 
 QtMaterialToggle::~QtMaterialToggle()
 {
+
 }
 
 void QtMaterialToggle::setUseThemeColors(bool value)

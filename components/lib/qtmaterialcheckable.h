@@ -2,18 +2,28 @@
 #define QTMATERIALCHECKABLE_H
 
 #include <QtWidgets/QAbstractButton>
+#include "qtmaterial_global.h"
 
 class QtMaterialCheckablePrivate;
 
-class QtMaterialCheckable : public QAbstractButton
+class QT_MATERIAL_EXPORT QtMaterialCheckable : public QAbstractButton
 {
     Q_OBJECT
+//    Q_PROPERTY(LabelPosition labelPosition READ setLabelPosition WRITE labelPosition)
+//    Q_PROPERTY(bool useThemeColors READ setUseThemeColors WRITE useThemeColors)
+//    Q_PROPERTY(QColor checkedColor READ setCheckedColor WRITE checkedColor)
+//    Q_PROPERTY(QColor uncheckedColor READ setUncheckedColor WRITE uncheckedColor)
+//    Q_PROPERTY(QColor textColor READ setTextColor WRITE textColor)
+//    Q_PROPERTY(QColor disabledColor READ setDisabledColor WRITE disabledColor)
+//    Q_PROPERTY(QIcon checkedIcon READ setCheckedIcon WRITE checkedIcon)
+//    Q_PROPERTY(QIcon uncheckedIcon READ setUncheckedIcon WRITE uncheckedIcon)
 
 public:
     enum LabelPosition {
         LabelPositionLeft,
         LabelPositionRight,
     };
+    Q_ENUM(LabelPosition)
 
     explicit QtMaterialCheckable(QWidget *parent = 0);
     ~QtMaterialCheckable();

@@ -33,19 +33,19 @@ QtMaterialTheme::QtMaterialTheme(QObject *parent)
     : QObject(parent),
       d_ptr(new QtMaterialThemePrivate(this))
 {
-    setColor("primary1", Material::cyan500);
-    setColor("primary2", Material::cyan700);
-    setColor("primary3", Material::lightBlack);
-    setColor("accent1", Material::pinkA200);
-    setColor("accent2", Material::grey100);
-    setColor("accent3", Material::grey500);
-    setColor("text", Material::darkBlack);
-    setColor("alternateText", Material::white);
-    setColor("canvas", Material::white);
-    setColor("border", Material::grey300);
-    setColor("disabled", Material::minBlack);
-    setColor("disabled2", Material::faintBlack);
-    setColor("disabled3", Material::grey300);
+    setColor("primary1", MaterialConst::cyan500);
+    setColor("primary2", MaterialConst::cyan700);
+    setColor("primary3", MaterialConst::lightBlack);
+    setColor("accent1", MaterialConst::pinkA200);
+    setColor("accent2", MaterialConst::grey100);
+    setColor("accent3", MaterialConst::grey500);
+    setColor("text", MaterialConst::darkBlack);
+    setColor("alternateText", MaterialConst::white);
+    setColor("canvas", MaterialConst::white);
+    setColor("border", MaterialConst::grey300);
+    setColor("disabled", MaterialConst::minBlack);
+    setColor("disabled2", MaterialConst::faintBlack);
+    setColor("disabled3", MaterialConst::grey300);
 }
 
 QtMaterialTheme::~QtMaterialTheme()
@@ -70,7 +70,7 @@ void QtMaterialTheme::setColor(const QString &key, const QColor &color)
     d->colors.insert(key, color);
 }
 
-void QtMaterialTheme::setColor(const QString &key, Material::Color color)
+void QtMaterialTheme::setColor(const QString &key, MaterialConst::Color color)
 {
     Q_D(QtMaterialTheme);
 

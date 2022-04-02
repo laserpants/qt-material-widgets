@@ -24,7 +24,7 @@ public:
 
     QtMaterialAvatar *const q_ptr;
     int                     size;
-    Material::AvatarType    type;
+    MaterialConst::AvatarType    type;
     QChar                   letter;
     QImage                  image;
     QIcon                   icon;

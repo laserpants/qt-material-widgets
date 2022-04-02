@@ -45,9 +45,9 @@ QtMaterialSliderStateMachine::QtMaterialSliderStateMachine(
     m_pulseOutState->assignProperty(thumb, "haloSize", 35);
     m_pulseInState->assignProperty(thumb, "haloSize", 28);
 
-    m_inactiveState->assignProperty(thumb, "diameter", 11);
-    m_focusState->assignProperty(thumb, "diameter", 11);
-    m_slidingState->assignProperty(thumb, "diameter", 17);
+    m_inactiveState->assignProperty(thumb, "diameter", 15);
+    m_focusState->assignProperty(thumb, "diameter", 15);
+    m_slidingState->assignProperty(thumb, "diameter", 20);
 
     QAbstractTransition *transition;
     QtMaterialStateTransition *customTransition;

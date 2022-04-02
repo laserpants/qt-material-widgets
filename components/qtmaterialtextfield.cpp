@@ -56,6 +56,7 @@ QtMaterialTextField::QtMaterialTextField(QWidget *parent)
 
 QtMaterialTextField::~QtMaterialTextField()
 {
+
 }
 
 void QtMaterialTextField::setUseThemeColors(bool value)

@@ -3,18 +3,22 @@
 
 #include <QtWidgets/QAbstractSlider>
 #include <QScopedPointer>
+#include "qtmaterial_global.h"
 
-#define QT_MATERIAL_SLIDER_MARGIN 30
+#define QT_MATERIAL_SLIDER_MARGIN 10
 
 class QtMaterialSliderPrivate;
 
-class QtMaterialSlider : public QAbstractSlider
+class QT_MATERIAL_EXPORT QtMaterialSlider : public QAbstractSlider
 {
     Q_OBJECT
 
+    Q_PROPERTY(bool useThemeColors WRITE setUseThemeColors READ useThemeColors)
     Q_PROPERTY(QColor thumbColor WRITE setThumbColor READ thumbColor)
     Q_PROPERTY(QColor trackColor WRITE setTrackColor READ trackColor)
     Q_PROPERTY(QColor disabledColor WRITE setDisabledColor READ disabledColor)
+    Q_PROPERTY(bool pageStepMode WRITE setPageStepMode READ pageStepMode)
+    Q_PROPERTY(bool invertedAppearance WRITE setInvertedAppearance)
 
 public:
     explicit QtMaterialSlider(QWidget *parent = 0);

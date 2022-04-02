@@ -26,7 +26,7 @@ void QtMaterialCircularProgressPrivate::init()
     Q_Q(QtMaterialCircularProgress);
 
     delegate       = new QtMaterialCircularProgressDelegate(q);
-    progressType   = Material::IndeterminateProgress;
+    progressType   = MaterialConst::IndeterminateProgress;
     penWidth       = 6.25;
     size           = 64;
     useThemeColors = true;
@@ -92,7 +92,7 @@ QtMaterialCircularProgress::~QtMaterialCircularProgress()
 {
 }
 
-void QtMaterialCircularProgress::setProgressType(Material::ProgressType type)
+void QtMaterialCircularProgress::setProgressType(MaterialConst::ProgressType type)
 {
     Q_D(QtMaterialCircularProgress);
 
@@ -100,7 +100,7 @@ void QtMaterialCircularProgress::setProgressType(Material::ProgressType type)
     update();
 }
 
-Material::ProgressType QtMaterialCircularProgress::progressType() const
+MaterialConst::ProgressType QtMaterialCircularProgress::progressType() const
 {
     Q_D(const QtMaterialCircularProgress);
 
@@ -214,7 +214,7 @@ void QtMaterialCircularProgress::paintEvent(QPaintEvent *event)
         return;
     }
 
-    if (Material::IndeterminateProgress == d->progressType)
+    if (MaterialConst::IndeterminateProgress == d->progressType)
     {
         painter.translate(width()/2, height()/2);
         painter.rotate(d->delegate->angle());
@@ -225,7 +225,7 @@ void QtMaterialCircularProgress::paintEvent(QPaintEvent *event)
     pen.setWidthF(d->penWidth);
     pen.setColor(color());
 
-    if (Material::IndeterminateProgress == d->progressType)
+    if (MaterialConst::IndeterminateProgress == d->progressType)
     {
         QVector<qreal> pattern;
         pattern << d->delegate->dashLength()*d->size/50 << 30*d->size/50;

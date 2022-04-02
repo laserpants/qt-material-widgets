@@ -23,6 +23,7 @@
 #include "appbarsettingseditor.h"
 #include "autocompletesettingseditor.h"
 #include "menusettingseditor.h"
+#include "plugindemoform.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -42,6 +43,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     setCentralWidget(widget);
 
+    PluginDemoForm *pluginFrm = new PluginDemoForm;
     AvatarSettingsEditor *avatar = new AvatarSettingsEditor;
     BadgeSettingsEditor *badge = new BadgeSettingsEditor;
     CheckBoxSettingsEditor *checkbox = new CheckBoxSettingsEditor;
@@ -64,6 +66,7 @@ MainWindow::MainWindow(QWidget *parent)
     AutoCompleteSettingsEditor *autocomplete = new AutoCompleteSettingsEditor;
     MenuSettingsEditor *menu = new MenuSettingsEditor;
 
+    stack->addWidget(pluginFrm);
     stack->addWidget(appBar);
     stack->addWidget(autocomplete);
     stack->addWidget(avatar);
@@ -86,6 +89,7 @@ MainWindow::MainWindow(QWidget *parent)
     stack->addWidget(textField);
     stack->addWidget(toggle);
 
+    list->addItem("Plugins");
     list->addItem("App Bar");
     list->addItem("Auto Complete");
     list->addItem("Avatar");

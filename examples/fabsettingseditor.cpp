@@ -49,13 +49,13 @@ void FloatingActionButtonSettingsEditor::setupForm()
 {
     switch (m_fab->role())
     {
-    case Material::Default:
+    case MaterialConst::Default:
         ui->buttonRoleComboBox->setCurrentIndex(0);
         break;
-    case Material::Primary:
+    case MaterialConst::Primary:
         ui->buttonRoleComboBox->setCurrentIndex(1);
         break;
-    case Material::Secondary:
+    case MaterialConst::Secondary:
         ui->buttonRoleComboBox->setCurrentIndex(2);
         break;
     default:
@@ -82,13 +82,13 @@ void FloatingActionButtonSettingsEditor::setupForm()
 
     switch (m_fab->rippleStyle())
     {
-    case Material::CenteredRipple:
+    case MaterialConst::CenteredRipple:
         ui->rippleStyleComboBox->setCurrentIndex(0);
         break;
-    case Material::PositionedRipple:
+    case MaterialConst::PositionedRipple:
         ui->rippleStyleComboBox->setCurrentIndex(1);
         break;
-    case Material::NoRipple:
+    case MaterialConst::NoRipple:
         ui->rippleStyleComboBox->setCurrentIndex(2);
         break;
     default:
@@ -107,13 +107,13 @@ void FloatingActionButtonSettingsEditor::updateWidget()
     switch (ui->buttonRoleComboBox->currentIndex())
     {
     case 0:
-        m_fab->setRole(Material::Default);
+        m_fab->setRole(MaterialConst::Default);
         break;
     case 1:
-        m_fab->setRole(Material::Primary);
+        m_fab->setRole(MaterialConst::Primary);
         break;
     case 2:
-        m_fab->setRole(Material::Secondary);
+        m_fab->setRole(MaterialConst::Secondary);
         break;
     default:
         break;
@@ -140,13 +140,13 @@ void FloatingActionButtonSettingsEditor::updateWidget()
     switch (ui->rippleStyleComboBox->currentIndex())
     {
     case 0:
-        m_fab->setRippleStyle(Material::CenteredRipple);
+        m_fab->setRippleStyle(MaterialConst::CenteredRipple);
         break;
     case 1:
-        m_fab->setRippleStyle(Material::PositionedRipple);
+        m_fab->setRippleStyle(MaterialConst::PositionedRipple);
         break;
     case 2:
-        m_fab->setRippleStyle(Material::NoRipple);
+        m_fab->setRippleStyle(MaterialConst::NoRipple);
         break;
     default:
         break;

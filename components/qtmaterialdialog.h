@@ -3,11 +3,12 @@
 
 #include <QScopedPointer>
 #include "lib/qtmaterialoverlaywidget.h"
+#include "qtmaterial_global.h"
 
 class QLayout;
 class QtMaterialDialogPrivate;
 
-class QtMaterialDialog : public QtMaterialOverlayWidget
+class QT_MATERIAL_EXPORT QtMaterialDialog : public QtMaterialOverlayWidget
 {
     Q_OBJECT
 

@@ -48,6 +48,12 @@ void QtMaterialIconButtonPrivate::updateRipple()
 /*!
  *  \class QtMaterialIconButton
  */
+QtMaterialIconButton::QtMaterialIconButton(QWidget *parent)
+    : QAbstractButton(parent),
+      d_ptr(new QtMaterialIconButtonPrivate(this))
+{
+    d_func()->init();
+}
 
 QtMaterialIconButton::QtMaterialIconButton(const QIcon &icon, QWidget *parent)
     : QAbstractButton(parent),

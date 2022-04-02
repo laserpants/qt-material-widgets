@@ -47,13 +47,13 @@ void AvatarSettingsEditor::setupForm()
 {
     switch (m_avatar->type())
     {
-    case Material::LetterAvatar:
+    case MaterialConst::LetterAvatar:
         ui->typeComboBox->setCurrentIndex(0);
         break;
-    case Material::ImageAvatar:
+    case MaterialConst::ImageAvatar:
         ui->typeComboBox->setCurrentIndex(1);
         break;
-    case Material::IconAvatar:
+    case MaterialConst::IconAvatar:
         ui->typeComboBox->setCurrentIndex(2);
         break;
     default:

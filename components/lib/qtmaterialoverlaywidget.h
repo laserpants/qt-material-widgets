@@ -2,8 +2,9 @@
 #define QTMATERIALOVERLAYWIDGET_H
 
 #include <QtWidgets/QWidget>
+#include "qtmaterial_global.h"
 
-class QtMaterialOverlayWidget : public QWidget
+class QT_MATERIAL_EXPORT QtMaterialOverlayWidget : public QWidget
 {
     Q_OBJECT
 

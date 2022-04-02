@@ -3,10 +3,11 @@
 
 #include <QPainterPath>
 #include "lib/qtmaterialoverlaywidget.h"
+#include "qtmaterial_global.h"
 
 class QtMaterialRipple;
 
-class QtMaterialRippleOverlay : public QtMaterialOverlayWidget
+class QT_MATERIAL_EXPORT QtMaterialRippleOverlay : public QtMaterialOverlayWidget
 {
     Q_OBJECT
 

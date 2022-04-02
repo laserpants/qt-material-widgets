@@ -1,12 +1,16 @@
 QT += core gui widgets
 TEMPLATE = app
 CONFIG += c++11
-SOURCES = mainwindow.cpp \
+
+TARGET = examples-exe
+
+SOURCES += mainwindow.cpp \
     main.cpp \
     avatarsettingseditor.cpp \
     badgesettingseditor.cpp \
     checkboxsettingseditor.cpp \
     fabsettingseditor.cpp \
+    plugindemoform.cpp \
     raisedbuttonsettingseditor.cpp \
     flatbuttonsettingseditor.cpp \
     iconbuttonsettingseditor.cpp \
@@ -24,11 +28,12 @@ SOURCES = mainwindow.cpp \
     appbarsettingseditor.cpp \
     autocompletesettingseditor.cpp \
     menusettingseditor.cpp
-HEADERS = mainwindow.h \
+HEADERS += mainwindow.h \
     avatarsettingseditor.h \
     badgesettingseditor.h \
     checkboxsettingseditor.h \
     fabsettingseditor.h \
+    plugindemoform.h \
     raisedbuttonsettingseditor.h \
     flatbuttonsettingseditor.h \
     iconbuttonsettingseditor.h \
@@ -46,13 +51,6 @@ HEADERS = mainwindow.h \
     appbarsettingseditor.h \
     autocompletesettingseditor.h \
     menusettingseditor.h
-LIBS += $$top_builddir/components/$(OBJECTS_DIR)/libcomponents.a
-INCLUDEPATH += $$top_srcdir/components/
-TARGET = examples-exe
-PRE_TARGETDEPS += $$top_builddir/components/$(OBJECTS_DIR)/libcomponents.a
-
-RESOURCES += \
-    examples.qrc
 
 FORMS += \
     avatarsettingsform.ui \
@@ -61,6 +59,7 @@ FORMS += \
     fabsettingsform.ui \
     flatbuttonsettingsform.ui \
     iconbuttonsettingsform.ui \
+    plugindemoform.ui \
     progresssettingsform.ui \
     circularprogresssettingsform.ui \
     slidersettingsform.ui \
@@ -68,8 +67,25 @@ FORMS += \
     radiobuttonsettingsform.ui \
     togglesettingsform.ui \
     textfieldsettingsform.ui \ 
-    tabssettingsform.ui \
     dialogsettingsform.ui \
     drawersettingsform.ui \
     scrollbarsettingsform.ui \
-    appbarsettingsform.ui
+    appbarsettingsform.ui \
+    tabssettingsform.ui
+
+RESOURCES += \
+    ../components/material_res.qrc \
+    examples.qrc
+
+OBJECTS_DIR = $$PWD/../../qt-material-widgets-build/examples/build/obj
+MOC_DIR = $$PWD/../../qt-material-widgets-build/examples/build/moc
+RCC_DIR = $$PWD/../../qt-material-widgets-build/examples/build/qrc
+UI_DIR = $$PWD/../../qt-material-widgets-build/examples/build/ui
+DESTDIR = $$PWD/../../qt-material-widgets-build/examples/bin
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../qt-material-widgets-build/components/lib/ -lqt-material-widget
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../qt-material-widgets-build/components/lib/ -lqt-material-widgetd
+else:unix:!macx: LIBS += -L$$PWD/../../qt-material-widgets-build/components/lib/ -lqt-material-widget
+
+INCLUDEPATH += $$PWD/../components
+DEPENDPATH += $$PWD/../../qt-material-widgets-build/components

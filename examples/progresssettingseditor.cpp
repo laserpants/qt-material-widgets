@@ -47,10 +47,10 @@ void ProgressSettingsEditor::setupForm()
 {
     switch (m_progress->progressType())
     {
-    case Material::DeterminateProgress:
+    case MaterialConst::DeterminateProgress:
         ui->progressTypeComboBox->setCurrentIndex(0);
         break;
-    case Material::IndeterminateProgress:
+    case MaterialConst::IndeterminateProgress:
         ui->progressTypeComboBox->setCurrentIndex(1);
         break;
     default:
@@ -67,10 +67,10 @@ void ProgressSettingsEditor::updateWidget()
     switch (ui->progressTypeComboBox->currentIndex())
     {
     case 0:
-        m_progress->setProgressType(Material::DeterminateProgress);
+        m_progress->setProgressType(MaterialConst::DeterminateProgress);
         break;
     case 1:
-        m_progress->setProgressType(Material::IndeterminateProgress);
+        m_progress->setProgressType(MaterialConst::IndeterminateProgress);
         break;
     default:
         break;

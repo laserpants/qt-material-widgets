@@ -2,18 +2,21 @@
 #define QTMATERIALAUTOCOMPLETE_H
 
 #include "qtmaterialtextfield.h"
+#include "qtmaterial_global.h"
 
 class QtMaterialAutoCompletePrivate;
 
-class QtMaterialAutoComplete : public QtMaterialTextField
+class QT_MATERIAL_EXPORT QtMaterialAutoComplete : public QtMaterialTextField
 {
     Q_OBJECT
+    Q_PROPERTY(QStringList dataSource WRITE setDataSource READ dataSource)
 
 public:
     explicit QtMaterialAutoComplete(QWidget *parent = 0);
     ~QtMaterialAutoComplete();
 
     void setDataSource(const QStringList &data);
+    QStringList dataSource() const;
 
 signals:
     void itemSelected(QString);

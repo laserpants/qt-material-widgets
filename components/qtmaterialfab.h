@@ -2,14 +2,20 @@
 #define QTMATERIALFAB_H
 
 #include "qtmaterialraisedbutton.h"
+#include "qtmaterial_global.h"
 
 class QtMaterialFloatingActionButtonPrivate;
 
-class QtMaterialFloatingActionButton : public QtMaterialRaisedButton
+class QT_MATERIAL_EXPORT QtMaterialFloatingActionButton : public QtMaterialRaisedButton
 {
     Q_OBJECT
+    Q_PROPERTY(bool mini WRITE setMini READ isMini)
+    Q_PROPERTY(Qt::Corner corner WRITE setCorner READ corner)
+    Q_PROPERTY(int xOffset WRITE setXOffset READ xOffset)
+    Q_PROPERTY(int yOffset WRITE setYOffset READ yOffset)
 
 public:
+    explicit QtMaterialFloatingActionButton(QWidget *parent = 0);
     explicit QtMaterialFloatingActionButton(const QIcon &icon, QWidget *parent = 0);
     ~QtMaterialFloatingActionButton();
 
