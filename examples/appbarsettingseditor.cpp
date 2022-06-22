@@ -1,18 +1,13 @@
 #include "appbarsettingseditor.h"
-#include <QtWidgets/QVBoxLayout>
-#include <QColorDialog>
-#include <qtmaterialappbar.h>
-#include <qtmaterialiconbutton.h>
-#include <lib/qtmaterialtheme.h>
 
 AppBarSettingsEditor::AppBarSettingsEditor(QWidget *parent)
     : QWidget(parent),
       ui(new Ui::AppBarSettingsForm),
-      m_appBar(new QtMaterialAppBar)
+      m_appBar(new AppBar)
 {
     QLabel *label = new QLabel("Inbox");
     label->setAttribute(Qt::WA_TranslucentBackground);
-    label->setForegroundRole(QPalette::Foreground);
+//    label->setForegroundRole(QPalette::Foreground); // FIXME: palette ? foreground !
     label->setContentsMargins(6, 0, 0, 0);
 
     QPalette palette = label->palette();
@@ -21,7 +16,7 @@ AppBarSettingsEditor::AppBarSettingsEditor(QWidget *parent)
 
     label->setFont(QFont("Roboto", 18, QFont::Normal));
 
-    QtMaterialIconButton *button = new QtMaterialIconButton(QtMaterialTheme::icon("navigation", "menu"));
+    IconButton *button = new IconButton(Theme::icon("navigation", "menu"));
     button->setIconSize(QSize(24, 24));
     m_appBar->appBarLayout()->addWidget(button);
     m_appBar->appBarLayout()->addWidget(label);

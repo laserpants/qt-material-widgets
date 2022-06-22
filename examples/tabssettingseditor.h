@@ -2,9 +2,14 @@
 #define TABSSETTINGSEDITOR_H
 
 #include <QWidget>
+#include <QVBoxLayout>
+#include <QColorDialog>
+
+#include <tabs.h>
+
 #include "ui_tabssettingsform.h"
 
-class QtMaterialTabs;
+using namespace md;
 
 class TabsSettingsEditor : public QWidget
 {
@@ -20,7 +25,7 @@ protected slots:
 
 private:
     Ui::TabsSettingsForm *const ui;
-    QtMaterialTabs       *const m_tabs;
+    Tabs       *const m_tabs;
 };
 
 #endif // TABSSETTINGSEDITOR_H

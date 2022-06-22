@@ -1,13 +1,10 @@
 #include "badgesettingseditor.h"
-#include <QColorDialog>
-#include <qtmaterialavatar.h>
-#include <qtmaterialbadge.h>
 
 BadgeSettingsEditor::BadgeSettingsEditor(QWidget *parent)
     : QWidget(parent),
       ui(new Ui::BadgeSettingsForm),
-      m_avatar(new QtMaterialAvatar(QImage(":/images/assets/sikh.jpg"))),
-      m_badge(new QtMaterialBadge)
+      m_avatar(new Avatar(QImage(QDir::currentPath()+"/assets/sikh.jpg"))),
+      m_badge(new Badge)
 {
     QVBoxLayout *layout = new QVBoxLayout;
     setLayout(layout);
@@ -73,7 +70,7 @@ void BadgeSettingsEditor::updateWidget()
         m_badge->setText("3");
         break;
     case 1:
-        m_badge->setIcon(QIcon(QtMaterialTheme::icon("communication", "message")));
+        m_badge->setIcon(QIcon(Theme::icon("communication", "message")));
         break;
     default:
         break;

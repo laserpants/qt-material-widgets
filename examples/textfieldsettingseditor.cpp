@@ -1,12 +1,9 @@
 #include "textfieldsettingseditor.h"
-#include <QVBoxLayout>
-#include <QColorDialog>
-#include <qtmaterialtextfield.h>
 
 TextFieldSettingsEditor::TextFieldSettingsEditor(QWidget *parent)
     : QWidget(parent),
       ui(new Ui::TextFieldSettingsForm),
-      m_textField(new QtMaterialTextField)
+      m_textField(new TextField)
 {
     QVBoxLayout *layout = new QVBoxLayout;
     setLayout(layout);

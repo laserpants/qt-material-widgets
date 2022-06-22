@@ -1,11 +1,17 @@
 <RCC>
     <qresource prefix="/fonts">
-        <file alias="roboto_black">../fonts/Roboto/Roboto-Black.ttf</file>
-        <file alias="roboto_bold">../fonts/Roboto/Roboto-Bold.ttf</file>
-        <file alias="roboto_medium">../fonts/Roboto/Roboto-Medium.ttf</file>
-        <file alias="roboto_regular">../fonts/Roboto/Roboto-Regular.ttf</file>
-        <file alias="roboto_light">../fonts/Roboto/Roboto-Light.ttf</file>
-        <file alias="roboto_thin">../fonts/Roboto/Roboto-Thin.ttf</file>
+        <file>fonts/Roboto/Roboto-Black.ttf</file>
+        <file>fonts/Roboto/Roboto-BlackItalic.ttf</file>
+        <file>fonts/Roboto/Roboto-Bold.ttf</file>
+        <file>fonts/Roboto/Roboto-BoldItalic.ttf</file>
+        <file>fonts/Roboto/Roboto-Italic.ttf</file>
+        <file>fonts/Roboto/Roboto-Light.ttf</file>
+        <file>fonts/Roboto/Roboto-LightItalic.ttf</file>
+        <file>fonts/Roboto/Roboto-Medium.ttf</file>
+        <file>fonts/Roboto/Roboto-MediumItalic.ttf</file>
+        <file>fonts/Roboto/Roboto-Regular.ttf</file>
+        <file>fonts/Roboto/Roboto-Thin.ttf</file>
+        <file>fonts/Roboto/Roboto-ThinItalic.ttf</file>
     </qresource>
     <qresource prefix="/icons">
         <file>icons/communication/svg/production/ic_message_24px.svg</file>

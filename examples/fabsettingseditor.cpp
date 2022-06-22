@@ -1,13 +1,9 @@
 #include "fabsettingseditor.h"
-#include <QVBoxLayout>
-#include <QDebug>
-#include <QColorDialog>
-#include <qtmaterialfab.h>
 
 FloatingActionButtonSettingsEditor::FloatingActionButtonSettingsEditor(QWidget *parent)
     : QWidget(parent),
       ui(new Ui::FloatingActionButtonSettingsForm),
-      m_fab(new QtMaterialFloatingActionButton(QtMaterialTheme::icon("toggle", "star")))
+      m_fab(new FloatingActionButton(Theme::icon("toggle", "star")))
 {
     QVBoxLayout *layout = new QVBoxLayout;
     setLayout(layout);

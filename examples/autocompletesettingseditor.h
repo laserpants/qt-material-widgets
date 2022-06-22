@@ -4,9 +4,14 @@
 #include <QWidget>
 //#include "ui_autocompletesettingsform.h"
 
-#include "lib/qtmaterialoverlaywidget.h"
+#include <QWidget>
+#include <QVBoxLayout>
+#include <QDebug>
 
-class QtMaterialAutoComplete;
+#include <autocomplete.h>
+#include "lib/overlaywidget.h"
+
+using namespace md;
 
 class AutoCompleteSettingsEditor : public QWidget
 {
@@ -23,7 +28,7 @@ protected slots:
 
 private:
     //Ui::AutoCompleteSettingsForm *const ui;
-    QtMaterialAutoComplete       *const m_autocomplete;
+    AutoComplete       *const m_autocomplete;
 };
 
 #endif // AUTOCOMPLETESETTINGSEDITOR_H

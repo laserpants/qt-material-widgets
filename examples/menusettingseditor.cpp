@@ -1,12 +1,9 @@
 #include "menusettingseditor.h"
-#include <QVBoxLayout>
-#include <QDebug>
-#include <qtmaterialmenu.h>
 
 MenuSettingsEditor::MenuSettingsEditor(QWidget *parent)
     : QWidget(parent),
       //ui(new Ui::MenuSettingsForm),
-      m_menu(new QtMaterialMenu)
+      m_menu(new Menu)
 {
     QVBoxLayout *layout = new QVBoxLayout;
     setLayout(layout);

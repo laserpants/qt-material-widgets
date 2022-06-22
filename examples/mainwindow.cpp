@@ -1,32 +1,9 @@
 #include "mainwindow.h"
-#include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QStackedLayout>
-#include <QtWidgets/QListWidget>
-#include "avatarsettingseditor.h"
-#include "badgesettingseditor.h"
-#include "checkboxsettingseditor.h"
-#include "fabsettingseditor.h"
-#include "raisedbuttonsettingseditor.h"
-#include "flatbuttonsettingseditor.h"
-#include "iconbuttonsettingseditor.h"
-#include "progresssettingseditor.h"
-#include "circularprogresssettingseditor.h"
-#include "slidersettingseditor.h"
-#include "radiobuttonsettingseditor.h"
-#include "togglesettingseditor.h"
-#include "textfieldsettingseditor.h"
-#include "tabssettingseditor.h"
-#include "snackbarsettingseditor.h"
-#include "dialogsettingseditor.h"
-#include "drawersettingseditor.h"
-#include "scrollbarsettingseditor.h"
-#include "appbarsettingseditor.h"
-#include "autocompletesettingseditor.h"
-#include "menusettingseditor.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
+    this->showMaximized();
     QWidget *widget = new QWidget;
     QHBoxLayout *layout = new QHBoxLayout;
 
@@ -64,9 +41,9 @@ MainWindow::MainWindow(QWidget *parent)
     AutoCompleteSettingsEditor *autocomplete = new AutoCompleteSettingsEditor;
     MenuSettingsEditor *menu = new MenuSettingsEditor;
 
+    stack->addWidget(avatar);
     stack->addWidget(appBar);
     stack->addWidget(autocomplete);
-    stack->addWidget(avatar);
     stack->addWidget(badge);
     stack->addWidget(checkbox);
     stack->addWidget(circularProgress);
@@ -86,9 +63,10 @@ MainWindow::MainWindow(QWidget *parent)
     stack->addWidget(textField);
     stack->addWidget(toggle);
 
+
+    list->addItem("Avatar");
     list->addItem("App Bar");
     list->addItem("Auto Complete");
-    list->addItem("Avatar");
     list->addItem("Badge");
     list->addItem("Checkbox");
     list->addItem("Circular Progress");

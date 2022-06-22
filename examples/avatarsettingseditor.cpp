@@ -1,12 +1,9 @@
 #include "avatarsettingseditor.h"
-#include <QColorDialog>
-#include <qtmaterialavatar.h>
-#include <lib/qtmaterialtheme.h>
 
 AvatarSettingsEditor::AvatarSettingsEditor(QWidget *parent)
     : QWidget(parent),
       ui(new Ui::AvatarSettingsForm),
-      m_avatar(new QtMaterialAvatar(QChar('X')))
+      m_avatar(new Avatar(QChar('X')))
 {
     QVBoxLayout *layout = new QVBoxLayout;
     setLayout(layout);
@@ -73,10 +70,11 @@ void AvatarSettingsEditor::updateWidget()
         m_avatar->setLetter(QChar('X'));
         break;
     case 1:
-        m_avatar->setImage(QImage(":/images/assets/sikh.jpg"));
+        qDebug()<<QDir::currentPath()+"/assets/sikh.jpg";
+        m_avatar->setImage(QImage(QDir::currentPath()+"/assets/sikh.jpg"));
         break;
     case 2:
-        m_avatar->setIcon(QtMaterialTheme::icon("communication", "message"));
+        m_avatar->setIcon(Theme::icon("communication", "message"));
         break;
     default:
         break;

@@ -1,12 +1,9 @@
 #include "autocompletesettingseditor.h"
-#include <QVBoxLayout>
-#include <QDebug>
-#include <qtmaterialautocomplete.h>
 
 AutoCompleteSettingsEditor::AutoCompleteSettingsEditor(QWidget *parent)
     : QWidget(parent),
       //ui(new Ui::AutoCompleteSettingsForm),
-      m_autocomplete(new QtMaterialAutoComplete)
+      m_autocomplete(new AutoComplete)
 {
     QVBoxLayout *layout = new QVBoxLayout;
     setLayout(layout);

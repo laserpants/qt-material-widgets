@@ -2,10 +2,15 @@
 #define RADIOBUTTONSETTINGSEDITOR_H
 
 #include <QWidget>
+#include <QVBoxLayout>
+#include <QRadioButton>
+#include <QColorDialog>
+
+#include <radiobutton.h>
+
 #include "ui_radiobuttonsettingsform.h"
 
-class QtMaterialRadioButton;
-class RadioButton;
+using namespace md;
 
 class RadioButtonSettingsEditor : public QWidget
 {
@@ -22,9 +27,9 @@ protected slots:
 
 private:
     Ui::RadioButtonSettingsForm *const ui;
-    QtMaterialRadioButton       *const m_radioButton1;
-    QtMaterialRadioButton       *const m_radioButton2;
-    QtMaterialRadioButton       *const m_radioButton3;
+    RadioButton       *const m_radioButton1;
+    RadioButton       *const m_radioButton2;
+    RadioButton       *const m_radioButton3;
 };
 
 #endif // RADIOBUTTONSETTINGSEDITOR_H

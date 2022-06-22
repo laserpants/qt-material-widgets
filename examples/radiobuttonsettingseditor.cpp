@@ -1,15 +1,11 @@
 #include "radiobuttonsettingseditor.h"
-#include <QVBoxLayout>
-#include <QRadioButton>
-#include <QColorDialog>
-#include <qtmaterialradiobutton.h>
 
 RadioButtonSettingsEditor::RadioButtonSettingsEditor(QWidget *parent)
     : QWidget(parent),
       ui(new Ui::RadioButtonSettingsForm),
-      m_radioButton1(new QtMaterialRadioButton),
-      m_radioButton2(new QtMaterialRadioButton),
-      m_radioButton3(new QtMaterialRadioButton)
+      m_radioButton1(new RadioButton),
+      m_radioButton2(new RadioButton),
+      m_radioButton3(new RadioButton)
 {
     QVBoxLayout *layout = new QVBoxLayout;
     setLayout(layout);
@@ -47,7 +43,7 @@ RadioButtonSettingsEditor::RadioButtonSettingsEditor(QWidget *parent)
 
     layout->setAlignment(Qt::AlignCenter);
 
-    layout->setMargin(0);
+//    layout->setMargin(0); // FIXME: ???
     layout->setSpacing(0);
 
     setupForm();
@@ -72,10 +68,10 @@ void RadioButtonSettingsEditor::setupForm()
 {
     switch (m_radioButton1->labelPosition())
     {
-    case QtMaterialCheckable::LabelPositionLeft:
+    case Checkable::LabelPositionLeft:
         ui->labelPositionComboBox_2->setCurrentIndex(0);
         break;
-    case QtMaterialCheckable::LabelPositionRight:
+    case Checkable::LabelPositionRight:
         ui->labelPositionComboBox_2->setCurrentIndex(1);
         break;
     default:
@@ -92,14 +88,14 @@ void RadioButtonSettingsEditor::updateWidget()
     switch (ui->labelPositionComboBox_2->currentIndex())
     {
     case 0:
-        m_radioButton1->setLabelPosition(QtMaterialCheckable::LabelPositionLeft);
-        m_radioButton2->setLabelPosition(QtMaterialCheckable::LabelPositionLeft);
-        m_radioButton3->setLabelPosition(QtMaterialCheckable::LabelPositionLeft);
+        m_radioButton1->setLabelPosition(Checkable::LabelPositionLeft);
+        m_radioButton2->setLabelPosition(Checkable::LabelPositionLeft);
+        m_radioButton3->setLabelPosition(Checkable::LabelPositionLeft);
         break;
     case 1:
-        m_radioButton1->setLabelPosition(QtMaterialCheckable::LabelPositionRight);
-        m_radioButton2->setLabelPosition(QtMaterialCheckable::LabelPositionRight);
-        m_radioButton3->setLabelPosition(QtMaterialCheckable::LabelPositionRight);
+        m_radioButton1->setLabelPosition(Checkable::LabelPositionRight);
+        m_radioButton2->setLabelPosition(Checkable::LabelPositionRight);
+        m_radioButton3->setLabelPosition(Checkable::LabelPositionRight);
         break;
     default:
         break;

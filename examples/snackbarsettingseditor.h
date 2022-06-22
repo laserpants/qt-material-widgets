@@ -2,9 +2,14 @@
 #define SNACKBARSETTINGSEDITOR_H
 
 #include <QWidget>
+#include <QVBoxLayout>
+#include <QColorDialog>
+
+#include <snackbar.h>
+
 #include "ui_snackbarsettingsform.h"
 
-class QtMaterialSnackbar;
+using namespace md;
 
 class SnackbarSettingsEditor : public QWidget
 {
@@ -21,7 +26,7 @@ protected slots:
 
 private:
     Ui::SnackbarSettingsForm *const ui;
-    QtMaterialSnackbar       *const m_snackbar;
+    SnackBar       *const m_snackbar;
 };
 
 #endif // SNACKBARSETTINGSEDITOR_H

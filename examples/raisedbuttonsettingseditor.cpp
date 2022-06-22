@@ -1,8 +1,7 @@
 #include "raisedbuttonsettingseditor.h"
-#include <qtmaterialraisedbutton.h>
 
 RaisedButtonSettingsEditor::RaisedButtonSettingsEditor(QWidget *parent)
-    : FlatButtonSettingsEditor(new QtMaterialRaisedButton("Rise up"), parent)
+    : FlatButtonSettingsEditor(new RaisedButton("Rise up"), parent)
 {
     ui->transparentCheckBox->setDisabled(true);
     ui->defaultPresetPushButton->setDisabled(true);

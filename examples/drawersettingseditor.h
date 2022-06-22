@@ -2,9 +2,14 @@
 #define DRAWERSETTINGSEDITOR_H
 
 #include <QWidget>
+#include <QVBoxLayout>
+#include <QColorDialog>
+
+#include <drawer.h>
+
 #include "ui_drawersettingsform.h"
 
-class QtMaterialDrawer;
+using namespace md;
 
 class DrawerSettingsEditor : public QWidget
 {
@@ -20,7 +25,7 @@ protected slots:
 
 private:
     Ui::DrawerSettingsForm *const ui;
-    QtMaterialDrawer       *const m_drawer;
+    Drawer       *const m_drawer;
 };
 
 #endif // DRAWERSETTINGSEDITOR_H

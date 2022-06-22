@@ -2,9 +2,14 @@
 #define SLIDERSETTINGSEDITOR_H
 
 #include <QWidget>
+#include <QVBoxLayout>
+#include <QColorDialog>
+
+#include <slider.h>
+
 #include "ui_slidersettingsform.h"
 
-class QtMaterialSlider;
+using namespace md;
 
 class SliderSettingsEditor : public QWidget
 {
@@ -20,7 +25,7 @@ protected slots:
 
 private:
     Ui::SliderSettingsForm *const ui;
-    QtMaterialSlider       *const m_slider;
+    Slider       *const m_slider;
 };
 
 #endif // SLIDERSETTINGSEDITOR_H

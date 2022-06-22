@@ -2,10 +2,15 @@
 #define BADGESETTINGSEDITOR_H
 
 #include <QWidget>
+#include <QColorDialog>
+#include <QDir>
+
+#include <avatar.h>
+#include <badge.h>
+
 #include "ui_badgesettingsform.h"
 
-class QtMaterialAvatar;
-class QtMaterialBadge;
+using namespace md;
 
 class BadgeSettingsEditor : public QWidget
 {
@@ -22,8 +27,8 @@ protected slots:
 
 private:
     Ui::BadgeSettingsForm *const ui;
-    QtMaterialAvatar      *const m_avatar;
-    QtMaterialBadge       *const m_badge;
+    Avatar      *const m_avatar;
+    Badge       *const m_badge;
 };
 
 #endif // BADGESETTINGSEDITOR_H

@@ -1,12 +1,9 @@
 #include "tabssettingseditor.h"
-#include <QVBoxLayout>
-#include <QColorDialog>
-#include <qtmaterialtabs.h>
 
 TabsSettingsEditor::TabsSettingsEditor(QWidget *parent)
     : QWidget(parent),
       ui(new Ui::TabsSettingsForm),
-      m_tabs(new QtMaterialTabs)
+      m_tabs(new Tabs)
 {
     QVBoxLayout *layout = new QVBoxLayout;
     setLayout(layout);

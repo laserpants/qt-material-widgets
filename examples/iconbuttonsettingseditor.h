@@ -2,9 +2,14 @@
 #define ICONBUTTONSETTINGSMANAGER_H
 
 #include <QWidget>
+#include <QColorDialog>
+
+#include <iconbutton.h>
+#include <lib/theme.h>
+
 #include "ui_iconbuttonsettingsform.h"
 
-class QtMaterialIconButton;
+using namespace md;
 
 class IconButtonSettingsEditor : public QWidget
 {
@@ -15,7 +20,7 @@ public:
     ~IconButtonSettingsEditor();
 
 protected:
-    explicit IconButtonSettingsEditor(QtMaterialIconButton *button, QWidget *parent = 0);
+    explicit IconButtonSettingsEditor(IconButton *button, QWidget *parent = 0);
 
     Ui::IconButtonSettingsForm *const ui;
 
@@ -27,7 +32,7 @@ protected slots:
 private:
     void init();
 
-    QtMaterialIconButton *const m_button;
+    IconButton *const m_button;
 };
 
 #endif // ICONBUTTONSETTINGSMANAGER_H
