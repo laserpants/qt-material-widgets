@@ -234,7 +234,7 @@ void QtMaterialAvatar::paintEvent(QPaintEvent *event)
     painter.setRenderHint(QPainter::Antialiasing);
 
     QRect r = rect();
-    const qreal hs = d->size/2;
+    const qreal hs = d->size/2.0;
 
     if (!isEnabled())
     {
