@@ -1,6 +1,6 @@
 #include "lib/qtmaterialrippleoverlay.h"
-#include <QPainter>
 #include "lib/qtmaterialripple.h"
+#include <QPainter>
 
 /*!
  *  \class QtMaterialRippleOverlay
@@ -8,16 +8,14 @@
  */
 
 QtMaterialRippleOverlay::QtMaterialRippleOverlay(QWidget *parent)
-    : QtMaterialOverlayWidget(parent),
-      m_useClip(false)
+    : QtMaterialOverlayWidget(parent)
+    , m_useClip(false)
 {
     setAttribute(Qt::WA_TransparentForMouseEvents);
     setAttribute(Qt::WA_NoSystemBackground);
 }
 
-QtMaterialRippleOverlay::~QtMaterialRippleOverlay()
-{
-}
+QtMaterialRippleOverlay::~QtMaterialRippleOverlay() {}
 
 void QtMaterialRippleOverlay::addRipple(QtMaterialRipple *ripple)
 {
@@ -25,8 +23,8 @@ void QtMaterialRippleOverlay::addRipple(QtMaterialRipple *ripple)
     m_ripples.push_back(ripple);
     ripple->start();
 
-    connect(this, SIGNAL(destroyed(QObject*)), ripple, SLOT(stop()));
-    connect(this, SIGNAL(destroyed(QObject*)), ripple, SLOT(deleteLater()));
+    connect(this, SIGNAL(destroyed(QObject *)), ripple, SLOT(stop()));
+    connect(this, SIGNAL(destroyed(QObject *)), ripple, SLOT(deleteLater()));
 }
 
 void QtMaterialRippleOverlay::addRipple(const QPoint &position, qreal radius)

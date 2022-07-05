@@ -39,4 +39,4 @@ private:
     Q_DECLARE_PRIVATE(QtMaterialIconButton)
 };
 
-#endif // QTMATERIALICONBUTTON_H
+#endif  // QTMATERIALICONBUTTON_H

@@ -45,4 +45,4 @@ private:
     Q_DECLARE_PRIVATE(QtMaterialDrawer)
 };
 
-#endif // QTMATERIALDRAWER_H
+#endif  // QTMATERIALDRAWER_H

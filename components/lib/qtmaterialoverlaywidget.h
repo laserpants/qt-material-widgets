@@ -21,4 +21,4 @@ private:
     Q_DISABLE_COPY(QtMaterialOverlayWidget)
 };
 
-#endif // QTMATERIALOVERLAYWIDGET_H
+#endif  // QTMATERIALOVERLAYWIDGET_H

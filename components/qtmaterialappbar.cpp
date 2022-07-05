@@ -1,8 +1,8 @@
 #include "qtmaterialappbar.h"
-#include "qtmaterialappbar_p.h"
-#include <QtWidgets/QGraphicsDropShadowEffect>
-#include <QPainter>
 #include "lib/qtmaterialstyle.h"
+#include "qtmaterialappbar_p.h"
+#include <QPainter>
+#include <QtWidgets/QGraphicsDropShadowEffect>
 
 /*!
  *  \class QtMaterialAppBarPrivate
@@ -20,9 +20,7 @@ QtMaterialAppBarPrivate::QtMaterialAppBarPrivate(QtMaterialAppBar *q)
 /*!
  *  \internal
  */
-QtMaterialAppBarPrivate::~QtMaterialAppBarPrivate()
-{
-}
+QtMaterialAppBarPrivate::~QtMaterialAppBarPrivate() {}
 
 /*!
  *  \internal
@@ -49,15 +47,13 @@ void QtMaterialAppBarPrivate::init()
  */
 
 QtMaterialAppBar::QtMaterialAppBar(QWidget *parent)
-    : QWidget(parent),
-      d_ptr(new QtMaterialAppBarPrivate(this))
+    : QWidget(parent)
+    , d_ptr(new QtMaterialAppBarPrivate(this))
 {
     d_func()->init();
 }
 
-QtMaterialAppBar::~QtMaterialAppBar()
-{
-}
+QtMaterialAppBar::~QtMaterialAppBar() {}
 
 QSize QtMaterialAppBar::sizeHint() const
 {

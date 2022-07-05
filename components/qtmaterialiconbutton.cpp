@@ -1,9 +1,9 @@
 #include "qtmaterialiconbutton.h"
-#include "qtmaterialiconbutton_p.h"
-#include <QPainter>
-#include <QEvent>
-#include "lib/qtmaterialstyle.h"
 #include "lib/qtmaterialrippleoverlay.h"
+#include "lib/qtmaterialstyle.h"
+#include "qtmaterialiconbutton_p.h"
+#include <QEvent>
+#include <QPainter>
 
 /*!
  *  \class QtMaterialIconButtonPrivate
@@ -15,15 +15,13 @@ QtMaterialIconButtonPrivate::QtMaterialIconButtonPrivate(QtMaterialIconButton *q
 {
 }
 
-QtMaterialIconButtonPrivate::~QtMaterialIconButtonPrivate()
-{
-}
+QtMaterialIconButtonPrivate::~QtMaterialIconButtonPrivate() {}
 
 void QtMaterialIconButtonPrivate::init()
 {
     Q_Q(QtMaterialIconButton);
 
-    rippleOverlay  = new QtMaterialRippleOverlay(q->parentWidget());
+    rippleOverlay = new QtMaterialRippleOverlay(q->parentWidget());
     useThemeColors = true;
 
     rippleOverlay->installEventFilter(q);
@@ -40,7 +38,7 @@ void QtMaterialIconButtonPrivate::updateRipple()
     Q_Q(QtMaterialIconButton);
 
     QRect r(q->rect());
-    r.setSize(QSize(q->width()*2, q->height()*2));
+    r.setSize(QSize(q->width() * 2, q->height() * 2));
     r.moveCenter(q->geometry().center());
     rippleOverlay->setGeometry(r);
 }
@@ -50,17 +48,15 @@ void QtMaterialIconButtonPrivate::updateRipple()
  */
 
 QtMaterialIconButton::QtMaterialIconButton(const QIcon &icon, QWidget *parent)
-    : QAbstractButton(parent),
-      d_ptr(new QtMaterialIconButtonPrivate(this))
+    : QAbstractButton(parent)
+    , d_ptr(new QtMaterialIconButtonPrivate(this))
 {
     d_func()->init();
 
     setIcon(icon);
 }
 
-QtMaterialIconButton::~QtMaterialIconButton()
-{
-}
+QtMaterialIconButton::~QtMaterialIconButton() {}
 
 /*!
  *  \reimp
@@ -130,8 +126,8 @@ QColor QtMaterialIconButton::disabledColor() const
 }
 
 QtMaterialIconButton::QtMaterialIconButton(QtMaterialIconButtonPrivate &d, QWidget *parent)
-    : QAbstractButton(parent),
-      d_ptr(&d)
+    : QAbstractButton(parent)
+    , d_ptr(&d)
 {
     d_func()->init();
 }
@@ -143,21 +139,20 @@ bool QtMaterialIconButton::event(QEvent *event)
 {
     Q_D(QtMaterialIconButton);
 
-    switch (event->type())
-    {
-    case QEvent::Move:
-    case QEvent::Resize:
-        d->updateRipple();
-        break;
-    case QEvent::ParentChange: {
-        QWidget *widget;
-        if ((widget = parentWidget())) {
-            d->rippleOverlay->setParent(widget);
+    switch (event->type()) {
+        case QEvent::Move:
+        case QEvent::Resize:
+            d->updateRipple();
+            break;
+        case QEvent::ParentChange: {
+            QWidget *widget;
+            if ((widget = parentWidget())) {
+                d->rippleOverlay->setParent(widget);
+            }
+            break;
         }
-        break;
-    }
-    default:
-        break;
+        default:
+            break;
     }
     return QAbstractButton::event(event);
 }
@@ -167,8 +162,7 @@ bool QtMaterialIconButton::event(QEvent *event)
  */
 bool QtMaterialIconButton::eventFilter(QObject *obj, QEvent *event)
 {
-    if (QEvent::Resize == event->type())
-    {
+    if (QEvent::Resize == event->type()) {
         Q_D(QtMaterialIconButton);
 
         d->updateRipple();
@@ -183,9 +177,7 @@ void QtMaterialIconButton::mousePressEvent(QMouseEvent *event)
 {
     Q_D(QtMaterialIconButton);
 
-    d->rippleOverlay->addRipple(QPoint(d->rippleOverlay->width(),
-                                       d->rippleOverlay->height())/2,
-                                iconSize().width());
+    d->rippleOverlay->addRipple(QPoint(d->rippleOverlay->width(), d->rippleOverlay->height()) / 2, iconSize().width());
     emit clicked();
 
     QAbstractButton::mousePressEvent(event);
@@ -208,5 +200,5 @@ void QtMaterialIconButton::paintEvent(QPaintEvent *event)
     QRect r(rect());
     const qreal w = pixmap.width();
     const qreal h = pixmap.height();
-    painter.drawPixmap(QRect((r.width()-w)/2, (r.height()-h)/2, w, h), pixmap);
+    painter.drawPixmap(QRect((r.width() - w) / 2, (r.height() - h) / 2, w, h), pixmap);
 }

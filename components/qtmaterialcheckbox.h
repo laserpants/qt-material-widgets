@@ -18,4 +18,4 @@ private:
     Q_DECLARE_PRIVATE(QtMaterialCheckBox)
 };
 
-#endif // QTMATERIALCHECKBOX_H
+#endif  // QTMATERIALCHECKBOX_H

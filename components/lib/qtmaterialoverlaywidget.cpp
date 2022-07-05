@@ -14,9 +14,7 @@ QtMaterialOverlayWidget::QtMaterialOverlayWidget(QWidget *parent)
     }
 }
 
-QtMaterialOverlayWidget::~QtMaterialOverlayWidget()
-{
-}
+QtMaterialOverlayWidget::~QtMaterialOverlayWidget() {}
 
 /*!
  *  \reimp
@@ -26,21 +24,18 @@ bool QtMaterialOverlayWidget::event(QEvent *event)
     if (!parent()) {
         return QWidget::event(event);
     }
-    switch (event->type())
-    {
-    case QEvent::ParentChange:
-    {
-        parent()->installEventFilter(this);
-        setGeometry(overlayGeometry());
-        break;
-    }
-    case QEvent::ParentAboutToChange:
-    {
-        parent()->removeEventFilter(this);
-        break;
-    }
-    default:
-        break;
+    switch (event->type()) {
+        case QEvent::ParentChange: {
+            parent()->installEventFilter(this);
+            setGeometry(overlayGeometry());
+            break;
+        }
+        case QEvent::ParentAboutToChange: {
+            parent()->removeEventFilter(this);
+            break;
+        }
+        default:
+            break;
     }
     return QWidget::event(event);
 }
@@ -50,14 +45,13 @@ bool QtMaterialOverlayWidget::event(QEvent *event)
  */
 bool QtMaterialOverlayWidget::eventFilter(QObject *obj, QEvent *event)
 {
-    switch (event->type())
-    {
-    case QEvent::Move:
-    case QEvent::Resize:
-        setGeometry(overlayGeometry());
-        break;
-    default:
-        break;
+    switch (event->type()) {
+        case QEvent::Move:
+        case QEvent::Resize:
+            setGeometry(overlayGeometry());
+            break;
+        default:
+            break;
     }
     return QWidget::eventFilter(obj, event);
 }

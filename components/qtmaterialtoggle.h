@@ -49,4 +49,4 @@ private:
     Q_DECLARE_PRIVATE(QtMaterialToggle)
 };
 
-#endif // QTMATERIALTOGGLE_H
+#endif  // QTMATERIALTOGGLE_H

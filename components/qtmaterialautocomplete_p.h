@@ -19,12 +19,12 @@ public:
 
     void init();
 
-    QWidget                            *menu;
-    QWidget                            *frame;
+    QWidget *menu;
+    QWidget *frame;
     QtMaterialAutoCompleteStateMachine *stateMachine;
-    QVBoxLayout                        *menuLayout;
-    QStringList                         dataSource;
-    int                                 maxWidth;
+    QVBoxLayout *menuLayout;
+    QStringList dataSource;
+    int maxWidth;
 };
 
-#endif // QTMATERIALAUTOCOMPLETE_P_H
+#endif  // QTMATERIALAUTOCOMPLETE_P_H

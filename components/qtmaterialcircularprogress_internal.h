@@ -1,8 +1,8 @@
 #ifndef QTMATERIALCIRCULARPROGRESS_INTERNAL_H
 #define QTMATERIALCIRCULARPROGRESS_INTERNAL_H
 
-#include <QObject>
 #include "qtmaterialcircularprogress.h"
+#include <QObject>
 
 class QtMaterialCircularProgressDelegate : public QObject
 {
@@ -29,9 +29,9 @@ private:
     Q_DISABLE_COPY(QtMaterialCircularProgressDelegate)
 
     QtMaterialCircularProgress *const m_progress;
-    qreal                             m_dashOffset;
-    qreal                             m_dashLength;
-    int                               m_angle;
+    qreal m_dashOffset;
+    qreal m_dashLength;
+    int m_angle;
 };
 
 inline void QtMaterialCircularProgressDelegate::setDashOffset(qreal offset)
@@ -67,4 +67,4 @@ inline int QtMaterialCircularProgressDelegate::angle() const
     return m_angle;
 }
 
-#endif // QTMATERIALCIRCULARPROGRESS_INTERNAL_H
+#endif  // QTMATERIALCIRCULARPROGRESS_INTERNAL_H

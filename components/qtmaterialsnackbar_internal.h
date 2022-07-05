@@ -32,8 +32,8 @@ private:
     Q_DISABLE_COPY(QtMaterialSnackbarStateMachine)
 
     QtMaterialSnackbar *const m_snackbar;
-    QTimer                    m_timer;
-    qreal                     m_offset;
+    QTimer m_timer;
+    qreal m_offset;
 };
 
 inline qreal QtMaterialSnackbarStateMachine::offset() const
@@ -41,4 +41,4 @@ inline qreal QtMaterialSnackbarStateMachine::offset() const
     return m_offset;
 }
 
-#endif // QTMATERIALSNACKBAR_INTERNAL_H
+#endif  // QTMATERIALSNACKBAR_INTERNAL_H

@@ -1,8 +1,8 @@
 #ifndef QTMATERIALTEXTFIELD_P_H
 #define QTMATERIALTEXTFIELD_P_H
 
-#include <QtGlobal>
 #include <QColor>
+#include <QtGlobal>
 
 class QtMaterialTextField;
 class QtMaterialTextFieldStateMachine;
@@ -19,18 +19,18 @@ public:
 
     void init();
 
-    QtMaterialTextField             *const q_ptr;
+    QtMaterialTextField *const q_ptr;
     QtMaterialTextFieldStateMachine *stateMachine;
-    QtMaterialTextFieldLabel        *label;
-    QColor                           textColor;
-    QColor                           labelColor;
-    QColor                           inkColor;
-    QColor                           inputLineColor;
-    QString                          labelString;
-    qreal                            labelFontSize;
-    bool                             showLabel;
-    bool                             showInputLine;
-    bool                             useThemeColors;
+    QtMaterialTextFieldLabel *label;
+    QColor textColor;
+    QColor labelColor;
+    QColor inkColor;
+    QColor inputLineColor;
+    QString labelString;
+    qreal labelFontSize;
+    bool showLabel;
+    bool showInputLine;
+    bool useThemeColors;
 };
 
-#endif // QTMATERIALTEXTFIELD_P_H
+#endif  // QTMATERIALTEXTFIELD_P_H

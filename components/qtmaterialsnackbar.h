@@ -54,4 +54,4 @@ private:
     Q_DECLARE_PRIVATE(QtMaterialSnackbar)
 };
 
-#endif // QTMATERIALSNACKBAR_H
+#endif  // QTMATERIALSNACKBAR_H

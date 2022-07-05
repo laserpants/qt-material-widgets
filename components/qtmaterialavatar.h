@@ -1,8 +1,8 @@
 #ifndef QTMATERIALAVATAR_H
 #define QTMATERIALAVATAR_H
 
-#include <QtWidgets/QWidget>
 #include "lib/qtmaterialtheme.h"
+#include <QtWidgets/QWidget>
 
 class QtMaterialAvatarPrivate;
 
@@ -47,4 +47,4 @@ private:
     Q_DECLARE_PRIVATE(QtMaterialAvatar)
 };
 
-#endif // QTMATERIALAVATAR_H
+#endif  // QTMATERIALAVATAR_H

@@ -21,4 +21,4 @@ public:
     QtMaterialTheme *theme;
 };
 
-#endif // QTMATERIALSTYLE_P_H
+#endif  // QTMATERIALSTYLE_P_H

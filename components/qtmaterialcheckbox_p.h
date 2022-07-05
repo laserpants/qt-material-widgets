@@ -17,4 +17,4 @@ public:
     void init();
 };
 
-#endif // QTMATERIALCHECKBOX_P_H
+#endif  // QTMATERIALCHECKBOX_P_H

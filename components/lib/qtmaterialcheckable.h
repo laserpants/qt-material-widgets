@@ -61,4 +61,4 @@ private:
     Q_DECLARE_PRIVATE(QtMaterialCheckable)
 };
 
-#endif // QTMATERIALCHECKABLE_H
+#endif  // QTMATERIALCHECKABLE_H

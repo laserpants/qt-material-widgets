@@ -1,11 +1,11 @@
 #include "qtmaterialsnackbar.h"
-#include "qtmaterialsnackbar_p.h"
-#include <QtWidgets/QApplication>
-#include <QPainter>
-#include "qtmaterialsnackbar_internal.h"
-#include "lib/qtmaterialstyle.h"
 #include "lib/qtmaterialstatetransition.h"
+#include "lib/qtmaterialstyle.h"
+#include "qtmaterialsnackbar_internal.h"
+#include "qtmaterialsnackbar_p.h"
 #include <QDebug>
+#include <QPainter>
+#include <QtWidgets/QApplication>
 
 /*!
  *  \class QtMaterialSnackbarPrivate
@@ -17,19 +17,17 @@ QtMaterialSnackbarPrivate::QtMaterialSnackbarPrivate(QtMaterialSnackbar *q)
 {
 }
 
-QtMaterialSnackbarPrivate::~QtMaterialSnackbarPrivate()
-{
-}
+QtMaterialSnackbarPrivate::~QtMaterialSnackbarPrivate() {}
 
 void QtMaterialSnackbarPrivate::init()
 {
     Q_Q(QtMaterialSnackbar);
 
-    stateMachine   = new QtMaterialSnackbarStateMachine(q);
-    bgOpacity      = 0.9;
-    duration       = 3000;
-    boxWidth       = 300;
-    clickDismiss   = false;
+    stateMachine = new QtMaterialSnackbarStateMachine(q);
+    bgOpacity = 0.9;
+    duration = 3000;
+    boxWidth = 300;
+    clickDismiss = false;
     useThemeColors = true;
 
     q->setAttribute(Qt::WA_TransparentForMouseEvents);
@@ -47,15 +45,13 @@ void QtMaterialSnackbarPrivate::init()
  */
 
 QtMaterialSnackbar::QtMaterialSnackbar(QWidget *parent)
-    : QtMaterialOverlayWidget(parent),
-      d_ptr(new QtMaterialSnackbarPrivate(this))
+    : QtMaterialOverlayWidget(parent)
+    , d_ptr(new QtMaterialSnackbarPrivate(this))
 {
     d_func()->init();
 }
 
-QtMaterialSnackbar::~QtMaterialSnackbar()
-{
-}
+QtMaterialSnackbar::~QtMaterialSnackbar() {}
 
 void QtMaterialSnackbar::setAutoHideDuration(int duration)
 {
@@ -258,10 +254,9 @@ void QtMaterialSnackbar::paintEvent(QPaintEvent *event)
     painter.setPen(Qt::NoPen);
     r = br.united(r).adjusted(-10, -10, 10, 20);
 
-    const qreal s = 1-d->stateMachine->offset();
+    const qreal s = 1 - d->stateMachine->offset();
 
-    painter.translate((width()-(r.width()-20))/2,
-                      height()+10-s*(r.height()));
+    painter.translate((width() - (r.width() - 20)) / 2.0, height() + 10 - s * (r.height()));
 
     br.moveCenter(r.center());
     painter.drawRoundedRect(r.adjusted(0, 0, 0, 3), 3, 3);

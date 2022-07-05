@@ -2,7 +2,7 @@
 #define QTMATERIALTOGGLE_P_H
 
 #include <Qt>
-
+#include <QColor>
 class QStateMachine;
 class QState;
 class QColor;
@@ -23,19 +23,19 @@ public:
     void init();
     void setupProperties();
 
-    QtMaterialToggle              *const q_ptr;
-    QtMaterialToggleTrack         *track;
-    QtMaterialToggleThumb         *thumb;
+    QtMaterialToggle *const q_ptr;
+    QtMaterialToggleTrack *track;
+    QtMaterialToggleThumb *thumb;
     QtMaterialToggleRippleOverlay *rippleOverlay;
-    QStateMachine                 *stateMachine;
-    QState                        *offState;
-    QState                        *onState;
-    Qt::Orientation                orientation;
-    QColor                         disabledColor;
-    QColor                         activeColor;
-    QColor                         inactiveColor;
-    QColor                         trackColor;
-    bool                           useThemeColors;
+    QStateMachine *stateMachine;
+    QState *offState;
+    QState *onState;
+    Qt::Orientation orientation;
+    QColor disabledColor;
+    QColor activeColor;
+    QColor inactiveColor;
+    QColor trackColor;
+    bool useThemeColors;
 };
 
-#endif // QTMATERIALTOGGLE_P_H
+#endif  // QTMATERIALTOGGLE_P_H

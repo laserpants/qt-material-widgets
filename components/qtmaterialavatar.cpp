@@ -170,7 +170,7 @@ void QtMaterialAvatar::setSize(int size)
     }
 
     QFont f(font());
-    f.setPointSizeF(size*16/40);
+    f.setPointSizeF(size*16.0/40.0);
     setFont(f);
 
     update();
@@ -243,7 +243,7 @@ void QtMaterialAvatar::paintEvent(QPaintEvent *event)
         brush.setColor(QtMaterialStyle::instance().themeColor("disabled"));
         painter.setPen(Qt::NoPen);
         painter.setBrush(brush);
-        painter.drawEllipse(QRectF((width()-d->size)/2, (height()-d->size)/2,
+        painter.drawEllipse(QRectF((width()-d->size)/2.0, (height()-d->size)/2.0,
                                    d->size, d->size));
         return;
     }
@@ -255,7 +255,7 @@ void QtMaterialAvatar::paintEvent(QPaintEvent *event)
         brush.setColor(backgroundColor());
         painter.setPen(Qt::NoPen);
         painter.setBrush(brush);
-        painter.drawEllipse(QRectF((width()-d->size)/2, (height()-d->size)/2,
+        painter.drawEllipse(QRectF((width()-d->size)/2.0, (height()-d->size)/2.0,
                                    d->size, d->size));
     }
 
@@ -264,10 +264,10 @@ void QtMaterialAvatar::paintEvent(QPaintEvent *event)
     case Material::ImageAvatar:
     {
         QPainterPath path;
-        path.addEllipse(width()/2-hs, height()/2-hs, d->size, d->size);
+        path.addEllipse(width()/2.0-hs, height()/2.0-hs, d->size, d->size);
         painter.setClipPath(path);
 
-        painter.drawPixmap(QRect(width()/2-hs, height()/2-hs, d->size, d->size),
+        painter.drawPixmap(QRect(width()/2.0-hs, height()/2.0-hs, d->size, d->size),
                            d->pixmap);
         break;
     }

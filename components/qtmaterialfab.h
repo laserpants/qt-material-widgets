@@ -40,7 +40,6 @@ protected:
 private:
     Q_DISABLE_COPY(QtMaterialFloatingActionButton)
     Q_DECLARE_PRIVATE(QtMaterialFloatingActionButton)
-
 };
 
-#endif // QTMATERIALFAB_H
+#endif  // QTMATERIALFAB_H

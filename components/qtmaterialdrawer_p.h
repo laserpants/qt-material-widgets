@@ -19,15 +19,15 @@ public:
     void init();
     void setClosed(bool value = true);
 
-    QtMaterialDrawer             *const q_ptr;
-    QtMaterialDrawerWidget       *widget;
+    QtMaterialDrawer *const q_ptr;
+    QtMaterialDrawerWidget *widget;
     QtMaterialDrawerStateMachine *stateMachine;
-    QWidget                      *window;
-    int                           width;
-    bool                          clickToClose;
-    bool                          autoRaise;
-    bool                          closed;
-    bool                          overlay;
+    QWidget *window;
+    int width;
+    bool clickToClose;
+    bool autoRaise;
+    bool closed;
+    bool overlay;
 };
 
-#endif // DRAWER_P_H
+#endif  // DRAWER_P_H

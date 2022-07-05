@@ -31,12 +31,12 @@ enum QtMaterialStateTransitionType {
 struct QtMaterialStateTransitionEvent : public QEvent
 {
     QtMaterialStateTransitionEvent(QtMaterialStateTransitionType type)
-        : QEvent(QEvent::Type(QEvent::User + 1)),
-          type(type)
+        : QEvent(QEvent::Type(QEvent::User + 1))
+        , type(type)
     {
     }
 
     QtMaterialStateTransitionType type;
 };
 
-#endif // QTMATERIALSTATETRANSITIONEVENT_H
+#endif  // QTMATERIALSTATETRANSITIONEVENT_H

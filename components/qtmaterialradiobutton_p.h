@@ -17,4 +17,4 @@ public:
     void init();
 };
 
-#endif // QTMATERIALRADIOBUTTON_P_H
+#endif  // QTMATERIALRADIOBUTTON_P_H

@@ -1,32 +1,29 @@
 #include "qtmaterialdialog_internal.h"
+#include "qtmaterialdialog.h"
+#include <QEvent>
 #include <QPainter>
 #include <QPixmap>
-#include <QEvent>
 #include <QtWidgets/QStackedLayout>
-#include "qtmaterialdialog.h"
 
 /*!
  *  \class QtMaterialDialogProxy
  *  \internal
  */
 
-QtMaterialDialogProxy::QtMaterialDialogProxy(
-        QtMaterialDialogWindow *source,
-        QStackedLayout         *layout,
-        QtMaterialDialog       *dialog,
-        QWidget                *parent)
-    : QWidget(parent),
-      m_source(source),
-      m_layout(layout),
-      m_dialog(dialog),
-      m_opacity(0),
-      m_mode(Transparent)
+QtMaterialDialogProxy::QtMaterialDialogProxy(QtMaterialDialogWindow *source,
+                                             QStackedLayout *layout,
+                                             QtMaterialDialog *dialog,
+                                             QWidget *parent)
+    : QWidget(parent)
+    , m_source(source)
+    , m_layout(layout)
+    , m_dialog(dialog)
+    , m_opacity(0)
+    , m_mode(Transparent)
 {
 }
 
-QtMaterialDialogProxy::~QtMaterialDialogProxy()
-{
-}
+QtMaterialDialogProxy::~QtMaterialDialogProxy() {}
 
 void QtMaterialDialogProxy::setOpacity(qreal opacity)
 {
@@ -35,7 +32,6 @@ void QtMaterialDialogProxy::setOpacity(qreal opacity)
     update();
     m_dialog->update();
 }
-
 
 void QtMaterialDialogProxy::makeOpaque()
 {
@@ -88,17 +84,13 @@ void QtMaterialDialogProxy::paintEvent(QPaintEvent *event)
  *  \internal
  */
 
-QtMaterialDialogWindow::QtMaterialDialogWindow(
-        QtMaterialDialog *dialog,
-        QWidget          *parent)
-    : QWidget(parent),
-      m_dialog(dialog)
+QtMaterialDialogWindow::QtMaterialDialogWindow(QtMaterialDialog *dialog, QWidget *parent)
+    : QWidget(parent)
+    , m_dialog(dialog)
 {
 }
 
-QtMaterialDialogWindow::~QtMaterialDialogWindow()
-{
-}
+QtMaterialDialogWindow::~QtMaterialDialogWindow() {}
 
 void QtMaterialDialogWindow::setOffset(int offset)
 {

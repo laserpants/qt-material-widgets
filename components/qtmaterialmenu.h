@@ -12,4 +12,4 @@ public:
     ~QtMaterialMenu();
 };
 
-#endif // QTMATERIALMENU_H
+#endif  // QTMATERIALMENU_H

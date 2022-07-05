@@ -1,9 +1,9 @@
 #ifndef QTMATERIALTABS_H
 #define QTMATERIALTABS_H
 
-#include <QtWidgets/QWidget>
-#include <QIcon>
 #include "lib/qtmaterialtheme.h"
+#include <QIcon>
+#include <QtWidgets/QWidget>
 
 class QtMaterialTabsPrivate;
 class QtMaterialTab;
@@ -55,4 +55,4 @@ private:
     Q_DECLARE_PRIVATE(QtMaterialTabs)
 };
 
-#endif // QTMATERIALTABS_H
+#endif  // QTMATERIALTABS_H

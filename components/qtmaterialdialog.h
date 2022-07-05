@@ -1,8 +1,8 @@
 #ifndef QTMATERIALDIALOG_H
 #define QTMATERIALDIALOG_H
 
-#include <QScopedPointer>
 #include "lib/qtmaterialoverlaywidget.h"
+#include <QScopedPointer>
 
 class QLayout;
 class QtMaterialDialogPrivate;
@@ -32,4 +32,4 @@ private:
     Q_DECLARE_PRIVATE(QtMaterialDialog)
 };
 
-#endif // QTMATERIALDIALOG_H
+#endif  // QTMATERIALDIALOG_H

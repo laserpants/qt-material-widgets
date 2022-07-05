@@ -30,4 +30,4 @@ private:
     Q_DECLARE_PRIVATE(QtMaterialAutoComplete)
 };
 
-#endif // QTMATERIALAUTOCOMPLETE_H
+#endif  // QTMATERIALAUTOCOMPLETE_H

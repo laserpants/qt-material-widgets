@@ -1,8 +1,8 @@
 #ifndef QTMATERIALAPPBAR_H
 #define QTMATERIALAPPBAR_H
 
-#include <QtWidgets/QWidget>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QWidget>
 
 class QtMaterialAppBarPrivate;
 
@@ -45,4 +45,4 @@ inline QHBoxLayout *QtMaterialAppBar::appBarLayout() const
     return static_cast<QHBoxLayout *>(layout());
 }
 
-#endif // QTMATERIALAPPBAR_H
+#endif  // QTMATERIALAPPBAR_H

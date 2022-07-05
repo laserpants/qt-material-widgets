@@ -1,6 +1,6 @@
 #include "lib/qtmaterialstyle.h"
-#include <QFontDatabase>
 #include "lib/qtmaterialtheme.h"
+#include <QFontDatabase>
 
 /*!
  *  \class QtMaterialStylePrivate
@@ -12,9 +12,7 @@ QtMaterialStylePrivate::QtMaterialStylePrivate(QtMaterialStyle *q)
 {
 }
 
-QtMaterialStylePrivate::~QtMaterialStylePrivate()
-{
-}
+QtMaterialStylePrivate::~QtMaterialStylePrivate() {}
 
 void QtMaterialStylePrivate::init()
 {
@@ -50,8 +48,8 @@ QColor QtMaterialStyle::themeColor(const QString &key) const
 }
 
 QtMaterialStyle::QtMaterialStyle()
-    : QCommonStyle(),
-      d_ptr(new QtMaterialStylePrivate(this))
+    : QCommonStyle()
+    , d_ptr(new QtMaterialStylePrivate(this))
 {
     d_func()->init();
 }

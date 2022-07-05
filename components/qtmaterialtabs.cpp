@@ -1,8 +1,8 @@
 #include "qtmaterialtabs.h"
+#include "lib/qtmaterialstyle.h"
+#include "qtmaterialtabs_internal.h"
 #include "qtmaterialtabs_p.h"
 #include <QtWidgets/QHBoxLayout>
-#include "qtmaterialtabs_internal.h"
-#include "lib/qtmaterialstyle.h"
 
 /*!
  *  \QtMaterialTabsPrivate
@@ -14,19 +14,17 @@ QtMaterialTabsPrivate::QtMaterialTabsPrivate(QtMaterialTabs *q)
 {
 }
 
-QtMaterialTabsPrivate::~QtMaterialTabsPrivate()
-{
-}
+QtMaterialTabsPrivate::~QtMaterialTabsPrivate() {}
 
 void QtMaterialTabsPrivate::QtMaterialTabsPrivate::init()
 {
     Q_Q(QtMaterialTabs);
 
-    inkBar         = new QtMaterialTabsInkBar(q);
-    tabLayout      = new QHBoxLayout;
-    rippleStyle    = Material::CenteredRipple;
-    tab            = -1;
-    showHalo       = true;
+    inkBar = new QtMaterialTabsInkBar(q);
+    tabLayout = new QHBoxLayout;
+    rippleStyle = Material::CenteredRipple;
+    tab = -1;
+    showHalo = true;
     useThemeColors = true;
 
     q->setLayout(tabLayout);
@@ -41,15 +39,13 @@ void QtMaterialTabsPrivate::QtMaterialTabsPrivate::init()
  */
 
 QtMaterialTabs::QtMaterialTabs(QWidget *parent)
-    : QWidget(parent),
-      d_ptr(new QtMaterialTabsPrivate(this))
+    : QWidget(parent)
+    , d_ptr(new QtMaterialTabsPrivate(this))
 {
     d_func()->init();
 }
 
-QtMaterialTabs::~QtMaterialTabs()
-{
-}
+QtMaterialTabs::~QtMaterialTabs() {}
 
 void QtMaterialTabs::setUseThemeColors(bool value)
 {

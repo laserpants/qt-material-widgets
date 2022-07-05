@@ -1,8 +1,8 @@
 #include "lib/qtmaterialcheckable_internal.h"
-#include <QPainter>
-#include <QIcon>
-#include <QTransform>
 #include "lib/qtmaterialcheckable.h"
+#include <QIcon>
+#include <QPainter>
+#include <QTransform>
 
 /*!
  *  \class QtMaterialCheckableIcon
@@ -10,21 +10,19 @@
  */
 
 QtMaterialCheckableIcon::QtMaterialCheckableIcon(const QIcon &icon, QtMaterialCheckable *parent)
-    : QWidget(parent),
-      m_checkable(parent),
-      m_color(Qt::black),
-      m_icon(icon),
-      m_iconSize(24),
-      m_opacity(1.0)
+    : QWidget(parent)
+    , m_checkable(parent)
+    , m_color(Qt::black)
+    , m_icon(icon)
+    , m_iconSize(24)
+    , m_opacity(1.0)
 {
     Q_ASSERT(parent);
 
     setAttribute(Qt::WA_TransparentForMouseEvents);
 }
 
-QtMaterialCheckableIcon::~QtMaterialCheckableIcon()
-{
-}
+QtMaterialCheckableIcon::~QtMaterialCheckableIcon() {}
 
 QSize QtMaterialCheckableIcon::sizeHint() const
 {
@@ -41,14 +39,13 @@ void QtMaterialCheckableIcon::paintEvent(QPaintEvent *event)
 
     QPixmap pixmap = icon().pixmap(24, 24);
 
-    if (!pixmap.isNull())
-    {
-        const qreal p = static_cast<qreal>((height())-m_iconSize)/2;
-        const qreal z = m_iconSize/24;
+    if (!pixmap.isNull()) {
+        const qreal p = static_cast<qreal>((height()) - m_iconSize) / 2;
+        const qreal z = m_iconSize / 24;
 
         QTransform t;
         if (QtMaterialCheckable::LabelPositionLeft == m_checkable->labelPosition()) {
-            t.translate(p+width()-42, p);
+            t.translate(p + width() - 42, p);
         } else {
             t.translate(p, p);
         }

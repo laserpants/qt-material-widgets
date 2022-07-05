@@ -7,34 +7,30 @@
  */
 
 QtMaterialRipple::QtMaterialRipple(const QPoint &center, QObject *parent)
-    : QParallelAnimationGroup(parent),
-      m_overlay(0),
-      m_radiusAnimation(animate("radius")),
-      m_opacityAnimation(animate("opacity")),
-      m_radius(0),
-      m_opacity(0),
-      m_center(center)
+    : QParallelAnimationGroup(parent)
+    , m_overlay(0)
+    , m_radiusAnimation(animate("radius"))
+    , m_opacityAnimation(animate("opacity"))
+    , m_radius(0)
+    , m_opacity(0)
+    , m_center(center)
 {
     init();
 }
 
-QtMaterialRipple::QtMaterialRipple(const QPoint &center,
-                                   QtMaterialRippleOverlay *overlay,
-                                   QObject *parent)
-    : QParallelAnimationGroup(parent),
-      m_overlay(overlay),
-      m_radiusAnimation(animate("radius")),
-      m_opacityAnimation(animate("opacity")),
-      m_radius(0),
-      m_opacity(0),
-      m_center(center)
+QtMaterialRipple::QtMaterialRipple(const QPoint &center, QtMaterialRippleOverlay *overlay, QObject *parent)
+    : QParallelAnimationGroup(parent)
+    , m_overlay(overlay)
+    , m_radiusAnimation(animate("radius"))
+    , m_opacityAnimation(animate("opacity"))
+    , m_radius(0)
+    , m_opacity(0)
+    , m_center(center)
 {
     init();
 }
 
-QtMaterialRipple::~QtMaterialRipple()
-{
-}
+QtMaterialRipple::~QtMaterialRipple() {}
 
 void QtMaterialRipple::setRadius(qreal radius)
 {
@@ -89,9 +85,7 @@ void QtMaterialRipple::destroy()
 /*!
  *  \internal
  */
-QPropertyAnimation *QtMaterialRipple::animate(const QByteArray &property,
-                                              const QEasingCurve &easing,
-                                              int duration)
+QPropertyAnimation *QtMaterialRipple::animate(const QByteArray &property, const QEasingCurve &easing, int duration)
 {
     QPropertyAnimation *animation = new QPropertyAnimation;
     animation->setTargetObject(this);

@@ -1,8 +1,8 @@
 #ifndef QTMATERIALTHEME_P_H
 #define QTMATERIALTHEME_P_H
 
-#include <QHash>
 #include <QColor>
+#include <QHash>
 
 class QtMaterialTheme;
 
@@ -21,4 +21,4 @@ public:
     QHash<QString, QColor> colors;
 };
 
-#endif // QTMATERIALTHEME_P_H
+#endif  // QTMATERIALTHEME_P_H

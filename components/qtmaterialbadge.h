@@ -58,4 +58,4 @@ private:
     Q_DECLARE_PRIVATE(QtMaterialBadge)
 };
 
-#endif // QTMATERIALBADGE_H
+#endif  // QTMATERIALBADGE_H

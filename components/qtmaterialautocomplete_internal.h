@@ -1,8 +1,8 @@
 #ifndef QTMATERIALAUTOCOMPLETESTATEMACHINE_H
 #define QTMATERIALAUTOCOMPLETESTATEMACHINE_H
 
-#include <QStateMachine>
 #include "qtmaterialautocomplete.h"
+#include <QStateMachine>
 
 class QtMaterialAutoCompleteStateMachine : public QStateMachine
 {
@@ -21,9 +21,9 @@ private:
     Q_DISABLE_COPY(QtMaterialAutoCompleteStateMachine)
 
     QWidget *const m_menu;
-    QState  *const m_closedState;
-    QState  *const m_openState;
-    QState  *const m_closingState;
+    QState *const m_closedState;
+    QState *const m_openState;
+    QState *const m_closingState;
 };
 
-#endif // QTMATERIALAUTOCOMPLETESTATEMACHINE_H
+#endif  // QTMATERIALAUTOCOMPLETESTATEMACHINE_H

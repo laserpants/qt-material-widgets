@@ -1,8 +1,8 @@
 #ifndef QTMATERIALCHECKABLE_P_H
 #define QTMATERIALCHECKABLE_P_H
 
-#include <QtGlobal>
 #include "lib/qtmaterialcheckable.h"
+#include <QtGlobal>
 
 class QStateMachine;
 class QState;
@@ -21,23 +21,23 @@ public:
 
     void init();
 
-    QtMaterialCheckable                *const q_ptr;
-    QtMaterialRippleOverlay            *rippleOverlay;
-    QtMaterialCheckableIcon            *checkedIcon;
-    QtMaterialCheckableIcon            *uncheckedIcon;
-    QStateMachine                      *stateMachine;
-    QState                             *uncheckedState;
-    QState                             *checkedState;
-    QState                             *disabledUncheckedState;
-    QState                             *disabledCheckedState;
-    QSignalTransition                  *uncheckedTransition;
-    QSignalTransition                  *checkedTransition;
-    QtMaterialCheckable::LabelPosition  labelPosition;
-    QColor                              checkedColor;
-    QColor                              uncheckedColor;
-    QColor                              textColor;
-    QColor                              disabledColor;
-    bool                                useThemeColors;
+    QtMaterialCheckable *const q_ptr;
+    QtMaterialRippleOverlay *rippleOverlay;
+    QtMaterialCheckableIcon *checkedIcon;
+    QtMaterialCheckableIcon *uncheckedIcon;
+    QStateMachine *stateMachine;
+    QState *uncheckedState;
+    QState *checkedState;
+    QState *disabledUncheckedState;
+    QState *disabledCheckedState;
+    QSignalTransition *uncheckedTransition;
+    QSignalTransition *checkedTransition;
+    QtMaterialCheckable::LabelPosition labelPosition;
+    QColor checkedColor;
+    QColor uncheckedColor;
+    QColor textColor;
+    QColor disabledColor;
+    bool useThemeColors;
 };
 
-#endif // QTMATERIALCHECKABLE_P_H
+#endif  // QTMATERIALCHECKABLE_P_H

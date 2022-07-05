@@ -1,9 +1,9 @@
 #ifndef QTMATERIALCHECKABLE_INTERNAL_H
 #define QTMATERIALCHECKABLE_INTERNAL_H
 
-#include <QtWidgets/QWidget>
 #include <QColor>
 #include <QIcon>
+#include <QtWidgets/QWidget>
 
 class QtMaterialCheckable;
 
@@ -40,10 +40,10 @@ private:
     Q_DISABLE_COPY(QtMaterialCheckableIcon)
 
     QtMaterialCheckable *const m_checkable;
-    QColor                     m_color;
-    QIcon                      m_icon;
-    qreal                      m_iconSize;
-    qreal                      m_opacity;
+    QColor m_color;
+    QIcon m_icon;
+    qreal m_iconSize;
+    qreal m_opacity;
 };
 
 inline void QtMaterialCheckableIcon::setIcon(const QIcon &icon)
@@ -90,4 +90,4 @@ inline qreal QtMaterialCheckableIcon::opacity() const
     return m_opacity;
 }
 
-#endif // QTMATERIALCHECKABLE_INTERNAL_H
+#endif  // QTMATERIALCHECKABLE_INTERNAL_H

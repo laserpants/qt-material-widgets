@@ -1,8 +1,8 @@
 #ifndef QTMATERIALRIPPLEOVERLAY_H
 #define QTMATERIALRIPPLEOVERLAY_H
 
-#include <QPainterPath>
 #include "lib/qtmaterialoverlaywidget.h"
+#include <QPainterPath>
 
 class QtMaterialRipple;
 
@@ -35,8 +35,8 @@ private:
     void paintRipple(QPainter *painter, QtMaterialRipple *ripple);
 
     QList<QtMaterialRipple *> m_ripples;
-    QPainterPath              m_clipPath;
-    bool                      m_useClip;
+    QPainterPath m_clipPath;
+    bool m_useClip;
 };
 
 inline void QtMaterialRippleOverlay::setClipping(bool enable)
@@ -61,4 +61,4 @@ inline QList<QtMaterialRipple *> QtMaterialRippleOverlay::ripples() const
     return m_ripples;
 }
 
-#endif // QTMATERIALRIPPLEOVERLAY_H
+#endif  // QTMATERIALRIPPLEOVERLAY_H

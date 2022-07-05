@@ -24,4 +24,4 @@ private:
     Q_DECLARE_PRIVATE(QtMaterialRaisedButton)
 };
 
-#endif // QTMATERIALRAISEDBUTTON_H
+#endif  // QTMATERIALRAISEDBUTTON_H

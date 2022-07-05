@@ -1,8 +1,8 @@
 #include "qtmaterialautocomplete_internal.h"
-#include <QSignalTransition>
-#include <QPropertyAnimation>
-#include <QtWidgets/QGraphicsOpacityEffect>
 #include <QDebug>
+#include <QPropertyAnimation>
+#include <QSignalTransition>
+#include <QtWidgets/QGraphicsOpacityEffect>
 
 /*!
  *  \class QtMaterialAutoCompleteStateMachine
@@ -13,11 +13,11 @@
  *  \internal
  */
 QtMaterialAutoCompleteStateMachine::QtMaterialAutoCompleteStateMachine(QWidget *menu)
-    : QStateMachine(menu),
-      m_menu(menu),
-      m_closedState(new QState),
-      m_openState(new QState),
-      m_closingState(new QState)
+    : QStateMachine(menu)
+    , m_menu(menu)
+    , m_closedState(new QState)
+    , m_openState(new QState)
+    , m_closingState(new QState)
 {
     Q_ASSERT(menu);
 
@@ -64,6 +64,4 @@ QtMaterialAutoCompleteStateMachine::QtMaterialAutoCompleteStateMachine(QWidget *
 /*!
  *  \internal
  */
-QtMaterialAutoCompleteStateMachine::~QtMaterialAutoCompleteStateMachine()
-{
-}
+QtMaterialAutoCompleteStateMachine::~QtMaterialAutoCompleteStateMachine() {}

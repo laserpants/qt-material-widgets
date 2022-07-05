@@ -1,11 +1,11 @@
 #ifndef QTMATERIALRIPPLE_H
 #define QTMATERIALRIPPLE_H
 
-#include <QParallelAnimationGroup>
-#include <QEasingCurve>
-#include <QPropertyAnimation>
-#include <QPoint>
 #include <QBrush>
+#include <QEasingCurve>
+#include <QParallelAnimationGroup>
+#include <QPoint>
+#include <QPropertyAnimation>
 
 class QtMaterialRippleOverlay;
 
@@ -52,19 +52,18 @@ protected slots:
 private:
     Q_DISABLE_COPY(QtMaterialRipple)
 
-    QPropertyAnimation *animate(const QByteArray &property,
-                                const QEasingCurve &easing = QEasingCurve::OutQuad,
-                                int duration = 800);
+    QPropertyAnimation *
+    animate(const QByteArray &property, const QEasingCurve &easing = QEasingCurve::OutQuad, int duration = 800);
 
     void init();
 
-    QtMaterialRippleOverlay  *m_overlay;
+    QtMaterialRippleOverlay *m_overlay;
     QPropertyAnimation *const m_radiusAnimation;
     QPropertyAnimation *const m_opacityAnimation;
-    qreal                     m_radius;
-    qreal                     m_opacity;
-    QPoint                    m_center;
-    QBrush                    m_brush;
+    qreal m_radius;
+    qreal m_opacity;
+    QPoint m_center;
+    QBrush m_brush;
 };
 
 inline void QtMaterialRipple::setOverlay(QtMaterialRippleOverlay *overlay)
@@ -133,4 +132,4 @@ inline void QtMaterialRipple::setDuration(int msecs)
     m_opacityAnimation->setDuration(msecs);
 }
 
-#endif // QTMATERIALRIPPLE_H
+#endif  // QTMATERIALRIPPLE_H

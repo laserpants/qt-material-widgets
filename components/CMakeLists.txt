@@ -19,11 +19,10 @@ find_package(Qt5 REQUIRED COMPONENTS Core)
 find_package(Qt5 REQUIRED COMPONENTS Widgets)
 
 file(GLOB THELIB "lib/*")
-file(GLOB LAYOUT "layouts/*")
 file(GLOB COMPONENTSHEADER "*.h")
 file(GLOB COMPONENTSSOURCE "*.cpp")
 set(RCC_FILES resources.qrc)
-add_library(${PROJECT_NAME} STATIC ${THELIB} ${LAYOUT} ${COMPONENTSHEADER}
+add_library(${PROJECT_NAME} STATIC ${THELIB} ${COMPONENTSHEADER}
                                    ${COMPONENTSSOURCE} ${RCC_FILES})
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Core Qt5::Widgets)
 

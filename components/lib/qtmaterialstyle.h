@@ -1,11 +1,13 @@
 #ifndef QTMATERIALSTYLE_H
 #define QTMATERIALSTYLE_H
 
-#include <QtWidgets/QCommonStyle>
 #include "lib/qtmaterialstyle_p.h"
+#include <QtWidgets/QCommonStyle>
 
-#define MATERIAL_DISABLE_THEME_COLORS \
-    if (d->useThemeColors == true) { d->useThemeColors = false; }
+#define MATERIAL_DISABLE_THEME_COLORS                                                                                            \
+    if (d->useThemeColors == true) {                                                                                             \
+        d->useThemeColors = false;                                                                                               \
+    }
 
 class QtMaterialTheme;
 
@@ -37,4 +39,4 @@ inline QtMaterialStyle &QtMaterialStyle::instance()
     return instance;
 }
 
-#endif // QTMATERIALSTYLE_H
+#endif  // QTMATERIALSTYLE_H

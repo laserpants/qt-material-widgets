@@ -1,10 +1,10 @@
 #include "qtmaterialtextfield.h"
-#include "qtmaterialtextfield_p.h"
-#include <QtWidgets/QApplication>
-#include <QPainter>
-#include "qtmaterialtextfield_internal.h"
 #include "lib/qtmaterialstyle.h"
+#include "qtmaterialtextfield_internal.h"
+#include "qtmaterialtextfield_p.h"
 #include <QDebug>
+#include <QPainter>
+#include <QtWidgets/QApplication>
 
 /*!
  *  \class QtMaterialTextFieldPrivate
@@ -16,19 +16,17 @@ QtMaterialTextFieldPrivate::QtMaterialTextFieldPrivate(QtMaterialTextField *q)
 {
 }
 
-QtMaterialTextFieldPrivate::~QtMaterialTextFieldPrivate()
-{
-}
+QtMaterialTextFieldPrivate::~QtMaterialTextFieldPrivate() {}
 
 void QtMaterialTextFieldPrivate::init()
 {
     Q_Q(QtMaterialTextField);
 
-    stateMachine   = new QtMaterialTextFieldStateMachine(q);
-    label          = 0;
-    labelFontSize  = 9.5;
-    showLabel      = false;
-    showInputLine  = true;
+    stateMachine = new QtMaterialTextFieldStateMachine(q);
+    label = 0;
+    labelFontSize = 9.5;
+    showLabel = false;
+    showInputLine = true;
     useThemeColors = true;
 
     q->setFrame(false);
@@ -48,15 +46,13 @@ void QtMaterialTextFieldPrivate::init()
  */
 
 QtMaterialTextField::QtMaterialTextField(QWidget *parent)
-    : QLineEdit(parent),
-      d_ptr(new QtMaterialTextFieldPrivate(this))
+    : QLineEdit(parent)
+    , d_ptr(new QtMaterialTextFieldPrivate(this))
 {
     d_func()->init();
 }
 
-QtMaterialTextField::~QtMaterialTextField()
-{
-}
+QtMaterialTextField::~QtMaterialTextField() {}
 
 void QtMaterialTextField::setUseThemeColors(bool value)
 {
@@ -112,8 +108,7 @@ void QtMaterialTextField::setLabelFontSize(qreal size)
 
     d->labelFontSize = size;
 
-    if (d->label)
-    {
+    if (d->label) {
         QFont font(d->label->font());
         font.setPointSizeF(size);
         d->label->setFont(font);
@@ -249,8 +244,8 @@ bool QtMaterialTextField::hasInputLine() const
 }
 
 QtMaterialTextField::QtMaterialTextField(QtMaterialTextFieldPrivate &d, QWidget *parent)
-    : QLineEdit(parent),
-      d_ptr(&d)
+    : QLineEdit(parent)
+    , d_ptr(&d)
 {
     d_func()->init();
 }
@@ -262,16 +257,15 @@ bool QtMaterialTextField::event(QEvent *event)
 {
     Q_D(QtMaterialTextField);
 
-    switch (event->type())
-    {
-    case QEvent::Resize:
-    case QEvent::Move: {
-        if (d->label) {
-            d->label->setGeometry(rect());
+    switch (event->type()) {
+        case QEvent::Resize:
+        case QEvent::Move: {
+            if (d->label) {
+                d->label->setGeometry(rect());
+            }
         }
-    }
-    default:
-        break;
+        default:
+            break;
     }
     return QLineEdit::event(event);
 }
@@ -289,22 +283,20 @@ void QtMaterialTextField::paintEvent(QPaintEvent *event)
 
     const qreal progress = d->stateMachine->progress();
 
-    if (text().isEmpty() && progress < 1)
-    {
-        painter.setOpacity(1-progress);
+    if (text().isEmpty() && progress < 1) {
+        painter.setOpacity(1 - progress);
         painter.fillRect(rect(), parentWidget()->palette().color(backgroundRole()));
     }
 
-    const int y = height()-1;
-    const int wd = width()-5;
+    const int y = height() - 1;
+    const int wd = width() - 5;
 
-    if (d->showInputLine)
-    {
+    if (d->showInputLine) {
         QPen pen;
         pen.setWidth(1);
         pen.setColor(inputLineColor());
 
-        if (!isEnabled()) 
+        if (!isEnabled())
             pen.setStyle(Qt::DashLine);
 
         painter.setPen(pen);
@@ -315,12 +307,11 @@ void QtMaterialTextField::paintEvent(QPaintEvent *event)
         brush.setStyle(Qt::SolidPattern);
         brush.setColor(inkColor());
 
-        if (progress > 0)
-        {
+        if (progress > 0) {
             painter.setPen(Qt::NoPen);
             painter.setBrush(brush);
-            const int w = (1-progress)*static_cast<qreal>(wd/2);
-            painter.drawRect(w+2.5, height()-2, wd-w*2, 2);
+            const int w = (1 - progress) * static_cast<qreal>(wd / 2.0);
+            painter.drawRect(w + 2.5, height() - 2, wd - w * 2, 2);
         }
     }
 }

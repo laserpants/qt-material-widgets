@@ -1,10 +1,10 @@
 #include "qtmaterialradiobutton.h"
-#include "qtmaterialradiobutton_p.h"
-#include <QStateMachine>
-#include <QState>
-#include <QPropertyAnimation>
-#include <QColor>
 #include "lib/qtmaterialcheckable_internal.h"
+#include "qtmaterialradiobutton_p.h"
+#include <QColor>
+#include <QPropertyAnimation>
+#include <QState>
+#include <QStateMachine>
 
 /*!
  *  \class QtMaterialRadioButtonPrivate
@@ -16,9 +16,7 @@ QtMaterialRadioButtonPrivate::QtMaterialRadioButtonPrivate(QtMaterialRadioButton
 {
 }
 
-QtMaterialRadioButtonPrivate::~QtMaterialRadioButtonPrivate()
-{
-}
+QtMaterialRadioButtonPrivate::~QtMaterialRadioButtonPrivate() {}
 
 void QtMaterialRadioButtonPrivate::init()
 {
@@ -84,9 +82,7 @@ QtMaterialRadioButton::QtMaterialRadioButton(QWidget *parent)
     d_func()->init();
 }
 
-QtMaterialRadioButton::~QtMaterialRadioButton()
-{
-}
+QtMaterialRadioButton::~QtMaterialRadioButton() {}
 
 void QtMaterialRadioButton::setupProperties()
 {

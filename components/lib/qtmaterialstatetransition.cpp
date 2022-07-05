@@ -14,6 +14,4 @@ bool QtMaterialStateTransition::eventTest(QEvent *event)
     return (m_type == transition->type);
 }
 
-void QtMaterialStateTransition::onTransition(QEvent *)
-{
-}
+void QtMaterialStateTransition::onTransition(QEvent *) {}

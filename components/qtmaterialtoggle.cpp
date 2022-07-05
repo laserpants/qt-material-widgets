@@ -1,11 +1,11 @@
 #include "qtmaterialtoggle.h"
-#include "qtmaterialtoggle_p.h"
-#include <QtWidgets/QApplication>
-#include <QStateMachine>
-#include <QSignalTransition>
-#include <QPropertyAnimation>
-#include "qtmaterialtoggle_internal.h"
 #include "lib/qtmaterialstyle.h"
+#include "qtmaterialtoggle_internal.h"
+#include "qtmaterialtoggle_p.h"
+#include <QPropertyAnimation>
+#include <QSignalTransition>
+#include <QStateMachine>
+#include <QtWidgets/QApplication>
 
 /*!
  *  \class QtMaterialTogglePrivate
@@ -17,21 +17,19 @@ QtMaterialTogglePrivate::QtMaterialTogglePrivate(QtMaterialToggle *q)
 {
 }
 
-QtMaterialTogglePrivate::~QtMaterialTogglePrivate()
-{
-}
+QtMaterialTogglePrivate::~QtMaterialTogglePrivate() {}
 
 void QtMaterialTogglePrivate::init()
 {
     Q_Q(QtMaterialToggle);
 
-    track          = new QtMaterialToggleTrack(q);
-    thumb          = new QtMaterialToggleThumb(q);
-    rippleOverlay  = new QtMaterialToggleRippleOverlay(thumb, track, q);
-    stateMachine   = new QStateMachine(q);
-    offState       = new QState;
-    onState        = new QState;
-    orientation    = Qt::Horizontal;
+    track = new QtMaterialToggleTrack(q);
+    thumb = new QtMaterialToggleThumb(q);
+    rippleOverlay = new QtMaterialToggleRippleOverlay(thumb, track, q);
+    stateMachine = new QStateMachine(q);
+    offState = new QState;
+    onState = new QState;
+    orientation = Qt::Horizontal;
     useThemeColors = true;
 
     q->setCheckable(true);
@@ -115,7 +113,7 @@ void QtMaterialTogglePrivate::setupProperties()
         if (qFuzzyCompare(shift, 1)) {
             thumb->setThumbColor(q->activeColor());
             track->setTrackColor(q->activeColor().lighter(110));
-        } else if (qFuzzyCompare(1+shift, 1)) {
+        } else if (qFuzzyCompare(1 + shift, 1)) {
             thumb->setThumbColor(q->inactiveColor());
             track->setTrackColor(q->trackColor());
         }
@@ -135,15 +133,13 @@ void QtMaterialTogglePrivate::setupProperties()
  */
 
 QtMaterialToggle::QtMaterialToggle(QWidget *parent)
-    : QAbstractButton(parent),
-      d_ptr(new QtMaterialTogglePrivate(this))
+    : QAbstractButton(parent)
+    , d_ptr(new QtMaterialTogglePrivate(this))
 {
     d_func()->init();
 }
 
-QtMaterialToggle::~QtMaterialToggle()
-{
-}
+QtMaterialToggle::~QtMaterialToggle() {}
 
 void QtMaterialToggle::setUseThemeColors(bool value)
 {
@@ -267,27 +263,23 @@ QSize QtMaterialToggle::sizeHint() const
 {
     Q_D(const QtMaterialToggle);
 
-    return Qt::Horizontal == d->orientation
-        ? QSize(64, 48)
-        : QSize(48, 64);
+    return Qt::Horizontal == d->orientation ? QSize(64, 48) : QSize(48, 64);
 }
 
 bool QtMaterialToggle::event(QEvent *event)
 {
     Q_D(QtMaterialToggle);
 
-    switch (event->type())
-    {
-    case QEvent::ParentChange:
-    {
-        QWidget *widget;
-        if ((widget = parentWidget())) {
-            d->rippleOverlay->setParent(widget);
+    switch (event->type()) {
+        case QEvent::ParentChange: {
+            QWidget *widget;
+            if ((widget = parentWidget())) {
+                d->rippleOverlay->setParent(widget);
+            }
+            break;
         }
-        break;
-    }
-    default:
-        break;
+        default:
+            break;
     }
     return QAbstractButton::event(event);
 }

@@ -1,8 +1,8 @@
 #ifndef QTMATERIALFLATBUTTON_INTERNAL_H
 #define QTMATERIALFLATBUTTON_INTERNAL_H
 
-#include <QStateMachine>
 #include <QColor>
+#include <QStateMachine>
 
 class QtMaterialFlatButton;
 class QSequentialAnimationGroup;
@@ -55,24 +55,23 @@ private:
     void addTransition(QAbstractTransition *transition, QState *fromState, QState *toState);
 
     QtMaterialFlatButton *const m_button;
-    QState               *const m_topLevelState;
-    QState               *const m_configState;
-    QState               *const m_checkableState;
-    QState               *const m_checkedState;
-    QState               *const m_uncheckedState;
-    QState               *const m_neutralState;
-    QState               *const m_neutralFocusedState;
-    QState               *const m_hoveredState;
-    QState               *const m_hoveredFocusedState;
-    QState               *const m_pressedState;
-    QSequentialAnimationGroup
-                         *const m_haloAnimation;
-    qreal                       m_overlayOpacity;
-    qreal                       m_checkedOverlayProgress;
-    qreal                       m_haloOpacity;
-    qreal                       m_haloSize;
-    qreal                       m_haloScaleFactor;
-    bool                        m_wasChecked;
+    QState *const m_topLevelState;
+    QState *const m_configState;
+    QState *const m_checkableState;
+    QState *const m_checkedState;
+    QState *const m_uncheckedState;
+    QState *const m_neutralState;
+    QState *const m_neutralFocusedState;
+    QState *const m_hoveredState;
+    QState *const m_hoveredFocusedState;
+    QState *const m_pressedState;
+    QSequentialAnimationGroup *const m_haloAnimation;
+    qreal m_overlayOpacity;
+    qreal m_checkedOverlayProgress;
+    qreal m_haloOpacity;
+    qreal m_haloSize;
+    qreal m_haloScaleFactor;
+    bool m_wasChecked;
 };
 
 inline qreal QtMaterialFlatButtonStateMachine::overlayOpacity() const
@@ -100,4 +99,4 @@ inline qreal QtMaterialFlatButtonStateMachine::haloScaleFactor() const
     return m_haloScaleFactor;
 }
 
-#endif // QTMATERIALFLATBUTTON_INTERNAL_H
+#endif  // QTMATERIALFLATBUTTON_INTERNAL_H
