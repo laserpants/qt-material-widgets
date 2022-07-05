@@ -18,12 +18,18 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt5 REQUIRED COMPONENTS Core)
 find_package(Qt5 REQUIRED COMPONENTS Widgets)
 
-file(GLOB THELIB "lib/*")
+file(GLOB THELIB "materiallib/*")
 file(GLOB COMPONENTSHEADER "*.h")
 file(GLOB COMPONENTSSOURCE "*.cpp")
+file(GLOB HEADER "../include/qmetarial/*")
+file(GLOB HEADER2 "../include/qmetarial/lib/*")
+
 set(RCC_FILES resources.qrc)
 add_library(${PROJECT_NAME} STATIC ${THELIB} ${COMPONENTSHEADER}
-                                   ${COMPONENTSSOURCE} ${RCC_FILES})
+                                   ${COMPONENTSSOURCE} ${RCC_FILES}
+																	 ${HEADER} ${HEADER2})
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Core Qt5::Widgets)
-
+target_include_directories(${PROJECT_NAME} PUBLIC
+	../include/qmetarial/
+)
 target_link_directories(${PROJECT_NAME} PUBLIC .)

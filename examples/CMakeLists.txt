@@ -29,7 +29,7 @@ add_executable(
   ${RCC_FILES}
 )
 target_include_directories(${PROJECT_NAME} PUBLIC
-	../components/
+	../include/qmetarial/
 )
 
 target_link_libraries(

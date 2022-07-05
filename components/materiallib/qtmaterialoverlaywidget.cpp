@@ -1,4 +1,4 @@
-#include "lib/qtmaterialoverlaywidget.h"
+#include <lib/qtmaterialoverlaywidget.h>
 #include <QEvent>
 
 /*!

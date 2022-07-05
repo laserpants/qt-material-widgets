@@ -1,9 +1,11 @@
-#include "lib/qtmaterialcheckable.h"
-#include "lib/qtmaterialcheckable_internal.h"
-#include "lib/qtmaterialcheckable_p.h"
-#include "lib/qtmaterialripple.h"
-#include "lib/qtmaterialrippleoverlay.h"
-#include "lib/qtmaterialstyle.h"
+#include <lib/qtmaterialcheckable.h>
+#include <lib/qtmaterialcheckable_internal.h>
+#include <lib/qtmaterialripple.h>
+#include <lib/qtmaterialrippleoverlay.h>
+#include <lib/qtmaterialstyle.h>
+
+#include "qtmaterialcheckable_p.h"
+
 #include <QColor>
 #include <QCoreApplication>
 #include <QEvent>

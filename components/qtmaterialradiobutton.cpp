@@ -8,7 +8,9 @@
 
 /*!
  *  \class QtMaterialRadioButtonPrivate
- *  \internal
+ *  @parma state private class
+ *  @internal
+ *
  */
 
 QtMaterialRadioButtonPrivate::QtMaterialRadioButtonPrivate(QtMaterialRadioButton *q)
@@ -20,6 +22,7 @@ QtMaterialRadioButtonPrivate::~QtMaterialRadioButtonPrivate() {}
 
 void QtMaterialRadioButtonPrivate::init()
 {
+	// get the public button
     Q_Q(QtMaterialRadioButton);
 
     q->setAutoExclusive(true);

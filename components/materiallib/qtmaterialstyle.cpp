@@ -1,5 +1,5 @@
-#include "lib/qtmaterialstyle.h"
-#include "lib/qtmaterialtheme.h"
+#include <lib/qtmaterialstyle.h>
+#include <lib/qtmaterialtheme.h>
 #include <QFontDatabase>
 
 /*!
