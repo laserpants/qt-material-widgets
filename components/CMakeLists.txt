@@ -25,11 +25,9 @@ file(GLOB HEADER "../include/qmetarial/*")
 file(GLOB HEADER2 "../include/qmetarial/lib/*")
 
 set(RCC_FILES resources.qrc)
-add_library(${PROJECT_NAME} STATIC ${THELIB} ${COMPONENTSHEADER}
-                                   ${COMPONENTSSOURCE} ${RCC_FILES}
-																	 ${HEADER} ${HEADER2})
+add_library(
+  ${PROJECT_NAME} STATIC ${THELIB} ${COMPONENTSHEADER} ${COMPONENTSSOURCE}
+                         ${RCC_FILES} ${HEADER} ${HEADER2})
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Core Qt5::Widgets)
-target_include_directories(${PROJECT_NAME} PUBLIC
-	../include/qmetarial/
-)
+target_include_directories(${PROJECT_NAME} PUBLIC ../include/qmetarial/)
 target_link_directories(${PROJECT_NAME} PUBLIC .)
