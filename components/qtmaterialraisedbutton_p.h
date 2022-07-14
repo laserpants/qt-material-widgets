@@ -19,10 +19,10 @@ public:
 
     void init();
 
-    QStateMachine             *shadowStateMachine;
-    QState                    *normalState;
-    QState                    *pressedState;
+    QStateMachine *shadowStateMachine;
+    QState *normalState;
+    QState *pressedState;
     QGraphicsDropShadowEffect *effect;
 };
 
-#endif // QTMATERIALRAISEDBUTTON_P_H
+#endif  // QTMATERIALRAISEDBUTTON_P_H

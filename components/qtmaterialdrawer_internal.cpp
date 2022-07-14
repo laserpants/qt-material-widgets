@@ -7,8 +7,8 @@
 #include <QtWidgets/QLayout>
 
 /*!
- *  \class QtMaterialDrawerStateMachine
- *  \internal
+ *  @class QtMaterialDrawerStateMachine
+ *  @internal
  */
 
 QtMaterialDrawerStateMachine::QtMaterialDrawerStateMachine(QtMaterialDrawerWidget *drawer, QtMaterialDrawer *parent)

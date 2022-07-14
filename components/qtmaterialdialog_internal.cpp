@@ -6,8 +6,8 @@
 #include <QtWidgets/QStackedLayout>
 
 /*!
- *  \class QtMaterialDialogProxy
- *  \internal
+ *  @class QtMaterialDialogProxy
+ *  @internal
  */
 
 QtMaterialDialogProxy::QtMaterialDialogProxy(QtMaterialDialogWindow *source,
@@ -80,8 +80,8 @@ void QtMaterialDialogProxy::paintEvent(QPaintEvent *event)
 }
 
 /*!
- *  \class QtMaterialDialogWindow
- *  \internal
+ *  @class QtMaterialDialogWindow
+ *  @internal
  */
 
 QtMaterialDialogWindow::QtMaterialDialogWindow(QtMaterialDialog *dialog, QWidget *parent)

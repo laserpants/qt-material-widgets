@@ -1,17 +1,17 @@
 #include "qtmaterialraisedbutton.h"
 #include "qtmaterialraisedbutton_p.h"
+#include <QEventTransition>
+#include <QPropertyAnimation>
 #include <QStateMachine>
 #include <QtWidgets/QGraphicsDropShadowEffect>
-#include <QPropertyAnimation>
-#include <QEventTransition>
 
 /*!
- *  \class QtMaterialRaisedButtonPrivate
- *  \internal
+ *  @class QtMaterialRaisedButtonPrivate
+ *  @internal
  */
 
 /*!
- *  \internal
+ *  @internal
  */
 QtMaterialRaisedButtonPrivate::QtMaterialRaisedButtonPrivate(QtMaterialRaisedButton *q)
     : QtMaterialFlatButtonPrivate(q)
@@ -19,23 +19,21 @@ QtMaterialRaisedButtonPrivate::QtMaterialRaisedButtonPrivate(QtMaterialRaisedBut
 }
 
 /*!
- *  \internal
+ *  @internal
  */
-QtMaterialRaisedButtonPrivate::~QtMaterialRaisedButtonPrivate()
-{
-}
+QtMaterialRaisedButtonPrivate::~QtMaterialRaisedButtonPrivate() {}
 
 /*!
- *  \internal
+ *  @internal
  */
 void QtMaterialRaisedButtonPrivate::init()
 {
     Q_Q(QtMaterialRaisedButton);
 
     shadowStateMachine = new QStateMachine(q);
-    normalState        = new QState;
-    pressedState       = new QState;
-    effect             = new QGraphicsDropShadowEffect;
+    normalState = new QState;
+    pressedState = new QState;
+    effect = new QGraphicsDropShadowEffect;
 
     effect->setBlurRadius(7);
     effect->setOffset(QPointF(0, 2));
@@ -84,7 +82,7 @@ void QtMaterialRaisedButtonPrivate::init()
 }
 
 /*!
- *  \class QtMaterialRaisedButton
+ *  @class QtMaterialRaisedButton
  */
 
 QtMaterialRaisedButton::QtMaterialRaisedButton(QWidget *parent)
@@ -101,9 +99,7 @@ QtMaterialRaisedButton::QtMaterialRaisedButton(const QString &text, QWidget *par
     setText(text);
 }
 
-QtMaterialRaisedButton::~QtMaterialRaisedButton()
-{
-}
+QtMaterialRaisedButton::~QtMaterialRaisedButton() {}
 
 QtMaterialRaisedButton::QtMaterialRaisedButton(QtMaterialRaisedButtonPrivate &d, QWidget *parent)
     : QtMaterialFlatButton(d, parent)

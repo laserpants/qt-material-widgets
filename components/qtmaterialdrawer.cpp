@@ -11,12 +11,12 @@
 #include <QtWidgets/QVBoxLayout>
 
 /*!
- *  \class QtMaterialDrawerPrivate
- *  \internal
+ *  @class QtMaterialDrawerPrivate
+ *  @internal
  */
 
 /*!
- *  \internal
+ *  @internal
  */
 QtMaterialDrawerPrivate::QtMaterialDrawerPrivate(QtMaterialDrawer *q)
     : q_ptr(q)
@@ -24,12 +24,12 @@ QtMaterialDrawerPrivate::QtMaterialDrawerPrivate(QtMaterialDrawer *q)
 }
 
 /*!
- *  \internal
+ *  @internal
  */
 QtMaterialDrawerPrivate::~QtMaterialDrawerPrivate() {}
 
 /*!
- *  \internal
+ *  @internal
  */
 void QtMaterialDrawerPrivate::init()
 {
@@ -57,7 +57,7 @@ void QtMaterialDrawerPrivate::init()
 }
 
 /*!
- *  \class QtMaterialDrawer
+ *  @class QtMaterialDrawer
  */
 
 QtMaterialDrawer::QtMaterialDrawer(QWidget *parent)
@@ -158,9 +158,10 @@ void QtMaterialDrawer::openDrawer()
 void QtMaterialDrawer::closeDrawer()
 {
     Q_D(QtMaterialDrawer);
-
+    // emit signal to close
     emit d->stateMachine->signalClose();
 
+    // reset the attribute
     if (d->overlay) {
         setAttribute(Qt::WA_TransparentForMouseEvents);
         setAttribute(Qt::WA_NoSystemBackground);
@@ -184,6 +185,7 @@ bool QtMaterialDrawer::event(QEvent *event)
     return QtMaterialOverlayWidget::event(event);
 }
 
+// size
 bool QtMaterialDrawer::eventFilter(QObject *obj, QEvent *event)
 {
     Q_D(QtMaterialDrawer);
@@ -192,7 +194,9 @@ bool QtMaterialDrawer::eventFilter(QObject *obj, QEvent *event)
         case QEvent::MouseButtonPress: {
             QMouseEvent *mouseEvent;
             if ((mouseEvent = static_cast<QMouseEvent *>(event))) {
+                // check canClose
                 const bool canClose = d->clickToClose || d->overlay;
+                // auto close location
                 if (!d->widget->geometry().contains(mouseEvent->pos()) && canClose) {
                     closeDrawer();
                 }
@@ -222,6 +226,7 @@ void QtMaterialDrawer::paintEvent(QPaintEvent *event)
     if (!d->overlay || d->stateMachine->isInClosedState()) {
         return;
     }
+    // shadow
     QPainter painter(this);
     painter.setOpacity(d->stateMachine->opacity());
     painter.fillRect(rect(), Qt::SolidPattern);

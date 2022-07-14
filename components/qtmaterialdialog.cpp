@@ -11,8 +11,8 @@
 #include <QtWidgets/QStackedLayout>
 
 /*!
- *  \class QtMaterialDialogPrivate
- *  \internal
+ *  @class QtMaterialDialogPrivate
+ *  @internal
  */
 
 QtMaterialDialogPrivate::QtMaterialDialogPrivate(QtMaterialDialog *q)
@@ -22,8 +22,10 @@ QtMaterialDialogPrivate::QtMaterialDialogPrivate(QtMaterialDialog *q)
 
 QtMaterialDialogPrivate::~QtMaterialDialogPrivate() {}
 
+// main
 void QtMaterialDialogPrivate::init()
 {
+    // get public class
     Q_Q(QtMaterialDialog);
 
     dialogWindow = new QtMaterialDialogWindow(q);
@@ -31,6 +33,7 @@ void QtMaterialDialogPrivate::init()
     stateMachine = new QStateMachine(q);
     proxy = new QtMaterialDialogProxy(dialogWindow, proxyStack, q);
 
+    // qvbox
     QVBoxLayout *layout = new QVBoxLayout;
     q->setLayout(layout);
 
@@ -38,6 +41,7 @@ void QtMaterialDialogPrivate::init()
     widget->setLayout(proxyStack);
     widget->setMinimumWidth(400);
 
+    // shadoweffect
     QGraphicsDropShadowEffect *effect = new QGraphicsDropShadowEffect;
     effect->setColor(QColor(0, 0, 0, 200));
     effect->setBlurRadius(64);
@@ -100,7 +104,7 @@ void QtMaterialDialogPrivate::init()
 }
 
 /*!
- *  \class QtMaterialDialog
+ *  @class QtMaterialDialog
  */
 
 QtMaterialDialog::QtMaterialDialog(QWidget *parent)
@@ -143,6 +147,7 @@ void QtMaterialDialog::hideDialog()
     d->proxyStack->setCurrentIndex(1);
 }
 
+// just paint shadow
 void QtMaterialDialog::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)

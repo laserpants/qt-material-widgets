@@ -2,8 +2,8 @@
 #include <QEvent>
 
 /*!
- *  \class QtMaterialOverlayWidget
- *  \internal
+ *  @class QtMaterialOverlayWidget
+ *  @internal
  */
 
 QtMaterialOverlayWidget::QtMaterialOverlayWidget(QWidget *parent)
@@ -17,7 +17,7 @@ QtMaterialOverlayWidget::QtMaterialOverlayWidget(QWidget *parent)
 QtMaterialOverlayWidget::~QtMaterialOverlayWidget() {}
 
 /*!
- *  \reimp
+ *  @reimp
  */
 bool QtMaterialOverlayWidget::event(QEvent *event)
 {
@@ -41,7 +41,7 @@ bool QtMaterialOverlayWidget::event(QEvent *event)
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 bool QtMaterialOverlayWidget::eventFilter(QObject *obj, QEvent *event)
 {

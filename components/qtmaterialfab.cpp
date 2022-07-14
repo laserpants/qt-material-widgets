@@ -7,12 +7,12 @@
 #include <QtWidgets/QGraphicsDropShadowEffect>
 
 /*!
- *  \class QtMaterialFloatingActionButtonPrivate
- *  \internal
+ *  @class QtMaterialFloatingActionButtonPrivate
+ *  @internal
  */
 
 /*!
- *  \internal
+ *  @internal
  */
 QtMaterialFloatingActionButtonPrivate::QtMaterialFloatingActionButtonPrivate(QtMaterialFloatingActionButton *q)
     : QtMaterialRaisedButtonPrivate(q)
@@ -20,12 +20,12 @@ QtMaterialFloatingActionButtonPrivate::QtMaterialFloatingActionButtonPrivate(QtM
 }
 
 /*!
- *  \internal
+ *  @internal
  */
 QtMaterialFloatingActionButtonPrivate::~QtMaterialFloatingActionButtonPrivate() {}
 
 /*!
- *  \internal
+ *  @internal
  */
 void QtMaterialFloatingActionButtonPrivate::init()
 {
@@ -50,7 +50,7 @@ void QtMaterialFloatingActionButtonPrivate::init()
 }
 
 /*!
- *  \internal
+ *  @internal
  */
 QRect QtMaterialFloatingActionButtonPrivate::fabGeometry() const
 {
@@ -78,7 +78,7 @@ QRect QtMaterialFloatingActionButtonPrivate::fabGeometry() const
 }
 
 /*!
- *  \internal
+ *  @internal
  */
 void QtMaterialFloatingActionButtonPrivate::setupProperties()
 {
@@ -98,7 +98,7 @@ void QtMaterialFloatingActionButtonPrivate::setupProperties()
 }
 
 /*!
- *  \class QtMaterialFloatingActionButton
+ *  @class QtMaterialFloatingActionButton
  */
 
 QtMaterialFloatingActionButton::QtMaterialFloatingActionButton(const QIcon &icon, QWidget *parent)
@@ -112,7 +112,7 @@ QtMaterialFloatingActionButton::QtMaterialFloatingActionButton(const QIcon &icon
 QtMaterialFloatingActionButton::~QtMaterialFloatingActionButton() {}
 
 /*!
- *  \reimp
+ *  @reimp
  */
 QSize QtMaterialFloatingActionButton::sizeHint() const
 {
@@ -222,7 +222,7 @@ int QtMaterialFloatingActionButton::yOffset() const
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 bool QtMaterialFloatingActionButton::event(QEvent *event)
 {
@@ -248,7 +248,7 @@ bool QtMaterialFloatingActionButton::event(QEvent *event)
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 bool QtMaterialFloatingActionButton::eventFilter(QObject *obj, QEvent *event)
 {
@@ -263,7 +263,7 @@ bool QtMaterialFloatingActionButton::eventFilter(QObject *obj, QEvent *event)
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 void QtMaterialFloatingActionButton::paintEvent(QPaintEvent *event)
 {
