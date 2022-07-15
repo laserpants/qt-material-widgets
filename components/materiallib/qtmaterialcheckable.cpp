@@ -1,5 +1,5 @@
 #include <lib/qtmaterialcheckable.h>
-#include <lib/qtmaterialcheckable_internal.h>
+#include <materiallib/qtmaterialcheckable_internal.h>
 #include <lib/qtmaterialripple.h>
 #include <lib/qtmaterialrippleoverlay.h>
 #include <lib/qtmaterialstyle.h>

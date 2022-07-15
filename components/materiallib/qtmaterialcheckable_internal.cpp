@@ -1,4 +1,4 @@
-#include <lib/qtmaterialcheckable_internal.h>
+#include "materiallib/qtmaterialcheckable_internal.h"
 #include <lib/qtmaterialcheckable.h>
 
 #include <QIcon>
