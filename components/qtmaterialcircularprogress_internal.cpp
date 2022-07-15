@@ -1,8 +1,8 @@
 #include "qtmaterialcircularprogress_internal.h"
 
 /*!
- *  \class QtMaterialCircularProgressDelegate
- *  \internal
+ *  @class QtMaterialCircularProgressDelegate
+ *  @internal
  */
 
 QtMaterialCircularProgressDelegate::QtMaterialCircularProgressDelegate(QtMaterialCircularProgress *parent)

@@ -4,12 +4,12 @@
 #include <QPainter>
 
 /*!
- *  \class QtMaterialBadgePrivate
- *  \internal
+ *  @class QtMaterialBadgePrivate
+ *  @internal
  */
 
 /*!
- *  \internal
+ *  @internal
  */
 QtMaterialBadgePrivate::QtMaterialBadgePrivate(QtMaterialBadge *q)
     : q_ptr(q)
@@ -17,12 +17,12 @@ QtMaterialBadgePrivate::QtMaterialBadgePrivate(QtMaterialBadge *q)
 }
 
 /*!
- *  \internal
+ *  @internal
  */
 QtMaterialBadgePrivate::~QtMaterialBadgePrivate() {}
 
 /*!
- *  \internal
+ *  @internal
  */
 void QtMaterialBadgePrivate::init()
 {

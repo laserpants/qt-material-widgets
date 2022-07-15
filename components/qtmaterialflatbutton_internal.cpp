@@ -7,8 +7,8 @@
 #include <QSequentialAnimationGroup>
 
 /*!
- *  \class QtMaterialFlatButtonStateMachine
- *  \internal
+ *  @class QtMaterialFlatButtonStateMachine
+ *  @internal
  */
 
 QtMaterialFlatButtonStateMachine::QtMaterialFlatButtonStateMachine(QtMaterialFlatButton *parent)

@@ -7,8 +7,8 @@
 #include <QStringBuilder>
 
 /*!material
- *  \class QtMaterialThemePrivate
- *  \internal
+ *  @class QtMaterialThemePrivate
+ *  @internal
  */
 
 QtMaterialThemePrivate::QtMaterialThemePrivate(QtMaterialTheme *q)
@@ -26,7 +26,7 @@ QColor QtMaterialThemePrivate::rgba(int r, int g, int b, qreal a) const
 }
 
 /*!
- *  \class QtMaterialTheme
+ *  @class QtMaterialTheme
  */
 
 QtMaterialTheme::QtMaterialTheme(QObject *parent)

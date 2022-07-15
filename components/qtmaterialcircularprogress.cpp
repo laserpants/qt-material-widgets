@@ -75,7 +75,7 @@ void QtMaterialCircularProgressPrivate::init()
 }
 
 /*!
- *  \class QtMaterialCircularProgress
+ *  @class QtMaterialCircularProgress
  */
 
 QtMaterialCircularProgress::QtMaterialCircularProgress(QWidget *parent)
@@ -175,7 +175,7 @@ QColor QtMaterialCircularProgress::color() const
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 QSize QtMaterialCircularProgress::sizeHint() const
 {
@@ -186,7 +186,7 @@ QSize QtMaterialCircularProgress::sizeHint() const
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 void QtMaterialCircularProgress::paintEvent(QPaintEvent *event)
 {

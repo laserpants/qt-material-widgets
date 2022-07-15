@@ -1,10 +1,10 @@
+#include <QFontDatabase>
 #include <lib/qtmaterialstyle.h>
 #include <lib/qtmaterialtheme.h>
-#include <QFontDatabase>
 
 /*!
- *  \class QtMaterialStylePrivate
- *  \internal
+ *  @class QtMaterialStylePrivate
+ *  @internal
  */
 
 QtMaterialStylePrivate::QtMaterialStylePrivate(QtMaterialStyle *q)
@@ -26,8 +26,8 @@ void QtMaterialStylePrivate::init()
 }
 
 /*!
- *  \class QtMaterialStyle
- *  \internal
+ *  @class QtMaterialStyle
+ *  @internal
  */
 
 void QtMaterialStyle::setTheme(QtMaterialTheme *theme)

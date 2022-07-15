@@ -113,8 +113,8 @@ void QtMaterialDrawerStateMachine::updatePropertyAssignments()
 }
 
 /*!
- *  \class QtMaterialDrawerWidget
- *  \internal
+ *  @class QtMaterialDrawerWidget
+ *  @internal
  */
 
 QtMaterialDrawerWidget::QtMaterialDrawerWidget(QWidget *parent)

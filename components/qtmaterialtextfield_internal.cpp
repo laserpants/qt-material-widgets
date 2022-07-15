@@ -5,8 +5,8 @@
 #include <QPropertyAnimation>
 
 /*!
- *  \class QtMaterialTextFieldStateMachine
- *  \internal
+ *  @class QtMaterialTextFieldStateMachine
+ *  @internal
  */
 
 QtMaterialTextFieldStateMachine::QtMaterialTextFieldStateMachine(QtMaterialTextField *parent)
@@ -115,8 +115,8 @@ void QtMaterialTextFieldStateMachine::setupProperties()
 }
 
 /*!
- *  \class QtMaterialTextFieldLabel
- *  \internal
+ *  @class QtMaterialTextFieldLabel
+ *  @internal
  */
 
 QtMaterialTextFieldLabel::QtMaterialTextFieldLabel(QtMaterialTextField *parent)
@@ -137,7 +137,7 @@ QtMaterialTextFieldLabel::QtMaterialTextFieldLabel(QtMaterialTextField *parent)
 QtMaterialTextFieldLabel::~QtMaterialTextFieldLabel() {}
 
 /*!
- *  \reimp
+ *  @reimp
  */
 void QtMaterialTextFieldLabel::paintEvent(QPaintEvent *event)
 {

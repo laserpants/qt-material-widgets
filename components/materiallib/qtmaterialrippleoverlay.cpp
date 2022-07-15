@@ -3,8 +3,8 @@
 #include <QPainter>
 
 /*!
- *  \class QtMaterialRippleOverlay
- *  \internal
+ *  @class QtMaterialRippleOverlay
+ *  @internal
  */
 
 QtMaterialRippleOverlay::QtMaterialRippleOverlay(QWidget *parent)
@@ -43,7 +43,7 @@ void QtMaterialRippleOverlay::removeRipple(QtMaterialRipple *ripple)
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 void QtMaterialRippleOverlay::paintEvent(QPaintEvent *event)
 {

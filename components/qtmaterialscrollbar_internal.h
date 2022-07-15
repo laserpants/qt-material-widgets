@@ -1,8 +1,8 @@
 #ifndef QTMATERIALSCROLLBAR_INTERNAL_H
 #define QTMATERIALSCROLLBAR_INTERNAL_H
 
-#include <QStateMachine>
 #include "qtmaterialscrollbar.h"
+#include <QStateMachine>
 
 class QtMaterialScrollBarStateMachine : public QStateMachine
 {
@@ -21,9 +21,9 @@ private:
     Q_DISABLE_COPY(QtMaterialScrollBarStateMachine)
 
     QtMaterialScrollBar *const m_scrollBar;
-    QState              *const m_focusState;
-    QState              *const m_blurState;
-    qreal                m_opacity;
+    QState *const m_focusState;
+    QState *const m_blurState;
+    qreal m_opacity;
 };
 
 inline void QtMaterialScrollBarStateMachine::setOpacity(qreal opacity)
@@ -37,4 +37,4 @@ inline qreal QtMaterialScrollBarStateMachine::opacity() const
     return m_opacity;
 }
 
-#endif // QTMATERIALSCROLLBAR_INTERNAL_H
+#endif  // QTMATERIALSCROLLBAR_INTERNAL_H

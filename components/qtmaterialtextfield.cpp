@@ -7,8 +7,8 @@
 #include <QtWidgets/QApplication>
 
 /*!
- *  \class QtMaterialTextFieldPrivate
- *  \internal
+ *  @class QtMaterialTextFieldPrivate
+ *  @internal
  */
 
 QtMaterialTextFieldPrivate::QtMaterialTextFieldPrivate(QtMaterialTextField *q)
@@ -42,7 +42,7 @@ void QtMaterialTextFieldPrivate::init()
 }
 
 /*!
- *  \class QtMaterialTextField
+ *  @class QtMaterialTextField
  */
 
 QtMaterialTextField::QtMaterialTextField(QWidget *parent)
@@ -251,7 +251,7 @@ QtMaterialTextField::QtMaterialTextField(QtMaterialTextFieldPrivate &d, QWidget 
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 bool QtMaterialTextField::event(QEvent *event)
 {

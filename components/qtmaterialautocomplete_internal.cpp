@@ -5,12 +5,12 @@
 #include <QtWidgets/QGraphicsOpacityEffect>
 
 /*!
- *  \class QtMaterialAutoCompleteStateMachine
- *  \internal
+ *  @class QtMaterialAutoCompleteStateMachine
+ *  @internal
  */
 
 /*!
- *  \internal
+ *  @internal
  */
 QtMaterialAutoCompleteStateMachine::QtMaterialAutoCompleteStateMachine(QWidget *menu)
     : QStateMachine(menu)
@@ -62,6 +62,6 @@ QtMaterialAutoCompleteStateMachine::QtMaterialAutoCompleteStateMachine(QWidget *
 }
 
 /*!
- *  \internal
+ *  @internal
  */
 QtMaterialAutoCompleteStateMachine::~QtMaterialAutoCompleteStateMachine() {}

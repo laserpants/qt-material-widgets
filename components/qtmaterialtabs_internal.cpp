@@ -8,8 +8,8 @@
 #include <QtWidgets/QLayoutItem>
 
 /*!
- *  \class QtMaterialTabsInkBar
- *  \internal
+ *  @class QtMaterialTabsInkBar
+ *  @internal
  */
 
 QtMaterialTabsInkBar::QtMaterialTabsInkBar(QtMaterialTabs *parent)
@@ -89,8 +89,8 @@ void QtMaterialTabsInkBar::paintEvent(QPaintEvent *event)
 }
 
 /*!
- *  \class QtMaterialTab
- *  \internal
+ *  @class QtMaterialTab
+ *  @internal
  */
 
 QtMaterialTab::QtMaterialTab(QtMaterialTabs *parent)

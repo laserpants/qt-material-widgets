@@ -7,8 +7,8 @@
 #include <QPropertyAnimation>
 
 /*!
- *  \class QtMaterialProgressPrivate
- *  \internal
+ *  @class QtMaterialProgressPrivate
+ *  @internal
  */
 
 QtMaterialProgressPrivate::QtMaterialProgressPrivate(QtMaterialProgress *q)
@@ -41,7 +41,7 @@ void QtMaterialProgressPrivate::init()
 }
 
 /*!
- *  \class QtMaterialProgress
+ *  @class QtMaterialProgress
  */
 
 QtMaterialProgress::QtMaterialProgress(QWidget *parent)
@@ -130,7 +130,7 @@ QColor QtMaterialProgress::backgroundColor() const
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 void QtMaterialProgress::paintEvent(QPaintEvent *event)
 {

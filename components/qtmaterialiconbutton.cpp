@@ -6,8 +6,8 @@
 #include <QPainter>
 
 /*!
- *  \class QtMaterialIconButtonPrivate
- *  \internal
+ *  @class QtMaterialIconButtonPrivate
+ *  @internal
  */
 
 QtMaterialIconButtonPrivate::QtMaterialIconButtonPrivate(QtMaterialIconButton *q)
@@ -44,7 +44,7 @@ void QtMaterialIconButtonPrivate::updateRipple()
 }
 
 /*!
- *  \class QtMaterialIconButton
+ *  @class QtMaterialIconButton
  */
 
 QtMaterialIconButton::QtMaterialIconButton(const QIcon &icon, QWidget *parent)
@@ -59,7 +59,7 @@ QtMaterialIconButton::QtMaterialIconButton(const QIcon &icon, QWidget *parent)
 QtMaterialIconButton::~QtMaterialIconButton() {}
 
 /*!
- *  \reimp
+ *  @reimp
  */
 QSize QtMaterialIconButton::sizeHint() const
 {
@@ -133,7 +133,7 @@ QtMaterialIconButton::QtMaterialIconButton(QtMaterialIconButtonPrivate &d, QWidg
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 bool QtMaterialIconButton::event(QEvent *event)
 {
@@ -158,7 +158,7 @@ bool QtMaterialIconButton::event(QEvent *event)
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 bool QtMaterialIconButton::eventFilter(QObject *obj, QEvent *event)
 {
@@ -171,7 +171,7 @@ bool QtMaterialIconButton::eventFilter(QObject *obj, QEvent *event)
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 void QtMaterialIconButton::mousePressEvent(QMouseEvent *event)
 {
@@ -184,7 +184,7 @@ void QtMaterialIconButton::mousePressEvent(QMouseEvent *event)
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 void QtMaterialIconButton::paintEvent(QPaintEvent *event)
 {

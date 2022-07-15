@@ -2,8 +2,8 @@
 #include <lib/qtmaterialrippleoverlay.h>
 
 /*!
- *  \class QtMaterialRipple
- *  \internal
+ *  @class QtMaterialRipple
+ *  @internal
  */
 
 QtMaterialRipple::QtMaterialRipple(const QPoint &center, QObject *parent)

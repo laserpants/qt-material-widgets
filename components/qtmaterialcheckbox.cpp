@@ -6,12 +6,12 @@
 #include <QState>
 
 /*!
- *  \class QtMaterialCheckBoxPrivate
- *  \internal
+ *  @class QtMaterialCheckBoxPrivate
+ *  @internal
  */
 
 /*!
- *  \internal
+ *  @internal
  */
 QtMaterialCheckBoxPrivate::QtMaterialCheckBoxPrivate(QtMaterialCheckBox *q)
     : QtMaterialCheckablePrivate(q)
@@ -20,12 +20,12 @@ QtMaterialCheckBoxPrivate::QtMaterialCheckBoxPrivate(QtMaterialCheckBox *q)
 }
 
 /*!
- *  \internal
+ *  @internal
  */
 QtMaterialCheckBoxPrivate::~QtMaterialCheckBoxPrivate() {}
 
 /*!
- *  \internal
+ *  @internal
  */
 void QtMaterialCheckBoxPrivate::init()
 {
@@ -70,7 +70,7 @@ void QtMaterialCheckBoxPrivate::init()
 }
 
 /*!
- *  \class QtMaterialCheckBox
+ *  @class QtMaterialCheckBox
  */
 
 QtMaterialCheckBox::QtMaterialCheckBox(QWidget *parent)

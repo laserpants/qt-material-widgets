@@ -5,12 +5,12 @@
 #include <QtWidgets/QGraphicsDropShadowEffect>
 
 /*!
- *  \class QtMaterialAppBarPrivate
- *  \internal
+ *  @class QtMaterialAppBarPrivate
+ *  @internal
  */
 
 /*!
- *  \internal
+ *  @internal
  */
 QtMaterialAppBarPrivate::QtMaterialAppBarPrivate(QtMaterialAppBar *q)
     : q_ptr(q)
@@ -18,12 +18,12 @@ QtMaterialAppBarPrivate::QtMaterialAppBarPrivate(QtMaterialAppBar *q)
 }
 
 /*!
- *  \internal
+ *  @internal
  */
 QtMaterialAppBarPrivate::~QtMaterialAppBarPrivate() {}
 
 /*!
- *  \internal
+ *  @internal
  */
 void QtMaterialAppBarPrivate::init()
 {
@@ -43,7 +43,7 @@ void QtMaterialAppBarPrivate::init()
 }
 
 /*!
- *  \class QtMaterialAppBar
+ *  @class QtMaterialAppBar
  */
 
 QtMaterialAppBar::QtMaterialAppBar(QWidget *parent)

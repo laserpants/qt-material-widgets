@@ -12,12 +12,12 @@
 #include <QResizeEvent>
 
 /*!
- *  \class QtMaterialFlatButtonPrivate
- *  \internal
+ *  @class QtMaterialFlatButtonPrivate
+ *  @internal
  */
 
 /*!
- *  \internal
+ *  @internal
  */
 QtMaterialFlatButtonPrivate::QtMaterialFlatButtonPrivate(QtMaterialFlatButton *q)
     : q_ptr(q)
@@ -25,12 +25,12 @@ QtMaterialFlatButtonPrivate::QtMaterialFlatButtonPrivate(QtMaterialFlatButton *q
 }
 
 /*!
- *  \internal
+ *  @internal
  */
 QtMaterialFlatButtonPrivate::~QtMaterialFlatButtonPrivate() {}
 
 /*!
- *  \internal
+ *  @internal
  */
 void QtMaterialFlatButtonPrivate::init()
 {
@@ -70,7 +70,7 @@ void QtMaterialFlatButtonPrivate::init()
 }
 
 /*!
- *  \class QtMaterialFlatButton
+ *  @class QtMaterialFlatButton
  */
 
 QtMaterialFlatButton::QtMaterialFlatButton(QWidget *parent, Material::ButtonPreset preset)
@@ -450,7 +450,7 @@ Qt::Alignment QtMaterialFlatButton::textAlignment() const
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 QSize QtMaterialFlatButton::sizeHint() const
 {
@@ -477,7 +477,7 @@ QtMaterialFlatButton::QtMaterialFlatButton(QtMaterialFlatButtonPrivate &d, QWidg
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 void QtMaterialFlatButton::checkStateSet()
 {
@@ -489,7 +489,7 @@ void QtMaterialFlatButton::checkStateSet()
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 void QtMaterialFlatButton::mousePressEvent(QMouseEvent *event)
 {
@@ -526,7 +526,7 @@ void QtMaterialFlatButton::mousePressEvent(QMouseEvent *event)
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 void QtMaterialFlatButton::mouseReleaseEvent(QMouseEvent *event)
 {
@@ -545,7 +545,7 @@ void QtMaterialFlatButton::resizeEvent(QResizeEvent *event)
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 void QtMaterialFlatButton::paintEvent(QPaintEvent *event)
 {
@@ -576,7 +576,7 @@ void QtMaterialFlatButton::paintEvent(QPaintEvent *event)
 }
 
 /*!
- *  \internal
+ *  @internal
  */
 void QtMaterialFlatButton::paintBackground(QPainter *painter)
 {
@@ -630,7 +630,7 @@ void QtMaterialFlatButton::paintBackground(QPainter *painter)
 }
 
 /*!
- *  \internal
+ *  @internal
  */
 void QtMaterialFlatButton::paintHalo(QPainter *painter)
 {
@@ -659,7 +659,7 @@ void QtMaterialFlatButton::paintHalo(QPainter *painter)
 #define COLOR_INTERPOLATE(CH) (1 - progress) * source.CH() + progress *dest.CH()
 
 /*!
- *  \internal
+ *  @internal
  */
 void QtMaterialFlatButton::paintForeground(QPainter *painter)
 {
@@ -716,7 +716,7 @@ void QtMaterialFlatButton::paintForeground(QPainter *painter)
 }
 
 /*!
- *  \internal
+ *  @internal
  */
 void QtMaterialFlatButton::updateClipPath()
 {

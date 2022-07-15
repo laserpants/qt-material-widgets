@@ -15,8 +15,8 @@
 #include <QStateMachine>
 
 /*!
- *  \class QtMaterialCheckablePrivate
- *  \internal
+ *  @class QtMaterialCheckablePrivate
+ *  @internal
  */
 
 QtMaterialCheckablePrivate::QtMaterialCheckablePrivate(QtMaterialCheckable *q)
@@ -123,7 +123,7 @@ void QtMaterialCheckablePrivate::init()
 }
 
 /*!
- *  \class QtMaterialCheckable
+ *  @class QtMaterialCheckable
  */
 
 QtMaterialCheckable::QtMaterialCheckable(QWidget *parent)
@@ -284,7 +284,7 @@ QIcon QtMaterialCheckable::uncheckedIcon() const
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 QSize QtMaterialCheckable::sizeHint() const
 {
@@ -302,7 +302,7 @@ QtMaterialCheckable::QtMaterialCheckable(QtMaterialCheckablePrivate &d, QWidget 
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 bool QtMaterialCheckable::event(QEvent *event)
 {
@@ -328,7 +328,7 @@ bool QtMaterialCheckable::event(QEvent *event)
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 bool QtMaterialCheckable::eventFilter(QObject *obj, QEvent *event)
 {
@@ -341,7 +341,7 @@ bool QtMaterialCheckable::eventFilter(QObject *obj, QEvent *event)
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 void QtMaterialCheckable::mousePressEvent(QMouseEvent *event)
 {
@@ -370,7 +370,7 @@ void QtMaterialCheckable::mousePressEvent(QMouseEvent *event)
 }
 
 /*!
- *  \reimp
+ *  @reimp
  */
 void QtMaterialCheckable::paintEvent(QPaintEvent *event)
 {

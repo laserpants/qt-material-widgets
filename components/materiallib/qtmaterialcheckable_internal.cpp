@@ -6,8 +6,8 @@
 #include <QTransform>
 
 /*!
- *  \class QtMaterialCheckableIcon
- *  \internal
+ *  @class QtMaterialCheckableIcon
+ *  @internal
  */
 
 QtMaterialCheckableIcon::QtMaterialCheckableIcon(const QIcon &icon, QtMaterialCheckable *parent)
