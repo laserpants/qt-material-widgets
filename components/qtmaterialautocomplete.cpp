@@ -10,25 +10,26 @@
 #include <QtWidgets/QVBoxLayout>
 
 /*!
- *  \class QtMaterialAutoCompletePrivate
- *  \internal
+ *  @class QtMaterialAutoCompletePrivate
+ *  @internal
  */
 
 /*!
- *  \internal
+ *  @internal
  */
 QtMaterialAutoCompletePrivate::QtMaterialAutoCompletePrivate(QtMaterialAutoComplete *q)
     : QtMaterialTextFieldPrivate(q)
+    , q_ptr(q)
 {
 }
 
 /*!
- *  \internal
+ *  @internal
  */
 QtMaterialAutoCompletePrivate::~QtMaterialAutoCompletePrivate() {}
 
 /*!
- *  \internal
+ *  @internal
  */
 void QtMaterialAutoCompletePrivate::init()
 {
@@ -66,7 +67,7 @@ void QtMaterialAutoCompletePrivate::init()
 }
 
 /*!
- *  \class QtMaterialAutoComplete
+ *  @class QtMaterialAutoComplete
  */
 
 QtMaterialAutoComplete::QtMaterialAutoComplete(QWidget *parent)

@@ -15,6 +15,7 @@
  */
 QtMaterialCheckBoxPrivate::QtMaterialCheckBoxPrivate(QtMaterialCheckBox *q)
     : QtMaterialCheckablePrivate(q)
+    , q_ptr(q)
 {
 }
 

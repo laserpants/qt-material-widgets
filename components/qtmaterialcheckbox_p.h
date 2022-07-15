@@ -14,6 +14,8 @@ public:
     QtMaterialCheckBoxPrivate(QtMaterialCheckBox *q);
     ~QtMaterialCheckBoxPrivate();
 
+	QtMaterialCheckBox *const q_ptr;
+
     void init();
 };
 

@@ -8,8 +8,8 @@
 #include <QPropertyAnimation>
 
 /*!
- *  \class QtMaterialCircularProgressPrivate
- *  \internal
+ *  @class QtMaterialCircularProgressPrivate
+ *  @internal
  */
 
 QtMaterialCircularProgressPrivate::QtMaterialCircularProgressPrivate(QtMaterialCircularProgress *q)

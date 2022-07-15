@@ -15,6 +15,7 @@
 
 QtMaterialRadioButtonPrivate::QtMaterialRadioButtonPrivate(QtMaterialRadioButton *q)
     : QtMaterialCheckablePrivate(q)
+    , q_ptr(q)
 {
 }
 
@@ -22,7 +23,7 @@ QtMaterialRadioButtonPrivate::~QtMaterialRadioButtonPrivate() {}
 
 void QtMaterialRadioButtonPrivate::init()
 {
-	// get the public button
+    // get the public button
     Q_Q(QtMaterialRadioButton);
 
     q->setAutoExclusive(true);

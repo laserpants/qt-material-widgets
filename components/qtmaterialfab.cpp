@@ -16,6 +16,7 @@
  */
 QtMaterialFloatingActionButtonPrivate::QtMaterialFloatingActionButtonPrivate(QtMaterialFloatingActionButton *q)
     : QtMaterialRaisedButtonPrivate(q)
+    , q_ptr(q)
 {
 }
 

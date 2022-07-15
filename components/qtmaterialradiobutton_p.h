@@ -13,7 +13,7 @@ class QtMaterialRadioButtonPrivate : public QtMaterialCheckablePrivate
 public:
     QtMaterialRadioButtonPrivate(QtMaterialRadioButton *q);
     ~QtMaterialRadioButtonPrivate();
-
+	QtMaterialRadioButton *const q_ptr;
     void init();
 };
 

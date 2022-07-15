@@ -18,7 +18,8 @@ public:
     ~QtMaterialRaisedButtonPrivate();
 
     void init();
-
+	
+	QtMaterialRaisedButton *const q_ptr;
     QStateMachine *shadowStateMachine;
     QState *normalState;
     QState *pressedState;

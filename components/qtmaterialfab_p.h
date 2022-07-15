@@ -19,6 +19,8 @@ public:
     ~QtMaterialFloatingActionButtonPrivate();
 
     void init();
+
+	QtMaterialFloatingActionButton *const q_ptr;
     QRect fabGeometry() const;
     void setupProperties();
 

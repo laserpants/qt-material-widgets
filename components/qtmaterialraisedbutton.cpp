@@ -15,6 +15,7 @@
  */
 QtMaterialRaisedButtonPrivate::QtMaterialRaisedButtonPrivate(QtMaterialRaisedButton *q)
     : QtMaterialFlatButtonPrivate(q)
+    , q_ptr(q)
 {
 }
 
