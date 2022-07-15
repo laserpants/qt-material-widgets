@@ -18,11 +18,12 @@ public:
     ~QtMaterialRaisedButtonPrivate();
 
     void init();
-
-    QStateMachine             *shadowStateMachine;
-    QState                    *normalState;
-    QState                    *pressedState;
+	
+	QtMaterialRaisedButton *const q_ptr;
+    QStateMachine *shadowStateMachine;
+    QState *normalState;
+    QState *pressedState;
     QGraphicsDropShadowEffect *effect;
 };
 
-#endif // QTMATERIALRAISEDBUTTON_P_H
+#endif  // QTMATERIALRAISEDBUTTON_P_H

@@ -1,9 +1,9 @@
 #ifndef QTMATERIALPROGRESS_P_H
 #define QTMATERIALPROGRESS_P_H
 
-#include <QtGlobal>
-#include <QColor>
 #include "lib/qtmaterialtheme.h"
+#include <QColor>
+#include <QtGlobal>
 
 class QtMaterialProgress;
 class QtMaterialProgressDelegate;
@@ -19,12 +19,12 @@ public:
 
     void init();
 
-    QtMaterialProgress         *const q_ptr;
+    QtMaterialProgress *const q_ptr;
     QtMaterialProgressDelegate *delegate;
-    Material::ProgressType      progressType;
-    QColor                      progressColor;
-    QColor                      backgroundColor;
-    bool                        useThemeColors;
+    Material::ProgressType progressType;
+    QColor progressColor;
+    QColor backgroundColor;
+    bool useThemeColors;
 };
 
-#endif // QTMATERIALPROGRESS_P_H
+#endif  // QTMATERIALPROGRESS_P_H

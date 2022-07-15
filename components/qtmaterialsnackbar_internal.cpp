@@ -1,12 +1,12 @@
 #include "qtmaterialsnackbar_internal.h"
-#include <QPropertyAnimation>
-#include "qtmaterialsnackbar.h"
 #include "lib/qtmaterialstatetransition.h"
+#include "qtmaterialsnackbar.h"
 #include <QDebug>
+#include <QPropertyAnimation>
 
 QtMaterialSnackbarStateMachine::QtMaterialSnackbarStateMachine(QtMaterialSnackbar *parent)
-    : QStateMachine(parent),
-      m_snackbar(parent)
+    : QStateMachine(parent)
+    , m_snackbar(parent)
 {
     m_timer.setSingleShot(true);
 
@@ -42,10 +42,8 @@ QtMaterialSnackbarStateMachine::QtMaterialSnackbarStateMachine(QtMaterialSnackba
     transition->setTargetState(visibleState);
     finalState->addTransition(transition);
 
-    connect(visibleState, SIGNAL(propertiesAssigned()),
-            this, SLOT(snackbarShown()));
-    connect(finalState, SIGNAL(propertiesAssigned()),
-            m_snackbar, SLOT(dequeue()));
+    connect(visibleState, SIGNAL(propertiesAssigned()), this, SLOT(snackbarShown()));
+    connect(finalState, SIGNAL(propertiesAssigned()), m_snackbar, SLOT(dequeue()));
 
     QPropertyAnimation *animation;
 
@@ -63,9 +61,7 @@ QtMaterialSnackbarStateMachine::QtMaterialSnackbarStateMachine(QtMaterialSnackba
     m_snackbar->installEventFilter(this);
 }
 
-QtMaterialSnackbarStateMachine::~QtMaterialSnackbarStateMachine()
-{
-}
+QtMaterialSnackbarStateMachine::~QtMaterialSnackbarStateMachine() {}
 
 bool QtMaterialSnackbarStateMachine::eventFilter(QObject *watched, QEvent *event)
 {

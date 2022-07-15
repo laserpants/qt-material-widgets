@@ -24,17 +24,17 @@ public:
     void animate();
 
 protected:
-    bool eventFilter(QObject *obj, QEvent *event)  Q_DECL_OVERRIDE;
+    bool eventFilter(QObject *obj, QEvent *event) Q_DECL_OVERRIDE;
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
 private:
     Q_DISABLE_COPY(QtMaterialTabsInkBar)
 
-    QtMaterialTabs     *const m_tabs;
+    QtMaterialTabs *const m_tabs;
     QPropertyAnimation *const m_animation;
-    QRect                     m_geometry;
-    QRect                     m_previousGeometry;
-    qreal                     m_tween;
+    QRect m_geometry;
+    QRect m_previousGeometry;
+    qreal m_tween;
 };
 
 inline void QtMaterialTabsInkBar::setTweenValue(qreal value)
@@ -71,7 +71,7 @@ private:
     Q_DISABLE_COPY(QtMaterialTab)
 
     QtMaterialTabs *const m_tabs;
-    bool                  m_active;
+    bool m_active;
 };
 
 inline void QtMaterialTab::setActive(bool state)
@@ -85,4 +85,4 @@ inline bool QtMaterialTab::isActive() const
     return m_active;
 }
 
-#endif // QTMATERIALTABS_INTERNAL_H
+#endif  // QTMATERIALTABS_INTERNAL_H

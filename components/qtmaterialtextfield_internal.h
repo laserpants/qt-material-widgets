@@ -1,9 +1,9 @@
 #ifndef QTMATERIALTEXTFIELD_INTERNAL_H
 #define QTMATERIALTEXTFIELD_INTERNAL_H
 
+#include "qtmaterialtextfield.h"
 #include <QStateMachine>
 #include <QtWidgets/QWidget>
-#include "qtmaterialtextfield.h"
 
 class QPropertyAnimation;
 class QtMaterialTextFieldLabel;
@@ -30,12 +30,12 @@ private:
     Q_DISABLE_COPY(QtMaterialTextFieldStateMachine)
 
     QtMaterialTextField *const m_textField;
-    QState              *const m_normalState;
-    QState              *const m_focusedState;
-    QtMaterialTextFieldLabel  *m_label;
-    QPropertyAnimation        *m_offsetAnimation;
-    QPropertyAnimation        *m_colorAnimation;
-    qreal                      m_progress;
+    QState *const m_normalState;
+    QState *const m_focusedState;
+    QtMaterialTextFieldLabel *m_label;
+    QPropertyAnimation *m_offsetAnimation;
+    QPropertyAnimation *m_colorAnimation;
+    qreal m_progress;
 };
 
 inline void QtMaterialTextFieldStateMachine::setProgress(qreal progress)
@@ -77,10 +77,10 @@ private:
     Q_DISABLE_COPY(QtMaterialTextFieldLabel)
 
     QtMaterialTextField *const m_textField;
-    qreal                      m_scale;
-    qreal                      m_posX;
-    qreal                      m_posY;
-    QColor                     m_color;
+    qreal m_scale;
+    qreal m_posX;
+    qreal m_posY;
+    QColor m_color;
 };
 
 inline void QtMaterialTextFieldLabel::setScale(qreal scale)
@@ -117,4 +117,4 @@ inline QColor QtMaterialTextFieldLabel::color() const
     return m_color;
 }
 
-#endif // QTMATERIALTEXTFIELD_INTERNAL_H
+#endif  // QTMATERIALTEXTFIELD_INTERNAL_H

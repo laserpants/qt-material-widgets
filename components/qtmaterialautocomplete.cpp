@@ -1,46 +1,45 @@
 #include "qtmaterialautocomplete.h"
+#include "qtmaterialautocomplete_internal.h"
 #include "qtmaterialautocomplete_p.h"
+#include "qtmaterialflatbutton.h"
+#include <QDebug>
+#include <QEvent>
+#include <QPainter>
+#include <QTimer>
 #include <QtWidgets/QGraphicsDropShadowEffect>
 #include <QtWidgets/QVBoxLayout>
-#include <QEvent>
-#include <QTimer>
-#include <QPainter>
-#include <QDebug>
-#include "qtmaterialautocomplete_internal.h"
-#include "qtmaterialflatbutton.h"
 
 /*!
- *  \class QtMaterialAutoCompletePrivate
- *  \internal
+ *  @class QtMaterialAutoCompletePrivate
+ *  @internal
  */
 
 /*!
- *  \internal
+ *  @internal
  */
 QtMaterialAutoCompletePrivate::QtMaterialAutoCompletePrivate(QtMaterialAutoComplete *q)
     : QtMaterialTextFieldPrivate(q)
+    , q_ptr(q)
 {
 }
 
 /*!
- *  \internal
+ *  @internal
  */
-QtMaterialAutoCompletePrivate::~QtMaterialAutoCompletePrivate()
-{
-}
+QtMaterialAutoCompletePrivate::~QtMaterialAutoCompletePrivate() {}
 
 /*!
- *  \internal
+ *  @internal
  */
 void QtMaterialAutoCompletePrivate::init()
 {
     Q_Q(QtMaterialAutoComplete);
 
-    menu         = new QWidget;
-    frame        = new QWidget;
+    menu = new QWidget;
+    frame = new QWidget;
     stateMachine = new QtMaterialAutoCompleteStateMachine(menu);
-    menuLayout   = new QVBoxLayout;
-    maxWidth     = 0;
+    menuLayout = new QVBoxLayout;
+    maxWidth = 0;
 
     menu->setParent(q->parentWidget());
     frame->setParent(q->parentWidget());
@@ -68,7 +67,7 @@ void QtMaterialAutoCompletePrivate::init()
 }
 
 /*!
- *  \class QtMaterialAutoComplete
+ *  @class QtMaterialAutoComplete
  */
 
 QtMaterialAutoComplete::QtMaterialAutoComplete(QWidget *parent)
@@ -77,9 +76,7 @@ QtMaterialAutoComplete::QtMaterialAutoComplete(QWidget *parent)
     d_func()->init();
 }
 
-QtMaterialAutoComplete::~QtMaterialAutoComplete()
-{
-}
+QtMaterialAutoComplete::~QtMaterialAutoComplete() {}
 
 void QtMaterialAutoComplete::setDataSource(const QStringList &data)
 {
@@ -151,7 +148,7 @@ void QtMaterialAutoComplete::updateResults(QString text)
         emit d->stateMachine->shouldOpen();
     }
 
-    d->menu->setFixedHeight(results.length()*50);
+    d->menu->setFixedHeight(results.length() * 50);
     d->menu->setFixedWidth(qMax(d->maxWidth + 24, width()));
     d->menu->update();
 }
@@ -160,23 +157,22 @@ bool QtMaterialAutoComplete::QtMaterialAutoComplete::event(QEvent *event)
 {
     Q_D(QtMaterialAutoComplete);
 
-    switch (event->type())
-    {
-    case QEvent::Move:
-    case QEvent::Resize: {
-        d->menu->move(pos() + QPoint(0, height() + 6));
-        break;
-    }
-    case QEvent::ParentChange: {
-        QWidget *widget = static_cast<QWidget *>(parent());
-        if (widget) {
-            d->menu->setParent(widget);
-            d->frame->setParent(widget);
+    switch (event->type()) {
+        case QEvent::Move:
+        case QEvent::Resize: {
+            d->menu->move(pos() + QPoint(0, height() + 6));
+            break;
         }
-        break;
-    }
-    default:
-        break;
+        case QEvent::ParentChange: {
+            QWidget *widget = static_cast<QWidget *>(parent());
+            if (widget) {
+                d->menu->setParent(widget);
+                d->frame->setParent(widget);
+            }
+            break;
+        }
+        default:
+            break;
     }
     return QtMaterialTextField::event(event);
 }
@@ -185,57 +181,49 @@ bool QtMaterialAutoComplete::eventFilter(QObject *watched, QEvent *event)
 {
     Q_D(QtMaterialAutoComplete);
 
-    if (d->frame == watched)
-    {
-        switch (event->type())
-        {
-        case QEvent::Paint: {
-            QPainter painter(d->frame);
-            painter.fillRect(d->frame->rect(), Qt::white);
-            break;
-        }
-        default:
-            break;
-        }
-    }
-    else if (d->menu == watched)
-    {
-        switch (event->type())
-        {
-        case QEvent::Resize:
-        case QEvent::Move: {
-            d->frame->setGeometry(d->menu->geometry());
-            break;
-        }
-        case QEvent::Show: {
-            d->frame->show();
-            d->menu->raise();
-            break;
-        }
-        case QEvent::Hide: {
-            d->frame->hide();
-            break;
-        }
-        default:
-            break;
-        }
-    }
-    else
-    {
-        switch (event->type())
-        {
-        case QEvent::MouseButtonPress: {
-            emit d->stateMachine->shouldFade();
-            QtMaterialFlatButton *widget;
-            if ((widget = static_cast<QtMaterialFlatButton *>(watched))) {
-                QString text(widget->text());
-                setText(text);
-                emit itemSelected(text);
+    if (d->frame == watched) {
+        switch (event->type()) {
+            case QEvent::Paint: {
+                QPainter painter(d->frame);
+                painter.fillRect(d->frame->rect(), Qt::white);
+                break;
             }
-            break;
+            default:
+                break;
         }
-        default:
-            break;
+    } else if (d->menu == watched) {
+        switch (event->type()) {
+            case QEvent::Resize:
+            case QEvent::Move: {
+                d->frame->setGeometry(d->menu->geometry());
+                break;
+            }
+            case QEvent::Show: {
+                d->frame->show();
+                d->menu->raise();
+                break;
+            }
+            case QEvent::Hide: {
+                d->frame->hide();
+                break;
+            }
+            default:
+                break;
+        }
+    } else {
+        switch (event->type()) {
+            case QEvent::MouseButtonPress: {
+                emit d->stateMachine->shouldFade();
+                QtMaterialFlatButton *widget;
+                if ((widget = static_cast<QtMaterialFlatButton *>(watched))) {
+                    QString text(widget->text());
+                    setText(text);
+                    emit itemSelected(text);
+                }
+                break;
+            }
+            default:
+                break;
         }
     }
     return QtMaterialTextField::eventFilter(watched, event);

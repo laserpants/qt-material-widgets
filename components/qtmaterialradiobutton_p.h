@@ -1,7 +1,7 @@
 #ifndef QTMATERIALRADIOBUTTON_P_H
 #define QTMATERIALRADIOBUTTON_P_H
 
-#include "lib/qtmaterialcheckable_p.h"
+#include "materiallib/qtmaterialcheckable_p.h"
 
 class QtMaterialRadioButton;
 
@@ -13,8 +13,8 @@ class QtMaterialRadioButtonPrivate : public QtMaterialCheckablePrivate
 public:
     QtMaterialRadioButtonPrivate(QtMaterialRadioButton *q);
     ~QtMaterialRadioButtonPrivate();
-
+	QtMaterialRadioButton *const q_ptr;
     void init();
 };
 
-#endif // QTMATERIALRADIOBUTTON_P_H
+#endif  // QTMATERIALRADIOBUTTON_P_H

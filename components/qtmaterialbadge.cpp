@@ -1,15 +1,15 @@
 #include "qtmaterialbadge.h"
+#include "lib/qtmaterialstyle.h"
 #include "qtmaterialbadge_p.h"
 #include <QPainter>
-#include "lib/qtmaterialstyle.h"
 
 /*!
- *  \class QtMaterialBadgePrivate
- *  \internal
+ *  @class QtMaterialBadgePrivate
+ *  @internal
  */
 
 /*!
- *  \internal
+ *  @internal
  */
 QtMaterialBadgePrivate::QtMaterialBadgePrivate(QtMaterialBadge *q)
     : q_ptr(q)
@@ -17,22 +17,20 @@ QtMaterialBadgePrivate::QtMaterialBadgePrivate(QtMaterialBadge *q)
 }
 
 /*!
- *  \internal
+ *  @internal
  */
-QtMaterialBadgePrivate::~QtMaterialBadgePrivate()
-{
-}
+QtMaterialBadgePrivate::~QtMaterialBadgePrivate() {}
 
 /*!
- *  \internal
+ *  @internal
  */
 void QtMaterialBadgePrivate::init()
 {
     Q_Q(QtMaterialBadge);
 
-    x              = 0;
-    y              = 0;
-    padding        = 10;
+    x = 0;
+    y = 0;
+    padding = 10;
     useThemeColors = true;
 
     q->setAttribute(Qt::WA_TransparentForMouseEvents);
@@ -50,15 +48,15 @@ void QtMaterialBadgePrivate::init()
  */
 
 QtMaterialBadge::QtMaterialBadge(QWidget *parent)
-    : QtMaterialOverlayWidget(parent),
-      d_ptr(new QtMaterialBadgePrivate(this))
+    : QtMaterialOverlayWidget(parent)
+    , d_ptr(new QtMaterialBadgePrivate(this))
 {
     d_func()->init();
 }
 
 QtMaterialBadge::QtMaterialBadge(const QIcon &icon, QWidget *parent)
-    : QtMaterialOverlayWidget(parent),
-      d_ptr(new QtMaterialBadgePrivate(this))
+    : QtMaterialOverlayWidget(parent)
+    , d_ptr(new QtMaterialBadgePrivate(this))
 {
     d_func()->init();
 
@@ -66,17 +64,15 @@ QtMaterialBadge::QtMaterialBadge(const QIcon &icon, QWidget *parent)
 }
 
 QtMaterialBadge::QtMaterialBadge(const QString &text, QWidget *parent)
-    : QtMaterialOverlayWidget(parent),
-      d_ptr(new QtMaterialBadgePrivate(this))
+    : QtMaterialOverlayWidget(parent)
+    , d_ptr(new QtMaterialBadgePrivate(this))
 {
     d_func()->init();
 
     setText(text);
 }
 
-QtMaterialBadge::~QtMaterialBadge()
-{
-}
+QtMaterialBadge::~QtMaterialBadge() {}
 
 void QtMaterialBadge::setUseThemeColors(bool value)
 {
@@ -196,7 +192,7 @@ qreal QtMaterialBadge::relativeYPosition() const
 QSize QtMaterialBadge::sizeHint() const
 {
     const int s = getDiameter();
-    return QSize(s+4, s+4);
+    return QSize(s + 4, s + 4);
 }
 
 void QtMaterialBadge::setIcon(const QIcon &icon)
@@ -252,25 +248,21 @@ void QtMaterialBadge::paintEvent(QPaintEvent *event)
 
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
-    brush.setColor(isEnabled() ? backgroundColor()
-                               : QtMaterialStyle::instance().themeColor("disabled"));
+    brush.setColor(isEnabled() ? backgroundColor() : QtMaterialStyle::instance().themeColor("disabled"));
     painter.setBrush(brush);
     painter.setPen(Qt::NoPen);
 
     const int s = getDiameter();
 
     QRectF r(0, 0, s, s);
-    r.translate(QPointF((width()-s), (height()-s))/2);
+    r.translate(QPointF((width() - s), (height() - s)) / 2);
 
-    if (d->icon.isNull())
-    {
+    if (d->icon.isNull()) {
         painter.drawEllipse(r);
         painter.setPen(textColor());
         painter.setBrush(Qt::NoBrush);
         painter.drawText(r.translated(0, -0.5), Qt::AlignCenter, d->text);
-    }
-    else
-    {
+    } else {
         painter.drawEllipse(r);
         QRectF q(0, 0, 16, 16);
         q.moveCenter(r.center());

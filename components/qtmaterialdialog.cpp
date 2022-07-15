@@ -1,18 +1,18 @@
 #include "qtmaterialdialog.h"
-#include "qtmaterialdialog_p.h"
-#include <QtWidgets/QStackedLayout>
-#include <QtWidgets/QGraphicsDropShadowEffect>
-#include <QStateMachine>
-#include <QState>
-#include <QtWidgets/QApplication>
-#include <QPropertyAnimation>
-#include <QPainter>
-#include "qtmaterialdialog_internal.h"
 #include "lib/qtmaterialstatetransition.h"
+#include "qtmaterialdialog_internal.h"
+#include "qtmaterialdialog_p.h"
+#include <QPainter>
+#include <QPropertyAnimation>
+#include <QState>
+#include <QStateMachine>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QGraphicsDropShadowEffect>
+#include <QtWidgets/QStackedLayout>
 
 /*!
- *  \class QtMaterialDialogPrivate
- *  \internal
+ *  @class QtMaterialDialogPrivate
+ *  @internal
  */
 
 QtMaterialDialogPrivate::QtMaterialDialogPrivate(QtMaterialDialog *q)
@@ -20,19 +20,20 @@ QtMaterialDialogPrivate::QtMaterialDialogPrivate(QtMaterialDialog *q)
 {
 }
 
-QtMaterialDialogPrivate::~QtMaterialDialogPrivate()
-{
-}
+QtMaterialDialogPrivate::~QtMaterialDialogPrivate() {}
 
+// main
 void QtMaterialDialogPrivate::init()
 {
+    // get public class
     Q_Q(QtMaterialDialog);
 
     dialogWindow = new QtMaterialDialogWindow(q);
-    proxyStack   = new QStackedLayout;
+    proxyStack = new QStackedLayout;
     stateMachine = new QStateMachine(q);
-    proxy        = new QtMaterialDialogProxy(dialogWindow, proxyStack, q);
+    proxy = new QtMaterialDialogProxy(dialogWindow, proxyStack, q);
 
+    // qvbox
     QVBoxLayout *layout = new QVBoxLayout;
     q->setLayout(layout);
 
@@ -40,6 +41,7 @@ void QtMaterialDialogPrivate::init()
     widget->setLayout(proxyStack);
     widget->setMinimumWidth(400);
 
+    // shadoweffect
     QGraphicsDropShadowEffect *effect = new QGraphicsDropShadowEffect;
     effect->setColor(QColor(0, 0, 0, 200));
     effect->setBlurRadius(64);
@@ -94,29 +96,25 @@ void QtMaterialDialogPrivate::init()
     animation->setEasingCurve(QEasingCurve::OutCirc);
     stateMachine->addDefaultAnimation(animation);
 
-    QObject::connect(visibleState, SIGNAL(propertiesAssigned()),
-                     proxy, SLOT(makeOpaque()));
-    QObject::connect(hiddenState, SIGNAL(propertiesAssigned()),
-                     proxy, SLOT(makeTransparent()));
+    QObject::connect(visibleState, SIGNAL(propertiesAssigned()), proxy, SLOT(makeOpaque()));
+    QObject::connect(hiddenState, SIGNAL(propertiesAssigned()), proxy, SLOT(makeTransparent()));
 
     stateMachine->start();
     QCoreApplication::processEvents();
 }
 
 /*!
- *  \class QtMaterialDialog
+ *  @class QtMaterialDialog
  */
 
 QtMaterialDialog::QtMaterialDialog(QWidget *parent)
-    : QtMaterialOverlayWidget(parent),
-      d_ptr(new QtMaterialDialogPrivate(this))
+    : QtMaterialOverlayWidget(parent)
+    , d_ptr(new QtMaterialDialogPrivate(this))
 {
     d_func()->init();
 }
 
-QtMaterialDialog::~QtMaterialDialog()
-{
-}
+QtMaterialDialog::~QtMaterialDialog() {}
 
 QLayout *QtMaterialDialog::windowLayout() const
 {
@@ -149,6 +147,7 @@ void QtMaterialDialog::hideDialog()
     d->proxyStack->setCurrentIndex(1);
 }
 
+// just paint shadow
 void QtMaterialDialog::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
@@ -162,6 +161,6 @@ void QtMaterialDialog::paintEvent(QPaintEvent *event)
     brush.setColor(Qt::black);
     painter.setBrush(brush);
     painter.setPen(Qt::NoPen);
-    painter.setOpacity(d->proxy->opacity()/2.4);
+    painter.setOpacity(d->proxy->opacity() / 2.4);
     painter.drawRect(rect());
 }

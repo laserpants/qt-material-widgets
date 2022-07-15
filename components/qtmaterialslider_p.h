@@ -1,9 +1,9 @@
 #ifndef QTMATERIALSLIDER_P_H
 #define QTMATERIALSLIDER_P_H
 
-#include <QtGlobal>
 #include <QColor>
 #include <QRectF>
+#include <QtGlobal>
 
 class QtMaterialSlider;
 class QtMaterialSliderThumb;
@@ -28,22 +28,22 @@ public:
 
     void setHovered(bool status);
 
-    QtMaterialSlider             *const q_ptr;
-    QtMaterialSliderThumb        *thumb;
-    QtMaterialSliderTrack        *track;
+    QtMaterialSlider *const q_ptr;
+    QtMaterialSliderThumb *thumb;
+    QtMaterialSliderTrack *track;
     QtMaterialSliderStateMachine *stateMachine;
-    QColor                        thumbColor;
-    QColor                        trackColor;
-    QColor                        disabledColor;
-    int                           stepTo;
-    int                           oldValue;
-    int                           trackWidth;
-    bool                          hoverTrack;
-    bool                          hoverThumb;
-    bool                          hover;
-    bool                          step;
-    bool                          pageStepMode;
-    bool                          useThemeColors;
+    QColor thumbColor;
+    QColor trackColor;
+    QColor disabledColor;
+    int stepTo;
+    int oldValue;
+    int trackWidth;
+    bool hoverTrack;
+    bool hoverThumb;
+    bool hover;
+    bool step;
+    bool pageStepMode;
+    bool useThemeColors;
 };
 
-#endif // QTMATERIALSLIDER_P_H
+#endif  // QTMATERIALSLIDER_P_H

@@ -1,8 +1,8 @@
 #ifndef QTMATERIALSCROLLBAR_P_H
 #define QTMATERIALSCROLLBAR_P_H
 
-#include <QtGlobal>
 #include <QColor>
+#include <QtGlobal>
 
 class QtMaterialScrollBar;
 class QtMaterialScrollBarStateMachine;
@@ -18,13 +18,13 @@ public:
 
     void init();
 
-    QtMaterialScrollBar             *const q_ptr;
+    QtMaterialScrollBar *const q_ptr;
     QtMaterialScrollBarStateMachine *stateMachine;
-    QColor                           backgroundColor;
-    QColor                           sliderColor;
-    QColor                           canvasColor;
-    bool                             hideOnMouseOut;
-    bool                             useThemeColors;
+    QColor backgroundColor;
+    QColor sliderColor;
+    QColor canvasColor;
+    bool hideOnMouseOut;
+    bool useThemeColors;
 };
 
-#endif // QTMATERIALSCROLLBAR_P_H
+#endif  // QTMATERIALSCROLLBAR_P_H

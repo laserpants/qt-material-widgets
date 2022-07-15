@@ -1,8 +1,8 @@
 #ifndef QTMATERIALSNACKBAR_P_H
 #define QTMATERIALSNACKBAR_P_H
 
-#include <QObject>
 #include <QColor>
+#include <QObject>
 
 class QtMaterialSnackbar;
 class QtMaterialSnackbarStateMachine;
@@ -18,16 +18,16 @@ public:
 
     void init();
 
-    QtMaterialSnackbar             *const q_ptr;
+    QtMaterialSnackbar *const q_ptr;
     QtMaterialSnackbarStateMachine *stateMachine;
-    QColor                          backgroundColor;
-    QColor                          textColor;
-    qreal                           bgOpacity;
-    QList<QString>                  messages;
-    int                             duration;
-    int                             boxWidth;
-    bool                            clickDismiss;
-    bool                            useThemeColors;
+    QColor backgroundColor;
+    QColor textColor;
+    qreal bgOpacity;
+    QList<QString> messages;
+    int duration;
+    int boxWidth;
+    bool clickDismiss;
+    bool useThemeColors;
 };
 
-#endif // QTMATERIALSNACKBAR_P_H
+#endif  // QTMATERIALSNACKBAR_P_H

@@ -1,27 +1,29 @@
 #include "qtmaterialradiobutton.h"
+#include "materiallib/qtmaterialcheckable_internal.h"
 #include "qtmaterialradiobutton_p.h"
-#include <QStateMachine>
-#include <QState>
-#include <QPropertyAnimation>
 #include <QColor>
-#include "lib/qtmaterialcheckable_internal.h"
+#include <QPropertyAnimation>
+#include <QState>
+#include <QStateMachine>
 
 /*!
  *  \class QtMaterialRadioButtonPrivate
- *  \internal
+ *  @parma state private class
+ *  @internal
+ *
  */
 
 QtMaterialRadioButtonPrivate::QtMaterialRadioButtonPrivate(QtMaterialRadioButton *q)
     : QtMaterialCheckablePrivate(q)
+    , q_ptr(q)
 {
 }
 
-QtMaterialRadioButtonPrivate::~QtMaterialRadioButtonPrivate()
-{
-}
+QtMaterialRadioButtonPrivate::~QtMaterialRadioButtonPrivate() {}
 
 void QtMaterialRadioButtonPrivate::init()
 {
+    // get the public button
     Q_Q(QtMaterialRadioButton);
 
     q->setAutoExclusive(true);
@@ -84,9 +86,7 @@ QtMaterialRadioButton::QtMaterialRadioButton(QWidget *parent)
     d_func()->init();
 }
 
-QtMaterialRadioButton::~QtMaterialRadioButton()
-{
-}
+QtMaterialRadioButton::~QtMaterialRadioButton() {}
 
 void QtMaterialRadioButton::setupProperties()
 {

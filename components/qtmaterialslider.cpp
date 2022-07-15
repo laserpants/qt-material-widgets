@@ -1,10 +1,10 @@
 #include "qtmaterialslider.h"
-#include "qtmaterialslider_p.h"
-#include <QtWidgets/QApplication>
-#include <QMouseEvent>
-#include "qtmaterialslider_internal.h"
-#include "lib/qtmaterialstyle.h"
 #include "lib/qtmaterialstatetransitionevent.h"
+#include "lib/qtmaterialstyle.h"
+#include "qtmaterialslider_internal.h"
+#include "qtmaterialslider_p.h"
+#include <QMouseEvent>
+#include <QtWidgets/QApplication>
 
 /*!
  *  \class QtMaterialSliderPrivate
@@ -16,33 +16,30 @@ QtMaterialSliderPrivate::QtMaterialSliderPrivate(QtMaterialSlider *q)
 {
 }
 
-QtMaterialSliderPrivate::~QtMaterialSliderPrivate()
-{
-}
+QtMaterialSliderPrivate::~QtMaterialSliderPrivate() {}
 
 void QtMaterialSliderPrivate::init()
 {
     Q_Q(QtMaterialSlider);
 
-    thumb          = new QtMaterialSliderThumb(q);
-    track          = new QtMaterialSliderTrack(thumb, q);
-    stateMachine   = new QtMaterialSliderStateMachine(q, thumb, track);
-    stepTo         = 0;
-    oldValue       = q->value();
-    trackWidth     = 2;
-    hoverTrack     = false;
-    hoverThumb     = false;
-    hover          = false;
-    step           = false;
-    pageStepMode   = true;
+    thumb = new QtMaterialSliderThumb(q);
+    track = new QtMaterialSliderTrack(thumb, q);
+    stateMachine = new QtMaterialSliderStateMachine(q, thumb, track);
+    stepTo = 0;
+    oldValue = q->value();
+    trackWidth = 2;
+    hoverTrack = false;
+    hoverThumb = false;
+    hover = false;
+    step = false;
+    pageStepMode = true;
     useThemeColors = true;
 
     q->setMouseTracking(true);
     q->setFocusPolicy(Qt::StrongFocus);
     q->setPageStep(1);
 
-    QSizePolicy sp(QSizePolicy::Expanding,
-                   QSizePolicy::Fixed);
+    QSizePolicy sp(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     if (q->orientation() == Qt::Vertical) {
         sp.transpose();
@@ -59,24 +56,25 @@ QRectF QtMaterialSliderPrivate::trackBoundingRect() const
 {
     Q_Q(const QtMaterialSlider);
 
-    qreal hw = static_cast<qreal>(trackWidth)/2;
+    qreal hw = static_cast<qreal>(trackWidth) / 2;
 
-    return Qt::Horizontal == q->orientation()
-        ? QRectF(QT_MATERIAL_SLIDER_MARGIN, q->height()/2 - hw,
-                 q->width() - QT_MATERIAL_SLIDER_MARGIN*2, hw*2)
-        : QRectF(q->width()/2 - hw, QT_MATERIAL_SLIDER_MARGIN, hw*2,
-                 q->height() - QT_MATERIAL_SLIDER_MARGIN*2);
+    return Qt::Horizontal == q->orientation() ?
+               QRectF(QT_MATERIAL_SLIDER_MARGIN, q->height() / 2.0 - hw, q->width() - QT_MATERIAL_SLIDER_MARGIN * 2, hw * 2) :
+               QRectF(q->width() / 2.0 - hw, QT_MATERIAL_SLIDER_MARGIN, hw * 2, q->height() - QT_MATERIAL_SLIDER_MARGIN * 2);
 }
 
 QRectF QtMaterialSliderPrivate::thumbBoundingRect() const
 {
     Q_Q(const QtMaterialSlider);
 
-    return Qt::Horizontal == q->orientation()
-        ? QRectF(thumb->offset(), q->height()/2 - QT_MATERIAL_SLIDER_MARGIN,
-                 QT_MATERIAL_SLIDER_MARGIN*2, QT_MATERIAL_SLIDER_MARGIN*2)
-        : QRectF(q->width()/2 - QT_MATERIAL_SLIDER_MARGIN, thumb->offset(),
-                 QT_MATERIAL_SLIDER_MARGIN*2, QT_MATERIAL_SLIDER_MARGIN*2);
+    return Qt::Horizontal == q->orientation() ? QRectF(thumb->offset(),
+                                                       q->height() / 2.0 - QT_MATERIAL_SLIDER_MARGIN,
+                                                       QT_MATERIAL_SLIDER_MARGIN * 2,
+                                                       QT_MATERIAL_SLIDER_MARGIN * 2) :
+                                                QRectF(q->width() / 2.0 - QT_MATERIAL_SLIDER_MARGIN,
+                                                       thumb->offset(),
+                                                       QT_MATERIAL_SLIDER_MARGIN * 2,
+                                                       QT_MATERIAL_SLIDER_MARGIN * 2);
 }
 
 int QtMaterialSliderPrivate::valueFromPosition(const QPoint &pos) const
@@ -85,16 +83,11 @@ int QtMaterialSliderPrivate::valueFromPosition(const QPoint &pos) const
 
     const int position = Qt::Horizontal == q->orientation() ? pos.x() : pos.y();
 
-    const int span = Qt::Horizontal == q->orientation()
-        ? q->width() - QT_MATERIAL_SLIDER_MARGIN*2
-        : q->height() - QT_MATERIAL_SLIDER_MARGIN*2;
+    const int span = Qt::Horizontal == q->orientation() ? q->width() - QT_MATERIAL_SLIDER_MARGIN * 2 :
+                                                          q->height() - QT_MATERIAL_SLIDER_MARGIN * 2;
 
     return QtMaterialStyle::sliderValueFromPosition(
-                q->minimum(),
-                q->maximum(),
-                position - QT_MATERIAL_SLIDER_MARGIN,
-                span,
-                q->invertedAppearance());
+        q->minimum(), q->maximum(), position - QT_MATERIAL_SLIDER_MARGIN, span, q->invertedAppearance());
 }
 
 void QtMaterialSliderPrivate::setHovered(bool status)
@@ -123,15 +116,13 @@ void QtMaterialSliderPrivate::setHovered(bool status)
  */
 
 QtMaterialSlider::QtMaterialSlider(QWidget *parent)
-    : QAbstractSlider(parent),
-      d_ptr(new QtMaterialSliderPrivate(this))
+    : QAbstractSlider(parent)
+    , d_ptr(new QtMaterialSliderPrivate(this))
 {
     d_func()->init();
 }
 
-QtMaterialSlider::~QtMaterialSlider()
-{
-}
+QtMaterialSlider::~QtMaterialSlider() {}
 
 void QtMaterialSlider::setUseThemeColors(bool value)
 {
@@ -237,9 +228,7 @@ bool QtMaterialSlider::pageStepMode() const
  */
 QSize QtMaterialSlider::minimumSizeHint() const
 {
-    return Qt::Horizontal == orientation()
-            ? QSize(130, 34)
-            : QSize(34, 130);
+    return Qt::Horizontal == orientation() ? QSize(130, 34) : QSize(34, 130);
 }
 
 void QtMaterialSlider::setInvertedAppearance(bool value)
@@ -256,16 +245,13 @@ void QtMaterialSlider::sliderChange(SliderChange change)
 {
     Q_D(QtMaterialSlider);
 
-    if (SliderOrientationChange == change)
-    {
+    if (SliderOrientationChange == change) {
         QSizePolicy sp(QSizePolicy::Expanding, QSizePolicy::Fixed);
         if (orientation() == Qt::Vertical) {
             sp.transpose();
         }
         setSizePolicy(sp);
-    }
-    else if (SliderValueChange == change)
-    {
+    } else if (SliderValueChange == change) {
         if (minimum() == value()) {
             triggerAction(SliderToMinimum);
             d->stateMachine->postEvent(new QtMaterialStateTransitionEvent(SliderChangedToMinimum));
@@ -290,12 +276,9 @@ void QtMaterialSlider::mouseMoveEvent(QMouseEvent *event)
 {
     Q_D(QtMaterialSlider);
 
-    if (isSliderDown())
-    {
+    if (isSliderDown()) {
         setSliderPosition(d->valueFromPosition(event->pos()));
-    }
-    else
-    {
+    } else {
         QRectF track(d->trackBoundingRect().adjusted(-2, -2, 2, 2));
 
         if (track.contains(event->pos()) != d->hoverTrack) {
@@ -344,9 +327,7 @@ void QtMaterialSlider::mousePressEvent(QMouseEvent *event)
     d->step = true;
     d->stepTo = d->valueFromPosition(pos);
 
-    SliderAction action = d->stepTo > sliderPosition()
-        ? SliderPageStepAdd
-        : SliderPageStepSub;
+    SliderAction action = d->stepTo > sliderPosition() ? SliderPageStepAdd : SliderPageStepSub;
 
     triggerAction(action);
     setRepeatAction(action, 400, 8);
@@ -398,9 +379,7 @@ void QtMaterialSlider::updateThumbOffset()
         minimum(),
         maximum(),
         sliderPosition(),
-        Qt::Horizontal == orientation()
-            ? width() - QT_MATERIAL_SLIDER_MARGIN*2
-            : height() - QT_MATERIAL_SLIDER_MARGIN*2,
+        Qt::Horizontal == orientation() ? width() - QT_MATERIAL_SLIDER_MARGIN * 2 : height() - QT_MATERIAL_SLIDER_MARGIN * 2,
         invertedAppearance());
 
     d->thumb->setOffset(offset);

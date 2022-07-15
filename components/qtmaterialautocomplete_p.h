@@ -7,7 +7,7 @@ class QWidget;
 class QVBoxLayout;
 class QtMaterialAutoCompleteOverlay;
 class QtMaterialAutoCompleteStateMachine;
-
+class QtMaterialAutoComplete;
 class QtMaterialAutoCompletePrivate : public QtMaterialTextFieldPrivate
 {
     Q_DISABLE_COPY(QtMaterialAutoCompletePrivate)
@@ -19,12 +19,13 @@ public:
 
     void init();
 
-    QWidget                            *menu;
-    QWidget                            *frame;
+    QtMaterialAutoComplete *const q_ptr;
+    QWidget *menu;
+    QWidget *frame;
     QtMaterialAutoCompleteStateMachine *stateMachine;
-    QVBoxLayout                        *menuLayout;
-    QStringList                         dataSource;
-    int                                 maxWidth;
+    QVBoxLayout *menuLayout;
+    QStringList dataSource;
+    int maxWidth;
 };
 
-#endif // QTMATERIALAUTOCOMPLETE_P_H
+#endif  // QTMATERIALAUTOCOMPLETE_P_H

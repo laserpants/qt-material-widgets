@@ -1,8 +1,8 @@
 #include "qtmaterialprogress_internal.h"
 
 /*!
- *  \class QtMaterialProgressDelegate
- *  \internal
+ *  @class QtMaterialProgressDelegate
+ *  @internal
  */
 
 QtMaterialProgressDelegate::QtMaterialProgressDelegate(QtMaterialProgress *parent)

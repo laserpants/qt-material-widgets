@@ -1,37 +1,36 @@
 #include "qtmaterialslider_internal.h"
-#include <QState>
-#include <QAbstractTransition>
-#include <QSignalTransition>
-#include <QEventTransition>
-#include <QPropertyAnimation>
-#include <QPainter>
-#include "qtmaterialslider.h"
-#include "lib/qtmaterialstyle.h"
 #include "lib/qtmaterialstatetransition.h"
+#include "lib/qtmaterialstyle.h"
+#include "qtmaterialslider.h"
+#include <QAbstractTransition>
+#include <QEventTransition>
+#include <QPainter>
+#include <QPropertyAnimation>
+#include <QSignalTransition>
+#include <QState>
 
 /*!
  *  \class QtMaterialSliderStateMachine
  *  \internal
  */
 
-QtMaterialSliderStateMachine::QtMaterialSliderStateMachine(
-        QtMaterialSlider      *slider,
-        QtMaterialSliderThumb *thumb,
-        QtMaterialSliderTrack *track)
-    : QStateMachine(slider),
-      m_slider(slider),
-      m_thumb(thumb),
-      m_track(track),
-      m_topState(new QState(QState::ParallelStates)),
-      m_fstState(new QState(m_topState)),
-      m_sndState(new QState(m_topState)),
-      m_inactiveState(new QState(m_fstState)),
-      m_focusState(new QState(m_fstState)),
-      m_slidingState(new QState(m_fstState)),
-      m_pulseOutState(new QState(m_focusState)),
-      m_pulseInState(new QState(m_focusState)),
-      m_minState(new QState(m_sndState)),
-      m_normalState(new QState(m_sndState))
+QtMaterialSliderStateMachine::QtMaterialSliderStateMachine(QtMaterialSlider *slider,
+                                                           QtMaterialSliderThumb *thumb,
+                                                           QtMaterialSliderTrack *track)
+    : QStateMachine(slider)
+    , m_slider(slider)
+    , m_thumb(thumb)
+    , m_track(track)
+    , m_topState(new QState(QState::ParallelStates))
+    , m_fstState(new QState(m_topState))
+    , m_sndState(new QState(m_topState))
+    , m_inactiveState(new QState(m_fstState))
+    , m_focusState(new QState(m_fstState))
+    , m_slidingState(new QState(m_fstState))
+    , m_pulseOutState(new QState(m_focusState))
+    , m_pulseInState(new QState(m_focusState))
+    , m_minState(new QState(m_sndState))
+    , m_normalState(new QState(m_sndState))
 {
     addState(m_topState);
     setInitialState(m_topState);
@@ -197,9 +196,7 @@ QtMaterialSliderStateMachine::QtMaterialSliderStateMachine(
     setupProperties();
 }
 
-QtMaterialSliderStateMachine::~QtMaterialSliderStateMachine()
-{
-}
+QtMaterialSliderStateMachine::~QtMaterialSliderStateMachine() {}
 
 void QtMaterialSliderStateMachine::setupProperties()
 {
@@ -234,21 +231,19 @@ void QtMaterialSliderStateMachine::setupProperties()
  */
 
 QtMaterialSliderThumb::QtMaterialSliderThumb(QtMaterialSlider *slider)
-    : QtMaterialOverlayWidget(slider->parentWidget()),
-      m_slider(slider),
-      m_diameter(11),
-      m_borderWidth(2),
-      m_haloSize(0),
-      m_offset(0)
+    : QtMaterialOverlayWidget(slider->parentWidget())
+    , m_slider(slider)
+    , m_diameter(11)
+    , m_borderWidth(2)
+    , m_haloSize(0)
+    , m_offset(0)
 {
     slider->installEventFilter(this);
 
     setAttribute(Qt::WA_TransparentForMouseEvents, true);
 }
 
-QtMaterialSliderThumb::~QtMaterialSliderThumb()
-{
-}
+QtMaterialSliderThumb::~QtMaterialSliderThumb() {}
 
 bool QtMaterialSliderThumb::eventFilter(QObject *obj, QEvent *event)
 {
@@ -274,12 +269,11 @@ void QtMaterialSliderThumb::paintEvent(QPaintEvent *event)
     painter.setBrush(brush);
     painter.setPen(Qt::NoPen);
 
-    QPointF disp = Qt::Horizontal == m_slider->orientation()
-        ? QPointF(QT_MATERIAL_SLIDER_MARGIN + m_offset, m_slider->height()/2)
-        : QPointF(m_slider->width()/2, QT_MATERIAL_SLIDER_MARGIN + m_offset);
+    QPointF disp = Qt::Horizontal == m_slider->orientation() ?
+                       QPointF(QT_MATERIAL_SLIDER_MARGIN + m_offset, m_slider->height() / 2.0) :
+                       QPointF(m_slider->width() / 2.0, QT_MATERIAL_SLIDER_MARGIN + m_offset);
 
-    QRectF halo((m_slider->pos() - QPointF(m_haloSize, m_haloSize)/2) + disp,
-                QSizeF(m_haloSize, m_haloSize));
+    QRectF halo((m_slider->pos() - QPointF(m_haloSize, m_haloSize) / 2) + disp, QSizeF(m_haloSize, m_haloSize));
 
     painter.setOpacity(0.15);
     painter.drawEllipse(halo);
@@ -288,12 +282,8 @@ void QtMaterialSliderThumb::paintEvent(QPaintEvent *event)
 
     const bool isMin = m_slider->value() == m_slider->minimum();
 
-    brush.setColor(m_slider->isEnabled()
-           ? m_fillColor
-           : m_slider->disabledColor());
-    painter.setBrush(!m_slider->isEnabled() && isMin
-           ? Qt::NoBrush
-           : brush);
+    brush.setColor(m_slider->isEnabled() ? m_fillColor : m_slider->disabledColor());
+    painter.setBrush(!m_slider->isEnabled() && isMin ? Qt::NoBrush : brush);
 
     if (m_slider->isEnabled() || isMin) {
         QPen pen;
@@ -304,11 +294,16 @@ void QtMaterialSliderThumb::paintEvent(QPaintEvent *event)
         painter.setPen(Qt::NoPen);
     }
 
-    QRectF geometry = Qt::Horizontal == m_slider->orientation()
-        ? QRectF(m_offset, m_slider->height()/2 - QT_MATERIAL_SLIDER_MARGIN,
-                 QT_MATERIAL_SLIDER_MARGIN*2, QT_MATERIAL_SLIDER_MARGIN*2).translated(m_slider->pos())
-        : QRectF(m_slider->width()/2 - QT_MATERIAL_SLIDER_MARGIN, m_offset,
-                 QT_MATERIAL_SLIDER_MARGIN*2, QT_MATERIAL_SLIDER_MARGIN*2).translated(m_slider->pos());
+    QRectF geometry = Qt::Horizontal == m_slider->orientation() ? QRectF(m_offset,
+                                                                         m_slider->height() / 2.0 - QT_MATERIAL_SLIDER_MARGIN,
+                                                                         QT_MATERIAL_SLIDER_MARGIN * 2,
+                                                                         QT_MATERIAL_SLIDER_MARGIN * 2)
+                                                                      .translated(m_slider->pos()) :
+                                                                  QRectF(m_slider->width() / 2.0 - QT_MATERIAL_SLIDER_MARGIN,
+                                                                         m_offset,
+                                                                         QT_MATERIAL_SLIDER_MARGIN * 2,
+                                                                         QT_MATERIAL_SLIDER_MARGIN * 2)
+                                                                      .translated(m_slider->pos());
 
     qreal s = m_slider->isEnabled() ? m_diameter : 7;
 
@@ -326,10 +321,10 @@ void QtMaterialSliderThumb::paintEvent(QPaintEvent *event)
  */
 
 QtMaterialSliderTrack::QtMaterialSliderTrack(QtMaterialSliderThumb *thumb, QtMaterialSlider *slider)
-    : QtMaterialOverlayWidget(slider->parentWidget()),
-      m_slider(slider),
-      m_thumb(thumb),
-      m_trackWidth(2)
+    : QtMaterialOverlayWidget(slider->parentWidget())
+    , m_slider(slider)
+    , m_thumb(thumb)
+    , m_trackWidth(2)
 {
     slider->installEventFilter(this);
 
@@ -338,9 +333,7 @@ QtMaterialSliderTrack::QtMaterialSliderTrack(QtMaterialSliderThumb *thumb, QtMat
     connect(slider, SIGNAL(sliderMoved(int)), this, SLOT(update()));
 }
 
-QtMaterialSliderTrack::~QtMaterialSliderTrack()
-{
-}
+QtMaterialSliderTrack::~QtMaterialSliderTrack() {}
 
 bool QtMaterialSliderTrack::eventFilter(QObject *obj, QEvent *event)
 {
@@ -360,28 +353,24 @@ void QtMaterialSliderTrack::paintEvent(QPaintEvent *event)
 
     QBrush fg;
     fg.setStyle(Qt::SolidPattern);
-    fg.setColor(m_slider->isEnabled() ? m_slider->thumbColor()
-                                      : m_slider->disabledColor());
+    fg.setColor(m_slider->isEnabled() ? m_slider->thumbColor() : m_slider->disabledColor());
     QBrush bg;
     bg.setStyle(Qt::SolidPattern);
-    bg.setColor(m_slider->isEnabled() ? m_fillColor
-                                      : m_slider->disabledColor());
+    bg.setColor(m_slider->isEnabled() ? m_fillColor : m_slider->disabledColor());
 
     qreal offset = m_thumb->offset();
 
     if (Qt::Horizontal == m_slider->orientation()) {
         painter.translate(m_slider->x() + QT_MATERIAL_SLIDER_MARGIN,
-                          m_slider->y() + m_slider->height()/2
-                                        - static_cast<qreal>(m_trackWidth)/2);
+                          m_slider->y() + m_slider->height() / 2.0 - static_cast<qreal>(m_trackWidth) / 2.0);
     } else {
-        painter.translate(m_slider->x() + m_slider->width()/2
-                                        - static_cast<qreal>(m_trackWidth)/2,
+        painter.translate(m_slider->x() + m_slider->width() / 2.0 - static_cast<qreal>(m_trackWidth) / 2.0,
                           m_slider->y() + QT_MATERIAL_SLIDER_MARGIN);
     }
 
-    QRectF geometry = Qt::Horizontal == m_slider->orientation()
-        ? QRectF(0, 0, m_slider->width() - QT_MATERIAL_SLIDER_MARGIN*2, m_trackWidth)
-        : QRectF(0, 0, m_trackWidth, m_slider->height() - QT_MATERIAL_SLIDER_MARGIN*2);
+    QRectF geometry = Qt::Horizontal == m_slider->orientation() ?
+                          QRectF(0, 0, m_slider->width() - QT_MATERIAL_SLIDER_MARGIN * 2, m_trackWidth) :
+                          QRectF(0, 0, m_trackWidth, m_slider->height() - QT_MATERIAL_SLIDER_MARGIN * 2);
 
     QRectF bgRect;
     QRectF fgRect;

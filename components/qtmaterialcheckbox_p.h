@@ -1,7 +1,7 @@
 #ifndef QTMATERIALCHECKBOX_P_H
 #define QTMATERIALCHECKBOX_P_H
 
-#include "lib/qtmaterialcheckable_p.h"
+#include "materiallib/qtmaterialcheckable_p.h"
 
 class QtMaterialCheckBox;
 
@@ -14,7 +14,9 @@ public:
     QtMaterialCheckBoxPrivate(QtMaterialCheckBox *q);
     ~QtMaterialCheckBoxPrivate();
 
+	QtMaterialCheckBox *const q_ptr;
+
     void init();
 };
 
-#endif // QTMATERIALCHECKBOX_P_H
+#endif  // QTMATERIALCHECKBOX_P_H

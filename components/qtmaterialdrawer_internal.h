@@ -1,8 +1,8 @@
 #ifndef DRAWER_INTERNAL_H
 #define DRAWER_INTERNAL_H
 
-#include <QStateMachine>
 #include "lib/qtmaterialoverlaywidget.h"
+#include <QStateMachine>
 
 class QtMaterialDrawer;
 class QtMaterialDrawerWidget;
@@ -14,8 +14,7 @@ class QtMaterialDrawerStateMachine : public QStateMachine
     Q_PROPERTY(qreal opacity WRITE setOpacity READ opacity)
 
 public:
-    explicit QtMaterialDrawerStateMachine(QtMaterialDrawerWidget *drawer,
-                                          QtMaterialDrawer *parent);
+    explicit QtMaterialDrawerStateMachine(QtMaterialDrawerWidget *drawer, QtMaterialDrawer *parent);
     ~QtMaterialDrawerStateMachine();
 
     void setOpacity(qreal opacity);
@@ -33,12 +32,12 @@ private:
     Q_DISABLE_COPY(QtMaterialDrawerStateMachine)
 
     QtMaterialDrawerWidget *const m_drawer;
-    QtMaterialDrawer       *const m_main;
-    QState                 *const m_openingState;
-    QState                 *const m_openedState;
-    QState                 *const m_closingState;
-    QState                 *const m_closedState;
-    qreal                         m_opacity;
+    QtMaterialDrawer *const m_main;
+    QState *const m_openingState;
+    QState *const m_openedState;
+    QState *const m_closingState;
+    QState *const m_closedState;
+    qreal m_opacity;
 };
 
 inline qreal QtMaterialDrawerStateMachine::opacity() const
@@ -65,7 +64,7 @@ protected:
     QRect overlayGeometry() const Q_DECL_OVERRIDE;
 
 private:
-    int  m_offset;
+    int m_offset;
 };
 
 inline int QtMaterialDrawerWidget::offset() const
@@ -73,4 +72,4 @@ inline int QtMaterialDrawerWidget::offset() const
     return m_offset;
 }
 
-#endif // DRAWER_INTERNAL_H
+#endif  // DRAWER_INTERNAL_H

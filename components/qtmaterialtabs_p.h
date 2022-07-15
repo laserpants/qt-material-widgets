@@ -1,8 +1,8 @@
 #ifndef QTMATERIALTABS_P_H
 #define QTMATERIALTABS_P_H
 
-#include <QtGlobal>
 #include "lib/qtmaterialtheme.h"
+#include <QtGlobal>
 
 class QHBoxLayout;
 class QtMaterialTabs;
@@ -19,16 +19,16 @@ public:
 
     void init();
 
-    QtMaterialTabs       *const q_ptr;
+    QtMaterialTabs *const q_ptr;
     QtMaterialTabsInkBar *inkBar;
-    QHBoxLayout          *tabLayout;
+    QHBoxLayout *tabLayout;
     Material::RippleStyle rippleStyle;
-    QColor                inkColor;
-    QColor                backgroundColor;
-    QColor                textColor;
-    int                   tab;
-    bool                  showHalo;
-    bool                  useThemeColors;
+    QColor inkColor;
+    QColor backgroundColor;
+    QColor textColor;
+    int tab;
+    bool showHalo;
+    bool useThemeColors;
 };
 
-#endif // QTMATERIALTABS_P_H
+#endif  // QTMATERIALTABS_P_H

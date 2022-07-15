@@ -1,8 +1,8 @@
 #ifndef DRAWERSETTINGSEDITOR_H
 #define DRAWERSETTINGSEDITOR_H
 
-#include <QWidget>
 #include "ui_drawersettingsform.h"
+#include <QWidget>
 
 class QtMaterialDrawer;
 
@@ -20,7 +20,7 @@ protected slots:
 
 private:
     Ui::DrawerSettingsForm *const ui;
-    QtMaterialDrawer       *const m_drawer;
+    QtMaterialDrawer *const m_drawer;
 };
 
-#endif // DRAWERSETTINGSEDITOR_H
+#endif  // DRAWERSETTINGSEDITOR_H

@@ -1,8 +1,8 @@
 #ifndef QTMATERIALTOGGLE_INTERNAL_H
 #define QTMATERIALTOGGLE_INTERNAL_H
 
-#include <QtWidgets/QWidget>
 #include "lib/qtmaterialrippleoverlay.h"
+#include <QtWidgets/QWidget>
 
 class QtMaterialToggle;
 class QtMaterialToggleThumb;
@@ -13,9 +13,7 @@ class QtMaterialToggleRippleOverlay : public QtMaterialRippleOverlay
     Q_OBJECT
 
 public:
-    QtMaterialToggleRippleOverlay(QtMaterialToggleThumb *thumb,
-                                  QtMaterialToggleTrack *track,
-                                  QtMaterialToggle *parent);
+    QtMaterialToggleRippleOverlay(QtMaterialToggleThumb *thumb, QtMaterialToggleTrack *track, QtMaterialToggle *parent);
     ~QtMaterialToggleRippleOverlay();
 
 protected slots:
@@ -28,7 +26,7 @@ protected:
 private:
     Q_DISABLE_COPY(QtMaterialToggleRippleOverlay)
 
-    QtMaterialToggle      *const m_toggle;
+    QtMaterialToggle *const m_toggle;
     QtMaterialToggleThumb *const m_thumb;
     QtMaterialToggleTrack *const m_track;
 };
@@ -62,9 +60,9 @@ private:
     void updateOffset();
 
     QtMaterialToggle *const m_toggle;
-    QColor                  m_thumbColor;
-    qreal                   m_shift;
-    qreal                   m_offset;
+    QColor m_thumbColor;
+    qreal m_shift;
+    qreal m_offset;
 };
 
 inline qreal QtMaterialToggleThumb::shift() const
@@ -109,7 +107,7 @@ private:
     Q_DISABLE_COPY(QtMaterialToggleTrack)
 
     QtMaterialToggle *const m_toggle;
-    QColor                  m_trackColor;
+    QColor m_trackColor;
 };
 
 inline QColor QtMaterialToggleTrack::trackColor() const
@@ -117,4 +115,4 @@ inline QColor QtMaterialToggleTrack::trackColor() const
     return m_trackColor;
 }
 
-#endif // QTMATERIALTOGGLE_INTERNAL_H
+#endif  // QTMATERIALTOGGLE_INTERNAL_H

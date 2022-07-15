@@ -1,8 +1,8 @@
 #ifndef TOGGLESETTINGSEDITOR_H
 #define TOGGLESETTINGSEDITOR_H
 
-#include <QWidget>
 #include "ui_togglesettingsform.h"
+#include <QWidget>
 
 class QtMaterialToggle;
 
@@ -21,7 +21,7 @@ protected slots:
 
 private:
     Ui::ToggleSettingsForm *const ui;
-    QtMaterialToggle       *const m_toggle;
+    QtMaterialToggle *const m_toggle;
 };
 
-#endif // TOGGLESETTINGSEDITOR_H
+#endif  // TOGGLESETTINGSEDITOR_H

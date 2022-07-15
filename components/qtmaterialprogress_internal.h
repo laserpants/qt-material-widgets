@@ -1,8 +1,8 @@
 #ifndef QTMATERIALPROGRESS_INTERNAL_H
 #define QTMATERIALPROGRESS_INTERNAL_H
 
-#include <QObject>
 #include "qtmaterialprogress.h"
+#include <QObject>
 
 class QtMaterialProgressDelegate : public QObject
 {
@@ -21,7 +21,7 @@ private:
     Q_DISABLE_COPY(QtMaterialProgressDelegate)
 
     QtMaterialProgress *const m_progress;
-    qreal                     m_offset;
+    qreal m_offset;
 };
 
 inline void QtMaterialProgressDelegate::setOffset(qreal offset)
@@ -35,4 +35,4 @@ inline qreal QtMaterialProgressDelegate::offset() const
     return m_offset;
 }
 
-#endif // QTMATERIALPROGRESS_INTERNAL_H
+#endif  // QTMATERIALPROGRESS_INTERNAL_H

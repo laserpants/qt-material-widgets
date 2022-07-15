@@ -20,11 +20,11 @@ public:
 
     void init();
 
-    QtMaterialDialog       *const q_ptr;
+    QtMaterialDialog *const q_ptr;
     QtMaterialDialogWindow *dialogWindow;
-    QStackedLayout         *proxyStack;
-    QStateMachine          *stateMachine;
-    QtMaterialDialogProxy  *proxy;
+    QStackedLayout *proxyStack;
+    QStateMachine *stateMachine;
+    QtMaterialDialogProxy *proxy;
 };
 
-#endif // QTMATERIALDIALOG_P_H
+#endif  // QTMATERIALDIALOG_P_H

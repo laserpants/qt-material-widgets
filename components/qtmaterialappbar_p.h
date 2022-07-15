@@ -1,8 +1,8 @@
 #ifndef QTMATERIALAPPBAR_P_H
 #define QTMATERIALAPPBAR_P_H
 
-#include <QtGlobal>
 #include <QColor>
+#include <QtGlobal>
 
 class QtMaterialAppBar;
 
@@ -18,9 +18,9 @@ public:
     void init();
 
     QtMaterialAppBar *const q_ptr;
-    bool                    useThemeColors;
-    QColor                  foregroundColor;
-    QColor                  backgroundColor;
+    bool useThemeColors;
+    QColor foregroundColor;
+    QColor backgroundColor;
 };
 
-#endif // QTMATERIALAPPBAR_P_H
+#endif  // QTMATERIALAPPBAR_P_H

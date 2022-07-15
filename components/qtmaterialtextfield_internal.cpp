@@ -1,23 +1,23 @@
 #include "qtmaterialtextfield_internal.h"
-#include <QPropertyAnimation>
+#include "qtmaterialtextfield.h"
 #include <QEventTransition>
 #include <QPainter>
-#include "qtmaterialtextfield.h"
+#include <QPropertyAnimation>
 
 /*!
- *  \class QtMaterialTextFieldStateMachine
- *  \internal
+ *  @class QtMaterialTextFieldStateMachine
+ *  @internal
  */
 
 QtMaterialTextFieldStateMachine::QtMaterialTextFieldStateMachine(QtMaterialTextField *parent)
-    : QStateMachine(parent),
-      m_textField(parent),
-      m_normalState(new QState),
-      m_focusedState(new QState),
-      m_label(0),
-      m_offsetAnimation(0),
-      m_colorAnimation(0),
-      m_progress(0.0)
+    : QStateMachine(parent)
+    , m_textField(parent)
+    , m_normalState(new QState)
+    , m_focusedState(new QState)
+    , m_label(0)
+    , m_offsetAnimation(0)
+    , m_colorAnimation(0)
+    , m_progress(0.0)
 {
     Q_ASSERT(parent);
 
@@ -55,9 +55,7 @@ QtMaterialTextFieldStateMachine::QtMaterialTextFieldStateMachine(QtMaterialTextF
     connect(m_textField, SIGNAL(textChanged(QString)), this, SLOT(setupProperties()));
 }
 
-QtMaterialTextFieldStateMachine::~QtMaterialTextFieldStateMachine()
-{
-}
+QtMaterialTextFieldStateMachine::~QtMaterialTextFieldStateMachine() {}
 
 void QtMaterialTextFieldStateMachine::setLabel(QtMaterialTextFieldLabel *label)
 {
@@ -77,8 +75,7 @@ void QtMaterialTextFieldStateMachine::setLabel(QtMaterialTextFieldLabel *label)
 
     m_label = label;
 
-    if (m_label)
-    {
+    if (m_label) {
         m_offsetAnimation = new QPropertyAnimation(m_label, "offset", this);
         m_offsetAnimation->setDuration(210);
         m_offsetAnimation->setEasingCurve(QEasingCurve::OutCubic);
@@ -94,22 +91,21 @@ void QtMaterialTextFieldStateMachine::setLabel(QtMaterialTextFieldLabel *label)
 
 void QtMaterialTextFieldStateMachine::setupProperties()
 {
-    if (m_label)
-    {
+    if (m_label) {
         const int m = m_textField->textMargins().top();
 
         if (m_textField->text().isEmpty()) {
             m_normalState->assignProperty(m_label, "offset", QPointF(0, 26));
         } else {
-            m_normalState->assignProperty(m_label, "offset", QPointF(0, 0-m));
+            m_normalState->assignProperty(m_label, "offset", QPointF(0, 0 - m));
         }
 
-        m_focusedState->assignProperty(m_label, "offset", QPointF(0, 0-m));
+        m_focusedState->assignProperty(m_label, "offset", QPointF(0, 0 - m));
         m_focusedState->assignProperty(m_label, "color", m_textField->inkColor());
         m_normalState->assignProperty(m_label, "color", m_textField->labelColor());
 
         if (0 != m_label->offset().y() && !m_textField->text().isEmpty()) {
-            m_label->setOffset(QPointF(0, 0-m));
+            m_label->setOffset(QPointF(0, 0 - m));
         } else if (!m_textField->hasFocus() && m_label->offset().y() <= 0 && m_textField->text().isEmpty()) {
             m_label->setOffset(QPointF(0, 26));
         }
@@ -119,17 +115,17 @@ void QtMaterialTextFieldStateMachine::setupProperties()
 }
 
 /*!
- *  \class QtMaterialTextFieldLabel
- *  \internal
+ *  @class QtMaterialTextFieldLabel
+ *  @internal
  */
 
 QtMaterialTextFieldLabel::QtMaterialTextFieldLabel(QtMaterialTextField *parent)
-    : QWidget(parent),
-      m_textField(parent),
-      m_scale(1),
-      m_posX(0),
-      m_posY(26),
-      m_color(parent->labelColor())
+    : QWidget(parent)
+    , m_textField(parent)
+    , m_scale(1)
+    , m_posX(0)
+    , m_posY(26)
+    , m_color(parent->labelColor())
 {
     Q_ASSERT(parent);
 
@@ -138,12 +134,10 @@ QtMaterialTextFieldLabel::QtMaterialTextFieldLabel(QtMaterialTextField *parent)
     setFont(font);
 }
 
-QtMaterialTextFieldLabel::~QtMaterialTextFieldLabel()
-{
-}
+QtMaterialTextFieldLabel::~QtMaterialTextFieldLabel() {}
 
 /*!
- *  \reimp
+ *  @reimp
  */
 void QtMaterialTextFieldLabel::paintEvent(QPaintEvent *event)
 {
@@ -159,6 +153,6 @@ void QtMaterialTextFieldLabel::paintEvent(QPaintEvent *event)
     painter.setPen(m_color);
     painter.setOpacity(1);
 
-    QPointF pos(2+m_posX, height()-36+m_posY);
+    QPointF pos(2 + m_posX, height() - 36 + m_posY);
     painter.drawText(pos.x(), pos.y(), m_textField->label());
 }

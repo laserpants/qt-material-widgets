@@ -1,32 +1,31 @@
 #include "qtmaterialcheckbox.h"
+#include "materiallib/qtmaterialcheckable_internal.h"
 #include "qtmaterialcheckbox_p.h"
 #include <QPropertyAnimation>
 #include <QSignalTransition>
 #include <QState>
-#include "lib/qtmaterialcheckable_internal.h"
 
 /*!
- *  \class QtMaterialCheckBoxPrivate
- *  \internal
+ *  @class QtMaterialCheckBoxPrivate
+ *  @internal
  */
 
 /*!
- *  \internal
+ *  @internal
  */
 QtMaterialCheckBoxPrivate::QtMaterialCheckBoxPrivate(QtMaterialCheckBox *q)
     : QtMaterialCheckablePrivate(q)
+    , q_ptr(q)
 {
 }
 
 /*!
- *  \internal
+ *  @internal
  */
-QtMaterialCheckBoxPrivate::~QtMaterialCheckBoxPrivate()
-{
-}
+QtMaterialCheckBoxPrivate::~QtMaterialCheckBoxPrivate() {}
 
 /*!
- *  \internal
+ *  @internal
  */
 void QtMaterialCheckBoxPrivate::init()
 {
@@ -71,7 +70,7 @@ void QtMaterialCheckBoxPrivate::init()
 }
 
 /*!
- *  \class QtMaterialCheckBox
+ *  @class QtMaterialCheckBox
  */
 
 QtMaterialCheckBox::QtMaterialCheckBox(QWidget *parent)
@@ -80,6 +79,4 @@ QtMaterialCheckBox::QtMaterialCheckBox(QWidget *parent)
     d_func()->init();
 }
 
-QtMaterialCheckBox::~QtMaterialCheckBox()
-{
-}
+QtMaterialCheckBox::~QtMaterialCheckBox() {}

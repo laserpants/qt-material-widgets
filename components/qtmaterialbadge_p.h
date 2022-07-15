@@ -1,10 +1,10 @@
 #ifndef QTMATERIALBADGE_P_H
 #define QTMATERIALBADGE_P_H
 
-#include <QtGlobal>
-#include <QSize>
-#include <QIcon>
 #include <QColor>
+#include <QIcon>
+#include <QSize>
+#include <QtGlobal>
 
 class QtMaterialBadge;
 
@@ -20,15 +20,15 @@ public:
     void init();
 
     QtMaterialBadge *const q_ptr;
-    QString                text;
-    QColor                 textColor;
-    QColor                 backgroundColor;
-    QSize                  size;
-    QIcon                  icon;
-    qreal                  x;
-    qreal                  y;
-    int                    padding;
-    bool                   useThemeColors;
+    QString text;
+    QColor textColor;
+    QColor backgroundColor;
+    QSize size;
+    QIcon icon;
+    qreal x;
+    qreal y;
+    int padding;
+    bool useThemeColors;
 };
 
-#endif // QTMATERIALBADGE_P_H
+#endif  // QTMATERIALBADGE_P_H

@@ -1,8 +1,8 @@
 #ifndef DIALOGSETTINGSEDITOR_H
 #define DIALOGSETTINGSEDITOR_H
 
-#include <QWidget>
 #include "ui_dialogsettingsform.h"
+#include <QWidget>
 
 class QtMaterialDialog;
 
@@ -20,7 +20,7 @@ protected slots:
 
 private:
     Ui::DialogSettingsForm *const ui;
-    QtMaterialDialog       *const m_dialog;
+    QtMaterialDialog *const m_dialog;
 };
 
-#endif // DIALOGSETTINGSEDITOR_H
+#endif  // DIALOGSETTINGSEDITOR_H
