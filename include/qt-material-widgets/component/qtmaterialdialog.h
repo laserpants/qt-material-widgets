@@ -2,6 +2,7 @@
 #define QTMATERIALDIALOG_H
 
 #include <QScopedPointer>
+#include <qwidget.h>
 
 #include "qt-material-widgets/lib/qtmaterialoverlaywidget.h"
 
@@ -19,6 +20,7 @@ public:
 
     QLayout *windowLayout() const;
     void setWindowLayout(QLayout *layout);
+    QWidget* getContentWidget() const;
 
 public slots:
     void showDialog();
@@ -33,5 +35,6 @@ private:
     Q_DISABLE_COPY(QtMaterialDialog)
     Q_DECLARE_PRIVATE(QtMaterialDialog)
 };
+
 
 #endif // QTMATERIALDIALOG_H
