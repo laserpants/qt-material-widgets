@@ -1,11 +1,13 @@
 #ifndef QTMATERIALICONBUTTON_H
 #define QTMATERIALICONBUTTON_H
 
+#include <qt-material-widgets/qt-material-widgets_export.hpp>
+
 #include <QtWidgets/QAbstractButton>
 
 class QtMaterialIconButtonPrivate;
 
-class QtMaterialIconButton : public QAbstractButton
+class QT_MATERIAL_WIDGETS_EXPORT QtMaterialIconButton : public QAbstractButton
 {
     Q_OBJECT
 

@@ -1,11 +1,13 @@
 #ifndef QTMATERIALCHECKABLE_H
 #define QTMATERIALCHECKABLE_H
 
+#include <qt-material-widgets/qt-material-widgets_export.hpp>
+
 #include <QtWidgets/QAbstractButton>
 
 class QtMaterialCheckablePrivate;
 
-class QtMaterialCheckable : public QAbstractButton
+class QT_MATERIAL_WIDGETS_EXPORT QtMaterialCheckable : public QAbstractButton
 {
     Q_OBJECT
 

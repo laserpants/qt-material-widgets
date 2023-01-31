@@ -1,40 +1,45 @@
 #ifndef QTMATERIALSTYLE_H
 #define QTMATERIALSTYLE_H
 
-#include <QtWidgets/QCommonStyle>
-#include "lib/qtmaterialstyle_p.h"
+#include <memory>
 
+#include <qt-material-widgets/qt-material-widgets_export.hpp>
+
+#include <QtWidgets/QCommonStyle>
+class QtMaterialStylePrivate;
 #define MATERIAL_DISABLE_THEME_COLORS \
-    if (d->useThemeColors == true) { d->useThemeColors = false; }
+  if (d->useThemeColors == true) { \
+    d->useThemeColors = false; \
+  }
 
 class QtMaterialTheme;
 
-class QtMaterialStyle : public QCommonStyle
+class QT_MATERIAL_WIDGETS_EXPORT QtMaterialStyle : public QCommonStyle
 {
-    Q_OBJECT
+  Q_OBJECT
 
 public:
-    inline static QtMaterialStyle &instance();
+  inline static QtMaterialStyle& instance();
 
-    void setTheme(QtMaterialTheme *theme);
-    QColor themeColor(const QString &key) const;
+  void setTheme(QtMaterialTheme* theme);
+  QColor themeColor(const QString& key) const;
 
 protected:
-    const QScopedPointer<QtMaterialStylePrivate> d_ptr;
+  const std::shared_ptr<QtMaterialStylePrivate> d_ptr;
 
 private:
-    Q_DECLARE_PRIVATE(QtMaterialStyle)
+  Q_DECLARE_PRIVATE(QtMaterialStyle)
 
-    QtMaterialStyle();
+  QtMaterialStyle();
 
-    QtMaterialStyle(QtMaterialStyle const &);
-    void operator=(QtMaterialStyle const &);
+  QtMaterialStyle(QtMaterialStyle const&);
+  void operator=(QtMaterialStyle const&);
 };
 
-inline QtMaterialStyle &QtMaterialStyle::instance()
+inline QtMaterialStyle& QtMaterialStyle::instance()
 {
-    static QtMaterialStyle instance;
-    return instance;
+  static QtMaterialStyle instance;
+  return instance;
 }
 
-#endif // QTMATERIALSTYLE_H
+#endif  // QTMATERIALSTYLE_H

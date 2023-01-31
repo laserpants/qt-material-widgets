@@ -1,9 +1,11 @@
 #ifndef QTMATERIALMENU_H
 #define QTMATERIALMENU_H
 
+#include <qt-material-widgets/qt-material-widgets_export.hpp>
+
 #include <QtWidgets/QWidget>
 
-class QtMaterialMenu : public QWidget
+class QT_MATERIAL_WIDGETS_EXPORT QtMaterialMenu : public QWidget
 {
     Q_OBJECT
 

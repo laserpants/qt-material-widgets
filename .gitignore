@@ -8,3 +8,4 @@ prefix/
 CMakeLists.txt.user
 CMakeUserPresets.json
 .cache
+compile_commands.json

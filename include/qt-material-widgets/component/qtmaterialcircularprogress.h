@@ -2,11 +2,13 @@
 #define QTMATERIALCIRCULARPROGRESS_H
 
 #include <QtWidgets/QProgressBar>
-#include "lib/qtmaterialtheme.h"
+
+#include "qt-material-widgets/lib/qtmaterialtheme.h"
 
 class QtMaterialCircularProgressPrivate;
 
-class QtMaterialCircularProgress : public QProgressBar
+class QT_MATERIAL_WIDGETS_EXPORT QtMaterialCircularProgress
+    : public QProgressBar
 {
     Q_OBJECT
 

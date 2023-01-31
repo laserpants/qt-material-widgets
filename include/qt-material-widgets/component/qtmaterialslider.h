@@ -1,14 +1,17 @@
 #ifndef QTMATERIALSLIDER_H
 #define QTMATERIALSLIDER_H
 
-#include <QtWidgets/QAbstractSlider>
 #include <QScopedPointer>
+
+#include <qt-material-widgets/qt-material-widgets_export.hpp>
+
+#include <QtWidgets/QAbstractSlider>
 
 #define QT_MATERIAL_SLIDER_MARGIN 30
 
 class QtMaterialSliderPrivate;
 
-class QtMaterialSlider : public QAbstractSlider
+class QT_MATERIAL_WIDGETS_EXPORT QtMaterialSlider : public QAbstractSlider
 {
     Q_OBJECT
 

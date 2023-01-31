@@ -1,11 +1,12 @@
 #ifndef QTMATERIALRADIOBUTTON_H
 #define QTMATERIALRADIOBUTTON_H
 
-#include "lib/qtmaterialcheckable.h"
+#include "qt-material-widgets/lib/qtmaterialcheckable.h"
 
 class QtMaterialRadioButtonPrivate;
 
-class QtMaterialRadioButton : public QtMaterialCheckable
+class QT_MATERIAL_WIDGETS_EXPORT QtMaterialRadioButton
+    : public QtMaterialCheckable
 {
     Q_OBJECT
 

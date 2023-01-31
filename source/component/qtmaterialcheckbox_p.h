@@ -2,6 +2,7 @@
 #define QTMATERIALCHECKBOX_P_H
 
 #include "lib/qtmaterialcheckable_p.h"
+#include "qtmaterialcheckbox.h"
 
 class QtMaterialCheckBox;
 

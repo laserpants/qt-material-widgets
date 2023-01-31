@@ -17,18 +17,54 @@ include(link_qt)
 if(NOT Qt6_FOUND)
   qt5_add_resources(
     style_res
-    ${CMAKE_CURRENT_SOURCE_DIR}/source/qt-material-widgets.qrc
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/qt_material_widgets.qrc
   )
 else()
   qt_add_resources(
     style_res
-    ${CMAKE_CURRENT_SOURCE_DIR}/source/qt-material-widgets.qrc
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/qt_material_widgets.qrc
   )
 endif()
 
 add_library(
   qt-material-widgets
   ${style_res}
+
+  include/qt-material-widgets/component/qtmaterialappbar.h
+  include/qt-material-widgets/component/qtmaterialautocomplete.h
+  include/qt-material-widgets/component/qtmaterialavatar.h
+  include/qt-material-widgets/component/qtmaterialbadge.h
+  include/qt-material-widgets/component/qtmaterialcheckbox.h
+  include/qt-material-widgets/component/qtmaterialcircularprogress.h
+  include/qt-material-widgets/component/qtmaterialdialog.h
+  include/qt-material-widgets/component/qtmaterialdrawer.h
+  include/qt-material-widgets/component/qtmaterialfab.h
+  include/qt-material-widgets/component/qtmaterialflatbutton.h
+  include/qt-material-widgets/component/qtmaterialiconbutton.h
+  include/qt-material-widgets/component/qtmateriallist.h
+  include/qt-material-widgets/component/qtmateriallistitem.h
+  include/qt-material-widgets/component/qtmaterialmenu.h
+  include/qt-material-widgets/component/qtmaterialpaper.h
+  include/qt-material-widgets/component/qtmaterialprogress.h
+  include/qt-material-widgets/component/qtmaterialradiobutton.h
+  include/qt-material-widgets/component/qtmaterialraisedbutton.h
+  include/qt-material-widgets/component/qtmaterialscrollbar.h
+  include/qt-material-widgets/component/qtmaterialslider.h
+  include/qt-material-widgets/component/qtmaterialsnackbar.h
+  include/qt-material-widgets/component/qtmaterialtable.h
+  include/qt-material-widgets/component/qtmaterialtabs.h
+  include/qt-material-widgets/component/qtmaterialtextfield.h
+  include/qt-material-widgets/component/qtmaterialtoggle.h
+  include/qt-material-widgets/layouts/qtmaterialsnackbarlayout.h
+  include/qt-material-widgets/lib/qtmaterialcheckable.h
+  include/qt-material-widgets/lib/qtmaterialoverlaywidget.h
+  include/qt-material-widgets/lib/qtmaterialripple.h
+  include/qt-material-widgets/lib/qtmaterialrippleoverlay.h
+  include/qt-material-widgets/lib/qtmaterialstatetransition.h
+  include/qt-material-widgets/lib/qtmaterialstatetransitionevent.h
+  include/qt-material-widgets/lib/qtmaterialstyle.h
+  include/qt-material-widgets/lib/qtmaterialtheme.h
+
   source/component/qtmaterialappbar.cpp
   source/component/qtmaterialautocomplete.cpp
   source/component/qtmaterialautocomplete_internal.cpp
@@ -115,6 +151,14 @@ target_include_directories(
   "$<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/export>"
 )
 
+target_include_directories(
+  qt-material-widgets ${warning_guard}
+  PRIVATE
+  "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include/qt-material-widgets>"
+  "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include/qt-material-widgets/component>"
+  "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/source>"
+)
+
 target_compile_features(qt-material-widgets PUBLIC cxx_std_11)
 
 # ---- Install rules ----
@@ -127,6 +171,7 @@ if(PROJECT_IS_TOP_LEVEL)
   option(BUILD_EXAMPLES "Build examples tree." "${qt-material-widgets_DEVELOPER_MODE}")
 
   if(BUILD_EXAMPLES)
+    set(PROJECT_ROOT_DIR ${PROJECT_SOURCE_DIR})
     add_subdirectory(example)
   endif()
 endif()

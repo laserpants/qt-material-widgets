@@ -1,11 +1,13 @@
 #ifndef QTMATERIALTOGGLE_H
 #define QTMATERIALTOGGLE_H
 
+#include <qt-material-widgets/qt-material-widgets_export.hpp>
+
 #include <QtWidgets/QAbstractButton>
 
 class QtMaterialTogglePrivate;
 
-class QtMaterialToggle : public QAbstractButton
+class QT_MATERIAL_WIDGETS_EXPORT QtMaterialToggle : public QAbstractButton
 {
     Q_OBJECT
 

@@ -3,40 +3,43 @@
 
 #include <QEvent>
 
-enum QtMaterialStateTransitionType {
-    // Snackbar
-    SnackbarShowTransition = 1,
-    SnackbarHideTransition,
-    SnackbarWaitTransition,
-    SnackbarNextTransition,
-    // FlatButton
-    FlatButtonPressedTransition,
-    FlatButtonCheckedTransition,
-    FlatButtonUncheckedTransition,
-    // CollapsibleMenu
-    CollapsibleMenuExpand,
-    CollapsibleMenuCollapse,
-    // Slider
-    SliderChangedToMinimum,
-    SliderChangedFromMinimum,
-    SliderNoFocusMouseEnter,
-    SliderNoFocusMouseLeave,
-    // Dialog
-    DialogShowTransition,
-    DialogHideTransition,
-    //
-    MaxTransitionType = 65535
-};
+#include <qt-material-widgets/qt-material-widgets_export.hpp>
 
-struct QtMaterialStateTransitionEvent : public QEvent
+enum QtMaterialStateTransitionType
 {
-    QtMaterialStateTransitionEvent(QtMaterialStateTransitionType type)
-        : QEvent(QEvent::Type(QEvent::User + 1)),
-          type(type)
-    {
-    }
-
-    QtMaterialStateTransitionType type;
+  // Snackbar
+  SnackbarShowTransition = 1,
+  SnackbarHideTransition,
+  SnackbarWaitTransition,
+  SnackbarNextTransition,
+  // FlatButton
+  FlatButtonPressedTransition,
+  FlatButtonCheckedTransition,
+  FlatButtonUncheckedTransition,
+  // CollapsibleMenu
+  CollapsibleMenuExpand,
+  CollapsibleMenuCollapse,
+  // Slider
+  SliderChangedToMinimum,
+  SliderChangedFromMinimum,
+  SliderNoFocusMouseEnter,
+  SliderNoFocusMouseLeave,
+  // Dialog
+  DialogShowTransition,
+  DialogHideTransition,
+  //
+  MaxTransitionType = 65535
 };
 
-#endif // QTMATERIALSTATETRANSITIONEVENT_H
+struct QT_MATERIAL_WIDGETS_EXPORT QtMaterialStateTransitionEvent : public QEvent
+{
+  QtMaterialStateTransitionEvent(QtMaterialStateTransitionType type)
+      : QEvent(QEvent::Type(QEvent::User + 1))
+      , type(type)
+  {
+  }
+
+  QtMaterialStateTransitionType type;
+};
+
+#endif  // QTMATERIALSTATETRANSITIONEVENT_H

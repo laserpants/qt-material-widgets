@@ -50,7 +50,11 @@ function(add_example NAME)
     textfieldsettingseditor.cpp
     togglesettingseditor.cpp
   )
-  target_link_libraries("${NAME}" PRIVATE qt-material-widgets::qt-material-widgets)
+  target_link_libraries(
+    "${NAME}" 
+    PRIVATE 
+    qt-material-widgets::qt-material-widgets
+  )
   target_compile_features("${NAME}" PRIVATE cxx_std_11)
   add_custom_target("run_${NAME}" COMMAND "${NAME}" VERBATIM)
   add_dependencies("run_${NAME}" "${NAME}")
@@ -58,5 +62,11 @@ function(add_example NAME)
 endfunction()
 
 add_example(qt-material-widgets-example)
+
+target_include_directories(qt-material-widgets-example PRIVATE
+  "$<BUILD_INTERFACE:${PROJECT_ROOT_DIR}/include/qt-material-widgets>"
+  "$<BUILD_INTERFACE:${PROJECT_ROOT_DIR}/include/qt-material-widgets/component>"
+  "$<BUILD_INTERFACE:${PROJECT_ROOT_DIR}/include/qt-material-widgets/lib>"
+)
 
 add_folders(Example)

@@ -1,13 +1,15 @@
 #ifndef QTMATERIALFLATBUTTON_H
 #define QTMATERIALFLATBUTTON_H
 
-#include <QtWidgets/QPushButton>
 #include <QScopedPointer>
-#include "lib/qtmaterialtheme.h"
+
+#include <QtWidgets/QPushButton>
+
+#include "qt-material-widgets/lib/qtmaterialtheme.h"
 
 class QtMaterialFlatButtonPrivate;
 
-class QtMaterialFlatButton : public QPushButton
+class QT_MATERIAL_WIDGETS_EXPORT QtMaterialFlatButton : public QPushButton
 {
     Q_OBJECT
 
