@@ -1,0 +1,185 @@
+cmake_minimum_required(VERSION 3.14)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
+
+include(prelude)
+
+project(
+  qt-material-widgets
+  VERSION 0.1.0
+  DESCRIPTION "Qt Material Design Desktop Widgets"
+  LANGUAGES CXX
+)
+
+include(project-is-top-level)
+include(variables)
+include(link_qt)
+
+if(NOT Qt6_FOUND)
+  qt5_add_resources(
+    style_res
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/qt_material_widgets.qrc
+  )
+else()
+  qt_add_resources(
+    style_res
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/qt_material_widgets.qrc
+  )
+endif()
+
+add_library(
+  qt-material-widgets
+  ${style_res}
+
+  include/qt-material-widgets/component/qtmaterialappbar.h
+  include/qt-material-widgets/component/qtmaterialautocomplete.h
+  include/qt-material-widgets/component/qtmaterialavatar.h
+  include/qt-material-widgets/component/qtmaterialbadge.h
+  include/qt-material-widgets/component/qtmaterialcheckbox.h
+  include/qt-material-widgets/component/qtmaterialcircularprogress.h
+  include/qt-material-widgets/component/qtmaterialdialog.h
+  include/qt-material-widgets/component/qtmaterialdrawer.h
+  include/qt-material-widgets/component/qtmaterialfab.h
+  include/qt-material-widgets/component/qtmaterialflatbutton.h
+  include/qt-material-widgets/component/qtmaterialiconbutton.h
+  include/qt-material-widgets/component/qtmateriallist.h
+  include/qt-material-widgets/component/qtmateriallistitem.h
+  include/qt-material-widgets/component/qtmaterialmenu.h
+  include/qt-material-widgets/component/qtmaterialpaper.h
+  include/qt-material-widgets/component/qtmaterialprogress.h
+  include/qt-material-widgets/component/qtmaterialradiobutton.h
+  include/qt-material-widgets/component/qtmaterialraisedbutton.h
+  include/qt-material-widgets/component/qtmaterialscrollbar.h
+  include/qt-material-widgets/component/qtmaterialslider.h
+  include/qt-material-widgets/component/qtmaterialsnackbar.h
+  include/qt-material-widgets/component/qtmaterialtable.h
+  include/qt-material-widgets/component/qtmaterialtabs.h
+  include/qt-material-widgets/component/qtmaterialtextfield.h
+  include/qt-material-widgets/component/qtmaterialtoggle.h
+  include/qt-material-widgets/layouts/qtmaterialsnackbarlayout.h
+  include/qt-material-widgets/lib/qtmaterialcheckable.h
+  include/qt-material-widgets/lib/qtmaterialoverlaywidget.h
+  include/qt-material-widgets/lib/qtmaterialripple.h
+  include/qt-material-widgets/lib/qtmaterialrippleoverlay.h
+  include/qt-material-widgets/lib/qtmaterialstatetransition.h
+  include/qt-material-widgets/lib/qtmaterialstatetransitionevent.h
+  include/qt-material-widgets/lib/qtmaterialstyle.h
+  include/qt-material-widgets/lib/qtmaterialtheme.h
+
+  source/component/qtmaterialappbar.cpp
+  source/component/qtmaterialautocomplete.cpp
+  source/component/qtmaterialautocomplete_internal.cpp
+  source/component/qtmaterialavatar.cpp
+  source/component/qtmaterialbadge.cpp
+  source/component/qtmaterialcheckbox.cpp
+  source/component/qtmaterialcircularprogress.cpp
+  source/component/qtmaterialcircularprogress_internal.cpp
+  source/component/qtmaterialdialog.cpp
+  source/component/qtmaterialdialog_internal.cpp
+  source/component/qtmaterialdrawer.cpp
+  source/component/qtmaterialdrawer_internal.cpp
+  source/component/qtmaterialfab.cpp
+  source/component/qtmaterialflatbutton.cpp
+  source/component/qtmaterialflatbutton_internal.cpp
+  source/component/qtmaterialiconbutton.cpp
+  source/component/qtmateriallist.cpp
+  source/component/qtmateriallistitem.cpp
+  source/component/qtmaterialmenu.cpp
+  source/component/qtmaterialmenu_internal.cpp
+  source/component/qtmaterialpaper.cpp
+  source/component/qtmaterialprogress.cpp
+  source/component/qtmaterialprogress_internal.cpp
+  source/component/qtmaterialradiobutton.cpp
+  source/component/qtmaterialraisedbutton.cpp
+  source/component/qtmaterialscrollbar.cpp
+  source/component/qtmaterialscrollbar_internal.cpp
+  source/component/qtmaterialslider.cpp
+  source/component/qtmaterialslider_internal.cpp
+  source/component/qtmaterialsnackbar.cpp
+  source/component/qtmaterialsnackbar_internal.cpp
+  source/component/qtmaterialtable.cpp
+  source/component/qtmaterialtabs.cpp
+  source/component/qtmaterialtabs_internal.cpp
+  source/component/qtmaterialtextfield.cpp
+  source/component/qtmaterialtextfield_internal.cpp
+  source/component/qtmaterialtoggle.cpp
+  source/component/qtmaterialtoggle_internal.cpp
+  source/layouts/qtmaterialsnackbarlayout.cpp
+  source/lib/qtmaterialcheckable.cpp
+  source/lib/qtmaterialcheckable_internal.cpp
+  source/lib/qtmaterialoverlaywidget.cpp
+  source/lib/qtmaterialripple.cpp
+  source/lib/qtmaterialrippleoverlay.cpp
+  source/lib/qtmaterialstatetransition.cpp
+  source/lib/qtmaterialstyle.cpp
+  source/lib/qtmaterialtheme.cpp
+)
+add_library(qt-material-widgets::qt-material-widgets ALIAS qt-material-widgets)
+
+target_link_libraries(qt-material-widgets PUBLIC ${QT_LIBRARIES})
+
+include(GenerateExportHeader)
+generate_export_header(
+  qt-material-widgets
+  BASE_NAME qt-material-widgets
+  EXPORT_FILE_NAME export/qt-material-widgets/qt-material-widgets_export.hpp
+  CUSTOM_CONTENT_FROM_VARIABLE pragma_suppress_c4251
+)
+
+if(NOT BUILD_SHARED_LIBS)
+  target_compile_definitions(qt-material-widgets PUBLIC QT_MATERIAL_WIDGETS_STATIC_DEFINE)
+endif()
+
+set_target_properties(
+  qt-material-widgets PROPERTIES
+  CXX_VISIBILITY_PRESET hidden
+  VISIBILITY_INLINES_HIDDEN YES
+  VERSION "${PROJECT_VERSION}"
+  SOVERSION "${PROJECT_VERSION_MAJOR}"
+  EXPORT_NAME qt-material-widgets
+  OUTPUT_NAME qt-material-widgets
+)
+
+target_include_directories(
+  qt-material-widgets ${warning_guard}
+  PUBLIC
+  "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>"
+)
+
+target_include_directories(
+  qt-material-widgets SYSTEM
+  PUBLIC
+  "$<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/export>"
+)
+
+target_include_directories(
+  qt-material-widgets ${warning_guard}
+  PRIVATE
+  "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include/qt-material-widgets>"
+  "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include/qt-material-widgets/component>"
+  "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/source>"
+)
+
+target_compile_features(qt-material-widgets PUBLIC cxx_std_11)
+
+
+# ---- Examples ----
+if(PROJECT_IS_TOP_LEVEL)
+  option(BUILD_EXAMPLES "Build examples tree." "${qt-material-widgets_DEVELOPER_MODE}")
+
+  if(BUILD_EXAMPLES)
+    set(PROJECT_ROOT_DIR ${PROJECT_SOURCE_DIR})
+    add_subdirectory(example)
+  endif()
+endif()
+
+# ---- Developer mode ----
+if(NOT qt-material-widgets_DEVELOPER_MODE)
+  return()
+elseif(NOT PROJECT_IS_TOP_LEVEL)
+  message(
+    AUTHOR_WARNING
+    "Developer mode is intended for developers of qt-material-widgets"
+  )
+endif()
+
+include(dev-mode)
