@@ -161,10 +161,6 @@ target_include_directories(
 
 target_compile_features(qt-material-widgets PUBLIC cxx_std_11)
 
-# ---- Install rules ----
-# if(NOT CMAKE_SKIP_INSTALL_RULES)
-# include(install-rules)
-# endif()
 
 # ---- Examples ----
 if(PROJECT_IS_TOP_LEVEL)
